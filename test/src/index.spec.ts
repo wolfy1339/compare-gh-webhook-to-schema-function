@@ -1,32 +1,19 @@
-import { Context, HttpRequest, Logger } from '@azure/functions';
+import { WebhookEventName } from '@octokit/webhooks-types';
 import { OneOfError } from 'ajv/dist/vocabularies/applicator/oneOf';
 import { mocked } from 'ts-jest/utils';
 import { handler } from '../../src';
 import { EventValidator, GithubEvent, getEvent } from '../../src/github';
-import { Notifier } from '../../src/notifier';
 import { pingEventPayload } from '../fixtures';
 
 jest.mock('../../src/notifier');
 jest.mock('../../src/github/getEvent');
 jest.mock('../../src/github/EventValidator');
 
-const mockNotifier = mocked(Notifier, true);
 const mockEventValidator = mocked(EventValidator, true);
 const getEventMock = mocked(getEvent);
 
-const doneFn = jest.fn();
-
-const createMockLogger = (): jest.Mocked<Logger> => {
-  const logger = jest.fn() as unknown as jest.Mocked<Logger>;
-
-  /* eslint-disable jest/prefer-spy-on */
-  logger.info = jest.fn();
-  logger.warn = jest.fn();
-  logger.error = jest.fn();
-  logger.verbose = jest.fn();
-  /* eslint-enable jest/prefer-spy-on */
-
-  return logger;
+const createMockLogger = () => {
+  return console;
 };
 
 const mockLogger = createMockLogger();
@@ -39,35 +26,19 @@ const oneOfError = (): OneOfError => ({
   message: 'should match exactly one schema in oneOf'
 });
 
-// a fake context to get us through the day
-const fakeContext: Context = {
-  bindingData: {},
-  bindingDefinitions: [],
-  bindings: {},
-  executionContext: {
-    invocationId: 'string',
-    functionName: 'string',
-    functionDirectory: 'string'
-  },
-  invocationId: '',
-  log: mockLogger,
-  traceContext: { traceparent: null, tracestate: null, attributes: null },
-  done: doneFn
-};
-
-const buildHttpRequest = (): HttpRequest => {
+const buildHttpRequest = () => {
   return {
     method: 'POST',
     params: {},
     query: {},
     url: 'https://mysite.com',
     headers: {
-      'x-github-event': 'repository',
+      'x-github-event': 'repository' as WebhookEventName,
       'x-github-delivery': 'hello world',
       'x-hub-signature': '',
       'x-hub-signature-256': ''
     },
-    rawBody: {}
+    rawBody: JSON.stringify({})
   };
 };
 
@@ -82,7 +53,7 @@ describe('handler', () => {
     it('validates the event', async () => {
       const request = buildHttpRequest();
 
-      await handler(fakeContext, request);
+      await handler(request.rawBody, request.headers);
 
       expect(mockEventValidator.validate).toHaveBeenCalledWith(
         event,
@@ -99,14 +70,14 @@ describe('handler', () => {
         const request = buildHttpRequest();
 
         await expect(
-          handler(fakeContext, request) //
+          handler(request.rawBody, request.headers) //
         ).resolves.toHaveProperty('statusCode', 200);
       });
 
       it('responds with a positive summary', async () => {
         const request = buildHttpRequest();
 
-        const { body } = await handler(fakeContext, request);
+        const { body } = await handler(request.rawBody, request.headers);
 
         expect(body).toHaveProperty(
           'summary',
@@ -124,14 +95,14 @@ describe('handler', () => {
         const request = buildHttpRequest();
 
         await expect(
-          handler(fakeContext, request) //
+          handler(request.rawBody, request.headers) //
         ).resolves.toHaveProperty('statusCode', 422);
       });
 
       it('includes the errors in the response', async () => {
         const request = buildHttpRequest();
 
-        const { body } = await handler(fakeContext, request);
+        const { body } = await handler(request.rawBody, request.headers);
 
         expect(body).toHaveProperty('errors', [oneOfError()]);
       });
@@ -145,48 +116,12 @@ describe('handler', () => {
       });
     });
 
-    it('sends a message to slack with the stack trace', async () => {
-      const request = buildHttpRequest();
-
-      await handler(fakeContext, request);
-
-      // eslint-disable-next-line @typescript-eslint/unbound-method
-      expect(mockNotifier.prototype.send).toHaveBeenCalledWith({
-        text: expect.stringContaining('oh noes!') as string
-      });
-    });
-
     it('returns a 500', async () => {
       const request = buildHttpRequest();
 
       await expect(
-        handler(fakeContext, request) //
+        handler(request.rawBody, request.headers) //
       ).resolves.toHaveProperty('statusCode', 500);
-    });
-
-    describe("when the error doesn't have a stack", () => {
-      beforeEach(() => {
-        getEventMock.mockImplementation(() => {
-          const error = new Error("oh noes, we don't have a stack trace!");
-
-          delete error.stack;
-
-          throw error;
-        });
-      });
-
-      it('uses the message instead', async () => {
-        const request = buildHttpRequest();
-
-        await handler(fakeContext, request);
-
-        // eslint-disable-next-line @typescript-eslint/unbound-method
-        expect(mockNotifier.prototype.send).toHaveBeenCalledWith({
-          text: expect.stringContaining(
-            "oh noes, we don't have a stack trace!"
-          ) as string
-        });
-      });
     });
   });
 });
