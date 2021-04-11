@@ -1,4 +1,4 @@
-import { IncomingWebhook, IncomingWebhookSendArguments } from '@slack/webhook';
+/* import { IncomingWebhook, IncomingWebhookSendArguments } from '@slack/webhook';
 
 export class Notifier {
   private readonly _slackWebhook: IncomingWebhook;
@@ -17,4 +17,4 @@ export class Notifier {
       console.error('Error sending to slack webhook:', e);
     }
   }
-}
+}*/
