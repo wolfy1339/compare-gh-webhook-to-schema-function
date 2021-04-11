@@ -3,7 +3,7 @@ import { IncomingHttpHeaders } from 'node:http2';
 import 'source-map-support/register';
 import { v5 as uuid } from 'uuid';
 import { EventValidator, describeEvent, getEvent } from './github';
-import { Notifier } from './notifier';
+// import { Notifier } from './notifier';
 
 dotenv.config();
 export interface FnResult {
@@ -28,7 +28,7 @@ export const handler = async (
     invocationId: uuid('https://hellomouse.net/', uuid.URL)
   };
 
-  const notifier = new Notifier();
+  // const notifier = new Notifier();
 
   try {
     const githubEvent = getEvent(headers, rawBody.toString());
@@ -52,11 +52,11 @@ export const handler = async (
     };
   } catch (err: unknown) {
     const error = err as Error;
-    const message = error.stack ?? error.message;
+    // const message = error.stack ?? error.message;
 
     console.error(error);
 
-    await notifier.send({ text: `\`\`\`${message}\`\`\`` });
+    // await notifier.send({ text: `\`\`\`${message}\`\`\`` });
 
     return {
       body: { summary: 'oh noes!', error },
