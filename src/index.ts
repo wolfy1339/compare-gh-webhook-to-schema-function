@@ -20,10 +20,10 @@ export interface FnResponse {
     'X-Invocation-Id': string;
   };
 }
-export const handler = async (
+export const handler = (
   rawBody: Buffer,
   headers: IncomingHttpHeaders
-): Promise<FnResponse> => {
+): FnResponse => {
   const context = {
     invocationId: uuid('https://hellomouse.net/', uuid.URL)
   };
