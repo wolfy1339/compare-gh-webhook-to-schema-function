@@ -21,7 +21,7 @@ export interface FnResponse {
   };
 }
 export const handler = (
-  rawBody: Buffer,
+  rawBody: string,
   headers: IncomingHttpHeaders
 ): FnResponse => {
   const context = {
@@ -31,7 +31,7 @@ export const handler = (
   // const notifier = new Notifier();
 
   try {
-    const githubEvent = getEvent(headers, rawBody.toString());
+    const githubEvent = getEvent(headers, rawBody);
     const errors = EventValidator.validate(githubEvent, console);
     const eventDescription = describeEvent(githubEvent);
 
