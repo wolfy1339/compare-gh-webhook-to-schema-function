@@ -1,8 +1,12 @@
-import { Context, HttpRequest } from '@azure/functions';
+import dotenv from 'dotenv';
+import { RequestHandler } from 'express';
+import getRawBody from 'raw-body';
 import 'source-map-support/register';
+import { v5 as uuid } from 'uuid';
 import { EventValidator, describeEvent, getEvent } from './github';
 import { Notifier } from './notifier';
 
+dotenv.config();
 interface FnResult {
   summary: string;
   errors?: unknown[];
@@ -19,20 +23,28 @@ interface FnResponse {
 }
 
 export const handler = async (
-  context: Context,
-  request: HttpRequest
+  request: Parameters<RequestHandler>[0]
 ): Promise<FnResponse> => {
-  context.log(request);
+  const context = {
+    invocationId: uuid('https://hellomouse.net/', uuid.URL)
+  };
+
+  console.log(request);
+
+  const rawBody = await getRawBody(request, {
+    length: request.get('content-length'),
+    limit: '5mb'
+  });
 
   const notifier = new Notifier();
 
   try {
-    const githubEvent = getEvent(request);
-    const errors = EventValidator.validate(githubEvent, context.log);
+    const githubEvent = getEvent(request, rawBody.toString());
+    const errors = EventValidator.validate(githubEvent, console);
     const eventDescription = describeEvent(githubEvent);
 
     if (errors.length) {
-      context.log.info(errors);
+      console.log(errors);
 
       return {
         body: { summary: 'oh dear, there were errors :/', errors },
@@ -50,7 +62,7 @@ export const handler = async (
     const error = err as Error;
     const message = error.stack ?? error.message;
 
-    context.log.error(error);
+    console.error(error);
 
     await notifier.send({ text: `\`\`\`${message}\`\`\`` });
 

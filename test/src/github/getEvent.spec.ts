@@ -1,12 +1,8 @@
-import { HttpRequest } from '@azure/functions';
 import { sign } from '@octokit/webhooks';
 import { GithubEvent, getEvent } from '../../../src/github';
 import { pingEventPayload } from '../../fixtures';
 
-const buildHttpRequest = (
-  event: GithubEvent,
-  secret = 'mysecret'
-): HttpRequest => {
+const buildHttpRequest = (event: GithubEvent, secret = 'mysecret') => {
   const rawBody = JSON.stringify(event.payload);
 
   return {
