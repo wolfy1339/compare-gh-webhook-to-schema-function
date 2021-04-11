@@ -1,12 +1,8 @@
-import { HttpRequest } from '@azure/functions';
 import { sign } from '@octokit/webhooks-methods';
 import { GithubEvent, getEvent } from '../../../src/github';
 import { pingEventPayload } from '../../fixtures';
 
-const buildHttpRequest = async (
-  event: GithubEvent,
-  secret = 'mysecret'
-): Promise<HttpRequest> => {
+const buildHttpRequest = async (event: GithubEvent, secret = 'mysecret') => {
   const rawBody = JSON.stringify(event.payload);
 
   return {
@@ -40,7 +36,7 @@ describe('getEvent', () => {
       });
 
       await expect(
-        getEvent(request)
+        getEvent(request.headers, request.rawBody)
       ).rejects.toThrowErrorMatchingInlineSnapshot(
         `"[@octokit/webhooks-methods] secret, eventPayload & signature required"`
       );
@@ -57,7 +53,7 @@ describe('getEvent', () => {
       request.headers['x-hub-signature-256'] = '';
 
       await expect(
-        getEvent(request)
+        getEvent(request.headers, request.rawBody)
       ).rejects.toThrowErrorMatchingInlineSnapshot(
         `"[@octokit/webhooks-methods] secret, eventPayload & signature required"`
       );
@@ -71,14 +67,18 @@ describe('getEvent', () => {
         payload: pingEventPayload
       });
 
-      await expect(getEvent(request)).resolves.not.toThrow();
+      await expect(
+        getEvent(request.headers, request.rawBody)
+      ).resolves.not.toThrow();
     });
 
     it('returns the parsed body', async () => {
       const ghEvent: GithubEvent = { name: 'ping', payload: pingEventPayload };
       const request = await buildHttpRequest(ghEvent);
 
-      await expect(getEvent(request)).resolves.toStrictEqual(ghEvent);
+      await expect(
+        getEvent(request.headers, request.rawBody)
+      ).resolves.toStrictEqual(ghEvent);
     });
   });
 
@@ -90,7 +90,7 @@ describe('getEvent', () => {
       );
 
       await expect(
-        getEvent(request)
+        getEvent(request.headers, request.rawBody)
       ).rejects.toThrowErrorMatchingInlineSnapshot(
         `"event did not come from github"`
       );
