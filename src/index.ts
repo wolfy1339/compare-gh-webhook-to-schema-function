@@ -1,19 +1,18 @@
 import dotenv from 'dotenv';
-import { RequestHandler } from 'express';
-import getRawBody from 'raw-body';
+import { IncomingHttpHeaders } from 'node:http2';
 import 'source-map-support/register';
 import { v5 as uuid } from 'uuid';
 import { EventValidator, describeEvent, getEvent } from './github';
 import { Notifier } from './notifier';
 
 dotenv.config();
-interface FnResult {
+export interface FnResult {
   summary: string;
   errors?: unknown[];
   error?: Error;
 }
 
-interface FnResponse {
+export interface FnResponse {
   body: FnResult;
   statusCode: number;
   headers: {
@@ -21,25 +20,18 @@ interface FnResponse {
     'X-Invocation-Id': string;
   };
 }
-
 export const handler = async (
-  request: Parameters<RequestHandler>[0]
+  rawBody: Buffer,
+  headers: IncomingHttpHeaders
 ): Promise<FnResponse> => {
   const context = {
     invocationId: uuid('https://hellomouse.net/', uuid.URL)
   };
 
-  console.log(request);
-
-  const rawBody = await getRawBody(request, {
-    length: request.get('content-length'),
-    limit: '5mb'
-  });
-
   const notifier = new Notifier();
 
   try {
-    const githubEvent = getEvent(request, rawBody.toString());
+    const githubEvent = getEvent(headers, rawBody.toString());
     const errors = EventValidator.validate(githubEvent, console);
     const eventDescription = describeEvent(githubEvent);
 
