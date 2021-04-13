@@ -23,7 +23,7 @@ const mockLogger: jest.Mocked<Logger> = {
 
 const oneOfError = (): OneOfError => ({
   keyword: 'oneOf',
-  dataPath: '',
+  instancePath: '',
   schemaPath: '#/oneOf',
   // https://github.com/ajv-validator/ajv/issues/1367
   params: { passingSchemas: (null as unknown) as [number, number] },
@@ -124,7 +124,7 @@ describe('EventValidator', () => {
         dataPath: string
       ): EnumError => ({
         keyword: 'enum',
-        dataPath,
+        instancePath: dataPath,
         schemaPath: '#/properties/action/enum',
         params: { allowedValues },
         message: 'should be equal to one of the allowed values'
@@ -136,14 +136,14 @@ describe('EventValidator', () => {
           enumError(['locked'], '/action'),
           {
             keyword: 'additionalProperties',
-            dataPath: '/pull_request',
+            instancePath: '/pull_request',
             schemaPath: '#/properties/pull_request/additionalProperties',
             params: { additionalProperty: 'active_lock_reason' },
             message: 'should NOT have additional properties'
           },
           {
             keyword: 'additionalProperties',
-            dataPath: '/pull_request',
+            instancePath: '/pull_request',
             schemaPath: '#/properties/pull_request/additionalProperties',
             params: { additionalProperty: 'active_lock_reason' },
             message: 'should NOT have additional properties (seriously)'
@@ -184,7 +184,7 @@ describe('EventValidator', () => {
           enumError(['completed'], '/check_run/status'),
           {
             keyword: 'oneOf',
-            dataPath: '',
+            instancePath: '',
             schemaPath: '#/oneOf',
             params: { passingSchemas: null },
             message: 'should match exactly one schema in oneOf'

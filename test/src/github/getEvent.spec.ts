@@ -32,7 +32,9 @@ describe('getEvent', () => {
         payload: pingEventPayload
       });
 
-      expect(() => getEvent(request)).toThrowErrorMatchingInlineSnapshot(
+      expect(() =>
+        getEvent(request.headers, request.rawBody)
+      ).toThrowErrorMatchingInlineSnapshot(
         `"[@octokit/webhooks] secret, eventPayload & signature required"`
       );
     });
@@ -47,7 +49,9 @@ describe('getEvent', () => {
 
       request.headers['x-hub-signature-256'] = '';
 
-      expect(() => getEvent(request)).toThrowErrorMatchingInlineSnapshot(
+      expect(() =>
+        getEvent(request.headers, request.rawBody)
+      ).toThrowErrorMatchingInlineSnapshot(
         `"[@octokit/webhooks] secret, eventPayload & signature required"`
       );
     });
@@ -60,14 +64,14 @@ describe('getEvent', () => {
         payload: pingEventPayload
       });
 
-      expect(() => getEvent(request)).not.toThrow();
+      expect(() => getEvent(request.headers, request.rawBody)).not.toThrow();
     });
 
     it('returns the parsed body', () => {
       const ghEvent: GithubEvent = { name: 'ping', payload: pingEventPayload };
       const request = buildHttpRequest(ghEvent);
 
-      expect(getEvent(request)).toStrictEqual(ghEvent);
+      expect(getEvent(request.headers, request.rawBody)).toStrictEqual(ghEvent);
     });
   });
 
@@ -78,9 +82,9 @@ describe('getEvent', () => {
         'wrong'
       );
 
-      expect(() => getEvent(request)).toThrowErrorMatchingInlineSnapshot(
-        `"event did not come from github"`
-      );
+      expect(() =>
+        getEvent(request.headers, request.rawBody)
+      ).toThrowErrorMatchingInlineSnapshot(`"event did not come from github"`);
     });
   });
 });
