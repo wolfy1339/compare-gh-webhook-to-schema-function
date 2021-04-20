@@ -2,7 +2,7 @@
 
 /* eslint-disable node/no-sync */
 
-import webhooksSchema from '@octokit/webhooks-definitions/schema.json';
+import webhooksSchema from '@octokit/webhooks-schemas';
 import fs from 'fs';
 import { JSONSchema7 } from 'json-schema';
 
@@ -10,7 +10,7 @@ const outDir = 'src/schemas';
 
 fs.mkdirSync(`${outDir}/common`, { recursive: true });
 
-// splits the schema.json in @octokit/webhooks-definitions into
+// splits the schema.json in @octokit/webhooks-schemas into
 // the schema-per-event file format that the source repo has,
 // as that's whats expected by the other scripts (for now)
 

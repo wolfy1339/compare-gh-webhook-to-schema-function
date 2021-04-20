@@ -1,5 +1,5 @@
 import { verify } from '@octokit/webhooks';
-import { WebhookEventName as GithubEventName } from '@octokit/webhooks-definitions/schema';
+import { WebhookEventName as GithubEventName } from '@octokit/webhooks-types';
 import { IncomingHttpHeaders } from 'http';
 import { GithubEvent } from './types';
 
