@@ -285,9 +285,6 @@
     "author_association": {
       "$ref": "author_association.schema.json"
     },
-    "auto_merge": {
-      "type": "null"
-    },
     "active_lock_reason": {
       "type": [
         "string",
