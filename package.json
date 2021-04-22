@@ -48,6 +48,7 @@
   "devDependencies": {
     "@apidevtools/json-schema-ref-parser": "^9.0.7",
     "@jest/types": "^26.6.2",
+    "@octokit/webhooks-definitions": "3.67.3",
     "@octokit/webhooks-schemas": "3.69.0",
     "@octokit/webhooks-types": "3.69.0",
     "@types/dotenv": "^8.2.0",
