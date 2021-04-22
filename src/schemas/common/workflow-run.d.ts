@@ -11,7 +11,7 @@ export interface WorkflowRun {
   cancel_url: string;
   check_suite_url: string;
   check_suite_id: number;
-  check_suite_node_id: number;
+  check_suite_node_id: string;
   conclusion: string | null;
   created_at: string;
   event: string;

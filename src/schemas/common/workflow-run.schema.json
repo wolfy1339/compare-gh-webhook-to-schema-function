@@ -48,7 +48,7 @@
       "type": "integer"
     },
     "check_suite_node_id": {
-      "type": "integer"
+      "type": "string"
     },
     "conclusion": {
       "type": [
