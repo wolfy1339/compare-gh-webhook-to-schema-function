@@ -58,7 +58,13 @@
         "html_url",
         "pull_request_url",
         "author_association",
-        "_links"
+        "_links",
+        "start_line",
+        "original_start_line",
+        "original_line",
+        "line",
+        "start_side",
+        "side"
       ],
       "properties": {
         "url": {
@@ -181,7 +187,10 @@
           "description": "The side of the first line of the range for a multi-line comment."
         },
         "line": {
-          "type": "integer",
+          "type": [
+            "integer",
+            "null"
+          ],
           "description": "The line of the blob to which the comment applies. The last line of the range for a multi-line comment"
         },
         "original_line": {
@@ -482,6 +491,9 @@
             }
           },
           "additionalProperties": false
+        },
+        "auto_merge": {
+          "type": "null"
         },
         "author_association": {
           "$ref": "common/author_association.schema.json"

@@ -12,7 +12,7 @@ export interface SecurityAdvisoryUpdatedEvent {
    */
   security_advisory: {
     cvss: {
-      vector_string: string;
+      vector_string: string | null;
       score: number;
     };
     cwes: {

@@ -86,27 +86,27 @@ export interface PullRequestReviewCommentCreatedEvent {
     /**
      * The first line of the range for a multi-line comment.
      */
-    start_line?: number | null;
+    start_line: number | null;
     /**
      * The first line of the range for a multi-line comment.
      */
-    original_start_line?: number | null;
+    original_start_line: number | null;
     /**
      * The side of the first line of the range for a multi-line comment.
      */
-    start_side?: 'LEFT' | 'RIGHT' | null;
+    start_side: 'LEFT' | 'RIGHT' | null;
     /**
      * The line of the blob to which the comment applies. The last line of the range for a multi-line comment
      */
-    line?: number;
+    line: number | null;
     /**
      * The line of the blob to which the comment applies. The last line of the range for a multi-line comment
      */
-    original_line?: number;
+    original_line: number;
     /**
      * The side of the first line of the range for a multi-line comment.
      */
-    side?: 'LEFT' | 'RIGHT';
+    side: 'LEFT' | 'RIGHT';
     /**
      * The comment ID to reply to.
      */
@@ -167,6 +167,7 @@ export interface PullRequestReviewCommentCreatedEvent {
       commits: Link;
       statuses: Link;
     };
+    auto_merge?: null;
     author_association: AuthorAssociation;
   };
   repository: Repository;

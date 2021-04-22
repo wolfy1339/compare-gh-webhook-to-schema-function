@@ -81,7 +81,15 @@ export interface CheckRunCreatedEvent {
        */
       head_sha: string;
       status: 'queued' | 'in_progress' | 'completed';
-      conclusion: null;
+      conclusion:
+        | 'success'
+        | 'failure'
+        | 'neutral'
+        | 'cancelled'
+        | 'timed_out'
+        | 'action_required'
+        | 'stale'
+        | null;
       url: string;
       before: string | null;
       after: string | null;
