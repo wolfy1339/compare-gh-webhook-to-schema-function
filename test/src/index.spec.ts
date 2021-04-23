@@ -3,14 +3,12 @@ import { OneOfError } from 'ajv/dist/vocabularies/applicator/oneOf';
 import { mocked } from 'ts-jest/utils';
 import { handler } from '../../src';
 import { EventValidator, GithubEvent, getEvent } from '../../src/github';
-import { Notifier } from '../../src/notifier';
 import { pingEventPayload } from '../fixtures';
 
 jest.mock('../../src/notifier');
 jest.mock('../../src/github/getEvent');
 jest.mock('../../src/github/EventValidator');
 
-const mockNotifier = mocked(Notifier, true);
 const mockEventValidator = mocked(EventValidator, true);
 const getEventMock = mocked(getEvent);
 
@@ -119,48 +117,12 @@ describe('handler', () => {
       });
     });
 
-    it('sends a message to slack with the stack trace', () => {
-      const request = buildHttpRequest();
-
-      handler(request.rawBody, request.headers);
-
-      // eslint-disable-next-line @typescript-eslint/unbound-method
-      expect(mockNotifier.prototype.send).toHaveBeenCalledWith({
-        text: expect.stringContaining('oh noes!') as string
-      });
-    });
-
     it('returns a 500', () => {
       const request = buildHttpRequest();
 
       expect(
         handler(request.rawBody, request.headers) //
       ).toHaveProperty('statusCode', 500);
-    });
-
-    describe("when the error doesn't have a stack", () => {
-      beforeEach(() => {
-        getEventMock.mockImplementation(() => {
-          const error = new Error("oh noes, we don't have a stack trace!");
-
-          delete error.stack;
-
-          throw error;
-        });
-      });
-
-      it('uses the message instead', () => {
-        const request = buildHttpRequest();
-
-        handler(request.rawBody, request.headers);
-
-        // eslint-disable-next-line @typescript-eslint/unbound-method
-        expect(mockNotifier.prototype.send).toHaveBeenCalledWith({
-          text: expect.stringContaining(
-            "oh noes, we don't have a stack trace!"
-          ) as string
-        });
-      });
     });
   });
 });
