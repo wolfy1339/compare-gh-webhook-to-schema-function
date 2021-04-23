@@ -24,8 +24,10 @@ export const handler = (
   rawBody: string,
   headers: IncomingHttpHeaders
 ): FnResponse => {
+  // eslint-disable-next-line @typescript-eslint/no-unsafe-call,@typescript-eslint/no-unsafe-member-access
+  const invocationId = uuid('https://hellomouse.net/', uuid.URL) as string;
   const context = {
-    invocationId: uuid('https://hellomouse.net/', uuid.URL)
+    invocationId
   };
 
   // const notifier = new Notifier();
