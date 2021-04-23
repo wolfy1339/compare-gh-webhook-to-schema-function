@@ -1,4 +1,4 @@
-import { WebhookEventName } from '@octokit/webhooks-definitions/schema';
+import { WebhookEventName } from '@octokit/webhooks-types';
 import { OneOfError } from 'ajv/dist/vocabularies/applicator/oneOf';
 import { mocked } from 'ts-jest/utils';
 import { handler } from '../../src';
