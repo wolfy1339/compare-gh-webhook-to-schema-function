@@ -176,7 +176,10 @@
       "additionalProperties": false
     },
     "body": {
-      "type": "string",
+      "type": [
+        "string",
+        "null"
+      ],
       "description": "Contents of the issue"
     }
   },
