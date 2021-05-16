@@ -12,7 +12,15 @@ export interface WorkflowRun {
   check_suite_url: string;
   check_suite_id: number;
   check_suite_node_id: string;
-  conclusion: string | null;
+  conclusion:
+    | 'success'
+    | 'failure'
+    | 'neutral'
+    | 'cancelled'
+    | 'timed_out'
+    | 'action_required'
+    | 'stale'
+    | null;
   created_at: string;
   event: string;
   head_branch: string;
@@ -29,7 +37,7 @@ export interface WorkflowRun {
   repository: RepositoryLite;
   rerun_url: string;
   run_number: number;
-  status: string;
+  status: 'requested' | 'in_progress' | 'completed' | 'queued';
   updated_at: string;
   url: string;
   workflow_id: number;
