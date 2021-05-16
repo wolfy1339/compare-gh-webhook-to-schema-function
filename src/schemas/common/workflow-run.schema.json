@@ -54,6 +54,16 @@
       "type": [
         "string",
         "null"
+      ],
+      "enum": [
+        "success",
+        "failure",
+        "neutral",
+        "cancelled",
+        "timed_out",
+        "action_required",
+        "stale",
+        null
       ]
     },
     "created_at": {
@@ -113,7 +123,13 @@
       "type": "integer"
     },
     "status": {
-      "type": "string"
+      "type": "string",
+      "enum": [
+        "requested",
+        "in_progress",
+        "completed",
+        "queued"
+      ]
     },
     "updated_at": {
       "type": "string",
