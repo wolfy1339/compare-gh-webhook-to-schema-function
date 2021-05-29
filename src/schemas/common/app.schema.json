@@ -226,6 +226,13 @@
             "read",
             "write"
           ]
+        },
+        "workflows": {
+          "type": "string",
+          "enum": [
+            "read",
+            "write"
+          ]
         }
       },
       "additionalProperties": false

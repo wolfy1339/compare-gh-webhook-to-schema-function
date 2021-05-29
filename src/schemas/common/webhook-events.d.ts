@@ -55,5 +55,4 @@ export type WebhookEvents =
       | 'workflow_dispatch'
       | 'workflow_run'
     )[]
-  | []
   | ['*'];

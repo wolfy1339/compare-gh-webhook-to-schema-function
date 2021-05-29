@@ -63,7 +63,8 @@
         "type": "string",
         "const": "*"
       },
-      "maxItems": 1
+      "maxItems": 1,
+      "minItems": 1
     }
   ],
   "title": "Webhook Events"
