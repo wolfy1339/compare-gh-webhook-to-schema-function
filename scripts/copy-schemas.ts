@@ -30,7 +30,7 @@ Object.entries(
   // Temporary fix, the types have regressed against `@octokit/webhooks-schema@3.75.2`
   (webhooksSchema.definitions as unknown) as Record<string, JSONSchema7>
 ).forEach(([key, definition]) => {
-  if (/(?:\$|_)event/u.test(key)) {
+  if (key.includes('_event')) {
     return;
   }
 
