@@ -16,7 +16,9 @@
     "events",
     "created_at",
     "updated_at",
-    "single_file_name"
+    "single_file_name",
+    "suspended_at",
+    "suspended_by"
   ],
   "type": "object",
   "properties": {
@@ -89,14 +91,14 @@
             "write"
           ]
         },
-        "contents": {
+        "content_references": {
           "type": "string",
           "enum": [
             "read",
             "write"
           ]
         },
-        "content_references": {
+        "contents": {
           "type": "string",
           "enum": [
             "read",
@@ -111,6 +113,13 @@
           ]
         },
         "discussions": {
+          "type": "string",
+          "enum": [
+            "read",
+            "write"
+          ]
+        },
+        "emails": {
           "type": "string",
           "enum": [
             "read",
@@ -201,14 +210,14 @@
             "write"
           ]
         },
-        "pages": {
+        "packages": {
           "type": "string",
           "enum": [
             "read",
             "write"
           ]
         },
-        "packages": {
+        "pages": {
           "type": "string",
           "enum": [
             "read",
@@ -236,13 +245,6 @@
             "write"
           ]
         },
-        "secrets": {
-          "type": "string",
-          "enum": [
-            "read",
-            "write"
-          ]
-        },
         "secret_scanning_alerts": {
           "type": "string",
           "enum": [
@@ -250,7 +252,21 @@
             "write"
           ]
         },
+        "secrets": {
+          "type": "string",
+          "enum": [
+            "read",
+            "write"
+          ]
+        },
         "security_events": {
+          "type": "string",
+          "enum": [
+            "read",
+            "write"
+          ]
+        },
+        "security_scanning_alert": {
           "type": "string",
           "enum": [
             "read",
@@ -278,14 +294,14 @@
             "write"
           ]
         },
-        "workflows": {
+        "vulnerability_alerts": {
           "type": "string",
           "enum": [
             "read",
             "write"
           ]
         },
-        "vulnerability_alerts": {
+        "workflows": {
           "type": "string",
           "enum": [
             "read",
