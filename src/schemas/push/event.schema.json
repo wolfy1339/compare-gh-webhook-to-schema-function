@@ -1,0 +1,86 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema",
+  "$id": "push$event",
+  "type": "object",
+  "required": [
+    "ref",
+    "before",
+    "after",
+    "created",
+    "deleted",
+    "forced",
+    "base_ref",
+    "compare",
+    "commits",
+    "head_commit",
+    "repository",
+    "pusher",
+    "sender"
+  ],
+  "properties": {
+    "ref": {
+      "type": "string",
+      "description": "The full git ref that was pushed. Example: `refs/heads/main`."
+    },
+    "before": {
+      "type": "string",
+      "description": "The SHA of the most recent commit on `ref` before the push."
+    },
+    "after": {
+      "type": "string",
+      "description": "The SHA of the most recent commit on `ref` after the push."
+    },
+    "created": {
+      "type": "boolean"
+    },
+    "deleted": {
+      "type": "boolean"
+    },
+    "forced": {
+      "type": "boolean"
+    },
+    "base_ref": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "compare": {
+      "type": "string"
+    },
+    "commits": {
+      "type": "array",
+      "description": "An array of commit objects describing the pushed commits.",
+      "items": {
+        "$ref": "common/commit.schema.json"
+      }
+    },
+    "head_commit": {
+      "oneOf": [
+        {
+          "$ref": "common/commit.schema.json"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "repository": {
+      "$ref": "common/repository.schema.json"
+    },
+    "pusher": {
+      "$ref": "common/committer.schema.json"
+    },
+    "sender": {
+      "$ref": "common/user.schema.json"
+    },
+    "installation": {
+      "$ref": "common/installation-lite.schema.json"
+    },
+    "organization": {
+      "$ref": "common/organization.schema.json"
+    }
+  },
+  "additionalProperties": false,
+  "title": "push event"
+}
