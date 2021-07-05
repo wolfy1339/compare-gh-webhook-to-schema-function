@@ -1,7 +1,8 @@
 /* tslint:disable */
 import {
+  Discussion,
   InstallationLite,
-  Issue,
+  Label,
   Organization,
   Repository,
   User
@@ -12,12 +13,10 @@ import {
  * and run json-schema-to-typescript to regenerate this file.
  */
 
-export interface IssuesLockedEvent {
-  action: 'locked';
-  issue: Issue & {
-    locked: true;
-    active_lock_reason: 'resolved' | 'off-topic' | 'too heated' | 'spam' | null;
-  };
+export interface DiscussionUnlabeledEvent {
+  action: 'unlabeled';
+  discussion: Discussion;
+  label: Label;
   repository: Repository;
   sender: User;
   installation?: InstallationLite;
