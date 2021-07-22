@@ -28,9 +28,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - uses: actions/setup-node@v2-beta
+      - uses: actions/setup-node@v2
         with:
-          node-version: 12.x
+          node-version: 16.x
 
       - uses: actions/cache@v2
         with:
@@ -46,9 +46,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - uses: actions/setup-node@v2-beta
+      - uses: actions/setup-node@v2
         with:
-          node-version: 12.x
+          node-version: 16.x
 
       - uses: actions/cache@v2
         with:
@@ -61,7 +61,7 @@ jobs:
       - run: npm run typecheck
 
   test:
-    name: Test on ${{ matrix.os }} using Node.js v12
+    name: Test on ${{ matrix.os }} using Node.js v16
     strategy:
       fail-fast: false
       matrix:
@@ -70,9 +70,9 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
-      - uses: actions/setup-node@v2-beta
+      - uses: actions/setup-node@v2
         with:
-          node-version: 12.x
+          node-version: 16.x
 
       - name: Get npm cache directory
         id: npm-cache
