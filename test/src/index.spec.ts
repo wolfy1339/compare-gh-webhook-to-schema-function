@@ -1,3 +1,4 @@
+import { sign } from '@octokit/webhooks-methods';
 import { WebhookEventName } from '@octokit/webhooks-types';
 import { OneOfError } from 'ajv/dist/vocabularies/applicator/oneOf';
 import { mocked } from 'ts-jest/utils';
@@ -26,7 +27,7 @@ const oneOfError = (): OneOfError => ({
   message: 'should match exactly one schema in oneOf'
 });
 
-const buildHttpRequest = () => {
+const buildHttpRequest = async () => {
   return {
     method: 'POST',
     params: {},
@@ -36,9 +37,12 @@ const buildHttpRequest = () => {
       'x-github-event': 'repository' as WebhookEventName,
       'x-github-delivery': 'hello world',
       'x-hub-signature': '',
-      'x-hub-signature-256': ''
+      'x-hub-signature-256': await sign(
+        { secret: 'thisismysecret', algorithm: 'sha256' },
+        JSON.stringify(pingEventPayload)
+      )
     },
-    rawBody: JSON.stringify({})
+    rawBody: JSON.stringify(pingEventPayload)
   };
 };
 
@@ -51,7 +55,7 @@ describe('handler', () => {
     const event: GithubEvent = { name: 'ping', payload: pingEventPayload };
 
     it('validates the event', async () => {
-      const request = buildHttpRequest();
+      const request = await buildHttpRequest();
 
       await handler(request.rawBody, request.headers);
 
@@ -67,7 +71,7 @@ describe('handler', () => {
       });
 
       it('returns OK', async () => {
-        const request = buildHttpRequest();
+        const request = await buildHttpRequest();
 
         await expect(
           handler(request.rawBody, request.headers) //
@@ -75,7 +79,7 @@ describe('handler', () => {
       });
 
       it('responds with a positive summary', async () => {
-        const request = buildHttpRequest();
+        const request = await buildHttpRequest();
 
         const { body } = await handler(request.rawBody, request.headers);
 
@@ -92,7 +96,7 @@ describe('handler', () => {
       });
 
       it('returns with a 422', async () => {
-        const request = buildHttpRequest();
+        const request = await buildHttpRequest();
 
         await expect(
           handler(request.rawBody, request.headers) //
@@ -100,7 +104,7 @@ describe('handler', () => {
       });
 
       it('includes the errors in the response', async () => {
-        const request = buildHttpRequest();
+        const request = await buildHttpRequest();
 
         const { body } = await handler(request.rawBody, request.headers);
 
@@ -117,7 +121,7 @@ describe('handler', () => {
     });
 
     it('returns a 500', async () => {
-      const request = buildHttpRequest();
+      const request = await buildHttpRequest();
 
       await expect(
         handler(request.rawBody, request.headers) //
