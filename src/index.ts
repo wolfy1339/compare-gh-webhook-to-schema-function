@@ -35,7 +35,9 @@ export const handler = async (
     const errors = EventValidator.validate(githubEvent, console);
     const eventDescription = describeEvent(githubEvent);
 
-    if (errors.length) {
+    // For some reason, errors can be undefined
+    // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
+    if (errors?.length) {
       console.log(errors);
 
       return {
