@@ -1,0 +1,21 @@
+{
+  "labels": ["maintenance"],
+  "extends": ["config:base", ":disableDependencyDashboard"],
+  "lockFileMaintenance": {
+    "enabled": true
+  },
+  "rangeStrategy": "replace",
+  "semanticCommitType": "build",
+  "packageRules": [
+    {
+      "depTypeList": ["dependencies"],
+      "semanticCommitType": "fix"
+    },
+    {
+      "depTypeList": ["action"],
+      "semanticCommitType": "ci",
+      "semanticCommitScope": "action"
+    }
+  ],
+  "ignoreDeps": ["@octokit/webhooks-schemas", "@octokit/webhooks-types"]
+}
