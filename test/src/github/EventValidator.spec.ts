@@ -66,7 +66,6 @@ describe('EventValidator', () => {
       // eslint-disable-next-line no-new
       new EventValidator('ping', mockLogger);
 
-      // eslint-disable-next-line @typescript-eslint/unbound-method
       expect(mockedAjv.prototype.compile).toHaveBeenCalledWith(
         expect.objectContaining<JSONSchema7>({
           $schema: 'http://json-schema.org/draft-07/schema'
@@ -89,7 +88,6 @@ describe('EventValidator', () => {
       // eslint-disable-next-line no-new
       new EventValidator('ping', mockLogger);
 
-      // eslint-disable-next-line @typescript-eslint/unbound-method
       expect(mockedAjv.prototype.compile).toHaveBeenCalledWith(
         expect.objectContaining<JSONSchema7>({
           oneOf: [
