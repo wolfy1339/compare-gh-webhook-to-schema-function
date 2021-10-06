@@ -16,5 +16,6 @@
       "semanticCommitType": "ci",
       "semanticCommitScope": "action"
     }
-  ]
+  ],
+  "ignoreDeps": ["@octokit/webhooks-schemas", "@octokit/webhooks-types"]
 }
