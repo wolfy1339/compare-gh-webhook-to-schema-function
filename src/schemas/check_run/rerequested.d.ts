@@ -102,6 +102,7 @@ export interface CheckRunRerequestedEvent {
     };
     app: App;
     pull_requests: CheckRunPullRequest[];
+    deployment?: CheckRunDeployment;
   };
   /**
    * The action requested by the user.
