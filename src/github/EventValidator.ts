@@ -109,6 +109,7 @@ export class EventValidator<
       ) as DefinedError | undefined;
 
       if (similarError?.keyword === 'enum') {
+        // eslint-disable-next-line @typescript-eslint/no-unsafe-argument
         similarError.params.allowedValues.push(...error.params.allowedValues);
 
         return;

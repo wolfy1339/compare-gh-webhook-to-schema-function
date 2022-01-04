@@ -1,4 +1,3 @@
-/* tslint:disable */
 import {
   Commit,
   Committer,
