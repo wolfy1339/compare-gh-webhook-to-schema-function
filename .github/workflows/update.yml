@@ -16,7 +16,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - uses: actions/setup-node@v2
+      - uses: actions/setup-node@v3
       - run: npm ci
       - run: npm install -ED @octokit/webhooks-schemas@latest @octokit/webhooks-types@latest
       - run: rm -rf src/schemas
