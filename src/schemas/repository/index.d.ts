@@ -1,22 +1,22 @@
-export * from './archived';
-export * from './created';
-export * from './deleted';
-export * from './edited';
-export * from './privatized';
-export * from './publicized';
-export * from './renamed';
-export * from './transferred';
-export * from './unarchived';
+export * from './archived.d';
+export * from './created.d';
+export * from './deleted.d';
+export * from './edited.d';
+export * from './privatized.d';
+export * from './publicized.d';
+export * from './renamed.d';
+export * from './transferred.d';
+export * from './unarchived.d';
 
-import { RepositoryArchivedEvent } from './archived';
-import { RepositoryCreatedEvent } from './created';
-import { RepositoryDeletedEvent } from './deleted';
-import { RepositoryEditedEvent } from './edited';
-import { RepositoryPrivatizedEvent } from './privatized';
-import { RepositoryPublicizedEvent } from './publicized';
-import { RepositoryRenamedEvent } from './renamed';
-import { RepositoryTransferredEvent } from './transferred';
-import { RepositoryUnarchivedEvent } from './unarchived';
+import { RepositoryArchivedEvent } from './archived.d';
+import { RepositoryCreatedEvent } from './created.d';
+import { RepositoryDeletedEvent } from './deleted.d';
+import { RepositoryEditedEvent } from './edited.d';
+import { RepositoryPrivatizedEvent } from './privatized.d';
+import { RepositoryPublicizedEvent } from './publicized.d';
+import { RepositoryRenamedEvent } from './renamed.d';
+import { RepositoryTransferredEvent } from './transferred.d';
+import { RepositoryUnarchivedEvent } from './unarchived.d';
 
 export type RepositoryEvent =
   | RepositoryArchivedEvent
