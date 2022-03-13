@@ -1,5 +1,5 @@
-export * from './started';
+export * from './started.d';
 
-import { WatchStartedEvent } from './started';
+import { WatchStartedEvent } from './started.d';
 
 export type WatchEvent = WatchStartedEvent;

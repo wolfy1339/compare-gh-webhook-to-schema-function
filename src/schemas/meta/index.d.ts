@@ -1,5 +1,5 @@
-export * from './deleted';
+export * from './deleted.d';
 
-import { MetaDeletedEvent } from './deleted';
+import { MetaDeletedEvent } from './deleted.d';
 
 export type MetaEvent = MetaDeletedEvent;
