@@ -3,6 +3,7 @@ import {
   Label,
   Link,
   Milestone,
+  PullRequestAutoMerge,
   Repository,
   Team,
   User
@@ -77,7 +78,7 @@ export interface PullRequest {
     statuses: Link;
   };
   author_association: AuthorAssociation;
-  auto_merge: null;
+  auto_merge: PullRequestAutoMerge | null;
   active_lock_reason: 'resolved' | 'off-topic' | 'too heated' | 'spam' | null;
   /**
    * Indicates whether or not the pull request is a draft.
