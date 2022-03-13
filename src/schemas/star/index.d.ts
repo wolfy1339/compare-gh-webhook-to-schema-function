@@ -1,7 +1,7 @@
-export * from './created.d';
-export * from './deleted.d';
+export * from './created';
+export * from './deleted';
 
-import { StarCreatedEvent } from './created.d';
-import { StarDeletedEvent } from './deleted.d';
+import { StarCreatedEvent } from './created';
+import { StarDeletedEvent } from './deleted';
 
 export type StarEvent = StarCreatedEvent | StarDeletedEvent;

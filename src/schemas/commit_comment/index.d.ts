@@ -1,5 +1,5 @@
-export * from './created.d';
+export * from './created';
 
-import { CommitCommentCreatedEvent } from './created.d';
+import { CommitCommentCreatedEvent } from './created';
 
 export type CommitCommentEvent = CommitCommentCreatedEvent;

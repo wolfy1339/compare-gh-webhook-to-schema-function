@@ -1,3 +1,4 @@
+/* tslint:disable */
 import {
   Discussion,
   InstallationLite,
