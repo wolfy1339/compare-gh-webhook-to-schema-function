@@ -28,7 +28,7 @@ export * from './project-column';
 export * from './project';
 export * from './pull-request-review-comment';
 export * from './pull-request';
-export * from './reactions';
+export * from './reactions.d';
 export * from './release-asset';
 export * from './release';
 export * from './repo-ref';
