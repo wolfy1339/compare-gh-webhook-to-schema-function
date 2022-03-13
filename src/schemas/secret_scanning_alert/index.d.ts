@@ -1,10 +1,10 @@
-export * from './created';
-export * from './reopened';
-export * from './resolved';
+export * from './created.d';
+export * from './reopened.d';
+export * from './resolved.d';
 
-import { SecretScanningAlertCreatedEvent } from './created';
-import { SecretScanningAlertReopenedEvent } from './reopened';
-import { SecretScanningAlertResolvedEvent } from './resolved';
+import { SecretScanningAlertCreatedEvent } from './created.d';
+import { SecretScanningAlertReopenedEvent } from './reopened.d';
+import { SecretScanningAlertResolvedEvent } from './resolved.d';
 
 export type SecretScanningAlertEvent =
   | SecretScanningAlertCreatedEvent

@@ -1,14 +1,14 @@
-export * from './created';
-export * from './deleted';
-export * from './new_permissions_accepted';
-export * from './suspend';
-export * from './unsuspend';
+export * from './created.d';
+export * from './deleted.d';
+export * from './new_permissions_accepted.d';
+export * from './suspend.d';
+export * from './unsuspend.d';
 
-import { InstallationCreatedEvent } from './created';
-import { InstallationDeletedEvent } from './deleted';
-import { InstallationNewPermissionsAcceptedEvent } from './new_permissions_accepted';
-import { InstallationSuspendEvent } from './suspend';
-import { InstallationUnsuspendEvent } from './unsuspend';
+import { InstallationCreatedEvent } from './created.d';
+import { InstallationDeletedEvent } from './deleted.d';
+import { InstallationNewPermissionsAcceptedEvent } from './new_permissions_accepted.d';
+import { InstallationSuspendEvent } from './suspend.d';
+import { InstallationUnsuspendEvent } from './unsuspend.d';
 
 export type InstallationEvent =
   | InstallationCreatedEvent

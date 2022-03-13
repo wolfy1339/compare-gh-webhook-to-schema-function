@@ -1,12 +1,12 @@
-export * from './completed';
-export * from './created';
-export * from './requested_action';
-export * from './rerequested';
+export * from './completed.d';
+export * from './created.d';
+export * from './requested_action.d';
+export * from './rerequested.d';
 
-import { CheckRunCompletedEvent } from './completed';
-import { CheckRunCreatedEvent } from './created';
-import { CheckRunRequestedActionEvent } from './requested_action';
-import { CheckRunRerequestedEvent } from './rerequested';
+import { CheckRunCompletedEvent } from './completed.d';
+import { CheckRunCreatedEvent } from './created.d';
+import { CheckRunRequestedActionEvent } from './requested_action.d';
+import { CheckRunRerequestedEvent } from './rerequested.d';
 
 export type CheckRunEvent =
   | CheckRunCompletedEvent
