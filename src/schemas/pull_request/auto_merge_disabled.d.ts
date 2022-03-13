@@ -1,3 +1,4 @@
+/* tslint:disable */
 import {
   InstallationLite,
   Organization,
@@ -15,6 +16,7 @@ export interface PullRequestAutoMergeDisabledEvent {
   action: 'auto_merge_disabled';
   number: number;
   pull_request: PullRequest;
+  reason: string;
   repository: Repository;
   installation?: InstallationLite;
   organization?: Organization;

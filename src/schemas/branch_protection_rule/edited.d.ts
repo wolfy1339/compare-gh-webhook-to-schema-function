@@ -1,3 +1,4 @@
+/* tslint:disable */
 import {
   BranchProtectionRule,
   InstallationLite,
@@ -25,6 +26,9 @@ export interface BranchProtectionRuleEditedEvent {
       from: boolean;
     };
     authorized_actor_names?: {
+      from: string[];
+    };
+    required_status_checks?: {
       from: string[];
     };
   };
