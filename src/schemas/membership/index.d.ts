@@ -1,7 +1,7 @@
-export * from './added.d';
-export * from './removed.d';
+export * from './added';
+export * from './removed';
 
-import { MembershipAddedEvent } from './added.d';
-import { MembershipRemovedEvent } from './removed.d';
+import { MembershipAddedEvent } from './added';
+import { MembershipRemovedEvent } from './removed';
 
 export type MembershipEvent = MembershipAddedEvent | MembershipRemovedEvent;

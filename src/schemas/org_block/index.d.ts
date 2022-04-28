@@ -1,7 +1,7 @@
-export * from './blocked.d';
-export * from './unblocked.d';
+export * from './blocked';
+export * from './unblocked';
 
-import { OrgBlockBlockedEvent } from './blocked.d';
-import { OrgBlockUnblockedEvent } from './unblocked.d';
+import { OrgBlockBlockedEvent } from './blocked';
+import { OrgBlockUnblockedEvent } from './unblocked';
 
 export type OrgBlockEvent = OrgBlockBlockedEvent | OrgBlockUnblockedEvent;

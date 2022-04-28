@@ -1,10 +1,10 @@
-export * from './created.d';
-export * from './deleted.d';
-export * from './edited.d';
+export * from './created';
+export * from './deleted';
+export * from './edited';
 
-import { IssueCommentCreatedEvent } from './created.d';
-import { IssueCommentDeletedEvent } from './deleted.d';
-import { IssueCommentEditedEvent } from './edited.d';
+import { IssueCommentCreatedEvent } from './created';
+import { IssueCommentDeletedEvent } from './deleted';
+import { IssueCommentEditedEvent } from './edited';
 
 export type IssueCommentEvent =
   | IssueCommentCreatedEvent

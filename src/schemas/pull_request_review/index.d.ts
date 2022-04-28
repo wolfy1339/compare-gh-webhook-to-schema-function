@@ -1,10 +1,10 @@
-export * from './dismissed.d';
-export * from './edited.d';
-export * from './submitted.d';
+export * from './dismissed';
+export * from './edited';
+export * from './submitted';
 
-import { PullRequestReviewDismissedEvent } from './dismissed.d';
-import { PullRequestReviewEditedEvent } from './edited.d';
-import { PullRequestReviewSubmittedEvent } from './submitted.d';
+import { PullRequestReviewDismissedEvent } from './dismissed';
+import { PullRequestReviewEditedEvent } from './edited';
+import { PullRequestReviewSubmittedEvent } from './submitted';
 
 export type PullRequestReviewEvent =
   | PullRequestReviewDismissedEvent

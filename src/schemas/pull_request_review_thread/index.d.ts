@@ -1,8 +1,8 @@
-export * from './resolved.d';
-export * from './unresolved.d';
+export * from './resolved';
+export * from './unresolved';
 
-import { PullRequestReviewThreadResolvedEvent } from './resolved.d';
-import { PullRequestReviewThreadUnresolvedEvent } from './unresolved.d';
+import { PullRequestReviewThreadResolvedEvent } from './resolved';
+import { PullRequestReviewThreadUnresolvedEvent } from './unresolved';
 
 export type PullRequestReviewThreadEvent =
   | PullRequestReviewThreadResolvedEvent
