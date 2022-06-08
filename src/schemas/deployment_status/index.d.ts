@@ -1,5 +1,5 @@
-export * from './created.d';
+export * from './created';
 
-import { DeploymentStatusCreatedEvent } from './created.d';
+import { DeploymentStatusCreatedEvent } from './created';
 
 export type DeploymentStatusEvent = DeploymentStatusCreatedEvent;

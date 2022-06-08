@@ -1,8 +1,8 @@
-export * from './added.d';
-export * from './removed.d';
+export * from './added';
+export * from './removed';
 
-import { InstallationRepositoriesAddedEvent } from './added.d';
-import { InstallationRepositoriesRemovedEvent } from './removed.d';
+import { InstallationRepositoriesAddedEvent } from './added';
+import { InstallationRepositoriesRemovedEvent } from './removed';
 
 export type InstallationRepositoriesEvent =
   | InstallationRepositoriesAddedEvent

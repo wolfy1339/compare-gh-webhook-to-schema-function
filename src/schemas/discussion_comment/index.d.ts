@@ -1,10 +1,10 @@
-export * from './created.d';
-export * from './deleted.d';
-export * from './edited.d';
+export * from './created';
+export * from './deleted';
+export * from './edited';
 
-import { DiscussionCommentCreatedEvent } from './created.d';
-import { DiscussionCommentDeletedEvent } from './deleted.d';
-import { DiscussionCommentEditedEvent } from './edited.d';
+import { DiscussionCommentCreatedEvent } from './created';
+import { DiscussionCommentDeletedEvent } from './deleted';
+import { DiscussionCommentEditedEvent } from './edited';
 
 export type DiscussionCommentEvent =
   | DiscussionCommentCreatedEvent
