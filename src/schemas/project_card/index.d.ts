@@ -1,14 +1,14 @@
-export * from './converted';
-export * from './created';
-export * from './deleted';
-export * from './edited';
-export * from './moved';
+export * from './converted.d';
+export * from './created.d';
+export * from './deleted.d';
+export * from './edited.d';
+export * from './moved.d';
 
-import { ProjectCardConvertedEvent } from './converted';
-import { ProjectCardCreatedEvent } from './created';
-import { ProjectCardDeletedEvent } from './deleted';
-import { ProjectCardEditedEvent } from './edited';
-import { ProjectCardMovedEvent } from './moved';
+import { ProjectCardConvertedEvent } from './converted.d';
+import { ProjectCardCreatedEvent } from './created.d';
+import { ProjectCardDeletedEvent } from './deleted.d';
+import { ProjectCardEditedEvent } from './edited.d';
+import { ProjectCardMovedEvent } from './moved.d';
 
 export type ProjectCardEvent =
   | ProjectCardConvertedEvent

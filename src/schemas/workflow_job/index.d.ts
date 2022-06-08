@@ -1,10 +1,10 @@
-export * from './completed';
-export * from './in_progress';
-export * from './queued';
+export * from './completed.d';
+export * from './in_progress.d';
+export * from './queued.d';
 
-import { WorkflowJobCompletedEvent } from './completed';
-import { WorkflowJobInProgressEvent } from './in_progress';
-import { WorkflowJobQueuedEvent } from './queued';
+import { WorkflowJobCompletedEvent } from './completed.d';
+import { WorkflowJobInProgressEvent } from './in_progress.d';
+import { WorkflowJobQueuedEvent } from './queued.d';
 
 export type WorkflowJobEvent =
   | WorkflowJobCompletedEvent
