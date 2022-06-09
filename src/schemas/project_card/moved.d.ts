@@ -1,3 +1,4 @@
+/* tslint:disable */
 import {
   InstallationLite,
   Organization,
@@ -13,7 +14,7 @@ import {
 
 export interface ProjectCardMovedEvent {
   action: 'moved';
-  changes: {
+  changes?: {
     column_id: {
       from: number;
     };
