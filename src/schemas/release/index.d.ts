@@ -1,18 +1,18 @@
-export * from './created';
-export * from './deleted';
-export * from './edited';
-export * from './prereleased';
-export * from './published';
-export * from './released';
-export * from './unpublished';
+export * from './created.d'
+export * from './deleted.d'
+export * from './edited.d'
+export * from './prereleased.d'
+export * from './published.d'
+export * from './released.d'
+export * from './unpublished.d'
 
-import { ReleaseCreatedEvent } from './created';
-import { ReleaseDeletedEvent } from './deleted';
-import { ReleaseEditedEvent } from './edited';
-import { ReleasePrereleasedEvent } from './prereleased';
-import { ReleasePublishedEvent } from './published';
-import { ReleaseReleasedEvent } from './released';
-import { ReleaseUnpublishedEvent } from './unpublished';
+import { ReleaseCreatedEvent } from './created.d'
+import { ReleaseDeletedEvent } from './deleted.d'
+import { ReleaseEditedEvent } from './edited.d'
+import { ReleasePrereleasedEvent } from './prereleased.d'
+import { ReleasePublishedEvent } from './published.d'
+import { ReleaseReleasedEvent } from './released.d'
+import { ReleaseUnpublishedEvent } from './unpublished.d'
 
 export type ReleaseEvent =
   | ReleaseCreatedEvent

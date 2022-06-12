@@ -1,7 +1,7 @@
-export * from './created';
-export * from './deleted';
+export * from './created.d'
+export * from './deleted.d'
 
-import { DeployKeyCreatedEvent } from './created';
-import { DeployKeyDeletedEvent } from './deleted';
+import { DeployKeyCreatedEvent } from './created.d'
+import { DeployKeyDeletedEvent } from './deleted.d'
 
 export type DeployKeyEvent = DeployKeyCreatedEvent | DeployKeyDeletedEvent;

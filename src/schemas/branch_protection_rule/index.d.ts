@@ -1,10 +1,10 @@
-export * from './created';
-export * from './deleted';
-export * from './edited';
+export * from './created.d'
+export * from './deleted.d'
+export * from './edited.d'
 
-import { BranchProtectionRuleCreatedEvent } from './created';
-import { BranchProtectionRuleDeletedEvent } from './deleted';
-import { BranchProtectionRuleEditedEvent } from './edited';
+import { BranchProtectionRuleCreatedEvent } from './created.d'
+import { BranchProtectionRuleDeletedEvent } from './deleted.d'
+import { BranchProtectionRuleEditedEvent } from './edited.d'
 
 export type BranchProtectionRuleEvent =
   | BranchProtectionRuleCreatedEvent

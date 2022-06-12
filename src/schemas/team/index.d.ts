@@ -1,14 +1,14 @@
-export * from './added_to_repository';
-export * from './created';
-export * from './deleted';
-export * from './edited';
-export * from './removed_from_repository';
+export * from './added_to_repository.d'
+export * from './created.d'
+export * from './deleted.d'
+export * from './edited.d'
+export * from './removed_from_repository.d'
 
-import { TeamAddedToRepositoryEvent } from './added_to_repository';
-import { TeamCreatedEvent } from './created';
-import { TeamDeletedEvent } from './deleted';
-import { TeamEditedEvent } from './edited';
-import { TeamRemovedFromRepositoryEvent } from './removed_from_repository';
+import { TeamAddedToRepositoryEvent } from './added_to_repository.d'
+import { TeamCreatedEvent } from './created.d'
+import { TeamDeletedEvent } from './deleted.d'
+import { TeamEditedEvent } from './edited.d'
+import { TeamRemovedFromRepositoryEvent } from './removed_from_repository.d'
 
 export type TeamEvent =
   | TeamAddedToRepositoryEvent

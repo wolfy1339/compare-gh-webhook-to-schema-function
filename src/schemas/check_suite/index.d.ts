@@ -1,10 +1,10 @@
-export * from './completed';
-export * from './requested';
-export * from './rerequested';
+export * from './completed.d'
+export * from './requested.d'
+export * from './rerequested.d'
 
-import { CheckSuiteCompletedEvent } from './completed';
-import { CheckSuiteRequestedEvent } from './requested';
-import { CheckSuiteRerequestedEvent } from './rerequested';
+import { CheckSuiteCompletedEvent } from './completed.d'
+import { CheckSuiteRequestedEvent } from './requested.d'
+import { CheckSuiteRerequestedEvent } from './rerequested.d'
 
 export type CheckSuiteEvent =
   | CheckSuiteCompletedEvent
