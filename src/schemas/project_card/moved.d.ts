@@ -13,7 +13,7 @@ import {
 
 export interface ProjectCardMovedEvent {
   action: 'moved';
-  changes: {
+  changes?: {
     column_id: {
       from: number;
     };
