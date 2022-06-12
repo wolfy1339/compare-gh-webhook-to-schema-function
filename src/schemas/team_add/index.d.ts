@@ -1,1 +1,1 @@
-export * from './event.d'
+export * from './event.d';
