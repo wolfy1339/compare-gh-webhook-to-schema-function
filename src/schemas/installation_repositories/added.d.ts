@@ -33,6 +33,8 @@ export interface InstallationRepositoriesAddedEvent {
   }[];
   /**
    * An array of repository objects, which were removed from the installation.
+   *
+   * @maxItems 0
    */
   repositories_removed: [];
   requester: User | null;
