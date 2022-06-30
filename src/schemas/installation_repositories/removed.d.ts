@@ -14,6 +14,8 @@ export interface InstallationRepositoriesRemovedEvent {
   repository_selection: 'all' | 'selected';
   /**
    * An array of repository objects, which were added to the installation.
+   *
+   * @maxItems 0
    */
   repositories_added: [];
   /**
