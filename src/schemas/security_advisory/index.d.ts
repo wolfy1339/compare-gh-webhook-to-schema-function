@@ -1,12 +1,12 @@
-export * from './performed.d';
-export * from './published.d';
-export * from './updated.d';
-export * from './withdrawn.d';
+export * from './performed';
+export * from './published';
+export * from './updated';
+export * from './withdrawn';
 
-import { SecurityAdvisoryPerformedEvent } from './performed.d';
-import { SecurityAdvisoryPublishedEvent } from './published.d';
-import { SecurityAdvisoryUpdatedEvent } from './updated.d';
-import { SecurityAdvisoryWithdrawnEvent } from './withdrawn.d';
+import { SecurityAdvisoryPerformedEvent } from './performed';
+import { SecurityAdvisoryPublishedEvent } from './published';
+import { SecurityAdvisoryUpdatedEvent } from './updated';
+import { SecurityAdvisoryWithdrawnEvent } from './withdrawn';
 
 export type SecurityAdvisoryEvent =
   | SecurityAdvisoryPerformedEvent

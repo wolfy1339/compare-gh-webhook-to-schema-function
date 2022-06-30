@@ -1,14 +1,14 @@
-export * from './deleted.d';
-export * from './member_added.d';
-export * from './member_invited.d';
-export * from './member_removed.d';
-export * from './renamed.d';
+export * from './deleted';
+export * from './member_added';
+export * from './member_invited';
+export * from './member_removed';
+export * from './renamed';
 
-import { OrganizationDeletedEvent } from './deleted.d';
-import { OrganizationMemberAddedEvent } from './member_added.d';
-import { OrganizationMemberInvitedEvent } from './member_invited.d';
-import { OrganizationMemberRemovedEvent } from './member_removed.d';
-import { OrganizationRenamedEvent } from './renamed.d';
+import { OrganizationDeletedEvent } from './deleted';
+import { OrganizationMemberAddedEvent } from './member_added';
+import { OrganizationMemberInvitedEvent } from './member_invited';
+import { OrganizationMemberRemovedEvent } from './member_removed';
+import { OrganizationRenamedEvent } from './renamed';
 
 export type OrganizationEvent =
   | OrganizationDeletedEvent
