@@ -1,14 +1,14 @@
-export * from './closed';
-export * from './created';
-export * from './deleted';
-export * from './edited';
-export * from './opened';
+export * from './closed.d';
+export * from './created.d';
+export * from './deleted.d';
+export * from './edited.d';
+export * from './opened.d';
 
-import { MilestoneClosedEvent } from './closed';
-import { MilestoneCreatedEvent } from './created';
-import { MilestoneDeletedEvent } from './deleted';
-import { MilestoneEditedEvent } from './edited';
-import { MilestoneOpenedEvent } from './opened';
+import { MilestoneClosedEvent } from './closed.d';
+import { MilestoneCreatedEvent } from './created.d';
+import { MilestoneDeletedEvent } from './deleted.d';
+import { MilestoneEditedEvent } from './edited.d';
+import { MilestoneOpenedEvent } from './opened.d';
 
 export type MilestoneEvent =
   | MilestoneClosedEvent

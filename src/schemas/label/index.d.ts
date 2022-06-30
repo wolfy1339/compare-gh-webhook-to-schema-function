@@ -1,10 +1,10 @@
-export * from './created';
-export * from './deleted';
-export * from './edited';
+export * from './created.d';
+export * from './deleted.d';
+export * from './edited.d';
 
-import { LabelCreatedEvent } from './created';
-import { LabelDeletedEvent } from './deleted';
-import { LabelEditedEvent } from './edited';
+import { LabelCreatedEvent } from './created.d';
+import { LabelDeletedEvent } from './deleted.d';
+import { LabelEditedEvent } from './edited.d';
 
 export type LabelEvent =
   | LabelCreatedEvent
