@@ -1,7 +1,7 @@
-export * from './published.d';
-export * from './updated.d';
+export * from './published';
+export * from './updated';
 
-import { PackagePublishedEvent } from './published.d';
-import { PackageUpdatedEvent } from './updated.d';
+import { PackagePublishedEvent } from './published';
+import { PackageUpdatedEvent } from './updated';
 
 export type PackageEvent = PackagePublishedEvent | PackageUpdatedEvent;

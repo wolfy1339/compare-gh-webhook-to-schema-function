@@ -1,16 +1,16 @@
-export * from './appeared_in_branch.d';
-export * from './closed_by_user.d';
-export * from './created.d';
-export * from './fixed.d';
-export * from './reopened.d';
-export * from './reopened_by_user.d';
+export * from './appeared_in_branch';
+export * from './closed_by_user';
+export * from './created';
+export * from './fixed';
+export * from './reopened';
+export * from './reopened_by_user';
 
-import { CodeScanningAlertAppearedInBranchEvent } from './appeared_in_branch.d';
-import { CodeScanningAlertClosedByUserEvent } from './closed_by_user.d';
-import { CodeScanningAlertCreatedEvent } from './created.d';
-import { CodeScanningAlertFixedEvent } from './fixed.d';
-import { CodeScanningAlertReopenedEvent } from './reopened.d';
-import { CodeScanningAlertReopenedByUserEvent } from './reopened_by_user.d';
+import { CodeScanningAlertAppearedInBranchEvent } from './appeared_in_branch';
+import { CodeScanningAlertClosedByUserEvent } from './closed_by_user';
+import { CodeScanningAlertCreatedEvent } from './created';
+import { CodeScanningAlertFixedEvent } from './fixed';
+import { CodeScanningAlertReopenedEvent } from './reopened';
+import { CodeScanningAlertReopenedByUserEvent } from './reopened_by_user';
 
 export type CodeScanningAlertEvent =
   | CodeScanningAlertAppearedInBranchEvent
