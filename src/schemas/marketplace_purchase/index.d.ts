@@ -1,14 +1,14 @@
-export * from './cancelled.d';
-export * from './changed.d';
-export * from './pending_change.d';
-export * from './pending_change_cancelled.d';
-export * from './purchased.d';
+export * from './cancelled';
+export * from './changed';
+export * from './pending_change';
+export * from './pending_change_cancelled';
+export * from './purchased';
 
-import { MarketplacePurchaseCancelledEvent } from './cancelled.d';
-import { MarketplacePurchaseChangedEvent } from './changed.d';
-import { MarketplacePurchasePendingChangeEvent } from './pending_change.d';
-import { MarketplacePurchasePendingChangeCancelledEvent } from './pending_change_cancelled.d';
-import { MarketplacePurchasePurchasedEvent } from './purchased.d';
+import { MarketplacePurchaseCancelledEvent } from './cancelled';
+import { MarketplacePurchaseChangedEvent } from './changed';
+import { MarketplacePurchasePendingChangeEvent } from './pending_change';
+import { MarketplacePurchasePendingChangeCancelledEvent } from './pending_change_cancelled';
+import { MarketplacePurchasePurchasedEvent } from './purchased';
 
 export type MarketplacePurchaseEvent =
   | MarketplacePurchaseCancelledEvent

@@ -1,8 +1,8 @@
-export * from './completed.d';
-export * from './requested.d';
+export * from './completed';
+export * from './requested';
 
-import { WorkflowRunCompletedEvent } from './completed.d';
-import { WorkflowRunRequestedEvent } from './requested.d';
+import { WorkflowRunCompletedEvent } from './completed';
+import { WorkflowRunRequestedEvent } from './requested';
 
 export type WorkflowRunEvent =
   | WorkflowRunCompletedEvent
