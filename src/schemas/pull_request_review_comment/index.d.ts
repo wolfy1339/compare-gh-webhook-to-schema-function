@@ -1,10 +1,10 @@
-export * from './created.d';
-export * from './deleted.d';
-export * from './edited.d';
+export * from './created';
+export * from './deleted';
+export * from './edited';
 
-import { PullRequestReviewCommentCreatedEvent } from './created.d';
-import { PullRequestReviewCommentDeletedEvent } from './deleted.d';
-import { PullRequestReviewCommentEditedEvent } from './edited.d';
+import { PullRequestReviewCommentCreatedEvent } from './created';
+import { PullRequestReviewCommentDeletedEvent } from './deleted';
+import { PullRequestReviewCommentEditedEvent } from './edited';
 
 export type PullRequestReviewCommentEvent =
   | PullRequestReviewCommentCreatedEvent

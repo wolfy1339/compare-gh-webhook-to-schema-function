@@ -1,18 +1,18 @@
-export * from './archived.d';
-export * from './converted.d';
-export * from './created.d';
-export * from './deleted.d';
-export * from './edited.d';
-export * from './reordered.d';
-export * from './restored.d';
+export * from './archived';
+export * from './converted';
+export * from './created';
+export * from './deleted';
+export * from './edited';
+export * from './reordered';
+export * from './restored';
 
-import { ProjectsV2ItemArchivedEvent } from './archived.d';
-import { ProjectsV2ItemConvertedEvent } from './converted.d';
-import { ProjectsV2ItemCreatedEvent } from './created.d';
-import { ProjectsV2ItemDeletedEvent } from './deleted.d';
-import { ProjectsV2ItemEditedEvent } from './edited.d';
-import { ProjectsV2ItemReorderedEvent } from './reordered.d';
-import { ProjectsV2ItemRestoredEvent } from './restored.d';
+import { ProjectsV2ItemArchivedEvent } from './archived';
+import { ProjectsV2ItemConvertedEvent } from './converted';
+import { ProjectsV2ItemCreatedEvent } from './created';
+import { ProjectsV2ItemDeletedEvent } from './deleted';
+import { ProjectsV2ItemEditedEvent } from './edited';
+import { ProjectsV2ItemReorderedEvent } from './reordered';
+import { ProjectsV2ItemRestoredEvent } from './restored';
 
 export type ProjectsV2ItemEvent =
   | ProjectsV2ItemArchivedEvent

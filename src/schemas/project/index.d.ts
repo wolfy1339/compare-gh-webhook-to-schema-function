@@ -1,14 +1,14 @@
-export * from './closed.d';
-export * from './created.d';
-export * from './deleted.d';
-export * from './edited.d';
-export * from './reopened.d';
+export * from './closed';
+export * from './created';
+export * from './deleted';
+export * from './edited';
+export * from './reopened';
 
-import { ProjectClosedEvent } from './closed.d';
-import { ProjectCreatedEvent } from './created.d';
-import { ProjectDeletedEvent } from './deleted.d';
-import { ProjectEditedEvent } from './edited.d';
-import { ProjectReopenedEvent } from './reopened.d';
+import { ProjectClosedEvent } from './closed';
+import { ProjectCreatedEvent } from './created';
+import { ProjectDeletedEvent } from './deleted';
+import { ProjectEditedEvent } from './edited';
+import { ProjectReopenedEvent } from './reopened';
 
 export type ProjectEvent =
   | ProjectClosedEvent
