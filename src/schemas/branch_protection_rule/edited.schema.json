@@ -30,7 +30,7 @@
           ],
           "properties": {
             "from": {
-              "type": "boolean"
+              "$ref": "common/branch-protection-rule-boolean.schema.json"
             }
           },
           "additionalProperties": false
@@ -42,14 +42,13 @@
           ],
           "properties": {
             "from": {
-              "type": [
-                "string",
-                "null"
-              ],
-              "enum": [
-                "off",
-                "non_admins",
-                "everyone"
+              "oneOf": [
+                {
+                  "$ref": "common/branch-protection-rule-enforcement-level.schema.json"
+                },
+                {
+                  "type": "null"
+                }
               ]
             }
           },
@@ -62,12 +61,7 @@
           ],
           "properties": {
             "from": {
-              "type": "string",
-              "enum": [
-                "off",
-                "non_admins",
-                "everyone"
-              ]
+              "$ref": "common/branch-protection-rule-enforcement-level.schema.json"
             }
           },
           "additionalProperties": false
@@ -79,7 +73,7 @@
           ],
           "properties": {
             "from": {
-              "type": "boolean"
+              "$ref": "common/branch-protection-rule-boolean.schema.json"
             }
           },
           "additionalProperties": false
@@ -91,10 +85,7 @@
           ],
           "properties": {
             "from": {
-              "type": "array",
-              "items": {
-                "type": "string"
-              }
+              "$ref": "common/branch-protection-rule-array.schema.json"
             }
           },
           "additionalProperties": false
@@ -106,9 +97,13 @@
           ],
           "properties": {
             "from": {
-              "type": [
-                "boolean",
-                "null"
+              "oneOf": [
+                {
+                  "$ref": "common/branch-protection-rule-boolean.schema.json"
+                },
+                {
+                  "type": "null"
+                }
               ]
             }
           },
@@ -121,7 +116,7 @@
           ],
           "properties": {
             "from": {
-              "type": "boolean"
+              "$ref": "common/branch-protection-rule-boolean.schema.json"
             }
           },
           "additionalProperties": false
@@ -133,12 +128,7 @@
           ],
           "properties": {
             "from": {
-              "type": "string",
-              "enum": [
-                "off",
-                "non_admins",
-                "everyone"
-              ]
+              "$ref": "common/branch-protection-rule-enforcement-level.schema.json"
             }
           },
           "additionalProperties": false
@@ -150,9 +140,7 @@
           ],
           "properties": {
             "from": {
-              "type": [
-                "boolean"
-              ]
+              "$ref": "common/branch-protection-rule-boolean.schema.json"
             }
           },
           "additionalProperties": false
@@ -164,7 +152,7 @@
           ],
           "properties": {
             "from": {
-              "type": "integer"
+              "$ref": "common/branch-protection-rule-number.schema.json"
             }
           },
           "additionalProperties": false
@@ -176,12 +164,7 @@
           ],
           "properties": {
             "from": {
-              "type": "string",
-              "enum": [
-                "off",
-                "non_admins",
-                "everyone"
-              ]
+              "$ref": "common/branch-protection-rule-enforcement-level.schema.json"
             }
           },
           "additionalProperties": false
@@ -193,12 +176,7 @@
           ],
           "properties": {
             "from": {
-              "type": "string",
-              "enum": [
-                "off",
-                "non_admins",
-                "everyone"
-              ]
+              "$ref": "common/branch-protection-rule-enforcement-level.schema.json"
             }
           },
           "additionalProperties": false
@@ -210,10 +188,7 @@
           ],
           "properties": {
             "from": {
-              "type": "array",
-              "items": {
-                "type": "string"
-              }
+              "$ref": "common/branch-protection-rule-array.schema.json"
             }
           },
           "additionalProperties": false
@@ -225,12 +200,7 @@
           ],
           "properties": {
             "from": {
-              "type": "string",
-              "enum": [
-                "off",
-                "non_admins",
-                "everyone"
-              ]
+              "$ref": "common/branch-protection-rule-enforcement-level.schema.json"
             }
           },
           "additionalProperties": false
@@ -242,12 +212,7 @@
           ],
           "properties": {
             "from": {
-              "type": "string",
-              "enum": [
-                "off",
-                "non_admins",
-                "everyone"
-              ]
+              "$ref": "common/branch-protection-rule-enforcement-level.schema.json"
             }
           },
           "additionalProperties": false
@@ -259,12 +224,7 @@
           ],
           "properties": {
             "from": {
-              "type": "string",
-              "enum": [
-                "off",
-                "non_admins",
-                "everyone"
-              ]
+              "$ref": "common/branch-protection-rule-enforcement-level.schema.json"
             }
           },
           "additionalProperties": false
