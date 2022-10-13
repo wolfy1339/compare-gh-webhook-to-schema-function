@@ -1,9 +1,8 @@
 import {
+  DependabotAlert,
   InstallationLite,
   Organization,
-  PullRequestReview,
   Repository,
-  SimplePullRequest,
   User
 } from '../common';
 /**
@@ -12,20 +11,11 @@ import {
  * and run json-schema-to-typescript to regenerate this file.
  */
 
-export interface PullRequestReviewEditedEvent {
-  action: 'edited';
-  changes: {
-    body?: {
-      /**
-       * The previous version of the body if the action was `edited`.
-       */
-      from: string;
-    };
-  };
-  review: PullRequestReview;
-  pull_request: SimplePullRequest;
+export interface DependabotAlertReopenedEvent {
+  action: 'reopened';
+  alert: DependabotAlert;
   repository: Repository;
+  sender: User;
   installation?: InstallationLite;
   organization?: Organization;
-  sender: User;
 }

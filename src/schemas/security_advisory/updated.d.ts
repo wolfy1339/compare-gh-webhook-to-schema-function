@@ -19,6 +19,7 @@ export interface SecurityAdvisoryUpdatedEvent {
       name: string;
     }[];
     ghsa_id: string;
+    cve_id: string | null;
     summary: string;
     description: string;
     severity: string;
