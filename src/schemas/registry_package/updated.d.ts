@@ -11,12 +11,12 @@ import {
  * and run json-schema-to-typescript to regenerate this file.
  */
 
-export interface PackagePublishedEvent {
-  action: 'published';
+export interface RegistryPackageUpdatedEvent {
+  action: 'updated';
   /**
    * Information about the package.
    */
-  package: {
+  registry_package: {
     /**
      * Unique identifier of the package.
      */
@@ -40,7 +40,7 @@ export interface PackagePublishedEvent {
       | 'CONTAINER';
     html_url: string;
     created_at: string;
-    updated_at: string;
+    updated_at: string | null;
     owner: User;
     /**
      * A version of a software package
@@ -70,10 +70,12 @@ export interface PackagePublishedEvent {
               name: string;
               path: string;
               size: number | null;
-              collection: boolean;
+              collection: boolean | null;
             };
-            attributes: {};
-            _formatted: boolean;
+            attributes?: {
+              [k: string]: unknown;
+            };
+            _formatted?: boolean;
           };
       body_html?: string;
       release?: {
@@ -102,19 +104,39 @@ export interface PackagePublishedEvent {
        * Package Version Metadata
        */
       metadata: unknown[];
+      docker_metadata?: unknown[];
       container_metadata?: {
         labels?: {
-          [k: string]: unknown;
+          description?: string;
+          source?: string;
+          revision?: string;
+          image_url?: string;
+          licenses?: string;
+          all_labels?: {
+            [k: string]: string;
+          };
         } | null;
         manifest?: {
-          [k: string]: unknown;
+          digest?: string;
+          media_type?: string;
+          uri?: string;
+          size?: number;
+          config?: {
+            digest?: string;
+            media_type?: string;
+            size?: number;
+          };
+          layers?: {
+            digest?: string;
+            media_type?: string;
+            size?: number;
+          }[];
         } | null;
         tag?: {
           digest?: string;
           name?: string;
         };
-      } | null;
-      docker_metadata?: unknown[];
+      };
       npm_metadata?: PackageNPMMetadata | null;
       nuget_metadata?: PackageNugetMetadata[] | null;
       rubygems_metadata?: unknown[];
@@ -132,7 +154,26 @@ export interface PackagePublishedEvent {
         updated_at: string;
       }[];
       package_url?: string;
-      author?: User;
+      author?: {
+        avatar_url: string;
+        events_url: string;
+        followers_url: string;
+        following_url: string;
+        gists_url: string;
+        gravatar_id: string;
+        html_url: string;
+        id: number;
+        login: string;
+        node_id: string;
+        organizations_url: string;
+        received_events_url: string;
+        repos_url: string;
+        site_admin: boolean;
+        starred_url: string;
+        subscriptions_url: string;
+        type: string;
+        url: string;
+      };
       source_url?: string;
       installation_command: string;
     } | null;
