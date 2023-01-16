@@ -42,6 +42,7 @@ export interface App {
     discussions?: 'read' | 'write';
     emails?: 'read' | 'write';
     environments?: 'read' | 'write';
+    followers?: 'read' | 'write';
     issues?: 'read' | 'write';
     keys?: 'read' | 'write';
     members?: 'read' | 'write';
