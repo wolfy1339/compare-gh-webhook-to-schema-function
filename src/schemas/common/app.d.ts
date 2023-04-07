@@ -43,6 +43,8 @@ export interface App {
     emails?: 'read' | 'write';
     environments?: 'read' | 'write';
     followers?: 'read' | 'write';
+    gpg_keys?: 'read' | 'write';
+    interaction_limits?: 'read' | 'write';
     issues?: 'read' | 'write';
     keys?: 'read' | 'write';
     members?: 'read' | 'write';
@@ -58,6 +60,7 @@ export interface App {
     organization_user_blocking?: 'read' | 'write';
     packages?: 'read' | 'write';
     pages?: 'read' | 'write';
+    plan?: 'read' | 'write';
     pull_requests?: 'read' | 'write';
     repository_hooks?: 'read' | 'write';
     repository_projects?: 'read' | 'write';
@@ -66,9 +69,11 @@ export interface App {
     security_events?: 'read' | 'write';
     security_scanning_alert?: 'read' | 'write';
     single_file?: 'read' | 'write';
+    starring?: 'read' | 'write';
     statuses?: 'read' | 'write';
     team_discussions?: 'read' | 'write';
     vulnerability_alerts?: 'read' | 'write';
+    watching?: 'read' | 'write';
     workflows?: 'read' | 'write';
   };
   /**
@@ -110,6 +115,7 @@ export interface App {
     | 'pull_request'
     | 'pull_request_review'
     | 'pull_request_review_comment'
+    | 'pull_request_review_thread'
     | 'push'
     | 'registry_package'
     | 'release'

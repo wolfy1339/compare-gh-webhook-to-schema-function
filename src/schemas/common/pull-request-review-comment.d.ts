@@ -99,4 +99,8 @@ export interface PullRequestReviewComment {
    * The comment ID to reply to.
    */
   in_reply_to_id?: number;
+  /**
+   * The level at which the comment is targeted, can be a diff line or a file.
+   */
+  subject_type?: 'line' | 'file';
 }
