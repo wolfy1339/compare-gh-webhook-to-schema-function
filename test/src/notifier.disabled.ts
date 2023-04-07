@@ -1,11 +1,11 @@
 /* eslint-disable jest/no-commented-out-tests */
 /* import { IncomingWebhook } from '@slack/webhook';
-import { mocked } from 'ts-jest/utils';
+import { mocked } from 'jest-mock';
 import { Notifier } from '../../src/notifier';
 
 jest.mock('@slack/webhook');
 
-const fakeIncomingWebhook = mocked(IncomingWebhook, true);
+const fakeIncomingWebhook = mocked(IncomingWebhook, { shallow: false });
 
 describe('Notifier', () => {
   describe('constructor', () => {

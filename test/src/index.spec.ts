@@ -1,7 +1,7 @@
 import { sign } from '@octokit/webhooks-methods';
 import { WebhookEventName } from '@octokit/webhooks-types';
 import { OneOfError } from 'ajv/dist/vocabularies/applicator/oneOf';
-import { mocked } from 'ts-jest/utils';
+import { mocked } from 'jest-mock';
 import { handler } from '../../src';
 import { EventValidator, GithubEvent, getEvent } from '../../src/github';
 import { pingEventPayload } from '../fixtures';
@@ -10,8 +10,10 @@ jest.mock('../../src/notifier');
 jest.mock('../../src/github/getEvent');
 jest.mock('../../src/github/EventValidator');
 
-const mockEventValidator = mocked(EventValidator, true);
-const getEventMock = mocked(getEvent);
+const mockEventValidator = mocked(EventValidator, {
+  shallow: false
+});
+const getEventMock = mocked(getEvent, { shallow: true });
 
 const createMockLogger = () => {
   return console;

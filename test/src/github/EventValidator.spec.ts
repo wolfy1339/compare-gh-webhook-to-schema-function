@@ -2,16 +2,16 @@ import Ajv, { ValidateFunction } from 'ajv';
 import { ErrorObject } from 'ajv/dist/types';
 import { OneOfError } from 'ajv/dist/vocabularies/applicator/oneOf';
 import { EnumError } from 'ajv/dist/vocabularies/validation/enum';
+import { mocked } from 'jest-mock';
 import { JSONSchema7 } from 'json-schema';
 import { vol } from 'memfs';
-import { mocked } from 'ts-jest/utils';
 import { EventValidator, GithubEvent, Logger } from '../../../src/github';
 import { pingEventPayload } from '../../fixtures';
 
 jest.mock('ajv');
 jest.mock('ajv-formats', () => (ajv: Ajv) => ajv);
 
-const mockedAjv = mocked(Ajv, true);
+const mockedAjv = mocked(Ajv, { shallow: false });
 const schemaValidatorMock =
   jest.fn() as unknown as jest.MockedFunction<ValidateFunction>;
 

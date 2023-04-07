@@ -2,13 +2,6 @@ import { Config } from '@jest/types';
 import 'ts-jest';
 
 const config: Config.InitialOptions = {
-  globals: {
-    'ts-jest': {
-      // disable type checking when running tests, speeding them up and making
-      // the development experience nicer by not blocking tests on types
-      isolatedModules: true
-    }
-  },
   coverageThreshold: {
     global: {
       statements: 100,
@@ -28,7 +21,7 @@ const config: Config.InitialOptions = {
 
   moduleFileExtensions: ['ts', 'tsx', 'js', 'json', 'jsx', 'node'],
   transform: {
-    '\\.tsx?': 'ts-jest'
+    '\\.tsx?': ['ts-jest', { isolatedModules: true }]
   }
 };
 
