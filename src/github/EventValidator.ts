@@ -1,10 +1,11 @@
-import Ajv, { DefinedError, ErrorObject, ValidateFunction } from 'ajv';
+import Ajv from 'ajv';
+import type { DefinedError, ErrorObject, ValidateFunction } from 'ajv';
 import addFormats from 'ajv-formats';
 import { strict as assert } from 'assert';
 import fs from 'fs';
-import { JSONSchema7 } from 'json-schema';
+import type { JSONSchema7 } from 'json-schema';
 import path from 'path';
-import { GithubEvent } from './types';
+import type { GithubEvent } from './types';
 
 const pathToSchemas = path.join(__dirname, '../schemas');
 

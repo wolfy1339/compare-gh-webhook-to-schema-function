@@ -1,5 +1,5 @@
 import dotenv from 'dotenv';
-import { IncomingHttpHeaders } from 'http';
+import type { IncomingHttpHeaders } from 'node:http';
 import 'source-map-support/register';
 import { v5 as uuid } from 'uuid';
 import { EventValidator, describeEvent, getEvent } from './github';

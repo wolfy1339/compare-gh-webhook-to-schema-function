@@ -1,7 +1,7 @@
 import { verify } from '@octokit/webhooks-methods';
-import { WebhookEventName as GithubEventName } from '@octokit/webhooks-types';
-import { IncomingHttpHeaders } from 'http';
-import { GithubEvent } from './types';
+import type { WebhookEventName as GithubEventName } from '@octokit/webhooks-types';
+import type { IncomingHttpHeaders } from 'node:http';
+import type { GithubEvent } from './types';
 
 declare global {
   export namespace NodeJS {
@@ -11,7 +11,7 @@ declare global {
   }
 }
 
-declare module 'http' {
+declare module 'node:http' {
   export interface IncomingHttpHeaders {
     'x-hub-signature-256': string;
     'x-github-event': GithubEventName;

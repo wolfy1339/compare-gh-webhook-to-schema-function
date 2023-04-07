@@ -1,4 +1,4 @@
-import { GithubEvent } from './types';
+import type { GithubEvent } from './types';
 
 export const describeEvent = (event: GithubEvent): string => {
   if ('action' in event.payload) {

@@ -1,4 +1,7 @@
-import { WebhookEventMap, WebhookEventName } from '@octokit/webhooks-types';
+import type {
+  WebhookEventMap,
+  WebhookEventName
+} from '@octokit/webhooks-types';
 
 interface EventWithPayload<TName extends WebhookEventName> {
   name: TName;
