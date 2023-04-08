@@ -1,6 +1,12 @@
 {
   "labels": ["maintenance"],
-  "extends": ["config:base", ":disableDependencyDashboard"],
+  "extends": [
+    "config:base",
+    ":disableDependencyDashboard",
+    "group:recommended",
+    "group:monorepos",
+    "packages:eslint"
+  ],
   "lockFileMaintenance": {
     "enabled": true
   },
