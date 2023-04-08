@@ -70,6 +70,7 @@ const createCommonSchemaResolver = async (
   const interfacesToImport = new Set<string>();
 
   // cache results of fetch in-case we're called again
+  // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
   commonSchemas ||= await fetchCommonSchemas();
 
   return {
