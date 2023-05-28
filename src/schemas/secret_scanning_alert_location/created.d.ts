@@ -13,7 +13,7 @@ import {
  */
 
 export interface SecretScanningAlertLocationCreatedEvent {
-  action?: 'created';
+  action: 'created';
   alert: SecretScanningAlert;
   location: SecretScanningLocation;
   repository: Repository;
