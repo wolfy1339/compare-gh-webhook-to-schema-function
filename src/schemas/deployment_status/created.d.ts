@@ -26,7 +26,14 @@ export interface DeploymentStatusCreatedEvent {
     /**
      * The new state. Can be `pending`, `success`, `failure`, or `error`.
      */
-    state: string;
+    state:
+      | 'pending'
+      | 'in_progress'
+      | 'success'
+      | 'failure'
+      | 'error'
+      | 'waiting'
+      | 'queued';
     creator: User;
     /**
      * The optional human-readable description added to the status.
