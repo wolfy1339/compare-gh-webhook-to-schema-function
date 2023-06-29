@@ -1,4 +1,5 @@
 import {
+  InstallationLite,
   Organization,
   PackageNPMMetadata,
   PackageNugetMetadata,
@@ -143,5 +144,6 @@ export interface PackageUpdatedEvent {
   };
   repository: Repository;
   sender: User;
+  installation?: InstallationLite;
   organization?: Organization;
 }
