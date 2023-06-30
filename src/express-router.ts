@@ -1,8 +1,8 @@
 // @ts-check
-const { Router: expressRouter, raw } = require('express');
-const { createTransport } = require('nodemailer');
-const config = require('./config.js');
-const { handler: validator } = require('./lib/index.js');
+import { Router as expressRouter, raw } from 'express';
+import { createTransport } from 'nodemailer';
+import config from './config.js';
+import { handler as validator } from './index.js';
 const WEBHOOK_SECRET = 'thisismysecret';
 
 process.env.GH_WEBHOOK_SECRET = WEBHOOK_SECRET;
@@ -23,8 +23,7 @@ router
 
       return;
     }
-    /** @type {string} */
-    const body = req.body;
+    const body = req.body as string;
 
     validator(body.toString(), req.headers)
       .then(async result => {
