@@ -12,6 +12,15 @@ const config = {
   ignorePatterns: ['.build/', '.serverless/', '.tmp/', 'gh-schemas'],
   overrides: [
     {
+      files: ['*.js'],
+      rules: {
+        '@typescript-eslint/explicit-module-boundary-types': 'off',
+        '@typescript-eslint/no-unsafe-assignment': 'off',
+        '@typescript-eslint/no-var-requires': 'off',
+        '@typescript-eslint/no-require-imports': 'off'
+      }
+    },
+    {
       files: ['test/**'],
       extends: ['ackama/jest'],
       rules: { 'jest/prefer-expect-assertions': 'off' }
