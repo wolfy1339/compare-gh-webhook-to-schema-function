@@ -5,6 +5,7 @@
     "moduleResolution": "Node",
     "lib": ["ESNext"],
     "rootDir": "./",
+    "allowJs": true,
     "checkJs": true,
     "noEmit": true,
     "strict": true,
