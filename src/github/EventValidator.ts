@@ -2,7 +2,7 @@ import Ajv from 'ajv';
 import type { DefinedError, ErrorObject, ValidateFunction } from 'ajv';
 import addFormats from 'ajv-formats';
 import { strict as assert } from 'node:assert';
-import fs from 'node:fs';
+import fs from 'fs';
 import type { JSONSchema7 } from 'json-schema';
 import path from 'node:path';
 import type { GithubEvent } from './types';
