@@ -3,7 +3,7 @@
 /* eslint-disable node/no-sync */
 
 import webhooksSchema from '@octokit/webhooks-schemas';
-import fs from 'fs';
+import fs from 'node:fs';
 import { JSONSchema7 } from 'json-schema';
 
 const outDir = 'src/schemas';
