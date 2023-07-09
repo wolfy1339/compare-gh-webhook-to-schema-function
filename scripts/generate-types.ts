@@ -2,9 +2,9 @@
 
 import { ResolverOptions } from '@apidevtools/json-schema-ref-parser';
 import { strict as assert } from 'assert';
-import { promises as fs } from 'node:fs';
 import { JSONSchema4, JSONSchema7 } from 'json-schema';
 import { compile } from 'json-schema-to-typescript';
+import { promises as fs } from 'node:fs';
 import path from 'node:path';
 import { Options, format } from 'prettier';
 import { prettier as prettierConfigPackage } from '../package.json';
