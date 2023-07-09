@@ -105,7 +105,7 @@ const createCommonSchemaResolver = async (
       lines.splice(
         0,
         0,
-        `import { ${joinedIdentifiers} } from '${importPath}';`
+        `import type { ${joinedIdentifiers} } from '${importPath}';`
       );
 
       return lines.join('\n');

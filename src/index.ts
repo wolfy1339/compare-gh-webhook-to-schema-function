@@ -1,8 +1,8 @@
 import dotenv from 'dotenv';
 import type { IncomingHttpHeaders } from 'node:http';
-import 'source-map-support/register';
+import 'source-map-support/register.js';
 import { v5 as uuid } from 'uuid';
-import { EventValidator, describeEvent, getEvent } from './github';
+import { EventValidator, describeEvent, getEvent } from './github/index.js';
 // import { Notifier } from './notifier';
 
 dotenv.config();

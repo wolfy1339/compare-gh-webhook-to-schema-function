@@ -1,4 +1,4 @@
-import {
+import type {
   InstallationLite,
   Organization,
   ProjectsV2Item,
