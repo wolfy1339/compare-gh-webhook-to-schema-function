@@ -18,7 +18,9 @@ const config: Config.InitialOptions = {
   clearMocks: true,
   restoreMocks: true,
   resetMocks: true,
-
+  moduleNameMapper: {
+    '^(\\.{1,2}/.*)\\.js$': '$1'
+  },
   moduleFileExtensions: ['ts', 'tsx', 'js', 'json', 'jsx', 'node'],
   transform: {
     '\\.tsx?': ['ts-jest', { isolatedModules: true }]

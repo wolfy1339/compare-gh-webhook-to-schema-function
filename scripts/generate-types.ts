@@ -2,10 +2,10 @@
 
 import { ResolverOptions } from '@apidevtools/json-schema-ref-parser';
 import { strict as assert } from 'assert';
-import { promises as fs } from 'fs';
 import { JSONSchema4, JSONSchema7 } from 'json-schema';
 import { compile } from 'json-schema-to-typescript';
-import path from 'path';
+import { promises as fs } from 'node:fs';
+import path from 'node:path';
 import { Options, format } from 'prettier';
 import { prettier as prettierConfigPackage } from '../package.json';
 
@@ -105,7 +105,7 @@ const createCommonSchemaResolver = async (
       lines.splice(
         0,
         0,
-        `import { ${joinedIdentifiers} } from '${importPath}';`
+        `import type { ${joinedIdentifiers} } from '${importPath}';`
       );
 
       return lines.join('\n');
