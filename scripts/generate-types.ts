@@ -160,7 +160,7 @@ const writeTypesForSchema = async (pathToSchema: string) => {
 
   await fs.writeFile(
     `${dir}/${fileName}.d.ts`,
-    format(await compileSchema(pathToSchema), {
+    await format(await compileSchema(pathToSchema), {
       ...prettierConfig,
       parser: 'typescript'
     })
