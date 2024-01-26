@@ -13,6 +13,6 @@ import { MarketplacePurchasePurchasedEvent } from './purchased';
 export type MarketplacePurchaseEvent =
   | MarketplacePurchaseCancelledEvent
   | MarketplacePurchaseChangedEvent
-  | MarketplacePurchasePendingChangeEvent
   | MarketplacePurchasePendingChangeCancelledEvent
+  | MarketplacePurchasePendingChangeEvent
   | MarketplacePurchasePurchasedEvent;

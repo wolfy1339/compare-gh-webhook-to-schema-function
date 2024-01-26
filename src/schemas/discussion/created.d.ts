@@ -14,7 +14,7 @@ import type {
 export interface DiscussionCreatedEvent {
   action: 'created';
   discussion: Discussion & {
-    state: 'open' | 'converting';
+    state: 'converting' | 'open';
     locked: false;
     answer_html_url: null;
     answer_chosen_at: null;

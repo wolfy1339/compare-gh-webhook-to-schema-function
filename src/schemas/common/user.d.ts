@@ -23,6 +23,6 @@ export interface User {
   repos_url: string;
   events_url: string;
   received_events_url: string;
-  type: 'Bot' | 'User' | 'Organization';
+  type: 'Bot' | 'Organization' | 'User';
   site_admin: boolean;
 }

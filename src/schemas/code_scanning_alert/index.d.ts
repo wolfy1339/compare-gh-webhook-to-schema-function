@@ -17,5 +17,5 @@ export type CodeScanningAlertEvent =
   | CodeScanningAlertClosedByUserEvent
   | CodeScanningAlertCreatedEvent
   | CodeScanningAlertFixedEvent
-  | CodeScanningAlertReopenedEvent
-  | CodeScanningAlertReopenedByUserEvent;
+  | CodeScanningAlertReopenedByUserEvent
+  | CodeScanningAlertReopenedEvent;

@@ -27,13 +27,13 @@ export interface DeploymentStatusCreatedEvent {
      * The new state. Can be `pending`, `success`, `failure`, or `error`.
      */
     state:
-      | 'pending'
-      | 'in_progress'
-      | 'success'
-      | 'failure'
       | 'error'
-      | 'waiting'
-      | 'queued';
+      | 'failure'
+      | 'in_progress'
+      | 'pending'
+      | 'queued'
+      | 'success'
+      | 'waiting';
     creator: User;
     /**
      * The optional human-readable description added to the status.
@@ -74,19 +74,19 @@ export interface DeploymentStatusCreatedEvent {
     /**
      * The current status of the check run. Can be `queued`, `in_progress`, or `completed`.
      */
-    status: 'queued' | 'in_progress' | 'completed' | 'waiting';
+    status: 'completed' | 'in_progress' | 'queued' | 'waiting';
     /**
      * The result of the completed check run. Can be one of `success`, `failure`, `neutral`, `cancelled`, `timed_out`, `action_required` or `stale`. This value will be `null` until the check run has completed.
      */
     conclusion:
-      | 'success'
+      | 'action_required'
+      | 'cancelled'
       | 'failure'
       | 'neutral'
-      | 'cancelled'
-      | 'timed_out'
-      | 'action_required'
-      | 'stale'
       | 'skipped'
+      | 'stale'
+      | 'success'
+      | 'timed_out'
       | null;
     started_at: string;
     completed_at: string | null;

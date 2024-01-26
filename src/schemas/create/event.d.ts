@@ -21,7 +21,7 @@ export interface CreateEvent {
   /**
    * The type of Git ref object created in the repository. Can be either `branch` or `tag`.
    */
-  ref_type: 'tag' | 'branch';
+  ref_type: 'branch' | 'tag';
   /**
    * The name of the repository's default branch (usually `main`).
    */

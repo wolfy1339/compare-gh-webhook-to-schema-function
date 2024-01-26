@@ -29,7 +29,7 @@ export interface PullRequest {
   /**
    * State of this Pull Request. Either `open` or `closed`.
    */
-  state: 'open' | 'closed';
+  state: 'closed' | 'open';
   locked: boolean;
   /**
    * The title of the pull request.
@@ -44,7 +44,7 @@ export interface PullRequest {
   merge_commit_sha: string | null;
   assignee: User | null;
   assignees: User[];
-  requested_reviewers: (User | Team)[];
+  requested_reviewers: (Team | User)[];
   requested_teams: Team[];
   labels: Label[];
   milestone: Milestone | null;
@@ -79,7 +79,7 @@ export interface PullRequest {
   };
   author_association: AuthorAssociation;
   auto_merge: PullRequestAutoMerge | null;
-  active_lock_reason: 'resolved' | 'off-topic' | 'too heated' | 'spam' | null;
+  active_lock_reason: 'off-topic' | 'resolved' | 'spam' | 'too heated' | null;
   /**
    * Indicates whether or not the pull request is a draft.
    */

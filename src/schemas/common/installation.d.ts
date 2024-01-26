@@ -27,7 +27,7 @@ export interface Installation {
    * The ID of the user or organization this token is being scoped to.
    */
   target_id: number;
-  target_type: 'User' | 'Organization';
+  target_type: 'Organization' | 'User';
   permissions: {
     /**
      * The level of permission granted to the access token for GitHub Actions workflows, workflow runs, and artifacts.
@@ -165,53 +165,53 @@ export interface Installation {
     | 'commit_comment'
     | 'create'
     | 'delete'
-    | 'deployment'
+    | 'deploy_key'
     | 'deployment_review'
     | 'deployment_status'
-    | 'deploy_key'
-    | 'discussion'
+    | 'deployment'
     | 'discussion_comment'
+    | 'discussion'
     | 'fork'
     | 'gollum'
-    | 'issues'
     | 'issue_comment'
+    | 'issues'
     | 'label'
     | 'member'
     | 'membership'
     | 'merge_group'
     | 'merge_queue_entry'
     | 'milestone'
-    | 'organization'
     | 'org_block'
+    | 'organization'
     | 'page_build'
-    | 'project'
-    | 'projects_v2_item'
     | 'project_card'
     | 'project_column'
+    | 'project'
+    | 'projects_v2_item'
     | 'public'
-    | 'pull_request'
-    | 'pull_request_review'
     | 'pull_request_review_comment'
     | 'pull_request_review_thread'
+    | 'pull_request_review'
+    | 'pull_request'
     | 'push'
     | 'registry_package'
     | 'release'
-    | 'repository'
     | 'repository_dispatch'
-    | 'secret_scanning_alert'
+    | 'repository'
     | 'secret_scanning_alert_location'
+    | 'secret_scanning_alert'
     | 'security_and_analysis'
     | 'star'
     | 'status'
-    | 'team'
     | 'team_add'
+    | 'team'
     | 'watch'
     | 'workflow_dispatch'
     | 'workflow_job'
     | 'workflow_run'
   )[];
-  created_at: string | number;
-  updated_at: string | number;
+  created_at: number | string;
+  updated_at: number | string;
   single_file_name: string | null;
   has_multiple_single_files?: boolean;
   single_file_paths?: string[];

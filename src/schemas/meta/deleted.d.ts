@@ -27,7 +27,7 @@ export interface MetaDeletedEvent {
       /**
        * The media type used to serialize the payloads. Supported values include `json` and `form`. The default is `form`.
        */
-      content_type: 'json' | 'form';
+      content_type: 'form' | 'json';
       /**
        * If provided, the `secret` will be used as the `key` to generate the HMAC hex digest value for [delivery signature headers](https://docs.github.com/webhooks/event-payloads/#delivery-headers).
        */

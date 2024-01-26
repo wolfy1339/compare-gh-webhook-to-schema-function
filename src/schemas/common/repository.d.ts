@@ -272,7 +272,7 @@ export interface Repository {
   is_template: boolean;
   web_commit_signoff_required: boolean;
   topics: string[];
-  visibility: 'public' | 'private' | 'internal';
+  visibility: 'internal' | 'private' | 'public';
   /**
    * Whether to delete head branches when pull requests are merged
    */

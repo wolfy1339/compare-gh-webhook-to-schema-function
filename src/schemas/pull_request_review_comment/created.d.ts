@@ -29,7 +29,7 @@ export interface PullRequestReviewCommentCreatedEvent {
     patch_url: string;
     issue_url: string;
     number: number;
-    state: 'open' | 'closed';
+    state: 'closed' | 'open';
     locked: boolean;
     title: string;
     user: User;
@@ -41,7 +41,7 @@ export interface PullRequestReviewCommentCreatedEvent {
     merge_commit_sha: string | null;
     assignee: User | null;
     assignees: User[];
-    requested_reviewers: (User | Team)[];
+    requested_reviewers: (Team | User)[];
     requested_teams: Team[];
     labels: Label[];
     milestone: Milestone | null;
@@ -77,7 +77,7 @@ export interface PullRequestReviewCommentCreatedEvent {
     };
     auto_merge?: PullRequestAutoMerge | null;
     author_association: AuthorAssociation;
-    active_lock_reason: 'resolved' | 'off-topic' | 'too heated' | 'spam' | null;
+    active_lock_reason: 'off-topic' | 'resolved' | 'spam' | 'too heated' | null;
   };
   repository: Repository;
   installation?: InstallationLite;

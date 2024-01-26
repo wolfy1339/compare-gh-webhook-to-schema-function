@@ -9,7 +9,7 @@ import type { GithubEvent } from './types';
 
 const pathToSchemas = path.join(__dirname, '../schemas');
 
-export type Logger = Pick<Console, 'info' | 'warn' | 'error'>;
+export type Logger = Pick<Console, 'error' | 'info' | 'warn'>;
 
 export class EventValidator<
   TEventName extends GithubEvent['name'],

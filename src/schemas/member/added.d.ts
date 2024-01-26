@@ -17,7 +17,7 @@ export interface MemberAddedEvent {
   action: 'added';
   changes?: {
     permission?: {
-      to: 'write' | 'admin';
+      to: 'admin' | 'write';
     };
   };
   /**

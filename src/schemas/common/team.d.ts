@@ -22,7 +22,7 @@ export interface Team {
    * Description of the team
    */
   description: string | null;
-  privacy: 'open' | 'closed' | 'secret';
+  privacy: 'closed' | 'open' | 'secret';
   /**
    * URL for the team
    */
@@ -49,7 +49,7 @@ export interface Team {
      * Description of the team
      */
     description: string | null;
-    privacy: 'open' | 'closed' | 'secret';
+    privacy: 'closed' | 'open' | 'secret';
     /**
      * URL for the team
      */
@@ -64,10 +64,10 @@ export interface Team {
     /**
      * Whether team members will receive notifications when their team is @mentioned
      */
-    notification_setting?: 'notifications_enabled' | 'notifications_disabled';
+    notification_setting?: 'notifications_disabled' | 'notifications_enabled';
   } | null;
   /**
    * Whether team members will receive notifications when their team is @mentioned
    */
-  notification_setting?: 'notifications_enabled' | 'notifications_disabled';
+  notification_setting?: 'notifications_disabled' | 'notifications_enabled';
 }

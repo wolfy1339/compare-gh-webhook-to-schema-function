@@ -21,7 +21,7 @@ export interface DeleteEvent {
   /**
    * The type of Git ref object deleted in the repository. Can be either `branch` or `tag`.
    */
-  ref_type: 'tag' | 'branch';
+  ref_type: 'branch' | 'tag';
   /**
    * The pusher type for the event. Can be either `user` or a deploy key.
    */

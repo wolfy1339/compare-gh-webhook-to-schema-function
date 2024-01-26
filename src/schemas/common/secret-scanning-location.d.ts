@@ -16,13 +16,6 @@ export type SecretScanningLocation =
       /**
        * The location type. Because secrets may be found in different types of resources (ie. code, comments, issues), this field identifies the type of resource where the secret was found.
        */
-      type: 'issue_title';
-      details: SecretScanningLocationIssueTitle;
-    }
-  | {
-      /**
-       * The location type. Because secrets may be found in different types of resources (ie. code, comments, issues), this field identifies the type of resource where the secret was found.
-       */
       type: 'issue_body';
       details: SecretScanningLocationIssueBody;
     }
@@ -32,6 +25,13 @@ export type SecretScanningLocation =
        */
       type: 'issue_comment';
       details: SecretScanningLocationIssueComment;
+    }
+  | {
+      /**
+       * The location type. Because secrets may be found in different types of resources (ie. code, comments, issues), this field identifies the type of resource where the secret was found.
+       */
+      type: 'issue_title';
+      details: SecretScanningLocationIssueTitle;
     };
 
 /**

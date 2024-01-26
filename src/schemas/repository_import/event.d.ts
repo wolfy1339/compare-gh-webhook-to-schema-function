@@ -11,7 +11,7 @@ import type {
  */
 
 export interface RepositoryImportEvent {
-  status: 'success' | 'cancelled' | 'failure';
+  status: 'cancelled' | 'failure' | 'success';
   repository: Repository;
   sender: User;
   installation?: InstallationLite;
