@@ -33,14 +33,14 @@ export interface WorkflowRun {
    */
   check_suite_node_id: string;
   conclusion:
-    | 'action_required'
-    | 'cancelled'
+    | 'success'
     | 'failure'
     | 'neutral'
-    | 'skipped'
-    | 'stale'
-    | 'success'
+    | 'cancelled'
     | 'timed_out'
+    | 'action_required'
+    | 'stale'
+    | 'skipped'
     | null;
   created_at: string;
   event: string;
@@ -98,7 +98,7 @@ export interface WorkflowRun {
    * The auto incrementing run number for the workflow run.
    */
   run_number: number;
-  status: 'completed' | 'in_progress' | 'queued' | 'requested' | 'waiting';
+  status: 'requested' | 'in_progress' | 'completed' | 'queued' | 'waiting';
   updated_at: string;
   /**
    * The URL to the workflow run.

@@ -35,19 +35,19 @@ export interface CheckRunCreatedEvent {
     /**
      * The current status of the check run. Can be `queued`, `in_progress`, or `completed`.
      */
-    status: 'completed' | 'in_progress' | 'queued' | 'waiting';
+    status: 'queued' | 'in_progress' | 'completed' | 'waiting';
     /**
      * The result of the completed check run. Can be one of `success`, `failure`, `neutral`, `cancelled`, `timed_out`, `action_required` or `stale`. This value will be `null` until the check run has completed.
      */
     conclusion:
-      | 'action_required'
-      | 'cancelled'
+      | 'success'
       | 'failure'
       | 'neutral'
-      | 'skipped'
-      | 'stale'
-      | 'success'
+      | 'cancelled'
       | 'timed_out'
+      | 'action_required'
+      | 'stale'
+      | 'skipped'
       | null;
     /**
      * The time that the check run began. This is a timestamp in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format: `YYYY-MM-DDTHH:MM:SSZ`.
@@ -79,15 +79,15 @@ export interface CheckRunCreatedEvent {
        * The SHA of the head commit that is being checked.
        */
       head_sha: string;
-      status: 'completed' | 'in_progress' | 'queued';
+      status: 'queued' | 'in_progress' | 'completed';
       conclusion:
-        | 'action_required'
-        | 'cancelled'
+        | 'success'
         | 'failure'
         | 'neutral'
-        | 'stale'
-        | 'success'
+        | 'cancelled'
         | 'timed_out'
+        | 'action_required'
+        | 'stale'
         | null;
       url: string;
       before: string | null;

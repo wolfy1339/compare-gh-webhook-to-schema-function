@@ -5,6 +5,6 @@
  */
 
 export type BranchProtectionRuleEnforcementLevel =
-  | 'everyone'
+  | 'off'
   | 'non_admins'
-  | 'off';
+  | 'everyone';

@@ -5,12 +5,12 @@
  */
 
 export interface PackageNugetMetadata {
-  id?: number | string;
+  id?: string | number;
   name?: string;
   value?:
     | boolean
-    | number
     | string
+    | number
     | {
         url?: string;
         branch?: string;

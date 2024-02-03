@@ -24,5 +24,5 @@ export interface ProjectCard {
   created_at: string;
   updated_at: string;
   content_url?: string;
-  after_id?: number | string | null;
+  after_id?: string | number | null;
 }
