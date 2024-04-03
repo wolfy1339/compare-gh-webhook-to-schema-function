@@ -29,7 +29,7 @@ export interface Milestone {
   /**
    * The state of the milestone.
    */
-  state: 'closed' | 'open';
+  state: 'open' | 'closed';
   created_at: string;
   updated_at: string;
   due_on: string | null;

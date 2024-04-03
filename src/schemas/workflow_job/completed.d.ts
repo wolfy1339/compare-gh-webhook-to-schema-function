@@ -20,6 +20,6 @@ export interface WorkflowJobCompletedEvent {
   sender: User;
   deployment?: Deployment;
   workflow_job: WorkflowJob & {
-    conclusion: 'cancelled' | 'failure' | 'skipped' | 'success';
+    conclusion: 'success' | 'failure' | 'cancelled' | 'skipped';
   };
 }
