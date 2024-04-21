@@ -10,6 +10,6 @@ import type {
  */
 
 export type WorkflowStep =
+  | WorkflowStepCompleted
   | WorkflowStepInProgress
-  | WorkflowStepQueued
-  | WorkflowStepCompleted;
+  | WorkflowStepQueued;

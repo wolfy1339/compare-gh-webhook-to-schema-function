@@ -24,7 +24,7 @@ export interface Project {
   /**
    * State of the project; either 'open' or 'closed'
    */
-  state: 'open' | 'closed';
+  state: 'closed' | 'open';
   creator: User;
   created_at: string;
   updated_at: string;

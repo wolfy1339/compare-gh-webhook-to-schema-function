@@ -40,7 +40,7 @@ export interface Issue {
   /**
    * State of the issue; either 'open' or 'closed'
    */
-  state?: 'open' | 'closed';
+  state?: 'closed' | 'open';
   locked?: boolean;
   assignee?: User | null;
   assignees: User[];
@@ -50,7 +50,7 @@ export interface Issue {
   updated_at: string;
   closed_at: string | null;
   author_association: AuthorAssociation;
-  active_lock_reason: 'resolved' | 'off-topic' | 'too heated' | 'spam' | null;
+  active_lock_reason: 'off-topic' | 'resolved' | 'spam' | 'too heated' | null;
   draft?: boolean;
   performed_via_github_app?: App | null;
   pull_request?: {

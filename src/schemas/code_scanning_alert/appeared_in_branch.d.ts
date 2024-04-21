@@ -39,7 +39,7 @@ export interface CodeScanningAlertAppearedInBranchEvent {
     /**
      * State of a code scanning alert.
      */
-    state: 'open' | 'dismissed' | 'fixed';
+    state: 'dismissed' | 'fixed' | 'open';
     dismissed_by: User | null;
     /**
      * The time that the alert was dismissed in ISO 8601 format: `YYYY-MM-DDTHH:MM:SSZ`.
@@ -48,7 +48,7 @@ export interface CodeScanningAlertAppearedInBranchEvent {
     /**
      * The reason for dismissing or closing the alert. Can be one of: `false positive`, `won't fix`, and `used in tests`.
      */
-    dismissed_reason: 'false positive' | "won't fix" | 'used in tests' | null;
+    dismissed_reason: 'false positive' | 'used in tests' | "won't fix" | null;
     rule: {
       /**
        * A unique identifier for the rule used to detect the alert.
@@ -57,7 +57,7 @@ export interface CodeScanningAlertAppearedInBranchEvent {
       /**
        * The severity of the alert.
        */
-      severity: 'none' | 'note' | 'warning' | 'error' | null;
+      severity: 'error' | 'none' | 'note' | 'warning' | null;
       /**
        * A short description of the rule used to detect the alert.
        */

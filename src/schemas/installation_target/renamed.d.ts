@@ -55,7 +55,7 @@ export interface InstallationTargetRenamedEvent {
     slug?: string;
     starred_url?: string;
     subscriptions_url?: string;
-    type?: 'Bot' | 'User' | 'Organization';
+    type?: 'Bot' | 'Organization' | 'User';
     updated_at?: string;
     url?: string;
     website_url?: null;

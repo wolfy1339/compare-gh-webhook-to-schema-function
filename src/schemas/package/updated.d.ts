@@ -30,12 +30,12 @@ export interface PackageUpdatedEvent {
     description: string | null;
     ecosystem: string;
     package_type:
-      | 'npm'
-      | 'maven'
-      | 'rubygems'
+      | 'CONTAINER'
       | 'docker'
+      | 'maven'
+      | 'npm'
       | 'nuget'
-      | 'CONTAINER';
+      | 'rubygems';
     html_url: string;
     created_at: string;
     updated_at: string;
@@ -101,12 +101,8 @@ export interface PackageUpdatedEvent {
        */
       metadata: unknown[];
       container_metadata?: {
-        labels?: {
-          [k: string]: unknown;
-        } | null;
-        manifest?: {
-          [k: string]: unknown;
-        } | null;
+        labels?: Record<string, unknown> | null;
+        manifest?: Record<string, unknown> | null;
         tag?: {
           digest?: string;
           name?: string;
