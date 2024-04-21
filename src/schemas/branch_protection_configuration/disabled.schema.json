@@ -1,5 +1,5 @@
 {
-  "$id": "branch_protection_rule$disabled",
+  "$id": "branch_protection_configuration$disabled",
   "title": "branch protection configuration disabled event",
   "type": "object",
   "properties": {
