@@ -1,6 +1,6 @@
 #!/usr/bin/env ts-node-transpile-only
 
-import { ResolverOptions } from '@apidevtools/json-schema-ref-parser';
+import { ResolverOptions } from '@apidevtools/json-schema-ref-parser/dist/lib/types';
 import { strict as assert } from 'assert';
 import { JSONSchema4, JSONSchema7 } from 'json-schema';
 import { compile } from 'json-schema-to-typescript';
@@ -10,7 +10,7 @@ import { Options, format } from 'prettier';
 import { prettier as prettierConfigPackage } from '../package.json';
 
 const prettierConfig: Options = {
-  // eslint-disable-next-line @typescript-eslint/no-require-imports,node/global-require,@typescript-eslint/no-var-requires
+  // eslint-disable-next-line @typescript-eslint/no-require-imports,n/global-require,@typescript-eslint/no-var-requires
   ...(require(prettierConfigPackage) as Options),
   // this is the one property we don't explicitly set in our config :/
   printWidth: 80

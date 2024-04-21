@@ -1,6 +1,6 @@
 #!/usr/bin/env ts-node-transpile-only
 
-/* eslint-disable node/no-sync */
+/* eslint-disable n/no-sync */
 
 import webhooksSchema from '@octokit/webhooks-schemas';
 import { JSONSchema7 } from 'json-schema';

@@ -56,14 +56,14 @@ export class EventValidator<
   private _readSchemasInDirectory(directory: string): JSONSchema7[] {
     const directoryPath = `${pathToSchemas}/${directory}`;
 
-    // eslint-disable-next-line node/no-sync
+    // eslint-disable-next-line n/no-sync
     return fs
       .readdirSync(directoryPath)
       .filter(file => file.endsWith('.schema.json'))
       .map(
         file =>
           JSON.parse(
-            // eslint-disable-next-line node/no-sync
+            // eslint-disable-next-line n/no-sync
             fs.readFileSync(`${directoryPath}/${file}`, 'utf-8')
           ) as JSONSchema7
       );

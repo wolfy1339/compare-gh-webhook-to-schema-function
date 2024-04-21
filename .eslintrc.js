@@ -8,7 +8,7 @@ const config = {
     sourceType: 'module'
   },
   env: { node: true },
-  extends: ['ackama', 'ackama/@typescript-eslint'],
+  extends: ['./.eslintrc/javascript', './.eslintrc/typescript'],
   ignorePatterns: ['.build/', '.serverless/', '.tmp/', 'gh-schemas'],
   overrides: [
     {
@@ -22,7 +22,7 @@ const config = {
     },
     {
       files: ['test/**'],
-      extends: ['ackama/jest'],
+      extends: ['./.eslintrc/jest'],
       rules: { 'jest/prefer-expect-assertions': 'off' }
     },
     {
