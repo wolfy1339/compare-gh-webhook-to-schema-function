@@ -58,8 +58,8 @@ export type PullRequestEvent =
   | PullRequestOpenedEvent
   | PullRequestReadyForReviewEvent
   | PullRequestReopenedEvent
-  | PullRequestReviewRequestedEvent
   | PullRequestReviewRequestRemovedEvent
+  | PullRequestReviewRequestedEvent
   | PullRequestSynchronizeEvent
   | PullRequestUnassignedEvent
   | PullRequestUnlabeledEvent

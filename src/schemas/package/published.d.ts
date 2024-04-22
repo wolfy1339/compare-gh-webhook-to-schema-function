@@ -33,12 +33,12 @@ export interface PackagePublishedEvent {
      * The type of supported package. Packages in GitHub's Gradle registry have the type `maven`. Docker images pushed to GitHub's Container registry (`ghcr.io`) have the type `container`. You can use the type `docker` to find images that were pushed to GitHub's Docker registry (`docker.pkg.github.com`), even if these have now been migrated to the Container registry.
      */
     package_type:
-      | 'CONTAINER'
-      | 'docker'
-      | 'maven'
       | 'npm'
+      | 'maven'
+      | 'rubygems'
+      | 'docker'
       | 'nuget'
-      | 'rubygems';
+      | 'CONTAINER';
     html_url: string;
     created_at: string;
     updated_at: string;
@@ -104,8 +104,12 @@ export interface PackagePublishedEvent {
        */
       metadata: unknown[];
       container_metadata?: {
-        labels?: Record<string, unknown> | null;
-        manifest?: Record<string, unknown> | null;
+        labels?: {
+          [k: string]: unknown;
+        } | null;
+        manifest?: {
+          [k: string]: unknown;
+        } | null;
         tag?: {
           digest?: string;
           name?: string;

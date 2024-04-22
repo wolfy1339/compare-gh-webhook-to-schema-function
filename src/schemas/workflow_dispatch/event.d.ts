@@ -14,7 +14,9 @@ export interface WorkflowDispatchEvent {
   /**
    * Inputs to the workflow. Each key represents the name of the input while it's value represents the value of that input.
    */
-  inputs: Record<string, unknown> | null;
+  inputs: {
+    [k: string]: unknown;
+  } | null;
   /**
    * The branch ref from which the workflow was run.
    */

@@ -15,7 +15,7 @@ export interface OrganizationCustomProperty {
   /**
    * The type of the value for the property
    */
-  value_type: 'single_select' | 'string';
+  value_type: 'string' | 'single_select';
   /**
    * Whether the property is required.
    */

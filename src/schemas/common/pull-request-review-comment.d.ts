@@ -102,5 +102,5 @@ export interface PullRequestReviewComment {
   /**
    * The level at which the comment is targeted, can be a diff line or a file.
    */
-  subject_type?: 'file' | 'line';
+  subject_type?: 'line' | 'file';
 }

@@ -13,7 +13,7 @@ import type {
 export interface ProjectsV2ItemEditedEvent {
   changes: {
     field_value: {
-      field_type: 'date' | 'iteration' | 'number' | 'single_select' | 'text';
+      field_type: 'single_select' | 'date' | 'number' | 'text' | 'iteration';
       field_node_id: string;
     };
   };

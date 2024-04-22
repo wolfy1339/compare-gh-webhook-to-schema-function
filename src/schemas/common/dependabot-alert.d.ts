@@ -21,7 +21,7 @@ export interface DependabotAlert {
   /**
    * The state of the Dependabot alert.
    */
-  state: 'auto_dismissed' | 'dismissed' | 'fixed' | 'open';
+  state: 'dismissed' | 'fixed' | 'open' | 'auto_dismissed';
   /**
    * Details for the vulnerable dependency.
    */
@@ -64,7 +64,7 @@ export interface DependabotAlert {
       /**
        * The severity of the vulnerability.
        */
-      severity: 'critical' | 'high' | 'low' | 'medium';
+      severity: 'low' | 'medium' | 'high' | 'critical';
       /**
        * Conditions that identify vulnerable versions of this vulnerability's package.
        */
@@ -82,7 +82,7 @@ export interface DependabotAlert {
     /**
      * The severity of the advisory.
      */
-    severity: 'critical' | 'high' | 'low' | 'medium';
+    severity: 'low' | 'medium' | 'high' | 'critical';
     cvss: SecurityAdvisoryCvss;
     /**
      * Details for the advisory pertaining to Common Weakness Enumeration.
@@ -131,7 +131,7 @@ export interface DependabotAlert {
     /**
      * The severity of the vulnerability.
      */
-    severity: 'critical' | 'high' | 'low' | 'medium';
+    severity: 'low' | 'medium' | 'high' | 'critical';
     /**
      * Conditions that identify vulnerable versions of this vulnerability's package.
      */

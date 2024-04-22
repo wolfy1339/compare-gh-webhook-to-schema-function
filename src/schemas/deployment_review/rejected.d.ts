@@ -19,8 +19,8 @@ export interface DeploymentReviewRejectedEvent {
   workflow_job_run?: {
     id: number;
     name: string;
-    status: 'completed' | 'in_progress' | 'queued' | 'waiting';
-    conclusion: 'cancelled' | 'failure' | 'skipped' | 'success' | null;
+    status: 'queued' | 'in_progress' | 'completed' | 'waiting';
+    conclusion: 'success' | 'failure' | 'cancelled' | 'skipped' | null;
     html_url: string;
     created_at: string;
     updated_at: string;
@@ -29,8 +29,8 @@ export interface DeploymentReviewRejectedEvent {
   workflow_job_runs?: {
     id: number;
     name: string;
-    status: 'completed' | 'in_progress' | 'queued' | 'waiting';
-    conclusion: 'cancelled' | 'failure' | 'skipped' | 'success' | null;
+    status: 'queued' | 'in_progress' | 'completed' | 'waiting';
+    conclusion: 'success' | 'failure' | 'cancelled' | 'skipped' | null;
     html_url: string;
     created_at: string;
     updated_at: string;
@@ -38,12 +38,12 @@ export interface DeploymentReviewRejectedEvent {
   }[];
   reviewers?: (
     | {
-        type: 'Team';
-        reviewer: Team;
-      }
-    | {
         type: 'User';
         reviewer: User;
+      }
+    | {
+        type: 'Team';
+        reviewer: Team;
       }
   )[];
   approver?: User;

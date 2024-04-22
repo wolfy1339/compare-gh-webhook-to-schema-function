@@ -32,18 +32,18 @@ export interface CheckSuiteCompletedEvent {
     /**
      * The summary status for all check runs that are part of the check suite. Can be `queued`, `requested`, `in_progress`, or `completed`.
      */
-    status: 'completed' | 'in_progress' | 'queued' | 'requested' | null;
+    status: 'requested' | 'in_progress' | 'completed' | 'queued' | null;
     /**
      * The summary conclusion for all check runs that are part of the check suite. Can be one of `success`, `failure`, `neutral`, `cancelled`, `timed_out`, `action_required` or `stale`. This value will be `null` until the check run has `completed`.
      */
     conclusion:
-      | 'action_required'
-      | 'cancelled'
+      | 'success'
       | 'failure'
       | 'neutral'
-      | 'stale'
-      | 'success'
+      | 'cancelled'
       | 'timed_out'
+      | 'action_required'
+      | 'stale'
       | null;
     /**
      * URL that points to the check suite API resource.

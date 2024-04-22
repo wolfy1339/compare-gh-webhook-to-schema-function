@@ -34,7 +34,7 @@ export interface IssueCommentEditedEvent {
     /**
      * State of the issue; either 'open' or 'closed'
      */
-    state: 'closed' | 'open';
+    state: 'open' | 'closed';
     locked: boolean;
     labels: Label[];
   };

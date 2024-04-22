@@ -15,5 +15,5 @@ export interface CustomPropertyValue {
   /**
    * The value assigned to the property
    */
-  value: string[] | string | null;
+  value: string | string[] | null;
 }

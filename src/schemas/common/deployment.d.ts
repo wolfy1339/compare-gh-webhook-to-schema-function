@@ -24,7 +24,9 @@ export interface Deployment {
    * Parameter to specify a task to execute
    */
   task: string;
-  payload: Record<string, unknown>;
+  payload: {
+    [k: string]: unknown;
+  };
   original_environment: string;
   /**
    * Name of the target deployment environment.

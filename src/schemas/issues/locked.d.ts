@@ -15,7 +15,7 @@ export interface IssuesLockedEvent {
   action: 'locked';
   issue: Issue & {
     locked: true;
-    active_lock_reason: 'off-topic' | 'resolved' | 'spam' | 'too heated' | null;
+    active_lock_reason: 'resolved' | 'off-topic' | 'too heated' | 'spam' | null;
   };
   repository: Repository;
   sender: User;

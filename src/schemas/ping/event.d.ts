@@ -15,7 +15,7 @@ export interface PingEvent {
    * The [webhook configuration](https://docs.github.com/en/rest/reference/repos#get-a-repository-webhook).
    */
   hook: {
-    type: 'App' | 'Organization' | 'Repository';
+    type: 'Repository' | 'Organization' | 'App';
     id: number;
     name: string;
     active: boolean;
@@ -31,7 +31,7 @@ export interface PingEvent {
       /**
        * The media type used to serialize the payloads. Supported values include `json` and `form`. The default is `form`.
        */
-      content_type: 'form' | 'json';
+      content_type: 'json' | 'form';
       /**
        * If provided, the `secret` will be used as the `key` to generate the HMAC hex digest value for [delivery signature headers](https://docs.github.com/webhooks/event-payloads/#delivery-headers).
        */

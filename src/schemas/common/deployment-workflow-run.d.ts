@@ -15,15 +15,15 @@ export interface DeploymentWorkflowRun {
   head_sha: string;
   run_number: number;
   event: string;
-  status: 'completed' | 'in_progress' | 'queued' | 'requested';
+  status: 'requested' | 'in_progress' | 'completed' | 'queued';
   conclusion:
-    | 'action_required'
-    | 'cancelled'
+    | 'success'
     | 'failure'
     | 'neutral'
-    | 'stale'
-    | 'success'
+    | 'cancelled'
     | 'timed_out'
+    | 'action_required'
+    | 'stale'
     | null;
   workflow_id: number;
   check_suite_id: number;
