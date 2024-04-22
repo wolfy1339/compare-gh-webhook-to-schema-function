@@ -34,7 +34,7 @@ export interface StatusEvent {
   /**
    * The new state. Can be `pending`, `success`, `failure`, or `error`.
    */
-  state: 'error' | 'failure' | 'pending' | 'success';
+  state: 'pending' | 'success' | 'failure' | 'error';
   commit: {
     sha: string;
     node_id: string;
@@ -55,18 +55,18 @@ export interface StatusEvent {
       verification: {
         verified: boolean;
         reason:
-          | 'bad_email'
           | 'expired_key'
+          | 'not_signing_key'
           | 'gpgverify_error'
           | 'gpgverify_unavailable'
-          | 'invalid'
-          | 'malformed_signature'
-          | 'no_user'
-          | 'not_signing_key'
-          | 'unknown_key'
-          | 'unknown_signature_type'
           | 'unsigned'
+          | 'unknown_signature_type'
+          | 'no_user'
           | 'unverified_email'
+          | 'bad_email'
+          | 'unknown_key'
+          | 'malformed_signature'
+          | 'invalid'
           | 'valid';
         signature: string | null;
         payload: string | null;

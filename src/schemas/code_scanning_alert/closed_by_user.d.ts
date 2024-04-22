@@ -49,7 +49,7 @@ export interface CodeScanningAlertClosedByUserEvent {
     /**
      * The reason for dismissing or closing the alert. Can be one of: `false positive`, `won't fix`, and `used in tests`.
      */
-    dismissed_reason: 'false positive' | 'used in tests' | "won't fix" | null;
+    dismissed_reason: 'false positive' | "won't fix" | 'used in tests' | null;
     rule: {
       /**
        * A unique identifier for the rule used to detect the alert.
@@ -58,7 +58,7 @@ export interface CodeScanningAlertClosedByUserEvent {
       /**
        * The severity of the alert.
        */
-      severity: 'error' | 'none' | 'note' | 'warning' | null;
+      severity: 'none' | 'note' | 'warning' | 'error' | null;
       /**
        * A short description of the rule used to detect the alert.
        */
