@@ -7,6 +7,7 @@ const config = {
     ecmaVersion: 2020,
     sourceType: 'module'
   },
+  plugins: ['@typescript-eslint'],
   env: { node: true },
   extends: ['./.eslintrc/javascript', './.eslintrc/typescript'],
   ignorePatterns: ['.build/', '.serverless/', '.tmp/', 'gh-schemas'],
@@ -31,7 +32,8 @@ const config = {
         '@typescript-eslint/naming-convention': 'off',
         '@typescript-eslint/array-type': 'off',
         '@typescript-eslint/ban-types': 'off',
-        '@typescript-eslint/no-redundant-type-constituents': 'off'
+        '@typescript-eslint/no-redundant-type-constituents': 'off',
+        '@typescript-eslint/no-empty-object-type': 'off'
       }
     },
     {

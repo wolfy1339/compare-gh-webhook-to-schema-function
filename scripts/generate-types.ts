@@ -10,7 +10,7 @@ import { Options, format } from 'prettier';
 import { prettier as prettierConfigPackage } from '../package.json';
 
 const prettierConfig: Options = {
-  // eslint-disable-next-line @typescript-eslint/no-require-imports,n/global-require,@typescript-eslint/no-var-requires
+  // eslint-disable-next-line @typescript-eslint/no-require-imports,n/global-require
   ...(require(prettierConfigPackage) as Options),
   // this is the one property we don't explicitly set in our config :/
   printWidth: 80
