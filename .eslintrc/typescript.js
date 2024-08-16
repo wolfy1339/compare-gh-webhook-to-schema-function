@@ -2,7 +2,7 @@
 const config = {
   parser: '@typescript-eslint/parser',
   parserOptions: { sourceType: 'module' },
-  plugins: ['@typescript-eslint', 'prettier'],
+  plugins: ['@typescript-eslint', 'prettier', '@stylistic'],
   extends: [
     'plugin:@typescript-eslint/recommended-type-checked',
     'plugin:@typescript-eslint/stylistic-type-checked',
@@ -17,7 +17,7 @@ const config = {
     '@typescript-eslint/default-param-last': 'error',
     '@typescript-eslint/explicit-member-accessibility': 'error',
     '@typescript-eslint/explicit-module-boundary-types': 'error',
-    '@typescript-eslint/lines-between-class-members': [
+    '@stylistic/lines-between-class-members': [
       'error',
       'always',
       { exceptAfterSingleLine: true }
@@ -88,7 +88,7 @@ const config = {
     '@typescript-eslint/no-require-imports': 'error',
     '@typescript-eslint/no-shadow': 'warn',
     '@typescript-eslint/no-this-alias': ['error', { allowDestructuring: true }],
-    '@typescript-eslint/no-throw-literal': 'error',
+    '@typescript-eslint/only-throw-error': 'error',
     '@typescript-eslint/no-unnecessary-boolean-literal-compare': 'error',
     '@typescript-eslint/no-unnecessary-condition': 'error',
     '@typescript-eslint/no-unnecessary-qualifier': 'error',
