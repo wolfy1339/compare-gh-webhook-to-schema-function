@@ -1,8 +1,8 @@
 export * from './disabled';
 export * from './enabled';
 
-import { BranchProtectionConfigurationDisabledEvent } from './disabled';
-import { BranchProtectionConfigurationEnabledEvent } from './enabled';
+import type { BranchProtectionConfigurationDisabledEvent } from './disabled';
+import type { BranchProtectionConfigurationEnabledEvent } from './enabled';
 
 export type BranchProtectionConfigurationEvent =
   | BranchProtectionConfigurationDisabledEvent
