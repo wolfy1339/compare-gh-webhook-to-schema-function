@@ -30,7 +30,8 @@ const config = {
       rules: {
         '@typescript-eslint/naming-convention': 'off',
         '@typescript-eslint/array-type': 'off',
-        '@typescript-eslint/ban-types': 'off'
+        '@typescript-eslint/ban-types': 'off',
+        '@typescript-eslint/no-redundant-type-constituents': 'off'
       }
     },
     {
