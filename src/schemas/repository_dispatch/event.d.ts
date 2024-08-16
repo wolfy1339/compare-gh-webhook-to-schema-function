@@ -13,9 +13,7 @@ import type {
 export interface RepositoryDispatchEvent {
   action: string;
   branch: string;
-  client_payload: {
-    [k: string]: unknown;
-  };
+  client_payload: Record<string, unknown>;
   repository: Repository;
   sender: User;
   installation: InstallationLite;

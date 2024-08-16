@@ -40,7 +40,7 @@ export interface CodeScanningAlertReopenedEvent {
     /**
      * State of a code scanning alert.
      */
-    state: 'open' | 'dismissed' | 'fixed';
+    state: 'dismissed' | 'fixed' | 'open';
     dismissed_by: null;
     /**
      * The time that the alert was dismissed in ISO 8601 format: `YYYY-MM-DDTHH:MM:SSZ`.
@@ -58,7 +58,7 @@ export interface CodeScanningAlertReopenedEvent {
       /**
        * The severity of the alert.
        */
-      severity: 'none' | 'note' | 'warning' | 'error' | null;
+      severity: 'error' | 'none' | 'note' | 'warning' | null;
       /**
        * A short description of the rule used to detect the alert.
        */

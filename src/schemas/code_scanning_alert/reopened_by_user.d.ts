@@ -58,7 +58,7 @@ export interface CodeScanningAlertReopenedByUserEvent {
       /**
        * The severity of the alert.
        */
-      severity: 'none' | 'note' | 'warning' | 'error' | null;
+      severity: 'error' | 'none' | 'note' | 'warning' | null;
       /**
        * A short description of the rule used to detect the alert.
        */

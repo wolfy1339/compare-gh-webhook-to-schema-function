@@ -23,7 +23,7 @@ export interface SimplePullRequest {
   patch_url: string;
   issue_url: string;
   number: number;
-  state: 'open' | 'closed';
+  state: 'closed' | 'open';
   locked: boolean;
   title: string;
   user: User;
@@ -35,7 +35,7 @@ export interface SimplePullRequest {
   merge_commit_sha: string | null;
   assignee: User | null;
   assignees: User[];
-  requested_reviewers: (User | Team)[];
+  requested_reviewers: (Team | User)[];
   requested_teams: Team[];
   labels: Label[];
   milestone: Milestone | null;
@@ -71,5 +71,5 @@ export interface SimplePullRequest {
   };
   author_association: AuthorAssociation;
   auto_merge: PullRequestAutoMerge | null;
-  active_lock_reason: 'resolved' | 'off-topic' | 'too heated' | 'spam' | null;
+  active_lock_reason: 'off-topic' | 'resolved' | 'spam' | 'too heated' | null;
 }

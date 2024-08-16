@@ -13,7 +13,7 @@ export interface PullRequestAutoMerge {
   /**
    * The merge method to use.
    */
-  merge_method: 'merge' | 'squash' | 'rebase';
+  merge_method: 'merge' | 'rebase' | 'squash';
   /**
    * Title for the merge commit message.
    */

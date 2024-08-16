@@ -20,7 +20,7 @@ export interface AlertInstance {
   /**
    * State of a code scanning alert.
    */
-  state: 'open' | 'dismissed' | 'fixed';
+  state: 'dismissed' | 'fixed' | 'open';
   commit_sha?: string;
   message?: {
     text?: string;

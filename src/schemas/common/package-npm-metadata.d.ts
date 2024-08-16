@@ -8,62 +8,32 @@ export interface PackageNPMMetadata {
   name?: string;
   version?: string;
   npm_user?: string;
-  author?: {
-    [k: string]: string;
-  } | null;
-  bugs?: {
-    [k: string]: string;
-  } | null;
-  dependencies?: {
-    [k: string]: string;
-  };
-  dev_dependencies?: {
-    [k: string]: string;
-  };
-  peer_dependencies?: {
-    [k: string]: string;
-  };
-  optional_dependencies?: {
-    [k: string]: string;
-  };
+  author?: Record<string, string> | null;
+  bugs?: Record<string, string> | null;
+  dependencies?: Record<string, string>;
+  dev_dependencies?: Record<string, string>;
+  peer_dependencies?: Record<string, string>;
+  optional_dependencies?: Record<string, string>;
   description?: string;
-  dist?: {
-    [k: string]: string;
-  } | null;
+  dist?: Record<string, string> | null;
   git_head?: string;
   homepage?: string;
   license?: string;
   main?: string;
-  repository?: {
-    [k: string]: string;
-  } | null;
-  scripts?: {
-    [k: string]: unknown;
-  };
+  repository?: Record<string, string> | null;
+  scripts?: Record<string, unknown>;
   id?: string;
   node_version?: string;
   npm_version?: string;
   has_shrinkwrap?: boolean;
-  maintainers?: {
-    [k: string]: unknown;
-  }[];
-  contributors?: {
-    [k: string]: unknown;
-  }[];
-  engines?: {
-    [k: string]: string;
-  };
+  maintainers?: Record<string, unknown>[];
+  contributors?: Record<string, unknown>[];
+  engines?: Record<string, string>;
   keywords?: string[];
   files?: string[];
-  bin?: {
-    [k: string]: unknown;
-  };
-  man?: {
-    [k: string]: unknown;
-  };
-  directories?: {
-    [k: string]: string;
-  } | null;
+  bin?: Record<string, unknown>;
+  man?: Record<string, unknown>;
+  directories?: Record<string, string> | null;
   os?: string[];
   cpu?: string[];
   readme?: string;
