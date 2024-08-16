@@ -32,6 +32,14 @@ const config = {
         '@typescript-eslint/array-type': 'off',
         '@typescript-eslint/ban-types': 'off'
       }
+    },
+    {
+      files: ['index.js'],
+      rules: {
+        '@typescript-eslint/ban-ts-comment': 'off',
+        '@typescript-eslint/no-unsafe-call': 'off',
+        '@typescript-eslint/no-unsafe-member-access': 'off'
+      }
     }
   ],
   rules: {}
