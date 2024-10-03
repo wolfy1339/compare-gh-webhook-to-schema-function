@@ -40,14 +40,14 @@ export interface CheckRunRerequestedEvent {
      * The result of the completed check run. Can be one of `success`, `failure`, `neutral`, `cancelled`, `timed_out`, `action_required` or `stale`. This value will be `null` until the check run has `completed`.
      */
     conclusion:
-      | 'action_required'
-      | 'cancelled'
+      | 'success'
       | 'failure'
       | 'neutral'
-      | 'skipped'
-      | 'stale'
-      | 'success'
+      | 'cancelled'
       | 'timed_out'
+      | 'action_required'
+      | 'stale'
+      | 'skipped'
       | null;
     /**
      * The time that the check run began. This is a timestamp in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format: `YYYY-MM-DDTHH:MM:SSZ`.
@@ -81,13 +81,13 @@ export interface CheckRunRerequestedEvent {
       head_sha: string;
       status: 'completed';
       conclusion:
-        | 'action_required'
-        | 'cancelled'
+        | 'success'
         | 'failure'
         | 'neutral'
-        | 'stale'
-        | 'success'
-        | 'timed_out';
+        | 'cancelled'
+        | 'timed_out'
+        | 'action_required'
+        | 'stale';
       url: string;
       before: string | null;
       after: string | null;

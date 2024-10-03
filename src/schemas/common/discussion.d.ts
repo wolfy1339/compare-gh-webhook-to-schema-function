@@ -30,7 +30,7 @@ export interface Discussion {
    */
   title: string;
   user: User;
-  state: 'converting' | 'locked' | 'open';
+  state: 'open' | 'locked' | 'converting';
   locked: boolean;
   comments: number;
   created_at: string;
