@@ -44,7 +44,7 @@
     "nodemailer": "^6.9.3",
     "raw-body": "^3.0.0",
     "source-map-support": "^0.5.19",
-    "uuid": "^10.0.0"
+    "uuid": "^11.0.0"
   },
   "devDependencies": {
     "@apidevtools/json-schema-ref-parser": "^11.0.0",
