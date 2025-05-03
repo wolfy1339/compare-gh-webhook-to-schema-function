@@ -4,11 +4,15 @@
  * and run json-schema-to-typescript to regenerate this file.
  */
 
-export interface WorkflowStepCompleted {
+export interface DiscussionCategory {
+  id: number;
+  node_id: string;
+  repository_id: number;
+  emoji: string;
   name: string;
-  status: 'completed';
-  conclusion: 'failure' | 'skipped' | 'success' | 'cancelled';
-  number: number;
-  started_at: string;
-  completed_at: string;
+  description: string;
+  created_at: string;
+  updated_at: string;
+  slug: string;
+  is_answerable: boolean;
 }

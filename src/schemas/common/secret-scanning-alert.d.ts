@@ -33,9 +33,9 @@ export interface SecretScanningAlert {
    */
   resolution:
     | 'false_positive'
+    | 'wont_fix'
     | 'revoked'
     | 'used_in_tests'
-    | 'wont_fix'
     | null;
   /**
    * The time that the alert was resolved in ISO 8601 format: `YYYY-MM-DDTHH:MM:SSZ`.

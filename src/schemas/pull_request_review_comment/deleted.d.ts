@@ -29,7 +29,7 @@ export interface PullRequestReviewCommentDeletedEvent {
     patch_url: string;
     issue_url: string;
     number: number;
-    state: 'closed' | 'open';
+    state: 'open' | 'closed';
     locked: boolean;
     title: string;
     user: User;
@@ -41,7 +41,7 @@ export interface PullRequestReviewCommentDeletedEvent {
     merge_commit_sha: string | null;
     assignee: User | null;
     assignees: User[];
-    requested_reviewers: (Team | User)[];
+    requested_reviewers: (User | Team)[];
     requested_teams: Team[];
     labels: Label[];
     milestone: Milestone | null;
@@ -77,7 +77,7 @@ export interface PullRequestReviewCommentDeletedEvent {
     };
     auto_merge?: PullRequestAutoMerge | null;
     author_association: AuthorAssociation;
-    active_lock_reason: 'off-topic' | 'resolved' | 'spam' | 'too heated' | null;
+    active_lock_reason: 'resolved' | 'off-topic' | 'too heated' | 'spam' | null;
   };
   repository: Repository;
   installation?: InstallationLite;

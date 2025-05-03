@@ -24,7 +24,7 @@ export interface PullRequestReview {
    */
   commit_id: string;
   submitted_at: string | null;
-  state: 'approved' | 'changes_requested' | 'commented' | 'dismissed';
+  state: 'commented' | 'changes_requested' | 'approved' | 'dismissed';
   html_url: string;
   pull_request_url: string;
   author_association: AuthorAssociation;
