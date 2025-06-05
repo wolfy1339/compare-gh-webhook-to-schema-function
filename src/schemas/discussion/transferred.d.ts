@@ -13,8 +13,8 @@ import type {
 
 export interface DiscussionTransferredEvent {
   changes: {
-    new_discussion: Discussion;
-    new_repository: Repository;
+    new_discussion: Discussion,
+    new_repository: Repository
   };
   action: 'transferred';
   discussion: Discussion;

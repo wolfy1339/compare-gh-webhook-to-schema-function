@@ -8,20 +8,20 @@ import type { SponsorshipTier, User } from '../common';
 export interface SponsorshipEditedEvent {
   action: 'edited';
   sponsorship: {
-    node_id: string;
-    created_at: string;
-    sponsorable: User;
-    sponsor: User;
-    privacy_level: string;
-    tier: SponsorshipTier;
+    node_id: string,
+    created_at: string,
+    sponsorable: User,
+    sponsor: User,
+    privacy_level: string,
+    tier: SponsorshipTier
   };
   changes: {
     privacy_level?: {
       /**
        * The `edited` event types include the details about the change when someone edits a sponsorship to change the privacy.
        */
-      from: string;
-    };
+      from: string
+    }
   };
   sender: User;
 }

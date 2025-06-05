@@ -21,38 +21,38 @@ export interface TeamEditedEvent {
       /**
        * The previous version of the description if the action was `edited`.
        */
-      from: string;
-    };
+      from: string
+    },
     name?: {
       /**
        * The previous version of the name if the action was `edited`.
        */
-      from: string;
-    };
+      from: string
+    },
     privacy?: {
       /**
        * The previous version of the team's privacy if the action was `edited`.
        */
-      from: string;
-    };
+      from: string
+    },
     repository?: {
       permissions: {
         from: {
           /**
            * The previous version of the team member's `admin` permission on a repository, if the action was `edited`.
            */
-          admin?: boolean;
+          admin?: boolean,
           /**
            * The previous version of the team member's `pull` permission on a repository, if the action was `edited`.
            */
-          pull?: boolean;
+          pull?: boolean,
           /**
            * The previous version of the team member's `push` permission on a repository, if the action was `edited`.
            */
-          push?: boolean;
-        };
-      };
-    };
+          push?: boolean
+        }
+      }
+    }
   };
   team: Team;
   repository?: Repository;

@@ -3,13 +3,6 @@
   "$id": "secret_scanning_alert_location$created",
   "title": "secret_scanning_alert_location created event",
   "type": "object",
-  "required": [
-    "action",
-    "location",
-    "alert",
-    "repository",
-    "sender"
-  ],
   "properties": {
     "action": {
       "type": "string",
@@ -18,23 +11,30 @@
       ]
     },
     "alert": {
-      "$ref": "common/secret-scanning-alert.schema.json"
+      "$ref": "common/secret-scanning-alert-webhook.schema.json"
+    },
+    "installation": {
+      "$ref": "common/simple-installation.schema.json"
     },
     "location": {
       "$ref": "common/secret-scanning-location.schema.json"
     },
+    "organization": {
+      "$ref": "common/organization-simple-webhooks.schema.json"
+    },
     "repository": {
-      "$ref": "common/repository.schema.json"
+      "$ref": "common/repository-webhooks.schema.json"
     },
     "sender": {
-      "$ref": "common/user.schema.json"
-    },
-    "organization": {
-      "$ref": "common/organization.schema.json"
-    },
-    "installation": {
-      "$ref": "common/installation-lite.schema.json"
+      "$ref": "common/simple-user.schema.json"
     }
   },
+  "required": [
+    "location",
+    "alert",
+    "repository",
+    "sender",
+    "action"
+  ],
   "additionalProperties": false
 }

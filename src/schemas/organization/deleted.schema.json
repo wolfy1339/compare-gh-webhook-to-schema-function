@@ -1,12 +1,8 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema",
   "$id": "organization$deleted",
+  "title": "organization deleted event",
   "type": "object",
-  "required": [
-    "action",
-    "organization",
-    "sender"
-  ],
   "properties": {
     "action": {
       "type": "string",
@@ -14,19 +10,29 @@
         "deleted"
       ]
     },
-    "membership": {
-      "$ref": "common/membership.schema.json"
-    },
-    "sender": {
-      "$ref": "common/user.schema.json"
+    "enterprise": {
+      "$ref": "common/enterprise-webhooks.schema.json"
     },
     "installation": {
-      "$ref": "common/installation-lite.schema.json"
+      "$ref": "common/simple-installation.schema.json"
+    },
+    "membership": {
+      "$ref": "common/webhooks_membership.schema.json"
     },
     "organization": {
-      "$ref": "common/organization.schema.json"
+      "$ref": "common/organization-simple-webhooks.schema.json"
+    },
+    "repository": {
+      "$ref": "common/repository-webhooks.schema.json"
+    },
+    "sender": {
+      "$ref": "common/simple-user.schema.json"
     }
   },
-  "additionalProperties": false,
-  "title": "organization deleted event"
+  "required": [
+    "action",
+    "organization",
+    "sender"
+  ],
+  "additionalProperties": false
 }

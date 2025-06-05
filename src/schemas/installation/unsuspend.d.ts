@@ -8,8 +8,8 @@ import type { Installation, User } from '../common';
 export interface InstallationUnsuspendEvent {
   action: 'unsuspend';
   installation: Installation & {
-    suspended_by: null;
-    suspended_at: null;
+    suspended_by: null,
+    suspended_at: null
   };
   /**
    * An array of repository objects that the installation can access.
@@ -18,17 +18,17 @@ export interface InstallationUnsuspendEvent {
     /**
      * Unique identifier of the repository
      */
-    id: number;
-    node_id: string;
+    id: number,
+    node_id: string,
     /**
      * The name of the repository.
      */
-    name: string;
-    full_name: string;
+    name: string,
+    full_name: string,
     /**
      * Whether the repository is private or public.
      */
-    private: boolean;
+    private: boolean
   }[];
   requester?: null;
   sender: User;

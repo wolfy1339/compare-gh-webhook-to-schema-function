@@ -1,0 +1,5 @@
+{
+  "$id": "common/webhooks_ref_0.schema.json",
+  "description": "The [`git ref`](https://docs.github.com/rest/git/refs#get-a-reference) resource.",
+  "type": "string"
+}

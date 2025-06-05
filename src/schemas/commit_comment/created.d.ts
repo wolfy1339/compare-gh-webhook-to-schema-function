@@ -23,40 +23,40 @@ export interface CommitCommentCreatedEvent {
    * The [commit comment](https://docs.github.com/en/rest/reference/repos#get-a-commit-comment) resource.
    */
   comment: {
-    url: string;
-    html_url: string;
+    url: string,
+    html_url: string,
     /**
      * The ID of the commit comment.
      */
-    id: number;
+    id: number,
     /**
      * The node ID of the commit comment.
      */
-    node_id: string;
-    user: User;
+    node_id: string,
+    user: User,
     /**
      * The line index in the diff to which the comment applies.
      */
-    position: number | null;
+    position: number | null,
     /**
      * The line of the blob to which the comment applies. The last line of the range for a multi-line comment
      */
-    line: number | null;
+    line: number | null,
     /**
      * The relative path of the file to which the comment applies.
      */
-    path: string | null;
+    path: string | null,
     /**
      * The SHA of the commit to which the comment applies.
      */
-    commit_id: string;
-    created_at: string;
-    updated_at: string;
-    author_association: AuthorAssociation;
+    commit_id: string,
+    created_at: string,
+    updated_at: string,
+    author_association: AuthorAssociation,
     /**
      * The text of the comment.
      */
-    body: string;
+    body: string
   };
   repository: Repository;
   sender: User;

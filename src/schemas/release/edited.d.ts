@@ -18,14 +18,14 @@ export interface ReleaseEditedEvent {
       /**
        * The previous version of the body if the action was `edited`.
        */
-      from: string;
-    };
+      from: string
+    },
     name?: {
       /**
        * The previous version of the name if the action was `edited`.
        */
-      from: string;
-    };
+      from: string
+    }
   };
   release: Release;
   repository: Repository;

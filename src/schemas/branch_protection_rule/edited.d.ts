@@ -26,53 +26,53 @@ export interface BranchProtectionRuleEditedEvent {
    */
   changes?: {
     admin_enforced?: {
-      from: BranchProtectionRuleBoolean;
-    };
+      from: BranchProtectionRuleBoolean
+    },
     allow_deletions_enforcement_level?: {
-      from: BranchProtectionRuleEnforcementLevel | null;
-    };
+      from: BranchProtectionRuleEnforcementLevel | null
+    },
     allow_force_pushes_enforcement_level?: {
-      from: BranchProtectionRuleEnforcementLevel;
-    };
+      from: BranchProtectionRuleEnforcementLevel
+    },
     authorized_actors_only?: {
-      from: BranchProtectionRuleBoolean;
-    };
+      from: BranchProtectionRuleBoolean
+    },
     authorized_actor_names?: {
-      from: BranchProtectionRuleArray;
-    };
+      from: BranchProtectionRuleArray
+    },
     authorized_dismissal_actors_only?: {
-      from: BranchProtectionRuleBoolean | null;
-    };
+      from: BranchProtectionRuleBoolean | null
+    },
     dismiss_stale_reviews_on_push?: {
-      from: BranchProtectionRuleBoolean;
-    };
+      from: BranchProtectionRuleBoolean
+    },
     pull_request_reviews_enforcement_level?: {
-      from: BranchProtectionRuleEnforcementLevel;
-    };
+      from: BranchProtectionRuleEnforcementLevel
+    },
     require_code_owner_review?: {
-      from: BranchProtectionRuleBoolean;
-    };
+      from: BranchProtectionRuleBoolean
+    },
     required_approving_review_count?: {
-      from: BranchProtectionRuleNumber;
-    };
+      from: BranchProtectionRuleNumber
+    },
     required_conversation_resolution_level?: {
-      from: BranchProtectionRuleEnforcementLevel;
-    };
+      from: BranchProtectionRuleEnforcementLevel
+    },
     required_deployments_enforcement_level?: {
-      from: BranchProtectionRuleEnforcementLevel;
-    };
+      from: BranchProtectionRuleEnforcementLevel
+    },
     required_status_checks?: {
-      from: BranchProtectionRuleArray;
-    };
+      from: BranchProtectionRuleArray
+    },
     required_status_checks_enforcement_level?: {
-      from: BranchProtectionRuleEnforcementLevel;
-    };
+      from: BranchProtectionRuleEnforcementLevel
+    },
     signature_requirement_enforcement_level?: {
-      from: BranchProtectionRuleEnforcementLevel;
-    };
+      from: BranchProtectionRuleEnforcementLevel
+    },
     linear_history_requirement_enforcement_level?: {
-      from: BranchProtectionRuleEnforcementLevel;
-    };
+      from: BranchProtectionRuleEnforcementLevel
+    }
   };
   repository: Repository;
   sender: User;

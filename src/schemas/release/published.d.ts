@@ -14,7 +14,7 @@ import type {
 export interface ReleasePublishedEvent {
   action: 'published';
   release: Release & {
-    published_at: string;
+    published_at: string
   };
   repository: Repository;
   sender: User;

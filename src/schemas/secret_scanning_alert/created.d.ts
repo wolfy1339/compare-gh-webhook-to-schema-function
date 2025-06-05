@@ -13,9 +13,9 @@ import type {
 export interface SecretScanningAlertCreatedEvent {
   action: 'created';
   alert: SecretScanningAlert & {
-    resolution: null;
-    resolved_by: null;
-    resolved_at: null;
+    resolution: null,
+    resolved_by: null,
+    resolved_at: null
   };
   repository: Repository;
   organization?: Organization;

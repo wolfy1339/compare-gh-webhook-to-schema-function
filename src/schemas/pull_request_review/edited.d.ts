@@ -19,8 +19,8 @@ export interface PullRequestReviewEditedEvent {
       /**
        * The previous version of the body if the action was `edited`.
        */
-      from: string;
-    };
+      from: string
+    }
   };
   review: PullRequestReview;
   pull_request: SimplePullRequest;

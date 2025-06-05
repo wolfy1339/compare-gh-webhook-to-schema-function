@@ -20,6 +20,6 @@ export interface WorkflowJobQueuedEvent {
   sender: User;
   deployment?: Deployment;
   workflow_job: WorkflowJob & {
-    status: 'queued' | 'waiting';
+    status: 'queued' | 'waiting'
   };
 }

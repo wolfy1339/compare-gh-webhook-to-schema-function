@@ -8,8 +8,8 @@ import type { InstallationLite, Organization, User } from '../common';
 export interface OrganizationRenamedEvent {
   changes: {
     login: {
-      from: string;
-    };
+      from: string
+    }
   };
   action: 'renamed';
   sender: User;

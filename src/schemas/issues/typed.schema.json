@@ -1,0 +1,43 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema",
+  "$id": "issues$typed",
+  "title": "issues typed event",
+  "type": "object",
+  "properties": {
+    "action": {
+      "type": "string",
+      "enum": [
+        "typed"
+      ]
+    },
+    "enterprise": {
+      "$ref": "common/enterprise-webhooks.schema.json"
+    },
+    "installation": {
+      "$ref": "common/simple-installation.schema.json"
+    },
+    "issue": {
+      "$ref": "common/webhooks_issue.schema.json"
+    },
+    "type": {
+      "$ref": "common/issue-type.schema.json"
+    },
+    "organization": {
+      "$ref": "common/organization-simple-webhooks.schema.json"
+    },
+    "repository": {
+      "$ref": "common/repository-webhooks.schema.json"
+    },
+    "sender": {
+      "$ref": "common/simple-user.schema.json"
+    }
+  },
+  "required": [
+    "action",
+    "issue",
+    "type",
+    "repository",
+    "sender"
+  ],
+  "additionalProperties": false
+}

@@ -1,46 +1,74 @@
 {
-  "$schema": "http://json-schema.org/draft-07/schema",
   "$id": "common/label.schema.json",
+  "title": "Label",
+  "description": "Color-coded labels help you categorize and filter your issues (just like labels in Gmail).",
   "type": "object",
+  "properties": {
+    "id": {
+      "description": "Unique identifier for the label.",
+      "type": "integer",
+      "format": "int64",
+      "examples": [
+        208045946
+      ]
+    },
+    "node_id": {
+      "type": "string",
+      "examples": [
+        "MDU6TGFiZWwyMDgwNDU5NDY="
+      ]
+    },
+    "url": {
+      "description": "URL for the label",
+      "type": "string",
+      "format": "uri",
+      "examples": [
+        "https://api.github.com/repositories/42/labels/bug"
+      ]
+    },
+    "name": {
+      "description": "The name of the label.",
+      "type": "string",
+      "examples": [
+        "bug"
+      ]
+    },
+    "description": {
+      "oneOf": [
+        {
+          "type": "string",
+          "description": "Optional description of the label, such as its purpose.",
+          "examples": [
+            "Something isn't working"
+          ]
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "color": {
+      "description": "6-character hex code, without the leading #, identifying the color",
+      "type": "string",
+      "examples": [
+        "FFFFFF"
+      ]
+    },
+    "default": {
+      "description": "Whether this label comes by default in a new repository.",
+      "type": "boolean",
+      "examples": [
+        true
+      ]
+    }
+  },
   "required": [
     "id",
     "node_id",
     "url",
     "name",
+    "description",
     "color",
-    "default",
-    "description"
-  ],
-  "properties": {
-    "id": {
-      "type": "integer"
-    },
-    "node_id": {
-      "type": "string"
-    },
-    "url": {
-      "description": "URL for the label",
-      "type": "string",
-      "format": "uri"
-    },
-    "name": {
-      "description": "The name of the label.",
-      "type": "string"
-    },
-    "description": {
-      "type": [
-        "string",
-        "null"
-      ]
-    },
-    "color": {
-      "description": "6-character hex code, without the leading #, identifying the color",
-      "type": "string"
-    },
-    "default": {
-      "type": "boolean"
-    }
-  },
-  "additionalProperties": false,
-  "title": "Label"
+    "default"
+  ]
 }

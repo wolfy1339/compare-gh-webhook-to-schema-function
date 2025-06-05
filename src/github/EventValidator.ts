@@ -21,8 +21,8 @@ export class EventValidator<
   private readonly _logger: Logger;
 
   public static validate<TStaticEvent extends GithubEvent>(
-    event: TStaticEvent,
-    logger: Logger
+      event: TStaticEvent,
+      logger: Logger
   ): ErrorObject[] {
     return new this(event.name, logger).validate(event);
   }
@@ -47,26 +47,23 @@ export class EventValidator<
    * Reads all the JSON schemas within the given `directory`.
    *
    * A file is assumed to be a JSON schema if it ends with `.schema.json`.
-   *
-   * @param {string} directory
-   *
-   * @return {JSONSchema7[]}
-   * @private
+   * @param directory
+   * @return
    */
   private _readSchemasInDirectory(directory: string): JSONSchema7[] {
     const directoryPath = `${pathToSchemas}/${directory}`;
 
     // eslint-disable-next-line n/no-sync
     return fs
-      .readdirSync(directoryPath)
-      .filter(file => file.endsWith('.schema.json'))
-      .map(
-        file =>
-          JSON.parse(
-            // eslint-disable-next-line n/no-sync
-            fs.readFileSync(`${directoryPath}/${file}`, 'utf-8')
-          ) as JSONSchema7
-      );
+        .readdirSync(directoryPath)
+        .filter(file => file.endsWith('.schema.json'))
+        .map(
+            file =>
+              JSON.parse(
+                  // eslint-disable-next-line n/no-sync
+                  fs.readFileSync(`${directoryPath}/${file}`, 'utf-8')
+              ) as JSONSchema7
+        );
   }
 
   /**
@@ -74,11 +71,8 @@ export class EventValidator<
    * and returns their `$id`s.
    *
    * If a schema does not have an `$id`, an error is thrown.
-   *
-   * @param {string} directory
-   *
-   * @return {string[]}
-   * @private
+   * @param directory
+   * @return
    */
   private _addSchemasFromDirectory(directory: string): string[] {
     const schemas = this._readSchemasInDirectory(directory);
@@ -92,7 +86,7 @@ export class EventValidator<
     });
 
     this._logger.info(
-      `added ${ids.length} schemas from ${directory}: ${ids.join(', ')}`
+        `added ${ids.length} schemas from ${directory}: ${ids.join(', ')}`
     );
 
     return ids;
@@ -105,12 +99,11 @@ export class EventValidator<
 
     this._validator.errors?.forEach(error => {
       const similarError = finalErrors.find(
-        er =>
-          er.keyword === error.keyword && er.instancePath === error.instancePath
+          er =>
+            er.keyword === error.keyword && er.instancePath === error.instancePath
       ) as DefinedError | undefined;
 
       if (similarError?.keyword === 'enum') {
-        // eslint-disable-next-line @typescript-eslint/no-unsafe-argument
         similarError.params.allowedValues.push(...error.params.allowedValues);
 
         return;

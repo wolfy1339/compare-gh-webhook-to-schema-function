@@ -1,21 +1,16 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema",
   "$id": "workflow_dispatch$event",
+  "title": "workflow_dispatch event",
   "type": "object",
-  "required": [
-    "inputs",
-    "ref",
-    "repository",
-    "sender",
-    "workflow"
-  ],
   "properties": {
+    "enterprise": {
+      "$ref": "common/enterprise-webhooks.schema.json"
+    },
     "inputs": {
-      "description": "Inputs to the workflow. Each key represents the name of the input while it's value represents the value of that input.",
       "oneOf": [
         {
           "type": "object",
-          "properties": {},
           "additionalProperties": true
         },
         {
@@ -23,27 +18,31 @@
         }
       ]
     },
+    "installation": {
+      "$ref": "common/simple-installation.schema.json"
+    },
+    "organization": {
+      "$ref": "common/organization-simple-webhooks.schema.json"
+    },
     "ref": {
-      "description": "The branch ref from which the workflow was run.",
       "type": "string"
     },
     "repository": {
-      "$ref": "common/repository.schema.json"
+      "$ref": "common/repository-webhooks.schema.json"
     },
     "sender": {
-      "$ref": "common/user.schema.json"
-    },
-    "installation": {
-      "$ref": "common/installation-lite.schema.json"
-    },
-    "organization": {
-      "$ref": "common/organization.schema.json"
+      "$ref": "common/simple-user.schema.json"
     },
     "workflow": {
-      "description": "Relative path to the workflow file which contains the workflow.",
       "type": "string"
     }
   },
-  "additionalProperties": false,
-  "title": "workflow_dispatch event"
+  "required": [
+    "inputs",
+    "ref",
+    "repository",
+    "sender",
+    "workflow"
+  ],
+  "additionalProperties": false
 }

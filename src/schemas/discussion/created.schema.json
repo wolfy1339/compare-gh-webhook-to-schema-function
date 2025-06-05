@@ -1,13 +1,8 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema",
   "$id": "discussion$created",
+  "title": "discussion created event",
   "type": "object",
-  "required": [
-    "action",
-    "discussion",
-    "repository",
-    "sender"
-  ],
   "properties": {
     "action": {
       "type": "string",
@@ -16,60 +11,29 @@
       ]
     },
     "discussion": {
-      "allOf": [
-        {
-          "$ref": "common/discussion.schema.json"
-        },
-        {
-          "type": "object",
-          "required": [
-            "state",
-            "locked",
-            "answer_html_url",
-            "answer_chosen_at",
-            "answer_chosen_by"
-          ],
-          "properties": {
-            "state": {
-              "type": "string",
-              "enum": [
-                "open",
-                "converting"
-              ]
-            },
-            "locked": {
-              "type": "boolean",
-              "enum": [
-                false
-              ]
-            },
-            "answer_html_url": {
-              "type": "null"
-            },
-            "answer_chosen_at": {
-              "type": "null"
-            },
-            "answer_chosen_by": {
-              "type": "null"
-            }
-          },
-          "tsAdditionalProperties": false
-        }
-      ]
+      "$ref": "common/discussion.schema.json"
     },
-    "repository": {
-      "$ref": "common/repository.schema.json"
-    },
-    "sender": {
-      "$ref": "common/user.schema.json"
+    "enterprise": {
+      "$ref": "common/enterprise-webhooks.schema.json"
     },
     "installation": {
-      "$ref": "common/installation-lite.schema.json"
+      "$ref": "common/simple-installation.schema.json"
     },
     "organization": {
-      "$ref": "common/organization.schema.json"
+      "$ref": "common/organization-simple-webhooks.schema.json"
+    },
+    "repository": {
+      "$ref": "common/repository-webhooks.schema.json"
+    },
+    "sender": {
+      "$ref": "common/simple-user.schema.json"
     }
   },
-  "additionalProperties": false,
-  "title": "discussion created event"
+  "required": [
+    "action",
+    "discussion",
+    "repository",
+    "sender"
+  ],
+  "additionalProperties": false
 }

@@ -14,17 +14,17 @@ export interface RepositoryEditedEvent {
   action: 'edited';
   changes: {
     description?: {
-      from: string | null;
-    };
+      from: string | null
+    },
     default_branch?: {
-      from: string;
-    };
+      from: string
+    },
     homepage?: {
-      from: string | null;
-    };
+      from: string | null
+    },
     topics?: {
-      from: string[];
-    };
+      from: string[]
+    }
   };
   repository: Repository;
   sender: User;

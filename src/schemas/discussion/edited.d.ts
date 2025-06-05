@@ -14,11 +14,11 @@ import type {
 export interface DiscussionEditedEvent {
   changes?: {
     title?: {
-      from: string;
-    };
+      from: string
+    },
     body?: {
-      from: string;
-    };
+      from: string
+    }
   };
   action: 'edited';
   discussion: Discussion;

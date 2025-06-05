@@ -1,13 +1,8 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema",
   "$id": "repository$renamed",
+  "title": "repository renamed event",
   "type": "object",
-  "required": [
-    "action",
-    "changes",
-    "repository",
-    "sender"
-  ],
   "properties": {
     "action": {
       "type": "string",
@@ -17,47 +12,52 @@
     },
     "changes": {
       "type": "object",
-      "required": [
-        "repository"
-      ],
       "properties": {
         "repository": {
           "type": "object",
-          "required": [
-            "name"
-          ],
           "properties": {
             "name": {
               "type": "object",
-              "required": [
-                "from"
-              ],
               "properties": {
                 "from": {
                   "type": "string"
                 }
               },
-              "additionalProperties": false
+              "required": [
+                "from"
+              ]
             }
           },
-          "additionalProperties": false
+          "required": [
+            "name"
+          ]
         }
       },
-      "additionalProperties": false
+      "required": [
+        "repository"
+      ]
     },
-    "repository": {
-      "$ref": "common/repository.schema.json"
-    },
-    "sender": {
-      "$ref": "common/user.schema.json"
+    "enterprise": {
+      "$ref": "common/enterprise-webhooks.schema.json"
     },
     "installation": {
-      "$ref": "common/installation-lite.schema.json"
+      "$ref": "common/simple-installation.schema.json"
     },
     "organization": {
-      "$ref": "common/organization.schema.json"
+      "$ref": "common/organization-simple-webhooks.schema.json"
+    },
+    "repository": {
+      "$ref": "common/repository-webhooks.schema.json"
+    },
+    "sender": {
+      "$ref": "common/simple-user.schema.json"
     }
   },
-  "additionalProperties": false,
-  "title": "repository renamed event"
+  "required": [
+    "action",
+    "changes",
+    "repository",
+    "sender"
+  ],
+  "additionalProperties": false
 }

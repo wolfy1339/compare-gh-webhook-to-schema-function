@@ -8,12 +8,12 @@ import type { SponsorshipTier, User } from '../common';
 export interface SponsorshipPendingCancellationEvent {
   action: 'pending_cancellation';
   sponsorship: {
-    node_id: string;
-    created_at: string;
-    sponsorable: User;
-    sponsor: User;
-    privacy_level: string;
-    tier: SponsorshipTier;
+    node_id: string,
+    created_at: string,
+    sponsorable: User,
+    sponsor: User,
+    privacy_level: string,
+    tier: SponsorshipTier
   };
   /**
    * The `pending_cancellation` and `pending_tier_change` event types will include the date the cancellation or tier change will take effect.

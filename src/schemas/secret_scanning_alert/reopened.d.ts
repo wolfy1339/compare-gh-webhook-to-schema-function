@@ -16,11 +16,11 @@ export interface SecretScanningAlertReopenedEvent {
    * The secret scanning alert involved in the event.
    */
   alert: {
-    number: number;
-    secret_type: string;
-    resolution: null;
-    resolved_by: null;
-    resolved_at: null;
+    number: number,
+    secret_type: string,
+    resolution: null,
+    resolved_by: null,
+    resolved_at: null
   };
   repository: Repository;
   organization?: Organization;

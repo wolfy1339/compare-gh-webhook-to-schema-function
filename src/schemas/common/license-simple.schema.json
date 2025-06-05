@@ -1,0 +1,64 @@
+{
+  "$id": "common/license-simple.schema.json",
+  "title": "License Simple",
+  "description": "License Simple",
+  "type": "object",
+  "properties": {
+    "key": {
+      "type": "string",
+      "examples": [
+        "mit"
+      ]
+    },
+    "name": {
+      "type": "string",
+      "examples": [
+        "MIT License"
+      ]
+    },
+    "url": {
+      "oneOf": [
+        {
+          "type": "string",
+          "format": "uri",
+          "examples": [
+            "https://api.github.com/licenses/mit"
+          ]
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "spdx_id": {
+      "oneOf": [
+        {
+          "type": "string",
+          "examples": [
+            "MIT"
+          ]
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "node_id": {
+      "type": "string",
+      "examples": [
+        "MDc6TGljZW5zZW1pdA=="
+      ]
+    },
+    "html_url": {
+      "type": "string",
+      "format": "uri"
+    }
+  },
+  "required": [
+    "key",
+    "name",
+    "url",
+    "spdx_id",
+    "node_id"
+  ]
+}

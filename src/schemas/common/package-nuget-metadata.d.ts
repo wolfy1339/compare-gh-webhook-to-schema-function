@@ -12,9 +12,9 @@ export interface PackageNugetMetadata {
     | number
     | string
     | {
-        url?: string;
-        branch?: string;
-        commit?: string;
-        type?: string;
-      };
+      url?: string,
+      branch?: string,
+      commit?: string,
+      type?: string
+    };
 }

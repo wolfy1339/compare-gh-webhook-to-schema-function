@@ -15,7 +15,7 @@ import type {
  */
 export interface PublicEvent {
   repository: Repository & {
-    private: false;
+    private: false
   };
   sender: User;
   installation?: InstallationLite;

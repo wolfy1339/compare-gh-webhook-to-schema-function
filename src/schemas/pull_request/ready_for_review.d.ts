@@ -18,15 +18,15 @@ export interface PullRequestReadyForReviewEvent {
    */
   number: number;
   pull_request: PullRequest & {
-    state: 'open';
-    closed_at: null;
-    merged_at: null;
+    state: 'open',
+    closed_at: null,
+    merged_at: null,
     /**
      * Indicates whether or not the pull request is a draft.
      */
-    draft: false;
-    merged: boolean;
-    merged_by: null;
+    draft: false,
+    merged: boolean,
+    merged_by: null
   };
   repository: Repository;
   installation?: InstallationLite;

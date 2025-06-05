@@ -8,17 +8,17 @@ import type { SponsorshipTier, User } from '../common';
 export interface SponsorshipTierChangedEvent {
   action: 'tier_changed';
   sponsorship: {
-    node_id: string;
-    created_at: string;
-    sponsorable: User;
-    sponsor: User;
-    privacy_level: string;
-    tier: SponsorshipTier;
+    node_id: string,
+    created_at: string,
+    sponsorable: User,
+    sponsor: User,
+    privacy_level: string,
+    tier: SponsorshipTier
   };
   changes: {
     tier: {
-      from: SponsorshipTier;
-    };
+      from: SponsorshipTier
+    }
   };
   sender: User;
 }

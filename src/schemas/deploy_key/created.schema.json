@@ -1,13 +1,8 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema",
   "$id": "deploy_key$created",
+  "title": "deploy_key created event",
   "type": "object",
-  "required": [
-    "action",
-    "key",
-    "repository",
-    "sender"
-  ],
   "properties": {
     "action": {
       "type": "string",
@@ -15,58 +10,30 @@
         "created"
       ]
     },
-    "key": {
-      "type": "object",
-      "description": "The [`deploy key`](https://docs.github.com/en/rest/reference/deployments#get-a-deploy-key) resource.",
-      "required": [
-        "id",
-        "key",
-        "url",
-        "title",
-        "verified",
-        "created_at",
-        "read_only"
-      ],
-      "properties": {
-        "id": {
-          "type": "integer"
-        },
-        "key": {
-          "type": "string"
-        },
-        "url": {
-          "type": "string",
-          "format": "uri"
-        },
-        "title": {
-          "type": "string"
-        },
-        "verified": {
-          "type": "boolean"
-        },
-        "created_at": {
-          "type": "string",
-          "format": "date-time"
-        },
-        "read_only": {
-          "type": "boolean"
-        }
-      },
-      "additionalProperties": false
-    },
-    "repository": {
-      "$ref": "common/repository.schema.json"
-    },
-    "sender": {
-      "$ref": "common/user.schema.json"
+    "enterprise": {
+      "$ref": "common/enterprise-webhooks.schema.json"
     },
     "installation": {
-      "$ref": "common/installation-lite.schema.json"
+      "$ref": "common/simple-installation.schema.json"
+    },
+    "key": {
+      "$ref": "common/webhooks_deploy_key.schema.json"
     },
     "organization": {
-      "$ref": "common/organization.schema.json"
+      "$ref": "common/organization-simple-webhooks.schema.json"
+    },
+    "repository": {
+      "$ref": "common/repository-webhooks.schema.json"
+    },
+    "sender": {
+      "$ref": "common/simple-user.schema.json"
     }
   },
-  "additionalProperties": false,
-  "title": "deploy_key created event"
+  "required": [
+    "action",
+    "key",
+    "repository",
+    "sender"
+  ],
+  "additionalProperties": false
 }

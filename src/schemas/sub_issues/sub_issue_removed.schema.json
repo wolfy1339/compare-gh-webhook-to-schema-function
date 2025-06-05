@@ -1,0 +1,52 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema",
+  "$id": "sub_issues$sub_issue_removed",
+  "title": "sub_issues sub_issue_removed event",
+  "type": "object",
+  "properties": {
+    "action": {
+      "type": "string",
+      "enum": [
+        "sub_issue_removed"
+      ]
+    },
+    "sub_issue_id": {
+      "description": "The ID of the sub-issue.",
+      "type": "number"
+    },
+    "sub_issue": {
+      "$ref": "common/issue.schema.json"
+    },
+    "sub_issue_repo": {
+      "$ref": "common/repository.schema.json"
+    },
+    "parent_issue_id": {
+      "description": "The ID of the parent issue.",
+      "type": "number"
+    },
+    "parent_issue": {
+      "$ref": "common/issue.schema.json"
+    },
+    "installation": {
+      "$ref": "common/simple-installation.schema.json"
+    },
+    "organization": {
+      "$ref": "common/organization-simple-webhooks.schema.json"
+    },
+    "repository": {
+      "$ref": "common/repository-webhooks.schema.json"
+    },
+    "sender": {
+      "$ref": "common/simple-user.schema.json"
+    }
+  },
+  "required": [
+    "action",
+    "sub_issue_id",
+    "sub_issue",
+    "sub_issue_repo",
+    "parent_issue_id",
+    "parent_issue"
+  ],
+  "additionalProperties": false
+}

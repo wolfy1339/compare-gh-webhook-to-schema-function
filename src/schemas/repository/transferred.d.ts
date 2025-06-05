@@ -15,9 +15,9 @@ export interface RepositoryTransferredEvent {
   changes: {
     owner: {
       from: {
-        user?: User;
-      };
-    };
+        user?: User
+      }
+    }
   };
   repository: Repository;
   sender: User;

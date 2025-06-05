@@ -1,0 +1,34 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema",
+  "$id": "custom_property$updated",
+  "title": "custom_property updated event",
+  "type": "object",
+  "properties": {
+    "action": {
+      "type": "string",
+      "enum": [
+        "updated"
+      ]
+    },
+    "definition": {
+      "$ref": "common/custom-property.schema.json"
+    },
+    "enterprise": {
+      "$ref": "common/enterprise-webhooks.schema.json"
+    },
+    "installation": {
+      "$ref": "common/simple-installation.schema.json"
+    },
+    "organization": {
+      "$ref": "common/organization-simple-webhooks.schema.json"
+    },
+    "sender": {
+      "$ref": "common/simple-user.schema.json"
+    }
+  },
+  "required": [
+    "action",
+    "definition"
+  ],
+  "additionalProperties": false
+}

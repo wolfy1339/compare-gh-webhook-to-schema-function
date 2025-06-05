@@ -24,8 +24,8 @@ export interface MemberEditedEvent {
       /**
        * The previous permissions of the collaborator if the action was edited.
        */
-      from: string;
-    };
+      from: string
+    }
   };
   repository: Repository;
   installation?: InstallationLite;

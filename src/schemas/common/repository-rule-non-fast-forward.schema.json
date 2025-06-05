@@ -1,0 +1,17 @@
+{
+  "$id": "common/repository-rule-non-fast-forward.schema.json",
+  "title": "non_fast_forward",
+  "description": "Prevent users with push access from force pushing to refs.",
+  "type": "object",
+  "required": [
+    "type"
+  ],
+  "properties": {
+    "type": {
+      "type": "string",
+      "enum": [
+        "non_fast_forward"
+      ]
+    }
+  }
+}

@@ -1,0 +1,107 @@
+{
+  "$id": "common/enterprise-webhooks.schema.json",
+  "title": "Enterprise",
+  "description": "An enterprise on GitHub. Webhook payloads contain the `enterprise` property when the webhook is configured\non an enterprise account or an organization that's part of an enterprise account. For more information,\nsee \"[About enterprise accounts](https://docs.github.com/admin/overview/about-enterprise-accounts).\"",
+  "type": "object",
+  "properties": {
+    "description": {
+      "oneOf": [
+        {
+          "type": "string",
+          "description": "A short description of the enterprise."
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "html_url": {
+      "type": "string",
+      "format": "uri",
+      "examples": [
+        "https://github.com/enterprises/octo-business"
+      ]
+    },
+    "website_url": {
+      "oneOf": [
+        {
+          "type": "string",
+          "description": "The enterprise's website URL.",
+          "format": "uri"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "id": {
+      "description": "Unique identifier of the enterprise",
+      "type": "integer",
+      "examples": [
+        42
+      ]
+    },
+    "node_id": {
+      "type": "string",
+      "examples": [
+        "MDEwOlJlcG9zaXRvcnkxMjk2MjY5"
+      ]
+    },
+    "name": {
+      "description": "The name of the enterprise.",
+      "type": "string",
+      "examples": [
+        "Octo Business"
+      ]
+    },
+    "slug": {
+      "description": "The slug url identifier for the enterprise.",
+      "type": "string",
+      "examples": [
+        "octo-business"
+      ]
+    },
+    "created_at": {
+      "oneOf": [
+        {
+          "type": "string",
+          "format": "date-time",
+          "examples": [
+            "2019-01-26T19:01:12Z"
+          ]
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "updated_at": {
+      "oneOf": [
+        {
+          "type": "string",
+          "format": "date-time",
+          "examples": [
+            "2019-01-26T19:14:43Z"
+          ]
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "avatar_url": {
+      "type": "string",
+      "format": "uri"
+    }
+  },
+  "required": [
+    "id",
+    "node_id",
+    "name",
+    "slug",
+    "html_url",
+    "created_at",
+    "updated_at",
+    "avatar_url"
+  ]
+}

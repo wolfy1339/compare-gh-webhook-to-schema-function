@@ -15,8 +15,8 @@ import type {
 export interface PullRequestReviewThreadResolvedEvent {
   action: 'resolved';
   thread: {
-    node_id: string;
-    comments: PullRequestReviewComment[];
+    node_id: string,
+    comments: PullRequestReviewComment[]
   };
   pull_request: SimplePullRequest;
   repository: Repository;

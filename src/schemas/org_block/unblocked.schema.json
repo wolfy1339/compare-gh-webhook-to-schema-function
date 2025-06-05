@@ -1,13 +1,8 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema",
   "$id": "org_block$unblocked",
+  "title": "org_block unblocked event",
   "type": "object",
-  "required": [
-    "action",
-    "blocked_user",
-    "organization",
-    "sender"
-  ],
   "properties": {
     "action": {
       "type": "string",
@@ -16,19 +11,29 @@
       ]
     },
     "blocked_user": {
-      "$ref": "common/user.schema.json",
-      "description": "Information about the user that was blocked or unblocked."
+      "$ref": "common/webhooks_user.schema.json"
     },
-    "sender": {
-      "$ref": "common/user.schema.json"
+    "enterprise": {
+      "$ref": "common/enterprise-webhooks.schema.json"
     },
     "installation": {
-      "$ref": "common/installation-lite.schema.json"
+      "$ref": "common/simple-installation.schema.json"
     },
     "organization": {
-      "$ref": "common/organization.schema.json"
+      "$ref": "common/organization-simple-webhooks.schema.json"
+    },
+    "repository": {
+      "$ref": "common/repository-webhooks.schema.json"
+    },
+    "sender": {
+      "$ref": "common/simple-user.schema.json"
     }
   },
-  "additionalProperties": false,
-  "title": "org_block unblocked event"
+  "required": [
+    "action",
+    "blocked_user",
+    "organization",
+    "sender"
+  ],
+  "additionalProperties": false
 }

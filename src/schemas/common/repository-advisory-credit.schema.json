@@ -1,0 +1,28 @@
+{
+  "$id": "common/repository-advisory-credit.schema.json",
+  "description": "A credit given to a user for a repository security advisory.",
+  "type": "object",
+  "properties": {
+    "user": {
+      "$ref": "simple-user.schema.json"
+    },
+    "type": {
+      "$ref": "security-advisory-credit-types.schema.json"
+    },
+    "state": {
+      "type": "string",
+      "description": "The state of the user's acceptance of the credit.",
+      "enum": [
+        "accepted",
+        "declined",
+        "pending"
+      ]
+    }
+  },
+  "required": [
+    "user",
+    "type",
+    "state"
+  ],
+  "additionalProperties": false
+}

@@ -25,22 +25,22 @@ export interface PullRequestEditedEvent {
       /**
        * The previous version of the body if the action was `edited`.
        */
-      from: string;
-    };
+      from: string
+    },
     title?: {
       /**
        * The previous version of the title if the action was `edited`.
        */
-      from: string;
-    };
+      from: string
+    },
     base?: {
       ref: {
-        from: string;
-      };
+        from: string
+      },
       sha: {
-        from: string;
-      };
-    };
+        from: string
+      }
+    }
   };
   pull_request: PullRequest;
   repository: Repository;

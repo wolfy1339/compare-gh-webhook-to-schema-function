@@ -16,13 +16,13 @@ export interface DeployKeyDeletedEvent {
    * The [`deploy key`](https://docs.github.com/en/rest/reference/deployments#get-a-deploy-key) resource.
    */
   key: {
-    id: number;
-    key: string;
-    url: string;
-    title: string;
-    verified: boolean;
-    created_at: string;
-    read_only: boolean;
+    id: number,
+    key: string,
+    url: string,
+    title: string,
+    verified: boolean,
+    created_at: string,
+    read_only: boolean
   };
   repository: Repository;
   sender: User;

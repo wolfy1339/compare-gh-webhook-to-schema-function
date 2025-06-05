@@ -36,24 +36,24 @@ export interface StatusEvent {
    */
   state: 'error' | 'failure' | 'pending' | 'success';
   commit: {
-    sha: string;
-    node_id: string;
+    sha: string,
+    node_id: string,
     commit: {
       author: Committer & {
-        date: string;
-      };
+        date: string
+      },
       committer: Committer & {
-        date: string;
-      };
-      message: string;
+        date: string
+      },
+      message: string,
       tree: {
-        sha: string;
-        url: string;
-      };
-      url: string;
-      comment_count: number;
+        sha: string,
+        url: string
+      },
+      url: string,
+      comment_count: number,
       verification: {
-        verified: boolean;
+        verified: boolean,
         reason:
           | 'bad_email'
           | 'expired_key'
@@ -67,32 +67,32 @@ export interface StatusEvent {
           | 'unknown_signature_type'
           | 'unsigned'
           | 'unverified_email'
-          | 'valid';
-        signature: string | null;
-        payload: string | null;
-      };
-    };
-    url: string;
-    html_url: string;
-    comments_url: string;
-    author: User | null;
-    committer: User | null;
+          | 'valid',
+        signature: string | null,
+        payload: string | null
+      }
+    },
+    url: string,
+    html_url: string,
+    comments_url: string,
+    author: User | null,
+    committer: User | null,
     parents: {
-      sha: string;
-      url: string;
-      html_url: string;
-    }[];
+      sha: string,
+      url: string,
+      html_url: string
+    }[]
   };
   /**
    * An array of branch objects containing the status' SHA. Each branch contains the given SHA, but the SHA may or may not be the head of the branch. The array includes a maximum of 10 branches.
    */
   branches: {
-    name: string;
+    name: string,
     commit: {
-      sha: string;
-      url: string;
-    };
-    protected: boolean;
+      sha: string,
+      url: string
+    },
+    protected: boolean
   }[];
   created_at: string;
   updated_at: string;

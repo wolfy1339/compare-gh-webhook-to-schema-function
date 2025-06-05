@@ -16,7 +16,7 @@ export interface RepositoryArchivedEvent {
     /**
      * Whether the repository is archived.
      */
-    archived: true;
+    archived: true
   };
   sender: User;
   installation?: InstallationLite;

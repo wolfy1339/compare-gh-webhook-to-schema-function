@@ -1,12 +1,8 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema",
   "$id": "repository$publicized",
+  "title": "repository publicized event",
   "type": "object",
-  "required": [
-    "action",
-    "repository",
-    "sender"
-  ],
   "properties": {
     "action": {
       "type": "string",
@@ -14,39 +10,26 @@
         "publicized"
       ]
     },
-    "repository": {
-      "allOf": [
-        {
-          "$ref": "common/repository.schema.json"
-        },
-        {
-          "type": "object",
-          "required": [
-            "private"
-          ],
-          "properties": {
-            "private": {
-              "type": "boolean",
-              "enum": [
-                false
-              ],
-              "description": "Whether the repository is private or public."
-            }
-          },
-          "tsAdditionalProperties": false
-        }
-      ]
-    },
-    "sender": {
-      "$ref": "common/user.schema.json"
+    "enterprise": {
+      "$ref": "common/enterprise-webhooks.schema.json"
     },
     "installation": {
-      "$ref": "common/installation-lite.schema.json"
+      "$ref": "common/simple-installation.schema.json"
     },
     "organization": {
-      "$ref": "common/organization.schema.json"
+      "$ref": "common/organization-simple-webhooks.schema.json"
+    },
+    "repository": {
+      "$ref": "common/repository-webhooks.schema.json"
+    },
+    "sender": {
+      "$ref": "common/simple-user.schema.json"
     }
   },
-  "additionalProperties": false,
-  "title": "repository publicized event"
+  "required": [
+    "action",
+    "repository",
+    "sender"
+  ],
+  "additionalProperties": false
 }

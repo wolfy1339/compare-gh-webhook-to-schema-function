@@ -1,0 +1,38 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema",
+  "$id": "secret_scanning_alert$publicly_leaked",
+  "title": "secret_scanning_alert publicly_leaked event",
+  "type": "object",
+  "properties": {
+    "action": {
+      "type": "string",
+      "enum": [
+        "publicly_leaked"
+      ]
+    },
+    "alert": {
+      "$ref": "common/secret-scanning-alert-webhook.schema.json"
+    },
+    "enterprise": {
+      "$ref": "common/enterprise-webhooks.schema.json"
+    },
+    "installation": {
+      "$ref": "common/simple-installation.schema.json"
+    },
+    "organization": {
+      "$ref": "common/organization-simple-webhooks.schema.json"
+    },
+    "repository": {
+      "$ref": "common/repository-webhooks.schema.json"
+    },
+    "sender": {
+      "$ref": "common/simple-user.schema.json"
+    }
+  },
+  "required": [
+    "action",
+    "alert",
+    "repository"
+  ],
+  "additionalProperties": false
+}

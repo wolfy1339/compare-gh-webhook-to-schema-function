@@ -2,106 +2,67 @@
   "$schema": "http://json-schema.org/draft-07/schema",
   "$id": "ping$event",
   "type": "object",
-  "required": [
-    "zen",
-    "hook_id",
-    "hook"
-  ],
   "properties": {
-    "zen": {
-      "type": "string"
-    },
-    "hook_id": {
-      "type": "integer",
-      "description": "The ID of the webhook that triggered the ping."
-    },
     "hook": {
+      "title": "Webhook",
+      "description": "The webhook that is being pinged",
       "type": "object",
-      "description": "The [webhook configuration](https://docs.github.com/en/rest/reference/repos#get-a-repository-webhook).",
-      "required": [
-        "type",
-        "id",
-        "name",
-        "active",
-        "events",
-        "config",
-        "updated_at",
-        "created_at",
-        "url",
-        "ping_url",
-        "deliveries_url"
-      ],
       "properties": {
-        "type": {
-          "type": "string",
-          "enum": [
-            "Repository",
-            "Organization",
-            "App"
-          ]
-        },
-        "id": {
-          "type": "integer"
-        },
-        "name": {
-          "type": "string"
-        },
         "active": {
+          "description": "Determines whether the hook is actually triggered for the events it subscribes to.",
           "type": "boolean"
         },
         "app_id": {
-          "type": "integer",
-          "description": "When you register a new GitHub App, GitHub sends a ping event to the **webhook URL** you specified during registration. The event contains the `app_id`, which is required for [authenticating](https://docs.github.com/en/apps/building-integrations/setting-up-and-registering-github-apps/about-authentication-options-for-github-apps) an app."
-        },
-        "events": {
-          "$ref": "common/webhook-events.schema.json"
+          "description": "Only included for GitHub Apps. When you register a new GitHub App, GitHub sends a ping event to the webhook URL you specified during registration. The GitHub App ID sent in this field is required for authenticating an app.",
+          "type": "integer"
         },
         "config": {
           "type": "object",
-          "required": [
-            "content_type",
-            "url",
-            "insecure_ssl"
-          ],
-          "description": "Configuration object of the webhook",
           "properties": {
             "content_type": {
-              "type": "string",
-              "enum": [
-                "json",
-                "form"
-              ],
-              "description": "The media type used to serialize the payloads. Supported values include `json` and `form`. The default is `form`."
-            },
-            "secret": {
-              "type": "string",
-              "description": "If provided, the `secret` will be used as the `key` to generate the HMAC hex digest value for [delivery signature headers](https://docs.github.com/webhooks/event-payloads/#delivery-headers)."
-            },
-            "url": {
-              "type": "string",
-              "format": "uri",
-              "description": "The URL to which the payloads will be delivered."
+              "$ref": "common/webhook-config-content-type.schema.json"
             },
             "insecure_ssl": {
-              "type": "string",
-              "description": "Determines whether the SSL certificate of the host for `url` will be verified when delivering payloads. Supported values include `0` (verification is performed) and `1` (verification is not performed). The default is `0`.",
-              "enum": [
-                "0",
-                "1"
-              ]
+              "$ref": "common/webhook-config-insecure-ssl.schema.json"
+            },
+            "secret": {
+              "$ref": "common/webhook-config-secret.schema.json"
+            },
+            "url": {
+              "$ref": "common/webhook-config-url.schema.json"
             }
-          },
-          "additionalProperties": false
-        },
-        "updated_at": {
-          "type": "string",
-          "format": "date-time"
+          }
         },
         "created_at": {
           "type": "string",
           "format": "date-time"
         },
-        "url": {
+        "deliveries_url": {
+          "type": "string",
+          "format": "uri"
+        },
+        "events": {
+          "description": "Determines what events the hook is triggered for. Default: ['push'].",
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "id": {
+          "description": "Unique identifier of the webhook.",
+          "type": "integer"
+        },
+        "last_response": {
+          "$ref": "common/hook-response.schema.json"
+        },
+        "name": {
+          "description": "The type of webhook. The only valid value is 'web'.",
+          "type": "string",
+          "enum": [
+            "web"
+          ]
+        },
+        "ping_url": {
           "type": "string",
           "format": "uri"
         },
@@ -109,47 +70,47 @@
           "type": "string",
           "format": "uri"
         },
-        "ping_url": {
+        "type": {
+          "type": "string"
+        },
+        "updated_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "url": {
           "type": "string",
           "format": "uri"
-        },
-        "deliveries_url": {
-          "type": "string",
-          "format": "uri"
-        },
-        "last_response": {
-          "type": "object",
-          "required": [
-            "code",
-            "status",
-            "message"
-          ],
-          "properties": {
-            "code": {
-              "type": "null"
-            },
-            "status": {
-              "type": "string"
-            },
-            "message": {
-              "type": "null"
-            }
-          },
-          "additionalProperties": false
         }
       },
-      "additionalProperties": false
+      "required": [
+        "id",
+        "type",
+        "name",
+        "active",
+        "events",
+        "config",
+        "created_at",
+        "updated_at"
+      ]
     },
-    "repository": {
-      "$ref": "common/repository.schema.json"
-    },
-    "sender": {
-      "$ref": "common/user.schema.json"
+    "hook_id": {
+      "description": "The ID of the webhook that triggered the ping.",
+      "type": "integer"
     },
     "organization": {
-      "$ref": "common/organization.schema.json"
+      "$ref": "common/organization-simple-webhooks.schema.json"
+    },
+    "repository": {
+      "$ref": "common/repository-webhooks.schema.json"
+    },
+    "sender": {
+      "$ref": "common/simple-user.schema.json"
+    },
+    "zen": {
+      "description": "Random string of GitHub zen.",
+      "type": "string"
     }
   },
-  "additionalProperties": false,
-  "title": "ping event"
+  "title": "ping event",
+  "additionalProperties": false
 }

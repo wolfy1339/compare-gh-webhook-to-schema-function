@@ -1,12 +1,8 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema",
   "$id": "sponsorship$pending_cancellation",
+  "title": "sponsorship pending_cancellation event",
   "type": "object",
-  "required": [
-    "action",
-    "sponsorship",
-    "sender"
-  ],
   "properties": {
     "action": {
       "type": "string",
@@ -14,47 +10,32 @@
         "pending_cancellation"
       ]
     },
-    "sponsorship": {
-      "type": "object",
-      "required": [
-        "node_id",
-        "created_at",
-        "sponsorable",
-        "sponsor",
-        "privacy_level",
-        "tier"
-      ],
-      "properties": {
-        "node_id": {
-          "type": "string"
-        },
-        "created_at": {
-          "type": "string",
-          "format": "date-time"
-        },
-        "sponsorable": {
-          "$ref": "common/user.schema.json"
-        },
-        "sponsor": {
-          "$ref": "common/user.schema.json"
-        },
-        "privacy_level": {
-          "type": "string"
-        },
-        "tier": {
-          "$ref": "common/sponsorship-tier.schema.json"
-        }
-      },
-      "additionalProperties": false
-    },
     "effective_date": {
-      "type": "string",
-      "description": "The `pending_cancellation` and `pending_tier_change` event types will include the date the cancellation or tier change will take effect."
+      "$ref": "common/webhooks_effective_date.schema.json"
+    },
+    "enterprise": {
+      "$ref": "common/enterprise-webhooks.schema.json"
+    },
+    "installation": {
+      "$ref": "common/simple-installation.schema.json"
+    },
+    "organization": {
+      "$ref": "common/organization-simple-webhooks.schema.json"
+    },
+    "repository": {
+      "$ref": "common/repository-webhooks.schema.json"
     },
     "sender": {
-      "$ref": "common/user.schema.json"
+      "$ref": "common/simple-user.schema.json"
+    },
+    "sponsorship": {
+      "$ref": "common/webhooks_sponsorship.schema.json"
     }
   },
-  "additionalProperties": false,
-  "title": "sponsorship pending_cancellation event"
+  "required": [
+    "action",
+    "sponsorship",
+    "sender"
+  ],
+  "additionalProperties": false
 }

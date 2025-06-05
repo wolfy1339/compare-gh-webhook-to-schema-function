@@ -1,0 +1,125 @@
+{
+  "$id": "common/deployment-simple.schema.json",
+  "title": "Deployment",
+  "description": "A deployment created as the result of an Actions check run from a workflow that references an environment",
+  "type": "object",
+  "properties": {
+    "url": {
+      "type": "string",
+      "format": "uri",
+      "examples": [
+        "https://api.github.com/repos/octocat/example/deployments/1"
+      ]
+    },
+    "id": {
+      "description": "Unique identifier of the deployment",
+      "type": "integer",
+      "examples": [
+        42
+      ]
+    },
+    "node_id": {
+      "type": "string",
+      "examples": [
+        "MDEwOkRlcGxveW1lbnQx"
+      ]
+    },
+    "task": {
+      "description": "Parameter to specify a task to execute",
+      "type": "string",
+      "examples": [
+        "deploy"
+      ]
+    },
+    "original_environment": {
+      "type": "string",
+      "examples": [
+        "staging"
+      ]
+    },
+    "environment": {
+      "description": "Name for the target deployment environment.",
+      "type": "string",
+      "examples": [
+        "production"
+      ]
+    },
+    "description": {
+      "oneOf": [
+        {
+          "type": "string",
+          "examples": [
+            "Deploy request from hubot"
+          ]
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date-time",
+      "examples": [
+        "2012-07-20T01:19:13Z"
+      ]
+    },
+    "updated_at": {
+      "type": "string",
+      "format": "date-time",
+      "examples": [
+        "2012-07-20T01:19:13Z"
+      ]
+    },
+    "statuses_url": {
+      "type": "string",
+      "format": "uri",
+      "examples": [
+        "https://api.github.com/repos/octocat/example/deployments/1/statuses"
+      ]
+    },
+    "repository_url": {
+      "type": "string",
+      "format": "uri",
+      "examples": [
+        "https://api.github.com/repos/octocat/example"
+      ]
+    },
+    "transient_environment": {
+      "description": "Specifies if the given environment is will no longer exist at some point in the future. Default: false.",
+      "type": "boolean",
+      "examples": [
+        true
+      ]
+    },
+    "production_environment": {
+      "description": "Specifies if the given environment is one that end-users directly interact with. Default: false.",
+      "type": "boolean",
+      "examples": [
+        true
+      ]
+    },
+    "performed_via_github_app": {
+      "oneOf": [
+        {
+          "type": "null"
+        },
+        {
+          "$ref": "integration.schema.json"
+        }
+      ]
+    }
+  },
+  "required": [
+    "id",
+    "node_id",
+    "task",
+    "environment",
+    "description",
+    "statuses_url",
+    "repository_url",
+    "url",
+    "created_at",
+    "updated_at"
+  ]
+}

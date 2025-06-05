@@ -1,14 +1,8 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema",
   "$id": "meta$deleted",
+  "title": "meta deleted event",
   "type": "object",
-  "required": [
-    "action",
-    "hook_id",
-    "hook",
-    "repository",
-    "sender"
-  ],
   "properties": {
     "action": {
       "type": "string",
@@ -16,13 +10,120 @@
         "deleted"
       ]
     },
-    "hook_id": {
-      "type": "integer",
-      "description": "The id of the modified webhook."
+    "enterprise": {
+      "$ref": "common/enterprise-webhooks.schema.json"
     },
     "hook": {
-      "type": "object",
       "description": "The modified webhook. This will contain different keys based on the type of webhook it is: repository, organization, business, app, or GitHub Marketplace.",
+      "type": "object",
+      "properties": {
+        "active": {
+          "type": "boolean"
+        },
+        "config": {
+          "type": "object",
+          "properties": {
+            "content_type": {
+              "type": "string",
+              "enum": [
+                "json",
+                "form"
+              ]
+            },
+            "insecure_ssl": {
+              "type": "string"
+            },
+            "secret": {
+              "type": "string"
+            },
+            "url": {
+              "type": "string",
+              "format": "uri"
+            }
+          },
+          "required": [
+            "content_type",
+            "insecure_ssl",
+            "url"
+          ]
+        },
+        "created_at": {
+          "type": "string"
+        },
+        "events": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": [
+              "*",
+              "branch_protection_rule",
+              "check_run",
+              "check_suite",
+              "code_scanning_alert",
+              "commit_comment",
+              "create",
+              "delete",
+              "deployment",
+              "deployment_status",
+              "deploy_key",
+              "discussion",
+              "discussion_comment",
+              "fork",
+              "gollum",
+              "issues",
+              "issue_comment",
+              "label",
+              "member",
+              "membership",
+              "meta",
+              "milestone",
+              "organization",
+              "org_block",
+              "package",
+              "page_build",
+              "project",
+              "project_card",
+              "project_column",
+              "public",
+              "pull_request",
+              "pull_request_review",
+              "pull_request_review_comment",
+              "pull_request_review_thread",
+              "push",
+              "registry_package",
+              "release",
+              "repository",
+              "repository_import",
+              "repository_vulnerability_alert",
+              "secret_scanning_alert",
+              "secret_scanning_alert_location",
+              "security_and_analysis",
+              "star",
+              "status",
+              "team",
+              "team_add",
+              "watch",
+              "workflow_job",
+              "workflow_run",
+              "repository_dispatch",
+              "projects_v2_item"
+            ],
+            "minItems": 1
+          }
+        },
+        "id": {
+          "type": "integer"
+        },
+        "name": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string"
+        },
+        "updated_at": {
+          "type": "string"
+        }
+      },
       "required": [
         "type",
         "id",
@@ -32,78 +133,36 @@
         "config",
         "updated_at",
         "created_at"
-      ],
-      "properties": {
-        "type": {
-          "type": "string"
-        },
-        "id": {
-          "type": "integer"
-        },
-        "name": {
-          "type": "string"
-        },
-        "active": {
-          "type": "boolean"
-        },
-        "events": {
-          "$ref": "common/webhook-events.schema.json"
-        },
-        "config": {
-          "type": "object",
-          "required": [
-            "content_type",
-            "url",
-            "insecure_ssl"
-          ],
-          "description": "Configuration object of the webhook",
-          "properties": {
-            "content_type": {
-              "type": "string",
-              "enum": [
-                "json",
-                "form"
-              ],
-              "description": "The media type used to serialize the payloads. Supported values include `json` and `form`. The default is `form`."
-            },
-            "secret": {
-              "type": "string",
-              "description": "If provided, the `secret` will be used as the `key` to generate the HMAC hex digest value for [delivery signature headers](https://docs.github.com/webhooks/event-payloads/#delivery-headers)."
-            },
-            "url": {
-              "type": "string",
-              "format": "uri",
-              "description": "The URL to which the payloads will be delivered."
-            },
-            "insecure_ssl": {
-              "type": "string",
-              "description": "Determines whether the SSL certificate of the host for `url` will be verified when delivering payloads. Supported values include `0` (verification is performed) and `1` (verification is not performed). The default is `0`.",
-              "enum": [
-                "0",
-                "1"
-              ]
-            }
-          },
-          "additionalProperties": false
-        },
-        "updated_at": {
-          "type": "string",
-          "format": "date-time"
-        },
-        "created_at": {
-          "type": "string",
-          "format": "date-time"
-        }
-      },
-      "additionalProperties": false
+      ]
+    },
+    "hook_id": {
+      "description": "The id of the modified webhook.",
+      "type": "integer"
+    },
+    "installation": {
+      "$ref": "common/simple-installation.schema.json"
+    },
+    "organization": {
+      "$ref": "common/organization-simple-webhooks.schema.json"
     },
     "repository": {
-      "$ref": "common/repository.schema.json"
+      "oneOf": [
+        {
+          "type": "null"
+        },
+        {
+          "$ref": "common/repository-webhooks.schema.json"
+        }
+      ]
     },
     "sender": {
-      "$ref": "common/user.schema.json"
+      "$ref": "common/simple-user.schema.json"
     }
   },
-  "additionalProperties": false,
-  "title": "meta deleted event"
+  "required": [
+    "action",
+    "hook_id",
+    "hook"
+  ],
+  "additionalProperties": false
 }

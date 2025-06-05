@@ -1,15 +1,8 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema",
   "$id": "pull_request$edited",
+  "title": "pull_request edited event",
   "type": "object",
-  "required": [
-    "action",
-    "changes",
-    "number",
-    "pull_request",
-    "repository",
-    "sender"
-  ],
   "properties": {
     "action": {
       "type": "string",
@@ -17,93 +10,95 @@
         "edited"
       ]
     },
-    "number": {
-      "type": "integer",
-      "description": "The pull request number."
-    },
     "changes": {
-      "type": "object",
       "description": "The changes to the comment if the action was `edited`.",
+      "type": "object",
       "properties": {
-        "body": {
-          "type": "object",
-          "required": [
-            "from"
-          ],
-          "properties": {
-            "from": {
-              "type": "string",
-              "description": "The previous version of the body if the action was `edited`."
-            }
-          },
-          "additionalProperties": false
-        },
-        "title": {
-          "type": "object",
-          "required": [
-            "from"
-          ],
-          "properties": {
-            "from": {
-              "type": "string",
-              "description": "The previous version of the title if the action was `edited`."
-            }
-          },
-          "additionalProperties": false
-        },
         "base": {
           "type": "object",
-          "required": [
-            "ref",
-            "sha"
-          ],
           "properties": {
             "ref": {
               "type": "object",
-              "required": [
-                "from"
-              ],
               "properties": {
                 "from": {
                   "type": "string"
                 }
               },
-              "additionalProperties": false
+              "required": [
+                "from"
+              ]
             },
             "sha": {
               "type": "object",
-              "required": [
-                "from"
-              ],
               "properties": {
                 "from": {
                   "type": "string"
                 }
               },
-              "additionalProperties": false
+              "required": [
+                "from"
+              ]
             }
           },
-          "additionalProperties": false
+          "required": [
+            "ref",
+            "sha"
+          ]
+        },
+        "body": {
+          "type": "object",
+          "properties": {
+            "from": {
+              "description": "The previous version of the body if the action was `edited`.",
+              "type": "string"
+            }
+          },
+          "required": [
+            "from"
+          ]
+        },
+        "title": {
+          "type": "object",
+          "properties": {
+            "from": {
+              "description": "The previous version of the title if the action was `edited`.",
+              "type": "string"
+            }
+          },
+          "required": [
+            "from"
+          ]
         }
-      },
-      "additionalProperties": false
+      }
     },
-    "pull_request": {
-      "$ref": "common/pull-request.schema.json"
-    },
-    "repository": {
-      "$ref": "common/repository.schema.json"
+    "enterprise": {
+      "$ref": "common/enterprise-webhooks.schema.json"
     },
     "installation": {
-      "$ref": "common/installation-lite.schema.json"
+      "$ref": "common/simple-installation.schema.json"
+    },
+    "number": {
+      "$ref": "common/webhooks_number.schema.json"
     },
     "organization": {
-      "$ref": "common/organization.schema.json"
+      "$ref": "common/organization-simple-webhooks.schema.json"
+    },
+    "pull_request": {
+      "$ref": "common/pull-request-webhook.schema.json"
+    },
+    "repository": {
+      "$ref": "common/repository-webhooks.schema.json"
     },
     "sender": {
-      "$ref": "common/user.schema.json"
+      "$ref": "common/simple-user.schema.json"
     }
   },
-  "additionalProperties": false,
-  "title": "pull_request edited event"
+  "required": [
+    "action",
+    "changes",
+    "number",
+    "pull_request",
+    "repository"
+  ],
+  "additionalProperties": false
 }

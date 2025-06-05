@@ -16,22 +16,22 @@ import type {
 export interface DiscussionCommentCreatedEvent {
   action: 'created';
   comment: {
-    id: number;
-    node_id: string;
-    html_url: string;
-    parent_id: number | null;
-    child_comment_count: number;
-    repository_url: string;
-    discussion_id: number;
-    author_association: AuthorAssociation;
-    user: User;
-    created_at: string;
-    updated_at: string;
+    id: number,
+    node_id: string,
+    html_url: string,
+    parent_id: number | null,
+    child_comment_count: number,
+    repository_url: string,
+    discussion_id: number,
+    author_association: AuthorAssociation,
+    user: User,
+    created_at: string,
+    updated_at: string,
     /**
      * The main text of the comment.
      */
-    body: string;
-    reactions: Reactions;
+    body: string,
+    reactions: Reactions
   };
   discussion: Discussion;
   repository: Repository;

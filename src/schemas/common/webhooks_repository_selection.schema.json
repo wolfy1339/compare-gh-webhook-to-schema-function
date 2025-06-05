@@ -1,0 +1,9 @@
+{
+  "$id": "common/webhooks_repository_selection.schema.json",
+  "description": "Describe whether all repositories have been selected or there's a selection involved",
+  "type": "string",
+  "enum": [
+    "all",
+    "selected"
+  ]
+}

@@ -1,0 +1,87 @@
+{
+  "$id": "common/cvss-severities.schema.json",
+  "properties": {
+    "cvss_v3": {
+      "oneOf": [
+        {
+          "type": "object",
+          "properties": {
+            "vector_string": {
+              "oneOf": [
+                {
+                  "type": "string",
+                  "description": "The CVSS 3 vector string."
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "score": {
+              "oneOf": [
+                {
+                  "type": "number",
+                  "description": "The CVSS 3 score.",
+                  "minimum": 0,
+                  "maximum": 10,
+                  "readOnly": true
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            }
+          },
+          "required": [
+            "vector_string",
+            "score"
+          ]
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "cvss_v4": {
+      "oneOf": [
+        {
+          "type": "object",
+          "properties": {
+            "vector_string": {
+              "oneOf": [
+                {
+                  "type": "string",
+                  "description": "The CVSS 4 vector string."
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "score": {
+              "oneOf": [
+                {
+                  "type": "number",
+                  "description": "The CVSS 4 score.",
+                  "minimum": 0,
+                  "maximum": 10,
+                  "readOnly": true
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            }
+          },
+          "required": [
+            "vector_string",
+            "score"
+          ]
+        },
+        {
+          "type": "null"
+        }
+      ]
+    }
+  }
+}

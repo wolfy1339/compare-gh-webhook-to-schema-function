@@ -1,14 +1,8 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema",
   "$id": "branch_protection_rule$edited",
+  "title": "branch_protection_rule edited event",
   "type": "object",
-  "description": "Activity related to a branch protection rule. For more information, see \"[About branch protection rules](https://docs.github.com/en/github/administering-a-repository/defining-the-mergeability-of-pull-requests/about-protected-branches#about-branch-protection-rules).\"",
-  "required": [
-    "action",
-    "rule",
-    "repository",
-    "sender"
-  ],
   "properties": {
     "action": {
       "type": "string",
@@ -16,35 +10,17 @@
         "edited"
       ]
     },
-    "rule": {
-      "$ref": "common/branch-protection-rule.schema.json"
-    },
     "changes": {
-      "type": "object",
       "description": "If the action was `edited`, the changes to the rule.",
+      "type": "object",
       "properties": {
         "admin_enforced": {
           "type": "object",
-          "required": [
-            "from"
-          ],
-          "properties": {
-            "from": {
-              "$ref": "common/branch-protection-rule-boolean.schema.json"
-            }
-          },
-          "additionalProperties": false
-        },
-        "allow_deletions_enforcement_level": {
-          "type": "object",
-          "required": [
-            "from"
-          ],
           "properties": {
             "from": {
               "oneOf": [
                 {
-                  "$ref": "common/branch-protection-rule-enforcement-level.schema.json"
+                  "type": "boolean"
                 },
                 {
                   "type": "null"
@@ -52,54 +28,31 @@
               ]
             }
           },
-          "additionalProperties": false
-        },
-        "allow_force_pushes_enforcement_level": {
-          "type": "object",
           "required": [
             "from"
-          ],
-          "properties": {
-            "from": {
-              "$ref": "common/branch-protection-rule-enforcement-level.schema.json"
-            }
-          },
-          "additionalProperties": false
-        },
-        "authorized_actors_only": {
-          "type": "object",
-          "required": [
-            "from"
-          ],
-          "properties": {
-            "from": {
-              "$ref": "common/branch-protection-rule-boolean.schema.json"
-            }
-          },
-          "additionalProperties": false
+          ]
         },
         "authorized_actor_names": {
           "type": "object",
-          "required": [
-            "from"
-          ],
           "properties": {
             "from": {
-              "$ref": "common/branch-protection-rule-array.schema.json"
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
             }
           },
-          "additionalProperties": false
-        },
-        "authorized_dismissal_actors_only": {
-          "type": "object",
           "required": [
             "from"
-          ],
+          ]
+        },
+        "authorized_actors_only": {
+          "type": "object",
           "properties": {
             "from": {
               "oneOf": [
                 {
-                  "$ref": "common/branch-protection-rule-boolean.schema.json"
+                  "type": "boolean"
                 },
                 {
                   "type": "null"
@@ -107,144 +60,168 @@
               ]
             }
           },
-          "additionalProperties": false
-        },
-        "dismiss_stale_reviews_on_push": {
-          "type": "object",
           "required": [
             "from"
-          ],
+          ]
+        },
+        "authorized_dismissal_actors_only": {
+          "type": "object",
           "properties": {
             "from": {
-              "$ref": "common/branch-protection-rule-boolean.schema.json"
+              "oneOf": [
+                {
+                  "type": "boolean"
+                },
+                {
+                  "type": "null"
+                }
+              ]
             }
           },
-          "additionalProperties": false
-        },
-        "pull_request_reviews_enforcement_level": {
-          "type": "object",
           "required": [
             "from"
-          ],
-          "properties": {
-            "from": {
-              "$ref": "common/branch-protection-rule-enforcement-level.schema.json"
-            }
-          },
-          "additionalProperties": false
-        },
-        "require_code_owner_review": {
-          "type": "object",
-          "required": [
-            "from"
-          ],
-          "properties": {
-            "from": {
-              "$ref": "common/branch-protection-rule-boolean.schema.json"
-            }
-          },
-          "additionalProperties": false
-        },
-        "required_approving_review_count": {
-          "type": "object",
-          "required": [
-            "from"
-          ],
-          "properties": {
-            "from": {
-              "$ref": "common/branch-protection-rule-number.schema.json"
-            }
-          },
-          "additionalProperties": false
-        },
-        "required_conversation_resolution_level": {
-          "type": "object",
-          "required": [
-            "from"
-          ],
-          "properties": {
-            "from": {
-              "$ref": "common/branch-protection-rule-enforcement-level.schema.json"
-            }
-          },
-          "additionalProperties": false
-        },
-        "required_deployments_enforcement_level": {
-          "type": "object",
-          "required": [
-            "from"
-          ],
-          "properties": {
-            "from": {
-              "$ref": "common/branch-protection-rule-enforcement-level.schema.json"
-            }
-          },
-          "additionalProperties": false
-        },
-        "required_status_checks": {
-          "type": "object",
-          "required": [
-            "from"
-          ],
-          "properties": {
-            "from": {
-              "$ref": "common/branch-protection-rule-array.schema.json"
-            }
-          },
-          "additionalProperties": false
-        },
-        "required_status_checks_enforcement_level": {
-          "type": "object",
-          "required": [
-            "from"
-          ],
-          "properties": {
-            "from": {
-              "$ref": "common/branch-protection-rule-enforcement-level.schema.json"
-            }
-          },
-          "additionalProperties": false
-        },
-        "signature_requirement_enforcement_level": {
-          "type": "object",
-          "required": [
-            "from"
-          ],
-          "properties": {
-            "from": {
-              "$ref": "common/branch-protection-rule-enforcement-level.schema.json"
-            }
-          },
-          "additionalProperties": false
+          ]
         },
         "linear_history_requirement_enforcement_level": {
           "type": "object",
-          "required": [
-            "from"
-          ],
           "properties": {
             "from": {
-              "$ref": "common/branch-protection-rule-enforcement-level.schema.json"
+              "type": "string",
+              "enum": [
+                "off",
+                "non_admins",
+                "everyone"
+              ]
             }
           },
-          "additionalProperties": false
+          "required": [
+            "from"
+          ]
+        },
+        "lock_branch_enforcement_level": {
+          "type": "object",
+          "properties": {
+            "from": {
+              "type": "string",
+              "enum": [
+                "off",
+                "non_admins",
+                "everyone"
+              ]
+            }
+          },
+          "required": [
+            "from"
+          ]
+        },
+        "lock_allows_fork_sync": {
+          "type": "object",
+          "properties": {
+            "from": {
+              "oneOf": [
+                {
+                  "type": "boolean"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            }
+          },
+          "required": [
+            "from"
+          ]
+        },
+        "pull_request_reviews_enforcement_level": {
+          "type": "object",
+          "properties": {
+            "from": {
+              "type": "string",
+              "enum": [
+                "off",
+                "non_admins",
+                "everyone"
+              ]
+            }
+          },
+          "required": [
+            "from"
+          ]
+        },
+        "require_last_push_approval": {
+          "type": "object",
+          "properties": {
+            "from": {
+              "oneOf": [
+                {
+                  "type": "boolean"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            }
+          },
+          "required": [
+            "from"
+          ]
+        },
+        "required_status_checks": {
+          "type": "object",
+          "properties": {
+            "from": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          },
+          "required": [
+            "from"
+          ]
+        },
+        "required_status_checks_enforcement_level": {
+          "type": "object",
+          "properties": {
+            "from": {
+              "type": "string",
+              "enum": [
+                "off",
+                "non_admins",
+                "everyone"
+              ]
+            }
+          },
+          "required": [
+            "from"
+          ]
         }
-      },
-      "additionalProperties": false
+      }
     },
-    "repository": {
-      "$ref": "common/repository.schema.json"
-    },
-    "sender": {
-      "$ref": "common/user.schema.json"
+    "enterprise": {
+      "$ref": "common/enterprise-webhooks.schema.json"
     },
     "installation": {
-      "$ref": "common/installation-lite.schema.json"
+      "$ref": "common/simple-installation.schema.json"
     },
     "organization": {
-      "$ref": "common/organization.schema.json"
+      "$ref": "common/organization-simple-webhooks.schema.json"
+    },
+    "repository": {
+      "$ref": "common/repository-webhooks.schema.json"
+    },
+    "rule": {
+      "$ref": "common/webhooks_rule.schema.json"
+    },
+    "sender": {
+      "$ref": "common/simple-user.schema.json"
     }
   },
-  "title": "branch protection rule edited event",
+  "required": [
+    "action",
+    "rule",
+    "repository",
+    "sender"
+  ],
   "additionalProperties": false
 }

@@ -1,48 +1,43 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema",
   "$id": "issues$unassigned",
+  "title": "issues unassigned event",
   "type": "object",
+  "properties": {
+    "action": {
+      "description": "The action that was performed.",
+      "type": "string",
+      "enum": [
+        "unassigned"
+      ]
+    },
+    "assignee": {
+      "$ref": "common/webhooks_user_mannequin.schema.json"
+    },
+    "enterprise": {
+      "$ref": "common/enterprise-webhooks.schema.json"
+    },
+    "installation": {
+      "$ref": "common/simple-installation.schema.json"
+    },
+    "issue": {
+      "$ref": "common/webhooks_issue.schema.json"
+    },
+    "organization": {
+      "$ref": "common/organization-simple-webhooks.schema.json"
+    },
+    "repository": {
+      "$ref": "common/repository-webhooks.schema.json"
+    },
+    "sender": {
+      "$ref": "common/simple-user.schema.json"
+    }
+  },
   "required": [
     "action",
     "issue",
     "repository",
     "sender"
   ],
-  "properties": {
-    "action": {
-      "type": "string",
-      "enum": [
-        "unassigned"
-      ],
-      "description": "The action that was performed."
-    },
-    "issue": {
-      "$ref": "common/issue.schema.json"
-    },
-    "assignee": {
-      "description": "The optional user who was assigned or unassigned from the issue.",
-      "oneOf": [
-        {
-          "$ref": "common/user.schema.json"
-        },
-        {
-          "type": "null"
-        }
-      ]
-    },
-    "repository": {
-      "$ref": "common/repository.schema.json"
-    },
-    "sender": {
-      "$ref": "common/user.schema.json"
-    },
-    "installation": {
-      "$ref": "common/installation-lite.schema.json"
-    },
-    "organization": {
-      "$ref": "common/organization.schema.json"
-    }
-  },
-  "additionalProperties": false,
-  "title": "issues unassigned event"
+  "additionalProperties": false
 }

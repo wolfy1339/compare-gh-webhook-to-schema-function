@@ -1,11 +1,8 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema",
   "$id": "github_app_authorization$revoked",
+  "title": "github_app_authorization revoked event",
   "type": "object",
-  "required": [
-    "action",
-    "sender"
-  ],
   "properties": {
     "action": {
       "type": "string",
@@ -14,9 +11,12 @@
       ]
     },
     "sender": {
-      "$ref": "common/user.schema.json"
+      "$ref": "common/simple-user.schema.json"
     }
   },
-  "additionalProperties": false,
-  "title": "github_app_authorization revoked event"
+  "required": [
+    "action",
+    "sender"
+  ],
+  "additionalProperties": false
 }

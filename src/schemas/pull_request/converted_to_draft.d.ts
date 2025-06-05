@@ -18,14 +18,14 @@ export interface PullRequestConvertedToDraftEvent {
    */
   number: number;
   pull_request: PullRequest & {
-    closed_at: null;
-    merged_at: null;
+    closed_at: null,
+    merged_at: null,
     /**
      * Indicates whether or not the pull request is a draft.
      */
-    draft: true;
-    merged: false;
-    merged_by: null;
+    draft: true,
+    merged: false,
+    merged_by: null
   };
   repository: Repository;
   installation?: InstallationLite;

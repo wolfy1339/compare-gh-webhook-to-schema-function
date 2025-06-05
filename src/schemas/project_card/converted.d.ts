@@ -15,8 +15,8 @@ export interface ProjectCardConvertedEvent {
   action: 'converted';
   changes: {
     note: {
-      from: string;
-    };
+      from: string
+    }
   };
   project_card: ProjectCard;
   repository?: Repository;

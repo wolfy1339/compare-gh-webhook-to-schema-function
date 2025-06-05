@@ -1,13 +1,8 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema",
   "$id": "label$created",
+  "title": "label created event",
   "type": "object",
-  "required": [
-    "action",
-    "label",
-    "repository",
-    "sender"
-  ],
   "properties": {
     "action": {
       "type": "string",
@@ -15,23 +10,29 @@
         "created"
       ]
     },
-    "label": {
-      "$ref": "common/label.schema.json",
-      "description": "The label that was added."
-    },
-    "repository": {
-      "$ref": "common/repository.schema.json"
-    },
-    "sender": {
-      "$ref": "common/user.schema.json"
+    "enterprise": {
+      "$ref": "common/enterprise-webhooks.schema.json"
     },
     "installation": {
-      "$ref": "common/installation-lite.schema.json"
+      "$ref": "common/simple-installation.schema.json"
+    },
+    "label": {
+      "$ref": "common/webhooks_label.schema.json"
     },
     "organization": {
-      "$ref": "common/organization.schema.json"
+      "$ref": "common/organization-simple-webhooks.schema.json"
+    },
+    "repository": {
+      "$ref": "common/repository-webhooks.schema.json"
+    },
+    "sender": {
+      "$ref": "common/simple-user.schema.json"
     }
   },
-  "additionalProperties": false,
-  "title": "label created event"
+  "required": [
+    "action",
+    "label",
+    "repository"
+  ],
+  "additionalProperties": false
 }

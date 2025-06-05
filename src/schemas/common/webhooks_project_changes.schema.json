@@ -1,0 +1,33 @@
+{
+  "$id": "common/webhooks_project_changes.schema.json",
+  "type": "object",
+  "properties": {
+    "archived_at": {
+      "type": "object",
+      "properties": {
+        "from": {
+          "oneOf": [
+            {
+              "type": "string",
+              "format": "date-time"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "to": {
+          "oneOf": [
+            {
+              "type": "string",
+              "format": "date-time"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      }
+    }
+  }
+}

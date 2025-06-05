@@ -16,13 +16,13 @@ export interface FnResponse {
   body: FnResult;
   statusCode: number;
   headers: {
-    [key: string]: string;
-    'X-Invocation-Id': string;
+    [key: string]: string,
+    'X-Invocation-Id': string
   };
 }
 export const handler = async (
-  rawBody: string,
-  headers: IncomingHttpHeaders
+    rawBody: string,
+    headers: IncomingHttpHeaders
 ): Promise<FnResponse> => {
   const context = {
     invocationId: uuid('https://hellomouse.net/', uuid.URL)
@@ -36,7 +36,7 @@ export const handler = async (
     const eventDescription = describeEvent(githubEvent);
 
     // For some reason, errors can be undefined
-    // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
+     
     if (errors?.length) {
       console.log(errors);
 

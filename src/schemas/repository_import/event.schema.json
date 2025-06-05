@@ -1,13 +1,24 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema",
   "$id": "repository_import$event",
+  "title": "repository_import event",
   "type": "object",
-  "required": [
-    "status",
-    "repository",
-    "sender"
-  ],
   "properties": {
+    "enterprise": {
+      "$ref": "common/enterprise-webhooks.schema.json"
+    },
+    "installation": {
+      "$ref": "common/simple-installation.schema.json"
+    },
+    "organization": {
+      "$ref": "common/organization-simple-webhooks.schema.json"
+    },
+    "repository": {
+      "$ref": "common/repository-webhooks.schema.json"
+    },
+    "sender": {
+      "$ref": "common/simple-user.schema.json"
+    },
     "status": {
       "type": "string",
       "enum": [
@@ -15,20 +26,12 @@
         "cancelled",
         "failure"
       ]
-    },
-    "repository": {
-      "$ref": "common/repository.schema.json"
-    },
-    "sender": {
-      "$ref": "common/user.schema.json"
-    },
-    "installation": {
-      "$ref": "common/installation-lite.schema.json"
-    },
-    "organization": {
-      "$ref": "common/organization.schema.json"
     }
   },
-  "additionalProperties": false,
-  "title": "repository_import event"
+  "required": [
+    "status",
+    "repository",
+    "sender"
+  ],
+  "additionalProperties": false
 }

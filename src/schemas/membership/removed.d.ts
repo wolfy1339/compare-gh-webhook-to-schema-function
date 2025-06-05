@@ -22,10 +22,10 @@ export interface MembershipRemovedEvent {
   team:
     | Team
     | {
-        id: number;
-        name: string;
-        deleted?: boolean;
-      };
+      id: number,
+      name: string,
+      deleted?: boolean
+    };
   organization: Organization;
   installation?: InstallationLite;
 }

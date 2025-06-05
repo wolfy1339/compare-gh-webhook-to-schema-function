@@ -14,28 +14,28 @@ import type {
 
 export type PullRequestReviewRequestRemovedEvent =
   | {
-      action: 'review_request_removed';
-      /**
-       * The pull request number.
-       */
-      number: number;
-      pull_request: PullRequest;
-      requested_reviewer: User;
-      repository: Repository;
-      installation?: InstallationLite;
-      organization?: Organization;
-      sender: User;
-    }
+    action: 'review_request_removed',
+    /**
+     * The pull request number.
+     */
+    number: number,
+    pull_request: PullRequest,
+    requested_reviewer: User,
+    repository: Repository,
+    installation?: InstallationLite,
+    organization?: Organization,
+    sender: User
+  }
   | {
-      action: 'review_request_removed';
-      /**
-       * The pull request number.
-       */
-      number: number;
-      pull_request: PullRequest;
-      requested_team: Team;
-      repository: Repository;
-      installation?: InstallationLite;
-      organization?: Organization;
-      sender: User;
-    };
+    action: 'review_request_removed',
+    /**
+     * The pull request number.
+     */
+    number: number,
+    pull_request: PullRequest,
+    requested_team: Team,
+    repository: Repository,
+    installation?: InstallationLite,
+    organization?: Organization,
+    sender: User
+  };

@@ -14,8 +14,8 @@ import type {
 export interface MilestoneClosedEvent {
   action: 'closed';
   milestone: Milestone & {
-    state: 'closed';
-    closed_at: string;
+    state: 'closed',
+    closed_at: string
   };
   repository: Repository;
   sender: User;

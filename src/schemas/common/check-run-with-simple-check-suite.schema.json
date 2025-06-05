@@ -1,0 +1,209 @@
+{
+  "$id": "common/check-run-with-simple-check-suite.schema.json",
+  "title": "CheckRun",
+  "description": "A check performed on the code of a given code change",
+  "type": "object",
+  "properties": {
+    "app": {
+      "oneOf": [
+        {
+          "type": "null"
+        },
+        {
+          "$ref": "integration.schema.json"
+        }
+      ]
+    },
+    "check_suite": {
+      "$ref": "simple-check-suite.schema.json"
+    },
+    "completed_at": {
+      "oneOf": [
+        {
+          "type": "string",
+          "format": "date-time",
+          "examples": [
+            "2018-05-04T01:14:52Z"
+          ]
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "conclusion": {
+      "oneOf": [
+        {
+          "type": "string",
+          "enum": [
+            "waiting",
+            "pending",
+            "startup_failure",
+            "stale",
+            "success",
+            "failure",
+            "neutral",
+            "cancelled",
+            "skipped",
+            "timed_out",
+            "action_required",
+            null
+          ],
+          "examples": [
+            "neutral"
+          ]
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "deployment": {
+      "$ref": "deployment-simple.schema.json"
+    },
+    "details_url": {
+      "type": "string",
+      "examples": [
+        "https://example.com"
+      ]
+    },
+    "external_id": {
+      "type": "string",
+      "examples": [
+        "42"
+      ]
+    },
+    "head_sha": {
+      "description": "The SHA of the commit that is being checked.",
+      "type": "string",
+      "examples": [
+        "009b8a3a9ccbb128af87f9b1c0f4c62e8a304f6d"
+      ]
+    },
+    "html_url": {
+      "type": "string",
+      "examples": [
+        "https://github.com/github/hello-world/runs/4"
+      ]
+    },
+    "id": {
+      "description": "The id of the check.",
+      "type": "integer",
+      "examples": [
+        21
+      ]
+    },
+    "name": {
+      "description": "The name of the check.",
+      "type": "string",
+      "examples": [
+        "test-coverage"
+      ]
+    },
+    "node_id": {
+      "type": "string",
+      "examples": [
+        "MDg6Q2hlY2tSdW40"
+      ]
+    },
+    "output": {
+      "type": "object",
+      "properties": {
+        "annotations_count": {
+          "type": "integer"
+        },
+        "annotations_url": {
+          "type": "string",
+          "format": "uri"
+        },
+        "summary": {
+          "oneOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "text": {
+          "oneOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "title": {
+          "oneOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      },
+      "required": [
+        "title",
+        "summary",
+        "text",
+        "annotations_count",
+        "annotations_url"
+      ]
+    },
+    "pull_requests": {
+      "type": "array",
+      "items": {
+        "$ref": "pull-request-minimal.schema.json"
+      }
+    },
+    "started_at": {
+      "type": "string",
+      "format": "date-time",
+      "examples": [
+        "2018-05-04T01:14:52Z"
+      ]
+    },
+    "status": {
+      "description": "The phase of the lifecycle that the check is currently in.",
+      "type": "string",
+      "enum": [
+        "queued",
+        "in_progress",
+        "completed",
+        "pending"
+      ],
+      "examples": [
+        "queued"
+      ]
+    },
+    "url": {
+      "type": "string",
+      "examples": [
+        "https://api.github.com/repos/github/hello-world/check-runs/4"
+      ]
+    }
+  },
+  "required": [
+    "id",
+    "node_id",
+    "head_sha",
+    "name",
+    "url",
+    "html_url",
+    "details_url",
+    "status",
+    "conclusion",
+    "started_at",
+    "completed_at",
+    "external_id",
+    "check_suite",
+    "output",
+    "app",
+    "pull_requests"
+  ]
+}

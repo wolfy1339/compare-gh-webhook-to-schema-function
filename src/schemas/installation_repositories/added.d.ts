@@ -19,21 +19,20 @@ export interface InstallationRepositoriesAddedEvent {
     /**
      * Unique identifier of the repository
      */
-    id: number;
-    node_id: string;
+    id: number,
+    node_id: string,
     /**
      * The name of the repository.
      */
-    name: string;
-    full_name: string;
+    name: string,
+    full_name: string,
     /**
      * Whether the repository is private or public.
      */
-    private: boolean;
+    private: boolean
   }[];
   /**
    * An array of repository objects, which were removed from the installation.
-   *
    * @maxItems 0
    */
   repositories_removed: [];

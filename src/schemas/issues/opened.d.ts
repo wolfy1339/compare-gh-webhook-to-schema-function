@@ -14,12 +14,12 @@ import type {
 export interface IssuesOpenedEvent {
   action: 'opened';
   changes?: {
-    old_issue: Issue;
-    old_repository: Repository;
+    old_issue: Issue,
+    old_repository: Repository
   };
   issue: Issue & {
-    state: 'open';
-    closed_at: null;
+    state: 'open',
+    closed_at: null
   };
   repository: Repository;
   sender: User;

@@ -1,13 +1,8 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema",
   "$id": "project$edited",
+  "title": "project edited event",
   "type": "object",
-  "required": [
-    "action",
-    "project",
-    "repository",
-    "sender"
-  ],
   "properties": {
     "action": {
       "type": "string",
@@ -16,54 +11,57 @@
       ]
     },
     "changes": {
-      "type": "object",
       "description": "The changes to the project if the action was `edited`.",
+      "type": "object",
       "properties": {
-        "name": {
-          "type": "object",
-          "required": [
-            "from"
-          ],
-          "properties": {
-            "from": {
-              "type": "string",
-              "description": "The changes to the project if the action was `edited`."
-            }
-          },
-          "additionalProperties": false
-        },
         "body": {
           "type": "object",
-          "required": [
-            "from"
-          ],
           "properties": {
             "from": {
-              "type": "string",
-              "description": "The previous version of the body if the action was `edited`."
+              "description": "The previous version of the body if the action was `edited`.",
+              "type": "string"
             }
           },
-          "additionalProperties": false
+          "required": [
+            "from"
+          ]
+        },
+        "name": {
+          "type": "object",
+          "properties": {
+            "from": {
+              "description": "The changes to the project if the action was `edited`.",
+              "type": "string"
+            }
+          },
+          "required": [
+            "from"
+          ]
         }
-      },
-      "additionalProperties": false
+      }
     },
-    "project": {
-      "$ref": "common/project.schema.json"
-    },
-    "repository": {
-      "$ref": "common/repository.schema.json"
-    },
-    "sender": {
-      "$ref": "common/user.schema.json"
+    "enterprise": {
+      "$ref": "common/enterprise-webhooks.schema.json"
     },
     "installation": {
-      "$ref": "common/installation-lite.schema.json"
+      "$ref": "common/simple-installation.schema.json"
     },
     "organization": {
-      "$ref": "common/organization.schema.json"
+      "$ref": "common/organization-simple-webhooks.schema.json"
+    },
+    "project": {
+      "$ref": "common/webhooks_project.schema.json"
+    },
+    "repository": {
+      "$ref": "common/repository-webhooks.schema.json"
+    },
+    "sender": {
+      "$ref": "common/simple-user.schema.json"
     }
   },
-  "additionalProperties": false,
-  "title": "project edited event"
+  "required": [
+    "action",
+    "project"
+  ],
+  "additionalProperties": false
 }

@@ -14,8 +14,8 @@ import type {
 export interface IssuesLockedEvent {
   action: 'locked';
   issue: Issue & {
-    locked: true;
-    active_lock_reason: 'off-topic' | 'resolved' | 'spam' | 'too heated' | null;
+    locked: true,
+    active_lock_reason: 'off-topic' | 'resolved' | 'spam' | 'too heated' | null
   };
   repository: Repository;
   sender: User;

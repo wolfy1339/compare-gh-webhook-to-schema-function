@@ -20,65 +20,65 @@ export interface CodeScanningAlertClosedByUserEvent {
     /**
      * The code scanning alert number.
      */
-    number: number;
+    number: number,
     /**
      * The time that the alert was created in ISO 8601 format: `YYYY-MM-DDTHH:MM:SSZ.`
      */
-    created_at: string;
+    created_at: string,
     /**
      * The REST API URL of the alert resource.
      */
-    url: string;
+    url: string,
     /**
      * The GitHub URL of the alert resource.
      */
-    html_url: string;
+    html_url: string,
     instances: (AlertInstance & {
-      state: 'dismissed';
-    })[];
-    most_recent_instance?: AlertInstance;
+      state: 'dismissed'
+    })[],
+    most_recent_instance?: AlertInstance,
     /**
      * State of a code scanning alert.
      */
-    state: 'dismissed';
-    dismissed_by: User;
+    state: 'dismissed',
+    dismissed_by: User,
     /**
      * The time that the alert was dismissed in ISO 8601 format: `YYYY-MM-DDTHH:MM:SSZ`.
      */
-    dismissed_at: string;
+    dismissed_at: string,
     /**
      * The reason for dismissing or closing the alert. Can be one of: `false positive`, `won't fix`, and `used in tests`.
      */
-    dismissed_reason: 'false positive' | 'used in tests' | "won't fix" | null;
+    dismissed_reason: 'false positive' | 'used in tests' | 'won\'t fix' | null,
     rule: {
       /**
        * A unique identifier for the rule used to detect the alert.
        */
-      id: string;
+      id: string,
       /**
        * The severity of the alert.
        */
-      severity: 'error' | 'none' | 'note' | 'warning' | null;
+      severity: 'error' | 'none' | 'note' | 'warning' | null,
       /**
        * A short description of the rule used to detect the alert.
        */
-      description: string;
-      name?: string;
-      full_description?: string;
-      tags?: null;
-      help?: null;
-    };
+      description: string,
+      name?: string,
+      full_description?: string,
+      tags?: null,
+      help?: null
+    },
     tool: {
       /**
        * The name of the tool used to generate the code scanning analysis alert.
        */
-      name: string;
+      name: string,
       /**
        * The version of the tool used to detect the alert.
        */
-      version: string | null;
-      guid?: string | null;
-    };
+      version: string | null,
+      guid?: string | null
+    }
   };
   /**
    * The Git reference of the code scanning alert. When the action is `reopened_by_user` or `closed_by_user`, the event was triggered by the `sender` and this value will be empty.

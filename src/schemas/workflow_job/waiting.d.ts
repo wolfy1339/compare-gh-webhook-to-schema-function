@@ -20,6 +20,6 @@ export interface WorkflowJobWaitingEvent {
   sender: User;
   deployment?: Deployment;
   workflow_job: WorkflowJob & {
-    status: 'waiting';
+    status: 'waiting'
   };
 }

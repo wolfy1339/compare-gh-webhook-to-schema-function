@@ -9,27 +9,27 @@ export interface MarketplacePurchaseChangedEvent {
   action: 'changed';
   effective_date: string;
   sender: {
-    login: string;
-    id: number;
-    avatar_url: string;
-    gravatar_id: string;
-    url: string;
-    html_url: string;
-    followers_url: string;
-    following_url: string;
-    gists_url: string;
-    starred_url: string;
-    subscriptions_url: string;
-    organizations_url: string;
-    repos_url: string;
-    events_url: string;
-    received_events_url: string;
-    type: string;
-    site_admin: boolean;
-    email: string;
+    login: string,
+    id: number,
+    avatar_url: string,
+    gravatar_id: string,
+    url: string,
+    html_url: string,
+    followers_url: string,
+    following_url: string,
+    gists_url: string,
+    starred_url: string,
+    subscriptions_url: string,
+    organizations_url: string,
+    repos_url: string,
+    events_url: string,
+    received_events_url: string,
+    type: string,
+    site_admin: boolean,
+    email: string
   };
   marketplace_purchase: MarketplacePurchase & {
-    next_billing_date: string;
+    next_billing_date: string
   };
   previous_marketplace_purchase?: MarketplacePurchase;
 }

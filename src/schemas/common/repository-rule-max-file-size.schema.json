@@ -1,0 +1,31 @@
+{
+  "$id": "common/repository-rule-max-file-size.schema.json",
+  "title": "max_file_size",
+  "description": "Prevent commits with individual files that exceed the specified limit from being pushed to the commit graph.",
+  "type": "object",
+  "required": [
+    "type"
+  ],
+  "properties": {
+    "type": {
+      "type": "string",
+      "enum": [
+        "max_file_size"
+      ]
+    },
+    "parameters": {
+      "type": "object",
+      "properties": {
+        "max_file_size": {
+          "type": "integer",
+          "description": "The maximum file size allowed in megabytes. This limit does not apply to Git Large File Storage (Git LFS).",
+          "minimum": 1,
+          "maximum": 100
+        }
+      },
+      "required": [
+        "max_file_size"
+      ]
+    }
+  }
+}

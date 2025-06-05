@@ -15,9 +15,9 @@ export interface RepositoryRenamedEvent {
   changes: {
     repository: {
       name: {
-        from: string;
-      };
-    };
+        from: string
+      }
+    }
   };
   repository: Repository;
   sender: User;

@@ -20,8 +20,8 @@ export interface IssuesClosedEvent {
    * The [issue](https://docs.github.com/en/rest/reference/issues) itself.
    */
   issue: Issue & {
-    state: 'closed';
-    closed_at: string;
+    state: 'closed',
+    closed_at: string
   };
   repository: Repository;
   sender: User;

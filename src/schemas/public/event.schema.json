@@ -1,45 +1,28 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema",
   "$id": "public$event",
+  "title": "public event",
   "type": "object",
+  "properties": {
+    "enterprise": {
+      "$ref": "common/enterprise-webhooks.schema.json"
+    },
+    "installation": {
+      "$ref": "common/simple-installation.schema.json"
+    },
+    "organization": {
+      "$ref": "common/organization-simple-webhooks.schema.json"
+    },
+    "repository": {
+      "$ref": "common/repository-webhooks.schema.json"
+    },
+    "sender": {
+      "$ref": "common/simple-user.schema.json"
+    }
+  },
   "required": [
     "repository",
     "sender"
   ],
-  "description": "When a private repository is made public.",
-  "properties": {
-    "repository": {
-      "allOf": [
-        {
-          "$ref": "common/repository.schema.json"
-        },
-        {
-          "type": "object",
-          "required": [
-            "private"
-          ],
-          "properties": {
-            "private": {
-              "type": "boolean",
-              "enum": [
-                false
-              ]
-            }
-          },
-          "tsAdditionalProperties": false
-        }
-      ]
-    },
-    "sender": {
-      "$ref": "common/user.schema.json"
-    },
-    "installation": {
-      "$ref": "common/installation-lite.schema.json"
-    },
-    "organization": {
-      "$ref": "common/organization.schema.json"
-    }
-  },
-  "additionalProperties": false,
-  "title": "public event"
+  "additionalProperties": false
 }

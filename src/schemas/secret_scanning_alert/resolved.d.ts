@@ -14,9 +14,9 @@ import type {
 export interface SecretScanningAlertResolvedEvent {
   action: 'resolved';
   alert: SecretScanningAlert & {
-    resolution: 'false_positive' | 'revoked' | 'used_in_tests' | 'wont_fix';
-    resolved_by: User;
-    resolved_at: string;
+    resolution: 'false_positive' | 'revoked' | 'used_in_tests' | 'wont_fix',
+    resolved_by: User,
+    resolved_at: string
   };
   repository: Repository;
   organization?: Organization;

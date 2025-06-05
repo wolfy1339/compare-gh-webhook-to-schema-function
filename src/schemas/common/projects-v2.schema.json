@@ -1,0 +1,117 @@
+{
+  "$id": "common/projects-v2.schema.json",
+  "title": "Projects v2 Project",
+  "description": "A projects v2 project",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "number"
+    },
+    "node_id": {
+      "type": "string"
+    },
+    "owner": {
+      "$ref": "simple-user.schema.json"
+    },
+    "creator": {
+      "$ref": "simple-user.schema.json"
+    },
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "oneOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "public": {
+      "type": "boolean"
+    },
+    "closed_at": {
+      "oneOf": [
+        {
+          "type": "string",
+          "format": "date-time",
+          "examples": [
+            "2022-04-28T12:00:00Z"
+          ]
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date-time",
+      "examples": [
+        "2022-04-28T12:00:00Z"
+      ]
+    },
+    "updated_at": {
+      "type": "string",
+      "format": "date-time",
+      "examples": [
+        "2022-04-28T12:00:00Z"
+      ]
+    },
+    "number": {
+      "type": "integer"
+    },
+    "short_description": {
+      "oneOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "deleted_at": {
+      "oneOf": [
+        {
+          "type": "string",
+          "format": "date-time",
+          "examples": [
+            "2022-04-28T12:00:00Z"
+          ]
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "deleted_by": {
+      "oneOf": [
+        {
+          "type": "null"
+        },
+        {
+          "$ref": "simple-user.schema.json"
+        }
+      ]
+    }
+  },
+  "required": [
+    "id",
+    "node_id",
+    "owner",
+    "creator",
+    "title",
+    "description",
+    "public",
+    "closed_at",
+    "created_at",
+    "updated_at",
+    "number",
+    "short_description",
+    "deleted_at",
+    "deleted_by"
+  ]
+}

@@ -75,19 +75,19 @@ export interface WorkflowRun {
    */
   name: string;
   pull_requests: {
-    url: string;
-    id: number;
-    number: number;
+    url: string,
+    id: number,
+    number: number,
     head: {
-      ref: string;
-      sha: string;
-      repo: RepoRef;
-    };
+      ref: string,
+      sha: string,
+      repo: RepoRef
+    },
     base: {
-      ref: string;
-      sha: string;
-      repo: RepoRef;
-    };
+      ref: string,
+      sha: string,
+      repo: RepoRef
+    }
   }[];
   repository: RepositoryLite;
   /**

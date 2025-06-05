@@ -15,7 +15,7 @@ import type {
 export interface IssuesMilestonedEvent {
   action: 'milestoned';
   issue: Issue & {
-    milestone: Milestone;
+    milestone: Milestone
   };
   milestone: Milestone;
   repository: Repository;

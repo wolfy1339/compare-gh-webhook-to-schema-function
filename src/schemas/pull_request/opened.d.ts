@@ -18,11 +18,11 @@ export interface PullRequestOpenedEvent {
    */
   number: number;
   pull_request: PullRequest & {
-    state: 'open';
-    closed_at: null;
-    merged_at: null;
-    active_lock_reason: null;
-    merged_by: null;
+    state: 'open',
+    closed_at: null,
+    merged_at: null,
+    active_lock_reason: null,
+    merged_by: null
   };
   repository: Repository;
   installation?: InstallationLite;

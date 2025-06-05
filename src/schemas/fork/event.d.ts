@@ -18,7 +18,7 @@ export interface ForkEvent {
    * The created [`repository`](https://docs.github.com/en/rest/reference/repos#get-a-repository) resource.
    */
   forkee: Repository & {
-    fork?: true;
+    fork?: true
   };
   repository: Repository;
   sender: User;

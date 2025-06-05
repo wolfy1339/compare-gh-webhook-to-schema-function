@@ -1,12 +1,8 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema",
   "$id": "project_card$moved",
+  "title": "project_card moved event",
   "type": "object",
-  "required": [
-    "action",
-    "project_card",
-    "sender"
-  ],
   "properties": {
     "action": {
       "type": "string",
@@ -16,60 +12,353 @@
     },
     "changes": {
       "type": "object",
-      "required": [
-        "column_id"
-      ],
       "properties": {
         "column_id": {
           "type": "object",
-          "required": [
-            "from"
-          ],
           "properties": {
             "from": {
               "type": "integer"
             }
           },
-          "additionalProperties": false
+          "required": [
+            "from"
+          ]
         }
       },
-      "additionalProperties": false
+      "required": [
+        "column_id"
+      ]
+    },
+    "enterprise": {
+      "$ref": "common/enterprise-webhooks.schema.json"
+    },
+    "installation": {
+      "$ref": "common/simple-installation.schema.json"
+    },
+    "organization": {
+      "$ref": "common/organization-simple-webhooks.schema.json"
     },
     "project_card": {
       "allOf": [
         {
-          "$ref": "common/project-card.schema.json"
+          "title": "Project Card",
+          "type": "object",
+          "properties": {
+            "after_id": {
+              "oneOf": [
+                {
+                  "type": "integer"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "archived": {
+              "description": "Whether or not the card is archived",
+              "type": "boolean"
+            },
+            "column_id": {
+              "type": "integer"
+            },
+            "column_url": {
+              "type": "string",
+              "format": "uri"
+            },
+            "content_url": {
+              "type": "string",
+              "format": "uri"
+            },
+            "created_at": {
+              "type": "string",
+              "format": "date-time"
+            },
+            "creator": {
+              "oneOf": [
+                {
+                  "type": "object",
+                  "title": "User",
+                  "properties": {
+                    "avatar_url": {
+                      "type": "string",
+                      "format": "uri"
+                    },
+                    "deleted": {
+                      "type": "boolean"
+                    },
+                    "email": {
+                      "oneOf": [
+                        {
+                          "type": "string"
+                        },
+                        {
+                          "type": "null"
+                        }
+                      ]
+                    },
+                    "events_url": {
+                      "type": "string",
+                      "format": "uri-template"
+                    },
+                    "followers_url": {
+                      "type": "string",
+                      "format": "uri"
+                    },
+                    "following_url": {
+                      "type": "string",
+                      "format": "uri-template"
+                    },
+                    "gists_url": {
+                      "type": "string",
+                      "format": "uri-template"
+                    },
+                    "gravatar_id": {
+                      "type": "string"
+                    },
+                    "html_url": {
+                      "type": "string",
+                      "format": "uri"
+                    },
+                    "id": {
+                      "type": "integer"
+                    },
+                    "login": {
+                      "type": "string"
+                    },
+                    "name": {
+                      "type": "string"
+                    },
+                    "node_id": {
+                      "type": "string"
+                    },
+                    "organizations_url": {
+                      "type": "string",
+                      "format": "uri"
+                    },
+                    "received_events_url": {
+                      "type": "string",
+                      "format": "uri"
+                    },
+                    "repos_url": {
+                      "type": "string",
+                      "format": "uri"
+                    },
+                    "site_admin": {
+                      "type": "boolean"
+                    },
+                    "starred_url": {
+                      "type": "string",
+                      "format": "uri-template"
+                    },
+                    "subscriptions_url": {
+                      "type": "string",
+                      "format": "uri"
+                    },
+                    "type": {
+                      "type": "string",
+                      "enum": [
+                        "Bot",
+                        "User",
+                        "Organization",
+                        "Mannequin"
+                      ]
+                    },
+                    "url": {
+                      "type": "string",
+                      "format": "uri"
+                    },
+                    "user_view_type": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "login",
+                    "id"
+                  ]
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "id": {
+              "description": "The project card's ID",
+              "type": "integer"
+            },
+            "node_id": {
+              "type": "string"
+            },
+            "note": {
+              "oneOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "project_url": {
+              "type": "string",
+              "format": "uri"
+            },
+            "updated_at": {
+              "type": "string",
+              "format": "date-time"
+            },
+            "url": {
+              "type": "string",
+              "format": "uri"
+            }
+          },
+          "required": [
+            "url",
+            "project_url",
+            "column_url",
+            "column_id",
+            "id",
+            "node_id",
+            "note",
+            "archived",
+            "creator",
+            "created_at",
+            "updated_at"
+          ]
         },
         {
           "type": "object",
-          "required": [
-            "after_id"
-          ],
           "properties": {
             "after_id": {
-              "type": [
-                "number",
-                "null"
+              "oneOf": [
+                {
+                  "type": "number"
+                },
+                {
+                  "type": "null"
+                }
               ]
+            },
+            "archived": {
+              "type": "boolean"
+            },
+            "column_id": {
+              "type": "integer"
+            },
+            "column_url": {
+              "type": "string"
+            },
+            "created_at": {
+              "type": "string"
+            },
+            "creator": {
+              "oneOf": [
+                {
+                  "type": "object",
+                  "properties": {
+                    "avatar_url": {
+                      "type": "string"
+                    },
+                    "events_url": {
+                      "type": "string"
+                    },
+                    "followers_url": {
+                      "type": "string"
+                    },
+                    "following_url": {
+                      "type": "string"
+                    },
+                    "gists_url": {
+                      "type": "string"
+                    },
+                    "gravatar_id": {
+                      "type": "string"
+                    },
+                    "html_url": {
+                      "type": "string"
+                    },
+                    "id": {
+                      "type": "integer"
+                    },
+                    "login": {
+                      "type": "string"
+                    },
+                    "node_id": {
+                      "type": "string"
+                    },
+                    "organizations_url": {
+                      "type": "string"
+                    },
+                    "received_events_url": {
+                      "type": "string"
+                    },
+                    "repos_url": {
+                      "type": "string"
+                    },
+                    "site_admin": {
+                      "type": "boolean"
+                    },
+                    "starred_url": {
+                      "type": "string"
+                    },
+                    "subscriptions_url": {
+                      "type": "string"
+                    },
+                    "type": {
+                      "type": "string"
+                    },
+                    "url": {
+                      "type": "string"
+                    }
+                  }
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "id": {
+              "type": "integer"
+            },
+            "node_id": {
+              "type": "string"
+            },
+            "note": {
+              "oneOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "project_url": {
+              "type": "string"
+            },
+            "updated_at": {
+              "type": "string"
+            },
+            "url": {
+              "type": "string"
             }
           },
-          "tsAdditionalProperties": false
+          "required": [
+            "after_id"
+          ]
         }
       ]
     },
     "repository": {
-      "$ref": "common/repository.schema.json"
+      "$ref": "common/repository-webhooks.schema.json"
     },
     "sender": {
-      "$ref": "common/user.schema.json"
-    },
-    "organization": {
-      "$ref": "common/organization.schema.json"
-    },
-    "installation": {
-      "$ref": "common/installation-lite.schema.json"
+      "$ref": "common/simple-user.schema.json"
     }
   },
-  "additionalProperties": false,
-  "title": "project_card moved event"
+  "required": [
+    "action",
+    "project_card",
+    "sender"
+  ],
+  "additionalProperties": false
 }

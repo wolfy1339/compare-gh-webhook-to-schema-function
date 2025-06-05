@@ -27,7 +27,7 @@ export interface WorkflowRunCompletedEvent {
       | 'skipped'
       | 'stale'
       | 'success'
-      | 'timed_out';
+      | 'timed_out'
   };
   installation?: InstallationLite;
 }

@@ -14,7 +14,6 @@ export interface InstallationRepositoriesRemovedEvent {
   repository_selection: 'all' | 'selected';
   /**
    * An array of repository objects, which were added to the installation.
-   *
    * @maxItems 0
    */
   repositories_added: [];
@@ -25,17 +24,17 @@ export interface InstallationRepositoriesRemovedEvent {
     /**
      * Unique identifier of the repository
      */
-    id: number;
-    node_id: string;
+    id: number,
+    node_id: string,
     /**
      * The name of the repository.
      */
-    name: string;
-    full_name: string;
+    name: string,
+    full_name: string,
     /**
      * Whether the repository is private or public.
      */
-    private: boolean;
+    private: boolean
   }[];
   requester: User | null;
   sender: User;

@@ -1,161 +1,107 @@
 {
-  "$schema": "http://json-schema.org/draft-07/schema",
   "$id": "common/team.schema.json",
+  "title": "Team",
   "description": "Groups of organization members that gives permissions on specified repositories.",
   "type": "object",
-  "required": [
-    "name",
-    "id",
-    "node_id",
-    "slug",
-    "description",
-    "privacy",
-    "url",
-    "html_url",
-    "members_url",
-    "repositories_url",
-    "permission"
-  ],
   "properties": {
-    "name": {
-      "type": "string",
-      "description": "Name of the team"
-    },
     "id": {
-      "type": "integer",
-      "description": "Unique identifier of the team"
+      "type": "integer"
     },
     "node_id": {
+      "type": "string"
+    },
+    "name": {
       "type": "string"
     },
     "slug": {
       "type": "string"
     },
     "description": {
-      "type": [
-        "string",
-        "null"
-      ],
-      "description": "Description of the team"
+      "oneOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ]
     },
     "privacy": {
-      "type": "string",
-      "enum": [
-        "open",
-        "closed",
-        "secret"
+      "type": "string"
+    },
+    "notification_setting": {
+      "type": "string"
+    },
+    "permission": {
+      "type": "string"
+    },
+    "permissions": {
+      "type": "object",
+      "properties": {
+        "pull": {
+          "type": "boolean"
+        },
+        "triage": {
+          "type": "boolean"
+        },
+        "push": {
+          "type": "boolean"
+        },
+        "maintain": {
+          "type": "boolean"
+        },
+        "admin": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "pull",
+        "triage",
+        "push",
+        "maintain",
+        "admin"
       ]
     },
     "url": {
       "type": "string",
-      "format": "uri",
-      "description": "URL for the team"
+      "format": "uri"
     },
     "html_url": {
       "type": "string",
-      "format": "uri"
+      "format": "uri",
+      "examples": [
+        "https://github.com/orgs/rails/teams/core"
+      ]
     },
     "members_url": {
-      "type": "string",
-      "format": "uri-template"
+      "type": "string"
     },
     "repositories_url": {
       "type": "string",
       "format": "uri"
     },
-    "permission": {
-      "type": "string",
-      "description": "Permission that the team will have for its repositories"
-    },
     "parent": {
-      "type": [
-        "object",
-        "null"
-      ],
-      "required": [
-        "name",
-        "id",
-        "node_id",
-        "slug",
-        "description",
-        "privacy",
-        "url",
-        "html_url",
-        "members_url",
-        "repositories_url",
-        "permission"
-      ],
-      "properties": {
-        "name": {
-          "type": "string",
-          "description": "Name of the team"
+      "oneOf": [
+        {
+          "type": "null"
         },
-        "id": {
-          "type": "integer",
-          "description": "Unique identifier of the team"
-        },
-        "node_id": {
-          "type": "string"
-        },
-        "slug": {
-          "type": "string"
-        },
-        "description": {
-          "type": [
-            "string",
-            "null"
-          ],
-          "description": "Description of the team"
-        },
-        "privacy": {
-          "type": "string",
-          "enum": [
-            "open",
-            "closed",
-            "secret"
-          ]
-        },
-        "url": {
-          "type": "string",
-          "format": "uri",
-          "description": "URL for the team"
-        },
-        "html_url": {
-          "type": "string",
-          "format": "uri"
-        },
-        "members_url": {
-          "type": "string",
-          "format": "uri-template"
-        },
-        "repositories_url": {
-          "type": "string",
-          "format": "uri"
-        },
-        "permission": {
-          "type": "string",
-          "description": "Permission that the team will have for its repositories"
-        },
-        "notification_setting": {
-          "type": "string",
-          "enum": [
-            "notifications_enabled",
-            "notifications_disabled"
-          ],
-          "description": "Whether team members will receive notifications when their team is @mentioned"
+        {
+          "$ref": "team-simple.schema.json"
         }
-      },
-      "additionalProperties": false
-    },
-    "notification_setting": {
-      "type": "string",
-      "enum": [
-        "notifications_enabled",
-        "notifications_disabled"
-      ],
-      "description": "Whether team members will receive notifications when their team is @mentioned"
+      ]
     }
   },
-  "additionalProperties": false,
-  "title": "Team"
+  "required": [
+    "id",
+    "node_id",
+    "url",
+    "members_url",
+    "name",
+    "description",
+    "permission",
+    "html_url",
+    "repositories_url",
+    "slug",
+    "parent"
+  ]
 }

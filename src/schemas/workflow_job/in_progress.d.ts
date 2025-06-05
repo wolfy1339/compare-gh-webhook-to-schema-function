@@ -20,6 +20,6 @@ export interface WorkflowJobInProgressEvent {
   sender: User;
   deployment?: Deployment;
   workflow_job: WorkflowJob & {
-    status: 'in_progress' | 'queued';
+    status: 'in_progress' | 'queued'
   };
 }

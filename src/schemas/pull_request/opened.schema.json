@@ -1,14 +1,8 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema",
   "$id": "pull_request$opened",
+  "title": "pull_request opened event",
   "type": "object",
-  "required": [
-    "action",
-    "number",
-    "pull_request",
-    "repository",
-    "sender"
-  ],
   "properties": {
     "action": {
       "type": "string",
@@ -16,61 +10,34 @@
         "opened"
       ]
     },
-    "number": {
-      "type": "integer",
-      "description": "The pull request number."
-    },
-    "pull_request": {
-      "allOf": [
-        {
-          "$ref": "common/pull-request.schema.json"
-        },
-        {
-          "type": "object",
-          "required": [
-            "state",
-            "closed_at",
-            "merged_at",
-            "active_lock_reason",
-            "merged_by"
-          ],
-          "properties": {
-            "state": {
-              "type": "string",
-              "enum": [
-                "open"
-              ]
-            },
-            "closed_at": {
-              "type": "null"
-            },
-            "merged_at": {
-              "type": "null"
-            },
-            "active_lock_reason": {
-              "type": "null"
-            },
-            "merged_by": {
-              "type": "null"
-            }
-          },
-          "tsAdditionalProperties": false
-        }
-      ]
-    },
-    "repository": {
-      "$ref": "common/repository.schema.json"
+    "enterprise": {
+      "$ref": "common/enterprise-webhooks.schema.json"
     },
     "installation": {
-      "$ref": "common/installation-lite.schema.json"
+      "$ref": "common/simple-installation.schema.json"
+    },
+    "number": {
+      "$ref": "common/webhooks_number.schema.json"
     },
     "organization": {
-      "$ref": "common/organization.schema.json"
+      "$ref": "common/organization-simple-webhooks.schema.json"
+    },
+    "pull_request": {
+      "$ref": "common/pull-request-webhook.schema.json"
+    },
+    "repository": {
+      "$ref": "common/repository-webhooks.schema.json"
     },
     "sender": {
-      "$ref": "common/user.schema.json"
+      "$ref": "common/simple-user.schema.json"
     }
   },
-  "additionalProperties": false,
-  "title": "pull_request opened event"
+  "required": [
+    "action",
+    "number",
+    "pull_request",
+    "repository",
+    "sender"
+  ],
+  "additionalProperties": false
 }

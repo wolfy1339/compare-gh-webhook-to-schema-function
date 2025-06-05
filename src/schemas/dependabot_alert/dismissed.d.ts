@@ -14,15 +14,15 @@ import type {
 export interface DependabotAlertDismissedEvent {
   action: 'dismissed';
   alert: DependabotAlert & {
-    state: 'dismissed';
-    dismissed_at: string;
-    dismissed_by: User;
+    state: 'dismissed',
+    dismissed_at: string,
+    dismissed_by: User,
     dismissed_reason:
       | 'fix_started'
       | 'inaccurate'
       | 'no_bandwidth'
       | 'not_used'
-      | 'tolerable_risk';
+      | 'tolerable_risk'
   };
   repository: Repository;
   sender: User;

@@ -1,0 +1,109 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema",
+  "$id": "secret_scanning_scan$completed",
+  "title": "secret_scanning_scan completed event",
+  "type": "object",
+  "properties": {
+    "action": {
+      "type": "string",
+      "enum": [
+        "completed"
+      ]
+    },
+    "type": {
+      "type": "string",
+      "description": "What type of scan was completed",
+      "enum": [
+        "backfill",
+        "custom-pattern-backfill",
+        "pattern-version-backfill"
+      ]
+    },
+    "source": {
+      "type": "string",
+      "description": "What type of content was scanned",
+      "enum": [
+        "git",
+        "issues",
+        "pull-requests",
+        "discussions",
+        "wiki"
+      ]
+    },
+    "started_at": {
+      "type": "string",
+      "format": "date-time",
+      "description": "The time that the alert was resolved in ISO 8601 format: `YYYY-MM-DDTHH:MM:SSZ`."
+    },
+    "completed_at": {
+      "type": "string",
+      "format": "date-time",
+      "description": "The time that the alert was resolved in ISO 8601 format: `YYYY-MM-DDTHH:MM:SSZ`."
+    },
+    "secret_types": {
+      "oneOf": [
+        {
+          "type": "array",
+          "description": "List of patterns that were updated. This will be empty for normal backfill scans or custom pattern updates",
+          "items": {
+            "type": "string"
+          }
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "custom_pattern_name": {
+      "oneOf": [
+        {
+          "type": "string",
+          "description": "If the scan was triggered by a custom pattern update, this will be the name of the pattern that was updated"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "custom_pattern_scope": {
+      "oneOf": [
+        {
+          "type": "string",
+          "description": "If the scan was triggered by a custom pattern update, this will be the scope of the pattern that was updated",
+          "enum": [
+            "repository",
+            "organization",
+            "enterprise",
+            null
+          ]
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "repository": {
+      "$ref": "common/repository-webhooks.schema.json"
+    },
+    "enterprise": {
+      "$ref": "common/enterprise-webhooks.schema.json"
+    },
+    "installation": {
+      "$ref": "common/simple-installation.schema.json"
+    },
+    "organization": {
+      "$ref": "common/organization-simple-webhooks.schema.json"
+    },
+    "sender": {
+      "$ref": "common/simple-user.schema.json"
+    }
+  },
+  "required": [
+    "action",
+    "source",
+    "type",
+    "started_at",
+    "completed_at"
+  ],
+  "additionalProperties": false
+}

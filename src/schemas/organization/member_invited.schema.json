@@ -1,14 +1,8 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema",
   "$id": "organization$member_invited",
+  "title": "organization member_invited event",
   "type": "object",
-  "required": [
-    "action",
-    "invitation",
-    "user",
-    "organization",
-    "sender"
-  ],
   "properties": {
     "action": {
       "type": "string",
@@ -16,44 +10,29 @@
         "member_invited"
       ]
     },
+    "enterprise": {
+      "$ref": "common/enterprise-webhooks.schema.json"
+    },
+    "installation": {
+      "$ref": "common/simple-installation.schema.json"
+    },
     "invitation": {
-      "type": "object",
       "description": "The invitation for the user or email if the action is `member_invited`.",
-      "required": [
-        "id",
-        "node_id",
-        "login",
-        "email",
-        "role",
-        "created_at",
-        "failed_at",
-        "failed_reason",
-        "inviter",
-        "team_count",
-        "invitation_teams_url"
-      ],
+      "type": "object",
       "properties": {
-        "id": {
-          "type": "number"
-        },
-        "node_id": {
-          "type": "string"
-        },
-        "login": {
-          "type": "string"
-        },
-        "email": {
-          "type": [
-            "string",
-            "null"
-          ]
-        },
-        "role": {
-          "type": "string"
-        },
         "created_at": {
           "type": "string",
           "format": "date-time"
+        },
+        "email": {
+          "oneOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ]
         },
         "failed_at": {
           "oneOf": [
@@ -67,37 +46,184 @@
           ]
         },
         "failed_reason": {
-          "type": [
-            "string",
-            "null"
+          "oneOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
           ]
         },
-        "inviter": {
-          "$ref": "common/user.schema.json"
-        },
-        "team_count": {
+        "id": {
           "type": "number"
         },
         "invitation_teams_url": {
           "type": "string",
           "format": "uri"
+        },
+        "inviter": {
+          "oneOf": [
+            {
+              "type": "object",
+              "title": "User",
+              "properties": {
+                "avatar_url": {
+                  "type": "string",
+                  "format": "uri"
+                },
+                "deleted": {
+                  "type": "boolean"
+                },
+                "email": {
+                  "oneOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ]
+                },
+                "events_url": {
+                  "type": "string",
+                  "format": "uri-template"
+                },
+                "followers_url": {
+                  "type": "string",
+                  "format": "uri"
+                },
+                "following_url": {
+                  "type": "string",
+                  "format": "uri-template"
+                },
+                "gists_url": {
+                  "type": "string",
+                  "format": "uri-template"
+                },
+                "gravatar_id": {
+                  "type": "string"
+                },
+                "html_url": {
+                  "type": "string",
+                  "format": "uri"
+                },
+                "id": {
+                  "type": "integer"
+                },
+                "login": {
+                  "type": "string"
+                },
+                "name": {
+                  "type": "string"
+                },
+                "node_id": {
+                  "type": "string"
+                },
+                "organizations_url": {
+                  "type": "string",
+                  "format": "uri"
+                },
+                "received_events_url": {
+                  "type": "string",
+                  "format": "uri"
+                },
+                "repos_url": {
+                  "type": "string",
+                  "format": "uri"
+                },
+                "site_admin": {
+                  "type": "boolean"
+                },
+                "starred_url": {
+                  "type": "string",
+                  "format": "uri-template"
+                },
+                "subscriptions_url": {
+                  "type": "string",
+                  "format": "uri"
+                },
+                "type": {
+                  "type": "string",
+                  "enum": [
+                    "Bot",
+                    "User",
+                    "Organization"
+                  ]
+                },
+                "url": {
+                  "type": "string",
+                  "format": "uri"
+                },
+                "user_view_type": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "login",
+                "id"
+              ]
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "login": {
+          "oneOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "node_id": {
+          "type": "string"
+        },
+        "role": {
+          "type": "string"
+        },
+        "team_count": {
+          "type": "number"
+        },
+        "invitation_source": {
+          "type": "string"
         }
       },
-      "additionalProperties": false
-    },
-    "user": {
-      "$ref": "common/user.schema.json"
-    },
-    "sender": {
-      "$ref": "common/user.schema.json"
-    },
-    "installation": {
-      "$ref": "common/installation-lite.schema.json"
+      "required": [
+        "id",
+        "node_id",
+        "login",
+        "email",
+        "role",
+        "created_at",
+        "failed_at",
+        "failed_reason",
+        "inviter",
+        "team_count",
+        "invitation_teams_url"
+      ]
     },
     "organization": {
-      "$ref": "common/organization.schema.json"
+      "$ref": "common/organization-simple-webhooks.schema.json"
+    },
+    "repository": {
+      "$ref": "common/repository-webhooks.schema.json"
+    },
+    "sender": {
+      "$ref": "common/simple-user.schema.json"
+    },
+    "user": {
+      "$ref": "common/webhooks_user.schema.json"
     }
   },
-  "additionalProperties": false,
-  "title": "organization member_invited event"
+  "required": [
+    "action",
+    "invitation",
+    "organization",
+    "sender"
+  ],
+  "additionalProperties": false
 }

@@ -1,0 +1,32 @@
+{
+  "$id": "common/repository-rule-required-deployments.schema.json",
+  "title": "required_deployments",
+  "description": "Choose which environments must be successfully deployed to before refs can be pushed into a ref that matches this rule.",
+  "type": "object",
+  "required": [
+    "type"
+  ],
+  "properties": {
+    "type": {
+      "type": "string",
+      "enum": [
+        "required_deployments"
+      ]
+    },
+    "parameters": {
+      "type": "object",
+      "properties": {
+        "required_deployment_environments": {
+          "type": "array",
+          "description": "The environments that must be successfully deployed to before branches can be merged.",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "required": [
+        "required_deployment_environments"
+      ]
+    }
+  }
+}

@@ -1,14 +1,8 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema",
   "$id": "milestone$edited",
+  "title": "milestone edited event",
   "type": "object",
-  "required": [
-    "action",
-    "changes",
-    "milestone",
-    "repository",
-    "sender"
-  ],
   "properties": {
     "action": {
       "type": "string",
@@ -17,67 +11,72 @@
       ]
     },
     "changes": {
-      "type": "object",
       "description": "The changes to the milestone if the action was `edited`.",
+      "type": "object",
       "properties": {
         "description": {
           "type": "object",
-          "required": [
-            "from"
-          ],
           "properties": {
             "from": {
-              "type": "string",
-              "description": "The previous version of the description if the action was `edited`."
+              "description": "The previous version of the description if the action was `edited`.",
+              "type": "string"
             }
           },
-          "additionalProperties": false
+          "required": [
+            "from"
+          ]
         },
         "due_on": {
           "type": "object",
-          "required": [
-            "from"
-          ],
           "properties": {
             "from": {
-              "type": "string",
-              "description": "The previous version of the due date if the action was `edited`."
+              "description": "The previous version of the due date if the action was `edited`.",
+              "type": "string"
             }
           },
-          "additionalProperties": false
+          "required": [
+            "from"
+          ]
         },
         "title": {
           "type": "object",
-          "required": [
-            "from"
-          ],
           "properties": {
             "from": {
-              "type": "string",
-              "description": "The previous version of the title if the action was `edited`."
+              "description": "The previous version of the title if the action was `edited`.",
+              "type": "string"
             }
           },
-          "additionalProperties": false
+          "required": [
+            "from"
+          ]
         }
-      },
-      "additionalProperties": false
+      }
     },
-    "milestone": {
-      "$ref": "common/milestone.schema.json"
-    },
-    "repository": {
-      "$ref": "common/repository.schema.json"
-    },
-    "sender": {
-      "$ref": "common/user.schema.json"
+    "enterprise": {
+      "$ref": "common/enterprise-webhooks.schema.json"
     },
     "installation": {
-      "$ref": "common/installation-lite.schema.json"
+      "$ref": "common/simple-installation.schema.json"
+    },
+    "milestone": {
+      "$ref": "common/webhooks_milestone.schema.json"
     },
     "organization": {
-      "$ref": "common/organization.schema.json"
+      "$ref": "common/organization-simple-webhooks.schema.json"
+    },
+    "repository": {
+      "$ref": "common/repository-webhooks.schema.json"
+    },
+    "sender": {
+      "$ref": "common/simple-user.schema.json"
     }
   },
-  "additionalProperties": false,
-  "title": "milestone edited event"
+  "required": [
+    "action",
+    "changes",
+    "milestone",
+    "repository",
+    "sender"
+  ],
+  "additionalProperties": false
 }

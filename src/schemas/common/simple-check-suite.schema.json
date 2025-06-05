@@ -1,0 +1,129 @@
+{
+  "$id": "common/simple-check-suite.schema.json",
+  "description": "A suite of checks performed on the code of a given code change",
+  "type": "object",
+  "properties": {
+    "after": {
+      "oneOf": [
+        {
+          "type": "string",
+          "examples": [
+            "d6fde92930d4715a2b49857d24b940956b26d2d3"
+          ]
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "app": {
+      "$ref": "integration.schema.json"
+    },
+    "before": {
+      "oneOf": [
+        {
+          "type": "string",
+          "examples": [
+            "146e867f55c26428e5f9fade55a9bbf5e95a7912"
+          ]
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "conclusion": {
+      "oneOf": [
+        {
+          "type": "string",
+          "enum": [
+            "success",
+            "failure",
+            "neutral",
+            "cancelled",
+            "skipped",
+            "timed_out",
+            "action_required",
+            "stale",
+            "startup_failure",
+            null
+          ],
+          "examples": [
+            "neutral"
+          ]
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "head_branch": {
+      "oneOf": [
+        {
+          "type": "string",
+          "examples": [
+            "master"
+          ]
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "head_sha": {
+      "description": "The SHA of the head commit that is being checked.",
+      "type": "string",
+      "examples": [
+        "009b8a3a9ccbb128af87f9b1c0f4c62e8a304f6d"
+      ]
+    },
+    "id": {
+      "type": "integer",
+      "examples": [
+        5
+      ]
+    },
+    "node_id": {
+      "type": "string",
+      "examples": [
+        "MDEwOkNoZWNrU3VpdGU1"
+      ]
+    },
+    "pull_requests": {
+      "type": "array",
+      "items": {
+        "$ref": "pull-request-minimal.schema.json"
+      }
+    },
+    "repository": {
+      "$ref": "minimal-repository.schema.json"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "queued",
+        "in_progress",
+        "completed",
+        "pending",
+        "waiting"
+      ],
+      "examples": [
+        "completed"
+      ]
+    },
+    "updated_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "url": {
+      "type": "string",
+      "examples": [
+        "https://api.github.com/repos/github/hello-world/check-suites/5"
+      ]
+    }
+  }
+}

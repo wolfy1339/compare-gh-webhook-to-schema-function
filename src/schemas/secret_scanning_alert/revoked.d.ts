@@ -14,9 +14,9 @@ import type {
 export interface SecretScanningAlertRevokedEvent {
   action: 'revoked';
   alert: SecretScanningAlert & {
-    resolution: 'revoked';
-    resolved_by: User;
-    resolved_at: string;
+    resolution: 'revoked',
+    resolved_by: User,
+    resolved_at: string
   };
   repository: Repository;
   organization?: Organization;

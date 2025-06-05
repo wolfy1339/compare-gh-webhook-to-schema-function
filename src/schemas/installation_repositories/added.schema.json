@@ -1,7 +1,67 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema",
   "$id": "installation_repositories$added",
+  "title": "installation_repositories added event",
   "type": "object",
+  "properties": {
+    "action": {
+      "type": "string",
+      "enum": [
+        "added"
+      ]
+    },
+    "enterprise": {
+      "$ref": "common/enterprise-webhooks.schema.json"
+    },
+    "installation": {
+      "$ref": "common/installation.schema.json"
+    },
+    "organization": {
+      "$ref": "common/organization-simple-webhooks.schema.json"
+    },
+    "repositories_added": {
+      "$ref": "common/webhooks_repositories_added.schema.json"
+    },
+    "repositories_removed": {
+      "description": "An array of repository objects, which were removed from the installation.",
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "full_name": {
+            "type": "string"
+          },
+          "id": {
+            "description": "Unique identifier of the repository",
+            "type": "integer"
+          },
+          "name": {
+            "description": "The name of the repository.",
+            "type": "string"
+          },
+          "node_id": {
+            "type": "string"
+          },
+          "private": {
+            "description": "Whether the repository is private or public.",
+            "type": "boolean"
+          }
+        }
+      }
+    },
+    "repository": {
+      "$ref": "common/repository-webhooks.schema.json"
+    },
+    "repository_selection": {
+      "$ref": "common/webhooks_repository_selection.schema.json"
+    },
+    "requester": {
+      "$ref": "common/webhooks_user.schema.json"
+    },
+    "sender": {
+      "$ref": "common/simple-user.schema.json"
+    }
+  },
   "required": [
     "action",
     "installation",
@@ -11,102 +71,5 @@
     "requester",
     "sender"
   ],
-  "properties": {
-    "action": {
-      "type": "string",
-      "enum": [
-        "added"
-      ]
-    },
-    "installation": {
-      "$ref": "common/installation.schema.json"
-    },
-    "repository_selection": {
-      "type": "string",
-      "enum": [
-        "all",
-        "selected"
-      ],
-      "description": "Describe whether all repositories have been selected or there's a selection involved"
-    },
-    "repositories_added": {
-      "type": "array",
-      "description": "An array of repository objects, which were added to the installation.",
-      "items": {
-        "type": "object",
-        "required": [
-          "id",
-          "node_id",
-          "name",
-          "full_name",
-          "private"
-        ],
-        "properties": {
-          "id": {
-            "type": "integer",
-            "description": "Unique identifier of the repository"
-          },
-          "node_id": {
-            "type": "string"
-          },
-          "name": {
-            "type": "string",
-            "description": "The name of the repository."
-          },
-          "full_name": {
-            "type": "string"
-          },
-          "private": {
-            "type": "boolean",
-            "description": "Whether the repository is private or public."
-          }
-        },
-        "additionalProperties": false
-      }
-    },
-    "repositories_removed": {
-      "type": "array",
-      "description": "An array of repository objects, which were removed from the installation.",
-      "items": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "integer",
-            "description": "Unique identifier of the repository"
-          },
-          "node_id": {
-            "type": "string"
-          },
-          "name": {
-            "type": "string",
-            "description": "The name of the repository."
-          },
-          "full_name": {
-            "type": "string"
-          },
-          "private": {
-            "type": "boolean",
-            "description": "Whether the repository is private or public."
-          }
-        },
-        "additionalProperties": false
-      },
-      "maxItems": 0
-    },
-    "requester": {
-      "oneOf": [
-        {
-          "$ref": "common/user.schema.json"
-        },
-        {
-          "type": "null"
-        }
-      ]
-    },
-    "sender": {
-      "$ref": "common/user.schema.json"
-    }
-  },
-  "additionalProperties": false,
-  "title": "installation_repositories added event"
+  "additionalProperties": false
 }

@@ -1,0 +1,187 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema",
+  "$id": "repository_ruleset$edited",
+  "title": "repository_ruleset edited event",
+  "type": "object",
+  "properties": {
+    "action": {
+      "type": "string",
+      "enum": [
+        "edited"
+      ]
+    },
+    "enterprise": {
+      "$ref": "common/enterprise-webhooks.schema.json"
+    },
+    "installation": {
+      "$ref": "common/simple-installation.schema.json"
+    },
+    "organization": {
+      "$ref": "common/organization-simple-webhooks.schema.json"
+    },
+    "repository": {
+      "$ref": "common/repository-webhooks.schema.json"
+    },
+    "repository_ruleset": {
+      "$ref": "common/repository-ruleset.schema.json"
+    },
+    "changes": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "object",
+          "properties": {
+            "from": {
+              "type": "string"
+            }
+          }
+        },
+        "enforcement": {
+          "type": "object",
+          "properties": {
+            "from": {
+              "type": "string"
+            }
+          }
+        },
+        "conditions": {
+          "type": "object",
+          "properties": {
+            "added": {
+              "type": "array",
+              "items": {
+                "$ref": "common/repository-ruleset-conditions.schema.json"
+              }
+            },
+            "deleted": {
+              "type": "array",
+              "items": {
+                "$ref": "common/repository-ruleset-conditions.schema.json"
+              }
+            },
+            "updated": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "condition": {
+                    "$ref": "common/repository-ruleset-conditions.schema.json"
+                  },
+                  "changes": {
+                    "type": "object",
+                    "properties": {
+                      "condition_type": {
+                        "type": "object",
+                        "properties": {
+                          "from": {
+                            "type": "string"
+                          }
+                        }
+                      },
+                      "target": {
+                        "type": "object",
+                        "properties": {
+                          "from": {
+                            "type": "string"
+                          }
+                        }
+                      },
+                      "include": {
+                        "type": "object",
+                        "properties": {
+                          "from": {
+                            "type": "array",
+                            "items": {
+                              "type": "string"
+                            }
+                          }
+                        }
+                      },
+                      "exclude": {
+                        "type": "object",
+                        "properties": {
+                          "from": {
+                            "type": "array",
+                            "items": {
+                              "type": "string"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "rules": {
+          "type": "object",
+          "properties": {
+            "added": {
+              "type": "array",
+              "items": {
+                "$ref": "common/repository-rule.schema.json"
+              }
+            },
+            "deleted": {
+              "type": "array",
+              "items": {
+                "$ref": "common/repository-rule.schema.json"
+              }
+            },
+            "updated": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "rule": {
+                    "$ref": "common/repository-rule.schema.json"
+                  },
+                  "changes": {
+                    "type": "object",
+                    "properties": {
+                      "configuration": {
+                        "type": "object",
+                        "properties": {
+                          "from": {
+                            "type": "string"
+                          }
+                        }
+                      },
+                      "rule_type": {
+                        "type": "object",
+                        "properties": {
+                          "from": {
+                            "type": "string"
+                          }
+                        }
+                      },
+                      "pattern": {
+                        "type": "object",
+                        "properties": {
+                          "from": {
+                            "type": "string"
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "sender": {
+      "$ref": "common/simple-user.schema.json"
+    }
+  },
+  "required": [
+    "action",
+    "repository_ruleset",
+    "sender"
+  ],
+  "additionalProperties": false
+}

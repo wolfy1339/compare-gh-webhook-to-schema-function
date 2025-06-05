@@ -15,8 +15,8 @@ export interface ProjectColumnEditedEvent {
   action: 'edited';
   changes: {
     name?: {
-      from: string;
-    };
+      from: string
+    }
   };
   project_column: ProjectColumn;
   repository?: Repository;

@@ -13,13 +13,13 @@ import type {
 export interface ProjectsV2ItemArchivedEvent {
   changes: {
     archived_at: {
-      from: null;
-      to: string;
-    };
+      from: null,
+      to: string
+    }
   };
   action: 'archived';
   projects_v2_item: ProjectsV2Item & {
-    archived_at: string;
+    archived_at: string
   };
   sender: User;
   organization?: Organization;

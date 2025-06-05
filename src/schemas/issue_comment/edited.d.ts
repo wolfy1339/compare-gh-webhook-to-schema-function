@@ -23,20 +23,20 @@ export interface IssueCommentEditedEvent {
       /**
        * The previous version of the body.
        */
-      from: string;
-    };
+      from: string
+    }
   };
   /**
    * The [issue](https://docs.github.com/en/rest/reference/issues) the comment belongs to.
    */
   issue: Issue & {
-    assignee: User | null;
+    assignee: User | null,
     /**
      * State of the issue; either 'open' or 'closed'
      */
-    state: 'closed' | 'open';
-    locked: boolean;
-    labels: Label[];
+    state: 'closed' | 'open',
+    locked: boolean,
+    labels: Label[]
   };
   comment: IssueComment;
   repository: Repository;

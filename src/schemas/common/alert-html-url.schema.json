@@ -1,0 +1,7 @@
+{
+  "$id": "common/alert-html-url.schema.json",
+  "type": "string",
+  "description": "The GitHub URL of the alert resource.",
+  "format": "uri",
+  "readOnly": true
+}

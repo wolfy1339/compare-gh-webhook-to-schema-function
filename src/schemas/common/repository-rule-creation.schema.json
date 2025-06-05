@@ -1,0 +1,17 @@
+{
+  "$id": "common/repository-rule-creation.schema.json",
+  "title": "creation",
+  "description": "Only allow users with bypass permission to create matching refs.",
+  "type": "object",
+  "required": [
+    "type"
+  ],
+  "properties": {
+    "type": {
+      "type": "string",
+      "enum": [
+        "creation"
+      ]
+    }
+  }
+}

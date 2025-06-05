@@ -54,11 +54,11 @@ export interface Issue {
   draft?: boolean;
   performed_via_github_app?: App | null;
   pull_request?: {
-    url?: string;
-    html_url?: string;
-    diff_url?: string;
-    patch_url?: string;
-    merged_at?: string | null;
+    url?: string,
+    html_url?: string,
+    diff_url?: string,
+    patch_url?: string,
+    merged_at?: string | null
   };
   /**
    * Contents of the issue

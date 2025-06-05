@@ -14,8 +14,8 @@ import type {
 export interface DiscussionLockedEvent {
   action: 'locked';
   discussion: Discussion & {
-    state: 'locked';
-    locked: true;
+    state: 'locked',
+    locked: true
   };
   repository: Repository;
   sender: User;

@@ -1,14 +1,8 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema",
   "$id": "member$edited",
+  "title": "member edited event",
   "type": "object",
-  "required": [
-    "action",
-    "changes",
-    "member",
-    "repository",
-    "sender"
-  ],
   "properties": {
     "action": {
       "type": "string",
@@ -16,46 +10,74 @@
         "edited"
       ]
     },
-    "member": {
-      "$ref": "common/user.schema.json",
-      "description": "The user who's permissions are changed."
-    },
     "changes": {
-      "type": "object",
       "description": "The changes to the collaborator permissions",
-      "required": [
-        "old_permission"
-      ],
+      "type": "object",
       "properties": {
         "old_permission": {
           "type": "object",
-          "required": [
-            "from"
-          ],
           "properties": {
             "from": {
-              "type": "string",
-              "description": "The previous permissions of the collaborator if the action was edited."
+              "description": "The previous permissions of the collaborator if the action was edited.",
+              "type": "string"
             }
           },
-          "additionalProperties": false
+          "required": [
+            "from"
+          ]
+        },
+        "permission": {
+          "type": "object",
+          "properties": {
+            "from": {
+              "oneOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "to": {
+              "oneOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            }
+          }
         }
-      },
-      "additionalProperties": false
+      }
     },
-    "repository": {
-      "$ref": "common/repository.schema.json"
+    "enterprise": {
+      "$ref": "common/enterprise-webhooks.schema.json"
     },
     "installation": {
-      "$ref": "common/installation-lite.schema.json"
+      "$ref": "common/simple-installation.schema.json"
+    },
+    "member": {
+      "$ref": "common/webhooks_user.schema.json"
     },
     "organization": {
-      "$ref": "common/organization.schema.json"
+      "$ref": "common/organization-simple-webhooks.schema.json"
+    },
+    "repository": {
+      "$ref": "common/repository-webhooks.schema.json"
     },
     "sender": {
-      "$ref": "common/user.schema.json"
+      "$ref": "common/simple-user.schema.json"
     }
   },
-  "additionalProperties": false,
-  "title": "member edited event"
+  "required": [
+    "action",
+    "changes",
+    "member",
+    "repository",
+    "sender"
+  ],
+  "additionalProperties": false
 }

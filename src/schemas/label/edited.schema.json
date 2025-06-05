@@ -1,13 +1,8 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema",
   "$id": "label$edited",
+  "title": "label edited event",
   "type": "object",
-  "required": [
-    "action",
-    "label",
-    "repository",
-    "sender"
-  ],
   "properties": {
     "action": {
       "type": "string",
@@ -15,69 +10,72 @@
         "edited"
       ]
     },
-    "label": {
-      "$ref": "common/label.schema.json",
-      "description": "The label that was edited."
-    },
     "changes": {
-      "type": "object",
       "description": "The changes to the label if the action was `edited`.",
+      "type": "object",
       "properties": {
         "color": {
           "type": "object",
-          "required": [
-            "from"
-          ],
           "properties": {
             "from": {
-              "type": "string",
-              "description": "The previous version of the color if the action was `edited`."
+              "description": "The previous version of the color if the action was `edited`.",
+              "type": "string"
             }
           },
-          "additionalProperties": false
-        },
-        "name": {
-          "type": "object",
           "required": [
             "from"
-          ],
-          "properties": {
-            "from": {
-              "type": "string",
-              "description": "The previous version of the name if the action was `edited`."
-            }
-          },
-          "additionalProperties": false
+          ]
         },
         "description": {
           "type": "object",
-          "required": [
-            "from"
-          ],
           "properties": {
             "from": {
-              "type": "string",
-              "description": "The previous version of the description if the action was `edited`."
+              "description": "The previous version of the description if the action was `edited`.",
+              "type": "string"
             }
           },
-          "additionalProperties": false
+          "required": [
+            "from"
+          ]
+        },
+        "name": {
+          "type": "object",
+          "properties": {
+            "from": {
+              "description": "The previous version of the name if the action was `edited`.",
+              "type": "string"
+            }
+          },
+          "required": [
+            "from"
+          ]
         }
-      },
-      "additionalProperties": false
+      }
     },
-    "repository": {
-      "$ref": "common/repository.schema.json"
-    },
-    "sender": {
-      "$ref": "common/user.schema.json"
+    "enterprise": {
+      "$ref": "common/enterprise-webhooks.schema.json"
     },
     "installation": {
-      "$ref": "common/installation-lite.schema.json"
+      "$ref": "common/simple-installation.schema.json"
+    },
+    "label": {
+      "$ref": "common/webhooks_label.schema.json"
     },
     "organization": {
-      "$ref": "common/organization.schema.json"
+      "$ref": "common/organization-simple-webhooks.schema.json"
+    },
+    "repository": {
+      "$ref": "common/repository-webhooks.schema.json"
+    },
+    "sender": {
+      "$ref": "common/simple-user.schema.json"
     }
   },
-  "additionalProperties": false,
-  "title": "label edited event"
+  "required": [
+    "action",
+    "label",
+    "repository",
+    "sender"
+  ],
+  "additionalProperties": false
 }

@@ -1,25 +1,256 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema",
   "$id": "commit_comment$created",
+  "title": "commit_comment created event",
   "type": "object",
-  "description": "A commit comment is created. The type of activity is specified in the `action` property. ",
-  "required": [
-    "action",
-    "comment",
-    "repository",
-    "sender"
-  ],
   "properties": {
     "action": {
+      "description": "The action performed. Can be `created`.",
       "type": "string",
       "enum": [
         "created"
-      ],
-      "description": "The action performed. Can be `created`."
+      ]
     },
     "comment": {
+      "description": "The [commit comment](${externalDocsUpapp/api/description/components/schemas/webhooks/issue-comment-created.yamlrl}/rest/commits/comments#get-a-commit-comment) resource.",
       "type": "object",
-      "description": "The [commit comment](https://docs.github.com/en/rest/reference/repos#get-a-commit-comment) resource.",
+      "properties": {
+        "author_association": {
+          "title": "AuthorAssociation",
+          "description": "How the author is associated with the repository.",
+          "type": "string",
+          "enum": [
+            "COLLABORATOR",
+            "CONTRIBUTOR",
+            "FIRST_TIMER",
+            "FIRST_TIME_CONTRIBUTOR",
+            "MANNEQUIN",
+            "MEMBER",
+            "NONE",
+            "OWNER"
+          ]
+        },
+        "body": {
+          "description": "The text of the comment.",
+          "type": "string"
+        },
+        "commit_id": {
+          "description": "The SHA of the commit to which the comment applies.",
+          "type": "string"
+        },
+        "created_at": {
+          "type": "string"
+        },
+        "html_url": {
+          "type": "string",
+          "format": "uri"
+        },
+        "id": {
+          "description": "The ID of the commit comment.",
+          "type": "integer"
+        },
+        "line": {
+          "oneOf": [
+            {
+              "type": "integer",
+              "description": "The line of the blob to which the comment applies. The last line of the range for a multi-line comment"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "node_id": {
+          "description": "The node ID of the commit comment.",
+          "type": "string"
+        },
+        "path": {
+          "oneOf": [
+            {
+              "type": "string",
+              "description": "The relative path of the file to which the comment applies."
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "position": {
+          "oneOf": [
+            {
+              "type": "integer",
+              "description": "The line index in the diff to which the comment applies."
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "reactions": {
+          "title": "Reactions",
+          "type": "object",
+          "properties": {
+            "+1": {
+              "type": "integer"
+            },
+            "-1": {
+              "type": "integer"
+            },
+            "confused": {
+              "type": "integer"
+            },
+            "eyes": {
+              "type": "integer"
+            },
+            "heart": {
+              "type": "integer"
+            },
+            "hooray": {
+              "type": "integer"
+            },
+            "laugh": {
+              "type": "integer"
+            },
+            "rocket": {
+              "type": "integer"
+            },
+            "total_count": {
+              "type": "integer"
+            },
+            "url": {
+              "type": "string",
+              "format": "uri"
+            }
+          },
+          "required": [
+            "url",
+            "total_count",
+            "+1",
+            "-1",
+            "laugh",
+            "confused",
+            "heart",
+            "hooray",
+            "eyes",
+            "rocket"
+          ]
+        },
+        "updated_at": {
+          "type": "string"
+        },
+        "url": {
+          "type": "string",
+          "format": "uri"
+        },
+        "user": {
+          "oneOf": [
+            {
+              "type": "object",
+              "title": "User",
+              "properties": {
+                "avatar_url": {
+                  "type": "string",
+                  "format": "uri"
+                },
+                "deleted": {
+                  "type": "boolean"
+                },
+                "email": {
+                  "oneOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ]
+                },
+                "events_url": {
+                  "type": "string",
+                  "format": "uri-template"
+                },
+                "followers_url": {
+                  "type": "string",
+                  "format": "uri"
+                },
+                "following_url": {
+                  "type": "string",
+                  "format": "uri-template"
+                },
+                "gists_url": {
+                  "type": "string",
+                  "format": "uri-template"
+                },
+                "gravatar_id": {
+                  "type": "string"
+                },
+                "html_url": {
+                  "type": "string",
+                  "format": "uri"
+                },
+                "id": {
+                  "type": "integer",
+                  "format": "int64"
+                },
+                "login": {
+                  "type": "string"
+                },
+                "name": {
+                  "type": "string"
+                },
+                "node_id": {
+                  "type": "string"
+                },
+                "organizations_url": {
+                  "type": "string",
+                  "format": "uri"
+                },
+                "received_events_url": {
+                  "type": "string",
+                  "format": "uri"
+                },
+                "repos_url": {
+                  "type": "string",
+                  "format": "uri"
+                },
+                "site_admin": {
+                  "type": "boolean"
+                },
+                "starred_url": {
+                  "type": "string",
+                  "format": "uri-template"
+                },
+                "subscriptions_url": {
+                  "type": "string",
+                  "format": "uri"
+                },
+                "type": {
+                  "type": "string",
+                  "enum": [
+                    "Bot",
+                    "User",
+                    "Organization"
+                  ]
+                },
+                "url": {
+                  "type": "string",
+                  "format": "uri"
+                },
+                "user_view_type": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "login",
+                "id"
+              ]
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      },
       "required": [
         "url",
         "html_url",
@@ -34,83 +265,29 @@
         "updated_at",
         "author_association",
         "body"
-      ],
-      "properties": {
-        "url": {
-          "type": "string",
-          "format": "uri"
-        },
-        "html_url": {
-          "type": "string",
-          "format": "uri"
-        },
-        "id": {
-          "type": "integer",
-          "description": "The ID of the commit comment."
-        },
-        "node_id": {
-          "type": "string",
-          "description": "The node ID of the commit comment."
-        },
-        "user": {
-          "$ref": "common/user.schema.json"
-        },
-        "position": {
-          "type": [
-            "integer",
-            "null"
-          ],
-          "description": "The line index in the diff to which the comment applies."
-        },
-        "line": {
-          "type": [
-            "integer",
-            "null"
-          ],
-          "description": "The line of the blob to which the comment applies. The last line of the range for a multi-line comment"
-        },
-        "path": {
-          "type": [
-            "string",
-            "null"
-          ],
-          "description": "The relative path of the file to which the comment applies."
-        },
-        "commit_id": {
-          "type": "string",
-          "description": "The SHA of the commit to which the comment applies."
-        },
-        "created_at": {
-          "type": "string",
-          "format": "date-time"
-        },
-        "updated_at": {
-          "type": "string",
-          "format": "date-time"
-        },
-        "author_association": {
-          "$ref": "common/author_association.schema.json"
-        },
-        "body": {
-          "type": "string",
-          "description": "The text of the comment."
-        }
-      },
-      "additionalProperties": false
+      ]
     },
-    "repository": {
-      "$ref": "common/repository.schema.json"
-    },
-    "sender": {
-      "$ref": "common/user.schema.json"
+    "enterprise": {
+      "$ref": "common/enterprise-webhooks.schema.json"
     },
     "installation": {
-      "$ref": "common/installation-lite.schema.json"
+      "$ref": "common/simple-installation.schema.json"
     },
     "organization": {
-      "$ref": "common/organization.schema.json"
+      "$ref": "common/organization-simple-webhooks.schema.json"
+    },
+    "repository": {
+      "$ref": "common/repository-webhooks.schema.json"
+    },
+    "sender": {
+      "$ref": "common/simple-user.schema.json"
     }
   },
-  "additionalProperties": false,
-  "title": "commit_comment created event"
+  "required": [
+    "action",
+    "comment",
+    "repository",
+    "sender"
+  ],
+  "additionalProperties": false
 }

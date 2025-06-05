@@ -1,14 +1,8 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema",
   "$id": "release$edited",
+  "title": "release edited event",
   "type": "object",
-  "required": [
-    "action",
-    "changes",
-    "release",
-    "repository",
-    "sender"
-  ],
   "properties": {
     "action": {
       "type": "string",
@@ -21,49 +15,78 @@
       "properties": {
         "body": {
           "type": "object",
-          "required": [
-            "from"
-          ],
           "properties": {
             "from": {
-              "type": "string",
-              "description": "The previous version of the body if the action was `edited`."
+              "description": "The previous version of the body if the action was `edited`.",
+              "type": "string"
             }
           },
-          "additionalProperties": false
+          "required": [
+            "from"
+          ]
         },
         "name": {
           "type": "object",
-          "required": [
-            "from"
-          ],
           "properties": {
             "from": {
-              "type": "string",
-              "description": "The previous version of the name if the action was `edited`."
+              "description": "The previous version of the name if the action was `edited`.",
+              "type": "string"
             }
           },
-          "additionalProperties": false
+          "required": [
+            "from"
+          ]
+        },
+        "tag_name": {
+          "type": "object",
+          "properties": {
+            "from": {
+              "description": "The previous version of the tag_name if the action was `edited`.",
+              "type": "string"
+            }
+          },
+          "required": [
+            "from"
+          ]
+        },
+        "make_latest": {
+          "type": "object",
+          "properties": {
+            "to": {
+              "description": "Whether this release was explicitly `edited` to be the latest.",
+              "type": "boolean"
+            }
+          },
+          "required": [
+            "to"
+          ]
         }
-      },
-      "additionalProperties": false
+      }
     },
-    "release": {
-      "$ref": "common/release.schema.json"
-    },
-    "repository": {
-      "$ref": "common/repository.schema.json"
-    },
-    "sender": {
-      "$ref": "common/user.schema.json"
+    "enterprise": {
+      "$ref": "common/enterprise-webhooks.schema.json"
     },
     "installation": {
-      "$ref": "common/installation-lite.schema.json"
+      "$ref": "common/simple-installation.schema.json"
     },
     "organization": {
-      "$ref": "common/organization.schema.json"
+      "$ref": "common/organization-simple-webhooks.schema.json"
+    },
+    "release": {
+      "$ref": "common/webhooks_release.schema.json"
+    },
+    "repository": {
+      "$ref": "common/repository-webhooks.schema.json"
+    },
+    "sender": {
+      "$ref": "common/simple-user.schema.json"
     }
   },
-  "additionalProperties": false,
-  "title": "release edited event"
+  "required": [
+    "action",
+    "changes",
+    "release",
+    "repository"
+  ],
+  "additionalProperties": false
 }

@@ -1,0 +1,38 @@
+{
+  "$id": "common/projects-v2-iteration-setting.schema.json",
+  "title": "Projects v2 Iteration Setting",
+  "description": "An iteration setting for an iteration field",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "title": {
+      "type": "string"
+    },
+    "duration": {
+      "oneOf": [
+        {
+          "type": "number"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "start_date": {
+      "oneOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    }
+  },
+  "required": [
+    "id",
+    "title"
+  ]
+}

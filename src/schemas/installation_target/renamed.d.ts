@@ -16,49 +16,49 @@ import type {
 export interface InstallationTargetRenamedEvent {
   changes: {
     login?: {
-      from: string;
-    };
+      from: string
+    },
     slug?: {
-      from: string;
-    };
+      from: string
+    }
   };
   action: 'renamed';
   account: {
-    avatar_url: string;
-    created_at?: string;
-    description?: null;
-    events_url?: string;
-    followers?: number;
-    followers_url?: string;
-    following?: number;
-    following_url?: string;
-    gists_url?: string;
-    gravatar_id?: string;
-    has_organization_projects?: boolean;
-    has_repository_projects?: boolean;
-    hooks_url?: string;
-    html_url: string;
-    id: number;
-    is_verified?: boolean;
-    issues_url?: string;
-    login?: string;
-    members_url?: string;
-    name?: string;
-    node_id: string;
-    organizations_url?: string;
-    public_gists?: number;
-    public_members_url?: string;
-    public_repos?: number;
-    received_events_url?: string;
-    repos_url?: string;
-    site_admin?: boolean;
-    slug?: string;
-    starred_url?: string;
-    subscriptions_url?: string;
-    type?: 'Bot' | 'Organization' | 'User';
-    updated_at?: string;
-    url?: string;
-    website_url?: null;
+    avatar_url: string,
+    created_at?: string,
+    description?: null,
+    events_url?: string,
+    followers?: number,
+    followers_url?: string,
+    following?: number,
+    following_url?: string,
+    gists_url?: string,
+    gravatar_id?: string,
+    has_organization_projects?: boolean,
+    has_repository_projects?: boolean,
+    hooks_url?: string,
+    html_url: string,
+    id: number,
+    is_verified?: boolean,
+    issues_url?: string,
+    login?: string,
+    members_url?: string,
+    name?: string,
+    node_id: string,
+    organizations_url?: string,
+    public_gists?: number,
+    public_members_url?: string,
+    public_repos?: number,
+    received_events_url?: string,
+    repos_url?: string,
+    site_admin?: boolean,
+    slug?: string,
+    starred_url?: string,
+    subscriptions_url?: string,
+    type?: 'Bot' | 'Organization' | 'User',
+    updated_at?: string,
+    url?: string,
+    website_url?: null
   };
   repository?: Repository;
   sender?: User;

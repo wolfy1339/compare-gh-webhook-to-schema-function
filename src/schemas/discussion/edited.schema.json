@@ -1,66 +1,66 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema",
   "$id": "discussion$edited",
+  "title": "discussion edited event",
   "type": "object",
-  "required": [
-    "action",
-    "discussion",
-    "repository",
-    "sender"
-  ],
   "properties": {
-    "changes": {
-      "type": "object",
-      "properties": {
-        "title": {
-          "type": "object",
-          "required": [
-            "from"
-          ],
-          "properties": {
-            "from": {
-              "type": "string"
-            }
-          },
-          "additionalProperties": false
-        },
-        "body": {
-          "type": "object",
-          "required": [
-            "from"
-          ],
-          "properties": {
-            "from": {
-              "type": "string"
-            }
-          },
-          "additionalProperties": false
-        }
-      },
-      "additionalProperties": false
-    },
     "action": {
       "type": "string",
       "enum": [
         "edited"
       ]
     },
+    "changes": {
+      "type": "object",
+      "properties": {
+        "body": {
+          "type": "object",
+          "properties": {
+            "from": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "from"
+          ]
+        },
+        "title": {
+          "type": "object",
+          "properties": {
+            "from": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "from"
+          ]
+        }
+      }
+    },
     "discussion": {
       "$ref": "common/discussion.schema.json"
     },
-    "repository": {
-      "$ref": "common/repository.schema.json"
-    },
-    "sender": {
-      "$ref": "common/user.schema.json"
+    "enterprise": {
+      "$ref": "common/enterprise-webhooks.schema.json"
     },
     "installation": {
-      "$ref": "common/installation-lite.schema.json"
+      "$ref": "common/simple-installation.schema.json"
     },
     "organization": {
-      "$ref": "common/organization.schema.json"
+      "$ref": "common/organization-simple-webhooks.schema.json"
+    },
+    "repository": {
+      "$ref": "common/repository-webhooks.schema.json"
+    },
+    "sender": {
+      "$ref": "common/simple-user.schema.json"
     }
   },
-  "additionalProperties": false,
-  "title": "discussion edited event"
+  "required": [
+    "action",
+    "discussion",
+    "repository",
+    "sender"
+  ],
+  "additionalProperties": false
 }

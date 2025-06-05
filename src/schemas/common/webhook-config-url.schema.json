@@ -1,0 +1,9 @@
+{
+  "$id": "common/webhook-config-url.schema.json",
+  "type": "string",
+  "description": "The URL to which the payloads will be delivered.",
+  "format": "uri",
+  "examples": [
+    "https://example.com/webhook"
+  ]
+}

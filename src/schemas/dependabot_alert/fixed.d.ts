@@ -14,8 +14,8 @@ import type {
 export interface DependabotAlertFixedEvent {
   action: 'fixed';
   alert: DependabotAlert & {
-    state: 'fixed';
-    fixed_at: string;
+    state: 'fixed',
+    fixed_at: string
   };
   repository: Repository;
   sender: GitHubOrg;

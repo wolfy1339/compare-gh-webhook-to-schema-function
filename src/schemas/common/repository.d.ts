@@ -279,11 +279,11 @@ export interface Repository {
   delete_branch_on_merge?: boolean;
   master_branch?: string;
   permissions?: {
-    pull: boolean;
-    push: boolean;
-    admin: boolean;
-    maintain?: boolean;
-    triage?: boolean;
+    pull: boolean,
+    push: boolean,
+    admin: boolean,
+    maintain?: boolean,
+    triage?: boolean
   };
   public?: boolean;
   organization?: string;

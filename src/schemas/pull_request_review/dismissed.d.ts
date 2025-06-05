@@ -15,7 +15,7 @@ import type {
 export interface PullRequestReviewDismissedEvent {
   action: 'dismissed';
   review: PullRequestReview & {
-    state: 'dismissed';
+    state: 'dismissed'
   };
   pull_request: SimplePullRequest;
   repository: Repository;

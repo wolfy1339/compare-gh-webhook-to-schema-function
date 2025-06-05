@@ -1,29 +1,56 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema",
   "$id": "discussion$category_changed",
+  "title": "discussion category_changed event",
   "type": "object",
-  "required": [
-    "action",
-    "changes",
-    "discussion",
-    "repository",
-    "sender"
-  ],
   "properties": {
+    "action": {
+      "type": "string",
+      "enum": [
+        "category_changed"
+      ]
+    },
     "changes": {
       "type": "object",
-      "required": [
-        "category"
-      ],
       "properties": {
         "category": {
           "type": "object",
-          "required": [
-            "from"
-          ],
           "properties": {
             "from": {
               "type": "object",
+              "properties": {
+                "created_at": {
+                  "type": "string",
+                  "format": "date-time"
+                },
+                "description": {
+                  "type": "string"
+                },
+                "emoji": {
+                  "type": "string"
+                },
+                "id": {
+                  "type": "integer"
+                },
+                "is_answerable": {
+                  "type": "boolean"
+                },
+                "name": {
+                  "type": "string"
+                },
+                "node_id": {
+                  "type": "string"
+                },
+                "repository_id": {
+                  "type": "integer"
+                },
+                "slug": {
+                  "type": "string"
+                },
+                "updated_at": {
+                  "type": "string"
+                }
+              },
               "required": [
                 "id",
                 "repository_id",
@@ -34,68 +61,43 @@
                 "updated_at",
                 "slug",
                 "is_answerable"
-              ],
-              "properties": {
-                "id": {
-                  "type": "integer"
-                },
-                "repository_id": {
-                  "type": "integer"
-                },
-                "emoji": {
-                  "type": "string"
-                },
-                "name": {
-                  "type": "string"
-                },
-                "description": {
-                  "type": "string"
-                },
-                "created_at": {
-                  "type": "string",
-                  "format": "date-time"
-                },
-                "updated_at": {
-                  "type": "string",
-                  "format": "date-time"
-                },
-                "slug": {
-                  "type": "string"
-                },
-                "is_answerable": {
-                  "type": "boolean"
-                }
-              },
-              "additionalProperties": false
+              ]
             }
           },
-          "additionalProperties": false
+          "required": [
+            "from"
+          ]
         }
       },
-      "additionalProperties": false
-    },
-    "action": {
-      "type": "string",
-      "enum": [
-        "category_changed"
+      "required": [
+        "category"
       ]
     },
     "discussion": {
       "$ref": "common/discussion.schema.json"
     },
-    "repository": {
-      "$ref": "common/repository.schema.json"
-    },
-    "sender": {
-      "$ref": "common/user.schema.json"
+    "enterprise": {
+      "$ref": "common/enterprise-webhooks.schema.json"
     },
     "installation": {
-      "$ref": "common/installation-lite.schema.json"
+      "$ref": "common/simple-installation.schema.json"
     },
     "organization": {
-      "$ref": "common/organization.schema.json"
+      "$ref": "common/organization-simple-webhooks.schema.json"
+    },
+    "repository": {
+      "$ref": "common/repository-webhooks.schema.json"
+    },
+    "sender": {
+      "$ref": "common/simple-user.schema.json"
     }
   },
-  "additionalProperties": false,
-  "title": "discussion category changed event"
+  "required": [
+    "action",
+    "changes",
+    "discussion",
+    "repository",
+    "sender"
+  ],
+  "additionalProperties": false
 }

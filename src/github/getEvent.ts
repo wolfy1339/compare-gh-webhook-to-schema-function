@@ -1,5 +1,5 @@
+import type { WebhookEventName as GithubEventName } from '@octokit/openapi-webhooks-types-transition';
 import { verify } from '@octokit/webhooks-methods';
-import type { WebhookEventName as GithubEventName } from '@octokit/webhooks-types';
 import type { IncomingHttpHeaders } from 'node:http';
 import type { GithubEvent } from './types';
 
@@ -19,8 +19,8 @@ declare module 'node:http' {
 }
 
 export const getEvent = async (
-  headers: IncomingHttpHeaders,
-  rawBody: string
+    headers: IncomingHttpHeaders,
+    rawBody: string
 ): Promise<GithubEvent> => {
   const signature: string = headers['x-hub-signature-256'];
   const { GH_WEBHOOK_SECRET } = process.env;

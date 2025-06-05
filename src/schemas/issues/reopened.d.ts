@@ -14,7 +14,7 @@ import type {
 export interface IssuesReopenedEvent {
   action: 'reopened';
   issue: Issue & {
-    state: 'open';
+    state: 'open'
   };
   repository: Repository;
   sender: User;

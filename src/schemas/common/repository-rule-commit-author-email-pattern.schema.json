@@ -1,0 +1,48 @@
+{
+  "$id": "common/repository-rule-commit-author-email-pattern.schema.json",
+  "title": "commit_author_email_pattern",
+  "description": "Parameters to be used for the commit_author_email_pattern rule",
+  "type": "object",
+  "required": [
+    "type"
+  ],
+  "properties": {
+    "type": {
+      "type": "string",
+      "enum": [
+        "commit_author_email_pattern"
+      ]
+    },
+    "parameters": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "How this rule will appear to users."
+        },
+        "negate": {
+          "type": "boolean",
+          "description": "If true, the rule will fail if the pattern matches."
+        },
+        "operator": {
+          "type": "string",
+          "description": "The operator to use for matching.",
+          "enum": [
+            "starts_with",
+            "ends_with",
+            "contains",
+            "regex"
+          ]
+        },
+        "pattern": {
+          "type": "string",
+          "description": "The pattern to match with."
+        }
+      },
+      "required": [
+        "operator",
+        "pattern"
+      ]
+    }
+  }
+}

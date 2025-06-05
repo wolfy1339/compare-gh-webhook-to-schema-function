@@ -1,0 +1,62 @@
+{
+  "$id": "common/projects-v2-item.schema.json",
+  "title": "Projects v2 Item",
+  "description": "An item belonging to a project",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "number"
+    },
+    "node_id": {
+      "type": "string"
+    },
+    "project_node_id": {
+      "type": "string"
+    },
+    "content_node_id": {
+      "type": "string"
+    },
+    "content_type": {
+      "$ref": "projects-v2-item-content-type.schema.json"
+    },
+    "creator": {
+      "$ref": "simple-user.schema.json"
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date-time",
+      "examples": [
+        "2022-04-28T12:00:00Z"
+      ]
+    },
+    "updated_at": {
+      "type": "string",
+      "format": "date-time",
+      "examples": [
+        "2022-04-28T12:00:00Z"
+      ]
+    },
+    "archived_at": {
+      "oneOf": [
+        {
+          "type": "string",
+          "format": "date-time",
+          "examples": [
+            "2022-04-28T12:00:00Z"
+          ]
+        },
+        {
+          "type": "null"
+        }
+      ]
+    }
+  },
+  "required": [
+    "id",
+    "content_node_id",
+    "content_type",
+    "created_at",
+    "updated_at",
+    "archived_at"
+  ]
+}

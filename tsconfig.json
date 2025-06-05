@@ -17,7 +17,7 @@
     "removeComments": false,
     "esModuleInterop": true
   },
-  "exclude": [".serverless", "coverage", "node_modules", "lib", "gh-schemas"],
-  "files": [".eslintrc.js", "jest.config.ts"],
+  "exclude": [".serverless", "coverage", "node_modules", "lib", "gh-schemas", "scripts/openapi.mjs"],
+  "files": ["eslint.config.cjs"],
   "include": ["**/*.js", "**/*.ts"]
 }

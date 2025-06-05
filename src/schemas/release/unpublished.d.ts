@@ -14,7 +14,7 @@ import type {
 export interface ReleaseUnpublishedEvent {
   action: 'unpublished';
   release: Release & {
-    published_at: null;
+    published_at: null
   };
   repository: Repository;
   sender: User;

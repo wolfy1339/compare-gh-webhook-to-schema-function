@@ -23,14 +23,14 @@ export interface AlertInstance {
   state: 'dismissed' | 'fixed' | 'open';
   commit_sha?: string;
   message?: {
-    text?: string;
+    text?: string
   };
   location?: {
-    path?: string;
-    start_line?: number;
-    end_line?: number;
-    start_column?: number;
-    end_column?: number;
+    path?: string,
+    start_line?: number,
+    end_line?: number,
+    start_column?: number,
+    end_column?: number
   };
   classifications?: string[];
 }

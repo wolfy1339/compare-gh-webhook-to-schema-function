@@ -1,6 +1,7 @@
 {
+  "$schema": "http://json-schema.org/draft-07/schema",
   "$id": "branch_protection_configuration$enabled",
-  "title": "branch protection configuration enabled event",
+  "title": "branch_protection_configuration enabled event",
   "type": "object",
   "properties": {
     "action": {
@@ -9,17 +10,20 @@
         "enabled"
       ]
     },
+    "enterprise": {
+      "$ref": "common/enterprise-webhooks.schema.json"
+    },
     "installation": {
-      "$ref": "common/installation-lite.schema.json"
+      "$ref": "common/simple-installation.schema.json"
     },
     "organization": {
-      "$ref": "common/organization.schema.json"
+      "$ref": "common/organization-simple-webhooks.schema.json"
     },
     "repository": {
-      "$ref": "common/repository.schema.json"
+      "$ref": "common/repository-webhooks.schema.json"
     },
     "sender": {
-      "$ref": "common/user.schema.json"
+      "$ref": "common/simple-user.schema.json"
     }
   },
   "required": [

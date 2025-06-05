@@ -17,7 +17,7 @@ export interface ReleasePrereleasedEvent {
     /**
      * Whether the release is identified as a prerelease or a full release.
      */
-    prerelease: true;
+    prerelease: true
   };
   repository: Repository;
   sender: User;

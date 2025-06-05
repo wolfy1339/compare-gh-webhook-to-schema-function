@@ -31,7 +31,6 @@ export interface OrganizationCustomProperty {
   /**
    * An ordered list of the allowed values of the property.
    * The property can have up to 200 allowed values.
-   *
    * @maxItems 200
    */
   allowed_values?: string[] | null;

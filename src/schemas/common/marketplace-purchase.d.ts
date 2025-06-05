@@ -6,11 +6,11 @@
 
 export interface MarketplacePurchase {
   account: {
-    type: string;
-    id: number;
-    node_id: string;
-    login: string;
-    organization_billing_email: string;
+    type: string,
+    id: number,
+    node_id: string,
+    login: string,
+    organization_billing_email: string
   };
   billing_cycle: string;
   unit_count: number;
@@ -18,14 +18,14 @@ export interface MarketplacePurchase {
   free_trial_ends_on: string | null;
   next_billing_date?: string;
   plan: {
-    id: number;
-    name: string;
-    description: string;
-    monthly_price_in_cents: number;
-    yearly_price_in_cents: number;
-    price_model: string;
-    has_free_trial: boolean;
-    unit_name: string | null;
-    bullets: string[];
+    id: number,
+    name: string,
+    description: string,
+    monthly_price_in_cents: number,
+    yearly_price_in_cents: number,
+    price_model: string,
+    has_free_trial: boolean,
+    unit_name: string | null,
+    bullets: string[]
   };
 }

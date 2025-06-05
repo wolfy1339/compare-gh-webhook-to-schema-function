@@ -1,99 +1,162 @@
 {
-  "$schema": "http://json-schema.org/draft-07/schema",
   "$id": "common/milestone.schema.json",
+  "title": "Milestone",
   "description": "A collection of related issues and pull requests.",
-  "required": [
-    "url",
-    "html_url",
-    "labels_url",
-    "id",
-    "node_id",
-    "number",
-    "title",
-    "description",
-    "creator",
-    "open_issues",
-    "closed_issues",
-    "state",
-    "created_at",
-    "updated_at",
-    "due_on",
-    "closed_at"
-  ],
   "type": "object",
   "properties": {
     "url": {
       "type": "string",
-      "format": "uri"
+      "format": "uri",
+      "examples": [
+        "https://api.github.com/repos/octocat/Hello-World/milestones/1"
+      ]
     },
     "html_url": {
       "type": "string",
-      "format": "uri"
+      "format": "uri",
+      "examples": [
+        "https://github.com/octocat/Hello-World/milestones/v1.0"
+      ]
     },
     "labels_url": {
       "type": "string",
-      "format": "uri"
-    },
-    "id": {
-      "type": "integer"
-    },
-    "node_id": {
-      "type": "string"
-    },
-    "number": {
-      "type": "integer",
-      "description": "The number of the milestone."
-    },
-    "title": {
-      "type": "string",
-      "description": "The title of the milestone."
-    },
-    "description": {
-      "type": [
-        "string",
-        "null"
+      "format": "uri",
+      "examples": [
+        "https://api.github.com/repos/octocat/Hello-World/milestones/1/labels"
       ]
     },
-    "creator": {
-      "$ref": "user.schema.json"
+    "id": {
+      "type": "integer",
+      "examples": [
+        1002604
+      ]
     },
-    "open_issues": {
-      "type": "integer"
+    "node_id": {
+      "type": "string",
+      "examples": [
+        "MDk6TWlsZXN0b25lMTAwMjYwNA=="
+      ]
     },
-    "closed_issues": {
-      "type": "integer"
+    "number": {
+      "description": "The number of the milestone.",
+      "type": "integer",
+      "examples": [
+        42
+      ]
     },
     "state": {
+      "description": "The state of the milestone.",
       "type": "string",
       "enum": [
         "open",
         "closed"
       ],
-      "description": "The state of the milestone."
+      "default": "open",
+      "examples": [
+        "open"
+      ]
+    },
+    "title": {
+      "description": "The title of the milestone.",
+      "type": "string",
+      "examples": [
+        "v1.0"
+      ]
+    },
+    "description": {
+      "oneOf": [
+        {
+          "type": "string",
+          "examples": [
+            "Tracking milestone for version 1.0"
+          ]
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "creator": {
+      "oneOf": [
+        {
+          "type": "null"
+        },
+        {
+          "$ref": "simple-user.schema.json"
+        }
+      ]
+    },
+    "open_issues": {
+      "type": "integer",
+      "examples": [
+        4
+      ]
+    },
+    "closed_issues": {
+      "type": "integer",
+      "examples": [
+        8
+      ]
     },
     "created_at": {
       "type": "string",
-      "format": "date-time"
+      "format": "date-time",
+      "examples": [
+        "2011-04-10T20:09:31Z"
+      ]
     },
     "updated_at": {
       "type": "string",
-      "format": "date-time"
-    },
-    "due_on": {
-      "type": [
-        "string",
-        "null"
-      ],
-      "format": "date-time"
+      "format": "date-time",
+      "examples": [
+        "2014-03-03T18:58:10Z"
+      ]
     },
     "closed_at": {
-      "type": [
-        "string",
-        "null"
-      ],
-      "format": "date-time"
+      "oneOf": [
+        {
+          "type": "string",
+          "format": "date-time",
+          "examples": [
+            "2013-02-12T13:22:01Z"
+          ]
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "due_on": {
+      "oneOf": [
+        {
+          "type": "string",
+          "format": "date-time",
+          "examples": [
+            "2012-10-09T23:39:01Z"
+          ]
+        },
+        {
+          "type": "null"
+        }
+      ]
     }
   },
-  "additionalProperties": false,
-  "title": "Milestone"
+  "required": [
+    "closed_issues",
+    "creator",
+    "description",
+    "due_on",
+    "closed_at",
+    "id",
+    "node_id",
+    "labels_url",
+    "html_url",
+    "number",
+    "open_issues",
+    "state",
+    "title",
+    "url",
+    "created_at",
+    "updated_at"
+  ]
 }

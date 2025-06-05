@@ -25,20 +25,20 @@ export interface LabelEditedEvent {
       /**
        * The previous version of the color if the action was `edited`.
        */
-      from: string;
-    };
+      from: string
+    },
     name?: {
       /**
        * The previous version of the name if the action was `edited`.
        */
-      from: string;
-    };
+      from: string
+    },
     description?: {
       /**
        * The previous version of the description if the action was `edited`.
        */
-      from: string;
-    };
+      from: string
+    }
   };
   repository: Repository;
   sender: User;

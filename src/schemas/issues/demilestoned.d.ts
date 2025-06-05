@@ -15,7 +15,7 @@ import type {
 export interface IssuesDemilestonedEvent {
   action: 'demilestoned';
   issue: Issue & {
-    milestone: null;
+    milestone: null
   };
   milestone: Milestone;
   repository: Repository;

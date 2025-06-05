@@ -56,5 +56,5 @@ export type WebhookEvents =
       | 'watch'
       | 'workflow_job'
       | 'workflow_run'
-    )[]
+  )[]
   | ['*'];

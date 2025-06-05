@@ -26,15 +26,15 @@ export interface DependabotAlert {
    * Details for the vulnerable dependency.
    */
   dependency: {
-    package: DependabotAlertPackage;
+    package: DependabotAlertPackage,
     /**
      * The full path to the dependency manifest file, relative to the root of the repository.
      */
-    manifest_path: string;
+    manifest_path: string,
     /**
      * The execution scope of the vulnerable dependency.
      */
-    scope: 'development' | 'runtime' | null;
+    scope: 'development' | 'runtime' | null
   };
   /**
    * Details for the GitHub Security Advisory.
@@ -43,32 +43,32 @@ export interface DependabotAlert {
     /**
      * Details for the GitHub Security Advisory.
      */
-    ghsa_id: string;
+    ghsa_id: string,
     /**
      * The unique CVE ID assigned to the advisory.
      */
-    cve_id: string | null;
+    cve_id: string | null,
     /**
      * A short, plain text summary of the advisory.
      */
-    summary: string;
+    summary: string,
     /**
      * A long-form Markdown-supported description of the advisory.
      */
-    description: string;
+    description: string,
     /**
      * Vulnerable version range information for the advisory.
      */
     vulnerabilities: {
-      package: DependabotAlertPackage;
+      package: DependabotAlertPackage,
       /**
        * The severity of the vulnerability.
        */
-      severity: 'critical' | 'high' | 'low' | 'medium';
+      severity: 'critical' | 'high' | 'low' | 'medium',
       /**
        * Conditions that identify vulnerable versions of this vulnerability's package.
        */
-      vulnerable_version_range: string;
+      vulnerable_version_range: string,
       /**
        * Details pertaining to the package version that patches this vulnerability.
        */
@@ -76,18 +76,18 @@ export interface DependabotAlert {
         /**
          * The package version that patches this vulnerability.
          */
-        identifier: string;
-      };
-    }[];
+        identifier: string
+      }
+    }[],
     /**
      * The severity of the advisory.
      */
-    severity: 'critical' | 'high' | 'low' | 'medium';
-    cvss: SecurityAdvisoryCvss;
+    severity: 'critical' | 'high' | 'low' | 'medium',
+    cvss: SecurityAdvisoryCvss,
     /**
      * Details for the advisory pertaining to Common Weakness Enumeration.
      */
-    cwes: SecurityAdvisoryCwes[];
+    cwes: SecurityAdvisoryCwes[],
     /**
      * Values that identify this advisory among security information sources.
      */
@@ -95,12 +95,12 @@ export interface DependabotAlert {
       /**
        * The type of advisory identifier.
        */
-      type: 'CVE' | 'GHSA';
+      type: 'CVE' | 'GHSA',
       /**
        * The value of the advisory identifer.
        */
-      value: string;
-    }[];
+      value: string
+    }[],
     /**
      * Links to additional advisory information.
      */
@@ -108,34 +108,34 @@ export interface DependabotAlert {
       /**
        * The URL of the reference.
        */
-      url: string;
-    }[];
+      url: string
+    }[],
     /**
      * The time that the advisory was published in ISO 8601 format: `YYYY-MM-DDTHH:MM:SSZ`.
      */
-    published_at: string;
+    published_at: string,
     /**
      * The time that the advisory was last modified in ISO 8601 format: `YYYY-MM-DDTHH:MM:SSZ`.
      */
-    updated_at: string;
+    updated_at: string,
     /**
      * The time that the advisory was withdrawn in ISO 8601 format: `YYYY-MM-DDTHH:MM:SSZ`.
      */
-    withdrawn_at: string | null;
+    withdrawn_at: string | null
   };
   /**
    * Details pertaining to one vulnerable version range for the advisory.
    */
   security_vulnerability: {
-    package: DependabotAlertPackage;
+    package: DependabotAlertPackage,
     /**
      * The severity of the vulnerability.
      */
-    severity: 'critical' | 'high' | 'low' | 'medium';
+    severity: 'critical' | 'high' | 'low' | 'medium',
     /**
      * Conditions that identify vulnerable versions of this vulnerability's package.
      */
-    vulnerable_version_range: string;
+    vulnerable_version_range: string,
     /**
      * Details pertaining to the package version that patches this vulnerability.
      */
@@ -143,8 +143,8 @@ export interface DependabotAlert {
       /**
        * The package version that patches this vulnerability.
        */
-      identifier: string;
-    };
+      identifier: string
+    }
   };
   /**
    * The REST API URL of the alert resource.

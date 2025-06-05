@@ -24,14 +24,14 @@ export interface IssuesEditedEvent {
       /**
        * The previous version of the body.
        */
-      from: string;
-    };
+      from: string
+    },
     title?: {
       /**
        * The previous version of the title.
        */
-      from: string;
-    };
+      from: string
+    }
   };
   repository: Repository;
   sender: User;

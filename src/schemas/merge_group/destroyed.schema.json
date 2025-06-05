@@ -1,0 +1,43 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema",
+  "$id": "merge_group$destroyed",
+  "type": "object",
+  "properties": {
+    "action": {
+      "type": "string",
+      "enum": [
+        "destroyed"
+      ]
+    },
+    "reason": {
+      "type": "string",
+      "description": "Explains why the merge group is being destroyed. The group could have been merged, removed from the queue (dequeued), or invalidated by an earlier queue entry being dequeued (invalidated).",
+      "enum": [
+        "merged",
+        "invalidated",
+        "dequeued"
+      ]
+    },
+    "installation": {
+      "$ref": "common/simple-installation.schema.json"
+    },
+    "merge_group": {
+      "$ref": "common/merge-group.schema.json"
+    },
+    "organization": {
+      "$ref": "common/organization-simple-webhooks.schema.json"
+    },
+    "repository": {
+      "$ref": "common/repository-webhooks.schema.json"
+    },
+    "sender": {
+      "$ref": "common/simple-user.schema.json"
+    }
+  },
+  "required": [
+    "action",
+    "merge_group"
+  ],
+  "title": "merge_group destroyed event",
+  "additionalProperties": false
+}

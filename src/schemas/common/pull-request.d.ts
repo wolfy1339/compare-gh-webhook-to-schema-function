@@ -54,28 +54,28 @@ export interface PullRequest {
   comments_url: string;
   statuses_url: string;
   head: {
-    label: string;
-    ref: string;
-    sha: string;
-    user: User;
-    repo: Repository | null;
+    label: string,
+    ref: string,
+    sha: string,
+    user: User,
+    repo: Repository | null
   };
   base: {
-    label: string;
-    ref: string;
-    sha: string;
-    user: User;
-    repo: Repository;
+    label: string,
+    ref: string,
+    sha: string,
+    user: User,
+    repo: Repository
   };
   _links: {
-    self: Link;
-    html: Link;
-    issue: Link;
-    comments: Link;
-    review_comments: Link;
-    review_comment: Link;
-    commits: Link;
-    statuses: Link;
+    self: Link,
+    html: Link,
+    issue: Link,
+    comments: Link,
+    review_comments: Link,
+    review_comment: Link,
+    commits: Link,
+    statuses: Link
   };
   author_association: AuthorAssociation;
   auto_merge: PullRequestAutoMerge | null;

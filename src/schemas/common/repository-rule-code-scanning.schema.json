@@ -1,0 +1,32 @@
+{
+  "$id": "common/repository-rule-code-scanning.schema.json",
+  "title": "code_scanning",
+  "description": "Choose which tools must provide code scanning results before the reference is updated. When configured, code scanning must be enabled and have results for both the commit and the reference being updated.",
+  "type": "object",
+  "required": [
+    "type"
+  ],
+  "properties": {
+    "type": {
+      "type": "string",
+      "enum": [
+        "code_scanning"
+      ]
+    },
+    "parameters": {
+      "type": "object",
+      "properties": {
+        "code_scanning_tools": {
+          "type": "array",
+          "description": "Tools that must provide code scanning results for this rule to pass.",
+          "items": {
+            "$ref": "repository-rule-params-code-scanning-tool.schema.json"
+          }
+        }
+      },
+      "required": [
+        "code_scanning_tools"
+      ]
+    }
+  }
+}

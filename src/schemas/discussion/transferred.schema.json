@@ -1,7 +1,49 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema",
   "$id": "discussion$transferred",
+  "title": "discussion transferred event",
   "type": "object",
+  "properties": {
+    "action": {
+      "type": "string",
+      "enum": [
+        "transferred"
+      ]
+    },
+    "changes": {
+      "type": "object",
+      "properties": {
+        "new_discussion": {
+          "$ref": "common/discussion.schema.json"
+        },
+        "new_repository": {
+          "$ref": "common/repository-webhooks.schema.json"
+        }
+      },
+      "required": [
+        "new_discussion",
+        "new_repository"
+      ]
+    },
+    "discussion": {
+      "$ref": "common/discussion.schema.json"
+    },
+    "enterprise": {
+      "$ref": "common/enterprise-webhooks.schema.json"
+    },
+    "installation": {
+      "$ref": "common/simple-installation.schema.json"
+    },
+    "organization": {
+      "$ref": "common/organization-simple-webhooks.schema.json"
+    },
+    "repository": {
+      "$ref": "common/repository-webhooks.schema.json"
+    },
+    "sender": {
+      "$ref": "common/simple-user.schema.json"
+    }
+  },
   "required": [
     "action",
     "changes",
@@ -9,45 +51,5 @@
     "repository",
     "sender"
   ],
-  "properties": {
-    "changes": {
-      "type": "object",
-      "required": [
-        "new_discussion",
-        "new_repository"
-      ],
-      "properties": {
-        "new_discussion": {
-          "$ref": "common/discussion.schema.json"
-        },
-        "new_repository": {
-          "$ref": "common/repository.schema.json"
-        }
-      },
-      "additionalProperties": false
-    },
-    "action": {
-      "type": "string",
-      "enum": [
-        "transferred"
-      ]
-    },
-    "discussion": {
-      "$ref": "common/discussion.schema.json"
-    },
-    "repository": {
-      "$ref": "common/repository.schema.json"
-    },
-    "sender": {
-      "$ref": "common/user.schema.json"
-    },
-    "installation": {
-      "$ref": "common/installation-lite.schema.json"
-    },
-    "organization": {
-      "$ref": "common/organization.schema.json"
-    }
-  },
-  "additionalProperties": false,
-  "title": "discussion transferred event"
+  "additionalProperties": false
 }

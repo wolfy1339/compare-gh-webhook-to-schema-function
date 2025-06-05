@@ -1,0 +1,34 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema",
+  "$id": "projects_v2$created",
+  "description": "A project was created",
+  "type": "object",
+  "properties": {
+    "action": {
+      "type": "string",
+      "enum": [
+        "created"
+      ]
+    },
+    "installation": {
+      "$ref": "common/simple-installation.schema.json"
+    },
+    "organization": {
+      "$ref": "common/organization-simple-webhooks.schema.json"
+    },
+    "projects_v2": {
+      "$ref": "common/projects-v2.schema.json"
+    },
+    "sender": {
+      "$ref": "common/simple-user.schema.json"
+    }
+  },
+  "required": [
+    "action",
+    "projects_v2",
+    "organization",
+    "sender"
+  ],
+  "title": "projects_v2 created event",
+  "additionalProperties": false
+}

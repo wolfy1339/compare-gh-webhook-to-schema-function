@@ -1,14 +1,8 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema",
   "$id": "discussion$labeled",
+  "title": "discussion labeled event",
   "type": "object",
-  "required": [
-    "action",
-    "discussion",
-    "label",
-    "repository",
-    "sender"
-  ],
   "properties": {
     "action": {
       "type": "string",
@@ -19,22 +13,31 @@
     "discussion": {
       "$ref": "common/discussion.schema.json"
     },
-    "label": {
-      "$ref": "common/label.schema.json"
-    },
-    "repository": {
-      "$ref": "common/repository.schema.json"
-    },
-    "sender": {
-      "$ref": "common/user.schema.json"
+    "enterprise": {
+      "$ref": "common/enterprise-webhooks.schema.json"
     },
     "installation": {
-      "$ref": "common/installation-lite.schema.json"
+      "$ref": "common/simple-installation.schema.json"
+    },
+    "label": {
+      "$ref": "common/webhooks_label.schema.json"
     },
     "organization": {
-      "$ref": "common/organization.schema.json"
+      "$ref": "common/organization-simple-webhooks.schema.json"
+    },
+    "repository": {
+      "$ref": "common/repository-webhooks.schema.json"
+    },
+    "sender": {
+      "$ref": "common/simple-user.schema.json"
     }
   },
-  "additionalProperties": false,
-  "title": "discussion labeled event"
+  "required": [
+    "action",
+    "discussion",
+    "label",
+    "repository",
+    "sender"
+  ],
+  "additionalProperties": false
 }

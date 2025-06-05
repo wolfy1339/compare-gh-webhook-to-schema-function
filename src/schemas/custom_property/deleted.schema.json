@@ -1,7 +1,7 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema",
   "$id": "custom_property$deleted",
-  "title": "custom property deleted event",
+  "title": "custom_property deleted event",
   "type": "object",
   "properties": {
     "action": {
@@ -20,23 +20,24 @@
       },
       "required": [
         "property_name"
-      ],
-      "additionalProperties": false
+      ]
+    },
+    "enterprise": {
+      "$ref": "common/enterprise-webhooks.schema.json"
     },
     "installation": {
-      "$ref": "common/installation-lite.schema.json"
+      "$ref": "common/simple-installation.schema.json"
     },
     "organization": {
-      "$ref": "common/organization.schema.json"
+      "$ref": "common/organization-simple-webhooks.schema.json"
     },
     "sender": {
-      "$ref": "common/user.schema.json"
+      "$ref": "common/simple-user.schema.json"
     }
   },
   "required": [
     "action",
-    "definition",
-    "organization"
+    "definition"
   ],
   "additionalProperties": false
 }

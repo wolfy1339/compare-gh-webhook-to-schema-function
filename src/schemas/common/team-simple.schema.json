@@ -1,0 +1,116 @@
+{
+  "$id": "common/team-simple.schema.json",
+  "title": "Team Simple",
+  "description": "Groups of organization members that gives permissions on specified repositories.",
+  "type": "object",
+  "properties": {
+    "id": {
+      "description": "Unique identifier of the team",
+      "type": "integer",
+      "examples": [
+        1
+      ]
+    },
+    "node_id": {
+      "type": "string",
+      "examples": [
+        "MDQ6VGVhbTE="
+      ]
+    },
+    "url": {
+      "description": "URL for the team",
+      "type": "string",
+      "format": "uri",
+      "examples": [
+        "https://api.github.com/organizations/1/team/1"
+      ]
+    },
+    "members_url": {
+      "type": "string",
+      "examples": [
+        "https://api.github.com/organizations/1/team/1/members{/member}"
+      ]
+    },
+    "name": {
+      "description": "Name of the team",
+      "type": "string",
+      "examples": [
+        "Justice League"
+      ]
+    },
+    "description": {
+      "oneOf": [
+        {
+          "type": "string",
+          "description": "Description of the team",
+          "examples": [
+            "A great team."
+          ]
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "permission": {
+      "description": "Permission that the team will have for its repositories",
+      "type": "string",
+      "examples": [
+        "admin"
+      ]
+    },
+    "privacy": {
+      "description": "The level of privacy this team should have",
+      "type": "string",
+      "examples": [
+        "closed"
+      ]
+    },
+    "notification_setting": {
+      "description": "The notification setting the team has set",
+      "type": "string",
+      "examples": [
+        "notifications_enabled"
+      ]
+    },
+    "html_url": {
+      "type": "string",
+      "format": "uri",
+      "examples": [
+        "https://github.com/orgs/rails/teams/core"
+      ]
+    },
+    "repositories_url": {
+      "type": "string",
+      "format": "uri",
+      "examples": [
+        "https://api.github.com/organizations/1/team/1/repos"
+      ]
+    },
+    "slug": {
+      "type": "string",
+      "examples": [
+        "justice-league"
+      ]
+    },
+    "ldap_dn": {
+      "description": "Distinguished Name (DN) that team maps to within LDAP environment",
+      "type": "string",
+      "examples": [
+        "uid=example,ou=users,dc=github,dc=com"
+      ]
+    }
+  },
+  "required": [
+    "id",
+    "node_id",
+    "url",
+    "members_url",
+    "name",
+    "description",
+    "permission",
+    "html_url",
+    "repositories_url",
+    "slug"
+  ]
+}

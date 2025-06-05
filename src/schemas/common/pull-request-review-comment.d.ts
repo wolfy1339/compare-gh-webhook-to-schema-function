@@ -66,9 +66,9 @@ export interface PullRequestReviewComment {
   pull_request_url: string;
   author_association: AuthorAssociation;
   _links: {
-    self: Link;
-    html: Link;
-    pull_request: Link;
+    self: Link,
+    html: Link,
+    pull_request: Link
   };
   reactions: Reactions;
   /**

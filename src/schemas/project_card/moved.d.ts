@@ -15,11 +15,11 @@ export interface ProjectCardMovedEvent {
   action: 'moved';
   changes?: {
     column_id: {
-      from: number;
-    };
+      from: number
+    }
   };
   project_card: ProjectCard & {
-    after_id: number | null;
+    after_id: number | null
   };
   repository?: Repository;
   sender: User;

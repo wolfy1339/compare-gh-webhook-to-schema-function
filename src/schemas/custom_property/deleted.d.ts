@@ -11,7 +11,7 @@ export interface CustomPropertyDeletedEvent {
     /**
      * The name of the property that was deleted.
      */
-    property_name: string;
+    property_name: string
   };
   installation?: InstallationLite;
   organization: Organization;

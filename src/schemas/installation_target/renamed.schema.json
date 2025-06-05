@@ -2,93 +2,46 @@
   "$schema": "http://json-schema.org/draft-07/schema",
   "$id": "installation_target$renamed",
   "type": "object",
-  "required": [
-    "action",
-    "target_type",
-    "account",
-    "changes",
-    "installation"
-  ],
   "properties": {
-    "changes": {
-      "type": "object",
-      "properties": {
-        "login": {
-          "type": "object",
-          "required": [
-            "from"
-          ],
-          "properties": {
-            "from": {
-              "type": "string"
-            }
-          },
-          "additionalProperties": false
-        },
-        "slug": {
-          "type": "object",
-          "properties": {
-            "from": {
-              "type": "string"
-            }
-          },
-          "required": [
-            "from"
-          ],
-          "additionalProperties": false
-        }
-      },
-      "additionalProperties": false
-    },
-    "action": {
-      "type": "string",
-      "enum": [
-        "renamed"
-      ]
-    },
     "account": {
       "type": "object",
-      "required": [
-        "id",
-        "node_id",
-        "avatar_url",
-        "html_url"
-      ],
       "properties": {
-        "avatar_url": {
-          "type": "string",
-          "format": "uri"
-        },
-        "created_at": {
-          "type": "string",
-          "format": "date-time"
-        },
-        "description": {
-          "type": [
-            "null"
+        "archived_at": {
+          "oneOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
           ]
         },
+        "avatar_url": {
+          "type": "string"
+        },
+        "created_at": {
+          "type": "string"
+        },
+        "description": {
+          "type": "null"
+        },
         "events_url": {
-          "type": "string",
-          "format": "uri-template"
+          "type": "string"
         },
         "followers": {
           "type": "integer"
         },
         "followers_url": {
-          "type": "string",
-          "format": "uri"
+          "type": "string"
         },
         "following": {
           "type": "integer"
         },
         "following_url": {
-          "type": "string",
-          "format": "uri-template"
+          "type": "string"
         },
         "gists_url": {
-          "type": "string",
-          "format": "uri-template"
+          "type": "string"
         },
         "gravatar_id": {
           "type": "string"
@@ -103,8 +56,7 @@
           "type": "string"
         },
         "html_url": {
-          "type": "string",
-          "format": "uri"
+          "type": "string"
         },
         "id": {
           "type": "integer"
@@ -113,15 +65,13 @@
           "type": "boolean"
         },
         "issues_url": {
-          "type": "string",
-          "format": "uri-template"
+          "type": "string"
         },
         "login": {
           "type": "string"
         },
         "members_url": {
-          "type": "string",
-          "format": "uri-template"
+          "type": "string"
         },
         "name": {
           "type": "string"
@@ -130,26 +80,22 @@
           "type": "string"
         },
         "organizations_url": {
-          "type": "string",
-          "format": "uri"
+          "type": "string"
         },
         "public_gists": {
           "type": "integer"
         },
         "public_members_url": {
-          "type": "string",
-          "format": "uri-template"
+          "type": "string"
         },
         "public_repos": {
           "type": "integer"
         },
         "received_events_url": {
-          "type": "string",
-          "format": "uri"
+          "type": "string"
         },
         "repos_url": {
-          "type": "string",
-          "format": "uri"
+          "type": "string"
         },
         "site_admin": {
           "type": "boolean"
@@ -158,54 +104,93 @@
           "type": "string"
         },
         "starred_url": {
-          "type": "string",
-          "format": "uri-template"
+          "type": "string"
         },
         "subscriptions_url": {
-          "type": "string",
-          "format": "uri"
+          "type": "string"
         },
         "type": {
-          "type": "string",
-          "enum": [
-            "Bot",
-            "User",
-            "Organization"
-          ]
+          "type": "string"
         },
         "updated_at": {
-          "type": "string",
-          "format": "date-time"
+          "type": "string"
         },
         "url": {
-          "type": "string",
-          "format": "uri"
+          "type": "string"
         },
         "website_url": {
-          "type": [
-            "null"
-          ]
+          "type": "null"
+        },
+        "user_view_type": {
+          "type": "string"
         }
       },
-      "additionalProperties": false
+      "required": [
+        "id",
+        "node_id",
+        "avatar_url",
+        "html_url"
+      ]
     },
-    "repository": {
-      "$ref": "common/repository.schema.json"
+    "action": {
+      "type": "string",
+      "enum": [
+        "renamed"
+      ]
     },
-    "sender": {
-      "$ref": "common/user.schema.json"
+    "changes": {
+      "type": "object",
+      "properties": {
+        "login": {
+          "type": "object",
+          "properties": {
+            "from": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "from"
+          ]
+        },
+        "slug": {
+          "type": "object",
+          "properties": {
+            "from": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "from"
+          ]
+        }
+      }
+    },
+    "enterprise": {
+      "$ref": "common/enterprise-webhooks.schema.json"
     },
     "installation": {
-      "$ref": "common/installation-lite.schema.json"
+      "$ref": "common/simple-installation.schema.json"
     },
     "organization": {
-      "$ref": "common/organization.schema.json"
+      "$ref": "common/organization-simple-webhooks.schema.json"
+    },
+    "repository": {
+      "$ref": "common/repository-webhooks.schema.json"
+    },
+    "sender": {
+      "$ref": "common/simple-user.schema.json"
     },
     "target_type": {
       "type": "string"
     }
   },
-  "additionalProperties": false,
+  "required": [
+    "action",
+    "target_type",
+    "account",
+    "changes",
+    "installation"
+  ],
   "title": "installation_target renamed event",
-  "description": "Somebody renamed the user or organization account that a GitHub App is installed on."
+  "additionalProperties": false
 }

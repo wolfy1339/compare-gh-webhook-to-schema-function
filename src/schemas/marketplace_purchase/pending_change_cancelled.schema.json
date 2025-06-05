@@ -1,13 +1,8 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema",
   "$id": "marketplace_purchase$pending_change_cancelled",
+  "title": "marketplace_purchase pending_change_cancelled event",
   "type": "object",
-  "required": [
-    "action",
-    "effective_date",
-    "sender",
-    "marketplace_purchase"
-  ],
   "properties": {
     "action": {
       "type": "string",
@@ -16,125 +11,161 @@
       ]
     },
     "effective_date": {
-      "type": "string",
-      "format": "date-time"
+      "type": "string"
     },
-    "sender": {
-      "type": "object",
-      "required": [
-        "login",
-        "id",
-        "avatar_url",
-        "gravatar_id",
-        "url",
-        "html_url",
-        "followers_url",
-        "following_url",
-        "gists_url",
-        "starred_url",
-        "subscriptions_url",
-        "organizations_url",
-        "repos_url",
-        "events_url",
-        "received_events_url",
-        "type",
-        "site_admin",
-        "email"
-      ],
-      "properties": {
-        "login": {
-          "type": "string"
-        },
-        "id": {
-          "type": "integer"
-        },
-        "avatar_url": {
-          "type": "string",
-          "format": "uri"
-        },
-        "gravatar_id": {
-          "type": "string"
-        },
-        "url": {
-          "type": "string",
-          "format": "uri"
-        },
-        "html_url": {
-          "type": "string",
-          "format": "uri"
-        },
-        "followers_url": {
-          "type": "string",
-          "format": "uri"
-        },
-        "following_url": {
-          "type": "string",
-          "format": "uri-template"
-        },
-        "gists_url": {
-          "type": "string",
-          "format": "uri-template"
-        },
-        "starred_url": {
-          "type": "string",
-          "format": "uri-template"
-        },
-        "subscriptions_url": {
-          "type": "string",
-          "format": "uri"
-        },
-        "organizations_url": {
-          "type": "string",
-          "format": "uri"
-        },
-        "repos_url": {
-          "type": "string",
-          "format": "uri"
-        },
-        "events_url": {
-          "type": "string",
-          "format": "uri-template"
-        },
-        "received_events_url": {
-          "type": "string",
-          "format": "uri"
-        },
-        "type": {
-          "type": "string"
-        },
-        "site_admin": {
-          "type": "boolean"
-        },
-        "email": {
-          "type": "string"
-        }
-      },
-      "additionalProperties": false
+    "enterprise": {
+      "$ref": "common/enterprise-webhooks.schema.json"
+    },
+    "installation": {
+      "$ref": "common/simple-installation.schema.json"
     },
     "marketplace_purchase": {
-      "allOf": [
-        {
-          "$ref": "common/marketplace-purchase.schema.json"
-        },
-        {
+      "title": "Marketplace Purchase",
+      "type": "object",
+      "required": [
+        "account",
+        "billing_cycle",
+        "free_trial_ends_on",
+        "next_billing_date",
+        "on_free_trial",
+        "plan",
+        "unit_count"
+      ],
+      "properties": {
+        "account": {
           "type": "object",
           "required": [
-            "next_billing_date"
+            "type",
+            "id",
+            "node_id",
+            "login",
+            "organization_billing_email"
           ],
           "properties": {
-            "next_billing_date": {
-              "type": "string",
-              "format": "date-time"
+            "id": {
+              "type": "integer"
+            },
+            "login": {
+              "type": "string"
+            },
+            "node_id": {
+              "type": "string"
+            },
+            "organization_billing_email": {
+              "oneOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "type": {
+              "type": "string"
             }
-          },
-          "tsAdditionalProperties": false
+          }
+        },
+        "billing_cycle": {
+          "type": "string"
+        },
+        "free_trial_ends_on": {
+          "type": "null"
+        },
+        "next_billing_date": {
+          "oneOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "on_free_trial": {
+          "type": "boolean"
+        },
+        "plan": {
+          "type": "object",
+          "required": [
+            "id",
+            "name",
+            "description",
+            "monthly_price_in_cents",
+            "yearly_price_in_cents",
+            "price_model",
+            "has_free_trial",
+            "unit_name",
+            "bullets"
+          ],
+          "properties": {
+            "bullets": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "description": {
+              "type": "string"
+            },
+            "has_free_trial": {
+              "type": "boolean"
+            },
+            "id": {
+              "type": "integer"
+            },
+            "monthly_price_in_cents": {
+              "type": "integer"
+            },
+            "name": {
+              "type": "string"
+            },
+            "price_model": {
+              "type": "string",
+              "enum": [
+                "FREE",
+                "FLAT_RATE",
+                "PER_UNIT"
+              ]
+            },
+            "unit_name": {
+              "oneOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "yearly_price_in_cents": {
+              "type": "integer"
+            }
+          }
+        },
+        "unit_count": {
+          "type": "integer"
         }
-      ]
+      }
+    },
+    "organization": {
+      "$ref": "common/organization-simple-webhooks.schema.json"
     },
     "previous_marketplace_purchase": {
-      "$ref": "common/marketplace-purchase.schema.json"
+      "$ref": "common/webhooks_previous_marketplace_purchase.schema.json"
+    },
+    "repository": {
+      "$ref": "common/repository-webhooks.schema.json"
+    },
+    "sender": {
+      "$ref": "common/simple-user.schema.json"
     }
   },
-  "additionalProperties": false,
-  "title": "marketplace_purchase pending_change_cancelled event"
+  "required": [
+    "action",
+    "effective_date",
+    "sender",
+    "marketplace_purchase"
+  ],
+  "additionalProperties": false
 }

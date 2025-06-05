@@ -1,13 +1,8 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema",
   "$id": "workflow_job$in_progress",
+  "title": "workflow_job in_progress event",
   "type": "object",
-  "required": [
-    "action",
-    "repository",
-    "sender",
-    "workflow_job"
-  ],
   "properties": {
     "action": {
       "type": "string",
@@ -15,45 +10,489 @@
         "in_progress"
       ]
     },
-    "organization": {
-      "$ref": "common/organization.schema.json"
+    "enterprise": {
+      "$ref": "common/enterprise-webhooks.schema.json"
     },
     "installation": {
-      "$ref": "common/installation-lite.schema.json"
+      "$ref": "common/simple-installation.schema.json"
+    },
+    "organization": {
+      "$ref": "common/organization-simple-webhooks.schema.json"
     },
     "repository": {
-      "$ref": "common/repository.schema.json"
+      "$ref": "common/repository-webhooks.schema.json"
     },
     "sender": {
-      "$ref": "common/user.schema.json"
-    },
-    "deployment": {
-      "$ref": "common/deployment.schema.json"
+      "$ref": "common/simple-user.schema.json"
     },
     "workflow_job": {
       "allOf": [
         {
-          "$ref": "common/workflow-job.schema.json"
-        },
-        {
+          "title": "Workflow Job",
+          "description": "The workflow job. Many `workflow_job` keys, such as `head_sha`, `conclusion`, and `started_at` are the same as those in a [`check_run`](#check_run) object.",
           "type": "object",
-          "required": [
-            "status"
-          ],
           "properties": {
+            "check_run_url": {
+              "type": "string",
+              "format": "uri"
+            },
+            "completed_at": {
+              "oneOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "conclusion": {
+              "oneOf": [
+                {
+                  "type": "string",
+                  "enum": [
+                    "success",
+                    "failure",
+                    null,
+                    "cancelled",
+                    "neutral"
+                  ]
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "created_at": {
+              "description": "The time that the job created.",
+              "type": "string"
+            },
+            "head_sha": {
+              "type": "string"
+            },
+            "html_url": {
+              "type": "string",
+              "format": "uri"
+            },
+            "id": {
+              "type": "integer"
+            },
+            "labels": {
+              "description": "Custom labels for the job. Specified by the [`\"runs-on\"` attribute](https://docs.github.com/actions/reference/workflow-syntax-for-github-actions#jobsjob_idruns-on) in the workflow YAML.",
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "name": {
+              "type": "string"
+            },
+            "node_id": {
+              "type": "string"
+            },
+            "run_attempt": {
+              "type": "integer"
+            },
+            "run_id": {
+              "type": "number"
+            },
+            "run_url": {
+              "type": "string",
+              "format": "uri"
+            },
+            "runner_group_id": {
+              "oneOf": [
+                {
+                  "type": "integer",
+                  "description": "The ID of the runner group that is running this job. This will be `null` as long as `workflow_job[status]` is `queued`."
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "runner_group_name": {
+              "oneOf": [
+                {
+                  "type": "string",
+                  "description": "The name of the runner group that is running this job. This will be `null` as long as `workflow_job[status]` is `queued`."
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "runner_id": {
+              "oneOf": [
+                {
+                  "type": "integer",
+                  "description": "The ID of the runner that is running this job. This will be `null` as long as `workflow_job[status]` is `queued`."
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "runner_name": {
+              "oneOf": [
+                {
+                  "type": "string",
+                  "description": "The name of the runner that is running this job. This will be `null` as long as `workflow_job[status]` is `queued`."
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "started_at": {
+              "type": "string"
+            },
             "status": {
+              "description": "The current status of the job. Can be `queued`, `in_progress`, or `completed`.",
               "type": "string",
               "enum": [
                 "queued",
-                "in_progress"
+                "in_progress",
+                "completed"
               ]
+            },
+            "head_branch": {
+              "oneOf": [
+                {
+                  "type": "string",
+                  "description": "The name of the current branch."
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "workflow_name": {
+              "oneOf": [
+                {
+                  "type": "string",
+                  "description": "The name of the workflow."
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "steps": {
+              "type": "array",
+              "items": {
+                "title": "Workflow Step",
+                "type": "object",
+                "properties": {
+                  "completed_at": {
+                    "oneOf": [
+                      {
+                        "type": "string"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  },
+                  "conclusion": {
+                    "oneOf": [
+                      {
+                        "type": "string",
+                        "enum": [
+                          "failure",
+                          "skipped",
+                          "success",
+                          null,
+                          "cancelled"
+                        ]
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  },
+                  "name": {
+                    "type": "string"
+                  },
+                  "number": {
+                    "type": "integer"
+                  },
+                  "started_at": {
+                    "oneOf": [
+                      {
+                        "type": "string"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  },
+                  "status": {
+                    "type": "string",
+                    "enum": [
+                      "in_progress",
+                      "completed",
+                      "queued",
+                      "pending"
+                    ]
+                  }
+                },
+                "required": [
+                  "name",
+                  "status",
+                  "conclusion",
+                  "number",
+                  "started_at",
+                  "completed_at"
+                ]
+              }
+            },
+            "url": {
+              "type": "string",
+              "format": "uri"
             }
           },
-          "tsAdditionalProperties": false
+          "required": [
+            "id",
+            "run_id",
+            "run_url",
+            "run_attempt",
+            "node_id",
+            "head_sha",
+            "url",
+            "html_url",
+            "status",
+            "conclusion",
+            "started_at",
+            "completed_at",
+            "name",
+            "steps",
+            "check_run_url",
+            "labels",
+            "runner_id",
+            "runner_name",
+            "runner_group_id",
+            "runner_group_name",
+            "workflow_name",
+            "head_branch",
+            "created_at"
+          ]
+        },
+        {
+          "type": "object",
+          "properties": {
+            "check_run_url": {
+              "type": "string"
+            },
+            "completed_at": {
+              "oneOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "conclusion": {
+              "oneOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "created_at": {
+              "description": "The time that the job created.",
+              "type": "string"
+            },
+            "head_sha": {
+              "type": "string"
+            },
+            "html_url": {
+              "type": "string"
+            },
+            "id": {
+              "type": "integer"
+            },
+            "labels": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "name": {
+              "type": "string"
+            },
+            "node_id": {
+              "type": "string"
+            },
+            "run_attempt": {
+              "type": "integer"
+            },
+            "run_id": {
+              "type": "integer"
+            },
+            "run_url": {
+              "type": "string"
+            },
+            "runner_group_id": {
+              "oneOf": [
+                {
+                  "type": "number"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "runner_group_name": {
+              "oneOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "runner_id": {
+              "oneOf": [
+                {
+                  "type": "number"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "runner_name": {
+              "oneOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "started_at": {
+              "type": "string"
+            },
+            "status": {
+              "type": "string",
+              "enum": [
+                "in_progress",
+                "completed",
+                "queued"
+              ]
+            },
+            "head_branch": {
+              "oneOf": [
+                {
+                  "type": "string",
+                  "description": "The name of the current branch."
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "workflow_name": {
+              "oneOf": [
+                {
+                  "type": "string",
+                  "description": "The name of the workflow."
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "steps": {
+              "type": "array",
+              "items": {
+                "title": "Workflow Step",
+                "type": "object",
+                "properties": {
+                  "completed_at": {
+                    "oneOf": [
+                      {
+                        "type": "string"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  },
+                  "conclusion": {
+                    "oneOf": [
+                      {
+                        "type": "string"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  },
+                  "name": {
+                    "type": "string"
+                  },
+                  "number": {
+                    "type": "integer"
+                  },
+                  "started_at": {
+                    "oneOf": [
+                      {
+                        "type": "string"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  },
+                  "status": {
+                    "type": "string",
+                    "enum": [
+                      "in_progress",
+                      "completed",
+                      "pending",
+                      "queued"
+                    ]
+                  }
+                },
+                "required": [
+                  "name",
+                  "status",
+                  "conclusion",
+                  "number",
+                  "started_at",
+                  "completed_at"
+                ]
+              }
+            },
+            "url": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "status",
+            "steps"
+          ]
         }
       ]
+    },
+    "deployment": {
+      "$ref": "common/deployment.schema.json"
     }
   },
-  "additionalProperties": false,
-  "title": "workflow_job in_progress event"
+  "required": [
+    "action",
+    "repository",
+    "sender",
+    "workflow_job"
+  ],
+  "additionalProperties": false
 }

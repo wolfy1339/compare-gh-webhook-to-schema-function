@@ -16,7 +16,7 @@ export interface RepositoryPublicizedEvent {
     /**
      * Whether the repository is private or public.
      */
-    private: false;
+    private: false
   };
   sender: User;
   installation?: InstallationLite;

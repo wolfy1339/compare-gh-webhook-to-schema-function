@@ -16,25 +16,25 @@ export interface DiscussionUnansweredEvent {
   action: 'unanswered';
   discussion: Discussion & {
     category: {
-      is_answerable: true;
-    };
-    answer_html_url: null;
-    answer_chosen_at: null;
-    answer_chosen_by: null;
+      is_answerable: true
+    },
+    answer_html_url: null,
+    answer_chosen_at: null,
+    answer_chosen_by: null
   };
   old_answer: {
-    id: number;
-    node_id: string;
-    html_url: string;
-    parent_id: null;
-    child_comment_count: number;
-    repository_url: string;
-    discussion_id: number;
-    author_association: AuthorAssociation;
-    user: User;
-    created_at: string;
-    updated_at: string;
-    body: string;
+    id: number,
+    node_id: string,
+    html_url: string,
+    parent_id: null,
+    child_comment_count: number,
+    repository_url: string,
+    discussion_id: number,
+    author_association: AuthorAssociation,
+    user: User,
+    created_at: string,
+    updated_at: string,
+    body: string
   };
   repository: Repository;
   sender: User;

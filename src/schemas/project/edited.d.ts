@@ -21,14 +21,14 @@ export interface ProjectEditedEvent {
       /**
        * The changes to the project if the action was `edited`.
        */
-      from: string;
-    };
+      from: string
+    },
     body?: {
       /**
        * The previous version of the body if the action was `edited`.
        */
-      from: string;
-    };
+      from: string
+    }
   };
   project: Project;
   repository: Repository;

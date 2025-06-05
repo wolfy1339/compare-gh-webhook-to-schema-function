@@ -19,16 +19,16 @@ export interface PageBuildEvent {
    * The [List GitHub Pages builds](https://docs.github.com/en/rest/reference/repos#list-github-pages-builds) itself.
    */
   build: {
-    url: string;
-    status: string;
+    url: string,
+    status: string,
     error: {
-      message: string | null;
-    };
-    pusher: User;
-    commit: string;
-    duration: number;
-    created_at: string;
-    updated_at: string;
+      message: string | null
+    },
+    pusher: User,
+    commit: string,
+    duration: number,
+    created_at: string,
+    updated_at: string
   };
   repository: Repository;
   sender: User;

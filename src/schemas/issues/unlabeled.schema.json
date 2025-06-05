@@ -1,13 +1,8 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema",
   "$id": "issues$unlabeled",
+  "title": "issues unlabeled event",
   "type": "object",
-  "required": [
-    "action",
-    "issue",
-    "repository",
-    "sender"
-  ],
   "properties": {
     "action": {
       "type": "string",
@@ -15,26 +10,33 @@
         "unlabeled"
       ]
     },
-    "issue": {
-      "$ref": "common/issue.schema.json"
-    },
-    "label": {
-      "$ref": "common/label.schema.json",
-      "description": "The label that was removed from the issue."
-    },
-    "repository": {
-      "$ref": "common/repository.schema.json"
-    },
-    "sender": {
-      "$ref": "common/user.schema.json"
+    "enterprise": {
+      "$ref": "common/enterprise-webhooks.schema.json"
     },
     "installation": {
-      "$ref": "common/installation-lite.schema.json"
+      "$ref": "common/simple-installation.schema.json"
+    },
+    "issue": {
+      "$ref": "common/webhooks_issue.schema.json"
+    },
+    "label": {
+      "$ref": "common/webhooks_label.schema.json"
     },
     "organization": {
-      "$ref": "common/organization.schema.json"
+      "$ref": "common/organization-simple-webhooks.schema.json"
+    },
+    "repository": {
+      "$ref": "common/repository-webhooks.schema.json"
+    },
+    "sender": {
+      "$ref": "common/simple-user.schema.json"
     }
   },
-  "additionalProperties": false,
-  "title": "issues unlabeled event"
+  "required": [
+    "action",
+    "issue",
+    "repository",
+    "sender"
+  ],
+  "additionalProperties": false
 }

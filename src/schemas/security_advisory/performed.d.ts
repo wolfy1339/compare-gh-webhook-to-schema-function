@@ -11,38 +11,38 @@ export interface SecurityAdvisoryPerformedEvent {
    */
   security_advisory: {
     cvss: {
-      vector_string: string | null;
-      score: number;
-    };
+      vector_string: string | null,
+      score: number
+    },
     cwes: {
-      cwe_id: string;
-      name: string;
-    }[];
-    ghsa_id: string;
-    cve_id: string | null;
-    summary: string;
-    description: string;
-    severity: string;
+      cwe_id: string,
+      name: string
+    }[],
+    ghsa_id: string,
+    cve_id: string | null,
+    summary: string,
+    description: string,
+    severity: string,
     identifiers: {
-      value: string;
-      type: string;
-    }[];
+      value: string,
+      type: string
+    }[],
     references: {
-      url: string;
-    }[];
-    published_at: string;
-    updated_at: string;
-    withdrawn_at: string | null;
+      url: string
+    }[],
+    published_at: string,
+    updated_at: string,
+    withdrawn_at: string | null,
     vulnerabilities: {
       package: {
-        ecosystem: string;
-        name: string;
-      };
-      severity: string;
-      vulnerable_version_range: string;
+        ecosystem: string,
+        name: string
+      },
+      severity: string,
+      vulnerable_version_range: string,
       first_patched_version: {
-        identifier: string;
-      } | null;
-    }[];
+        identifier: string
+      } | null
+    }[]
   };
 }

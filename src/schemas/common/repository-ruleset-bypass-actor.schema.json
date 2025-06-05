@@ -1,0 +1,42 @@
+{
+  "$id": "common/repository-ruleset-bypass-actor.schema.json",
+  "title": "Repository Ruleset Bypass Actor",
+  "type": "object",
+  "description": "An actor that can bypass rules in a ruleset",
+  "required": [
+    "actor_type"
+  ],
+  "properties": {
+    "actor_id": {
+      "oneOf": [
+        {
+          "type": "integer",
+          "description": "The ID of the actor that can bypass a ruleset. If `actor_type` is `OrganizationAdmin`, this should be `1`. If `actor_type` is `DeployKey`, this should be null. `OrganizationAdmin` is not applicable for personal repositories."
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "actor_type": {
+      "type": "string",
+      "enum": [
+        "Integration",
+        "OrganizationAdmin",
+        "RepositoryRole",
+        "Team",
+        "DeployKey"
+      ],
+      "description": "The type of actor that can bypass a ruleset."
+    },
+    "bypass_mode": {
+      "type": "string",
+      "description": "When the specified actor can bypass the ruleset. `pull_request` means that an actor can only bypass rules on pull requests. `pull_request` is not applicable for the `DeployKey` actor type. Also, `pull_request` is only applicable to branch rulesets.",
+      "enum": [
+        "always",
+        "pull_request"
+      ],
+      "default": "always"
+    }
+  }
+}

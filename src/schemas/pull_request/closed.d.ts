@@ -21,9 +21,9 @@ export interface PullRequestClosedEvent {
     /**
      * State of this Pull Request. Either `open` or `closed`.
      */
-    state: 'closed';
-    closed_at: string;
-    merged: boolean;
+    state: 'closed',
+    closed_at: string,
+    merged: boolean
   };
   repository: Repository;
   installation?: InstallationLite;

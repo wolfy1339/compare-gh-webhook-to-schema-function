@@ -1,19 +1,60 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema",
   "$id": "gollum$event",
+  "title": "gollum event",
   "type": "object",
-  "description": "A wiki page is created or updated.",
-  "required": [
-    "pages",
-    "repository",
-    "sender"
-  ],
   "properties": {
+    "enterprise": {
+      "$ref": "common/enterprise-webhooks.schema.json"
+    },
+    "installation": {
+      "$ref": "common/simple-installation.schema.json"
+    },
+    "organization": {
+      "$ref": "common/organization-simple-webhooks.schema.json"
+    },
     "pages": {
-      "type": "array",
       "description": "The pages that were updated.",
+      "type": "array",
       "items": {
         "type": "object",
+        "properties": {
+          "action": {
+            "description": "The action that was performed on the page. Can be `created` or `edited`.",
+            "type": "string",
+            "enum": [
+              "created",
+              "edited"
+            ]
+          },
+          "html_url": {
+            "description": "Points to the HTML wiki page.",
+            "type": "string",
+            "format": "uri"
+          },
+          "page_name": {
+            "description": "The name of the page.",
+            "type": "string"
+          },
+          "sha": {
+            "description": "The latest commit SHA of the page.",
+            "type": "string"
+          },
+          "summary": {
+            "oneOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "title": {
+            "description": "The current page title.",
+            "type": "string"
+          }
+        },
         "required": [
           "page_name",
           "title",
@@ -21,53 +62,20 @@
           "action",
           "sha",
           "html_url"
-        ],
-        "properties": {
-          "page_name": {
-            "type": "string",
-            "description": "The name of the page."
-          },
-          "title": {
-            "type": "string",
-            "description": "The current page title."
-          },
-          "summary": {
-            "type": "null"
-          },
-          "action": {
-            "type": "string",
-            "enum": [
-              "created",
-              "edited"
-            ],
-            "description": "The action that was performed on the page. Can be `created` or `edited`."
-          },
-          "sha": {
-            "type": "string",
-            "description": "The latest commit SHA of the page."
-          },
-          "html_url": {
-            "type": "string",
-            "format": "uri",
-            "description": "Points to the HTML wiki page."
-          }
-        },
-        "additionalProperties": false
+        ]
       }
     },
     "repository": {
-      "$ref": "common/repository.schema.json"
+      "$ref": "common/repository-webhooks.schema.json"
     },
     "sender": {
-      "$ref": "common/user.schema.json"
-    },
-    "installation": {
-      "$ref": "common/installation-lite.schema.json"
-    },
-    "organization": {
-      "$ref": "common/organization.schema.json"
+      "$ref": "common/simple-user.schema.json"
     }
   },
-  "additionalProperties": false,
-  "title": "gollum event"
+  "required": [
+    "pages",
+    "repository",
+    "sender"
+  ],
+  "additionalProperties": false
 }

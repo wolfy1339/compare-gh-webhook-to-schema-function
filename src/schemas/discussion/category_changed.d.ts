@@ -15,17 +15,17 @@ export interface DiscussionCategoryChangedEvent {
   changes: {
     category: {
       from: {
-        id: number;
-        repository_id: number;
-        emoji: string;
-        name: string;
-        description: string;
-        created_at: string;
-        updated_at: string;
-        slug: string;
-        is_answerable: boolean;
-      };
-    };
+        id: number,
+        repository_id: number,
+        emoji: string,
+        name: string,
+        description: string,
+        created_at: string,
+        updated_at: string,
+        slug: string,
+        is_answerable: boolean
+      }
+    }
   };
   action: 'category_changed';
   discussion: Discussion;

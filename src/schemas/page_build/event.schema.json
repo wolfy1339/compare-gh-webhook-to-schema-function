@@ -1,21 +1,165 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema",
   "$id": "page_build$event",
-  "description": "Page Build",
+  "title": "page_build event",
   "type": "object",
-  "required": [
-    "id",
-    "build",
-    "repository",
-    "sender"
-  ],
   "properties": {
-    "id": {
-      "type": "integer"
-    },
     "build": {
+      "description": "The [List GitHub Pages builds](https://docs.github.com/rest/pages/pages#list-github-pages-builds) itself.",
       "type": "object",
-      "description": "The [List GitHub Pages builds](https://docs.github.com/en/rest/reference/repos#list-github-pages-builds) itself.",
+      "properties": {
+        "commit": {
+          "oneOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "created_at": {
+          "type": "string"
+        },
+        "duration": {
+          "type": "integer"
+        },
+        "error": {
+          "type": "object",
+          "properties": {
+            "message": {
+              "oneOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            }
+          },
+          "required": [
+            "message"
+          ]
+        },
+        "pusher": {
+          "oneOf": [
+            {
+              "type": "object",
+              "title": "User",
+              "properties": {
+                "avatar_url": {
+                  "type": "string",
+                  "format": "uri"
+                },
+                "deleted": {
+                  "type": "boolean"
+                },
+                "email": {
+                  "oneOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ]
+                },
+                "events_url": {
+                  "type": "string",
+                  "format": "uri-template"
+                },
+                "followers_url": {
+                  "type": "string",
+                  "format": "uri"
+                },
+                "following_url": {
+                  "type": "string",
+                  "format": "uri-template"
+                },
+                "gists_url": {
+                  "type": "string",
+                  "format": "uri-template"
+                },
+                "gravatar_id": {
+                  "type": "string"
+                },
+                "html_url": {
+                  "type": "string",
+                  "format": "uri"
+                },
+                "id": {
+                  "type": "integer"
+                },
+                "login": {
+                  "type": "string"
+                },
+                "name": {
+                  "type": "string"
+                },
+                "node_id": {
+                  "type": "string"
+                },
+                "organizations_url": {
+                  "type": "string",
+                  "format": "uri"
+                },
+                "received_events_url": {
+                  "type": "string",
+                  "format": "uri"
+                },
+                "repos_url": {
+                  "type": "string",
+                  "format": "uri"
+                },
+                "site_admin": {
+                  "type": "boolean"
+                },
+                "starred_url": {
+                  "type": "string",
+                  "format": "uri-template"
+                },
+                "subscriptions_url": {
+                  "type": "string",
+                  "format": "uri"
+                },
+                "type": {
+                  "type": "string",
+                  "enum": [
+                    "Bot",
+                    "User",
+                    "Organization"
+                  ]
+                },
+                "url": {
+                  "type": "string",
+                  "format": "uri"
+                },
+                "user_view_type": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "login",
+                "id"
+              ]
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "status": {
+          "type": "string"
+        },
+        "updated_at": {
+          "type": "string"
+        },
+        "url": {
+          "type": "string",
+          "format": "uri"
+        }
+      },
       "required": [
         "url",
         "status",
@@ -25,63 +169,32 @@
         "duration",
         "created_at",
         "updated_at"
-      ],
-      "properties": {
-        "url": {
-          "type": "string",
-          "format": "uri"
-        },
-        "status": {
-          "type": "string"
-        },
-        "error": {
-          "type": "object",
-          "required": [
-            "message"
-          ],
-          "properties": {
-            "message": {
-              "type": [
-                "string",
-                "null"
-              ]
-            }
-          },
-          "additionalProperties": false
-        },
-        "pusher": {
-          "$ref": "common/user.schema.json"
-        },
-        "commit": {
-          "type": "string"
-        },
-        "duration": {
-          "type": "integer"
-        },
-        "created_at": {
-          "type": "string",
-          "format": "date-time"
-        },
-        "updated_at": {
-          "type": "string",
-          "format": "date-time"
-        }
-      },
-      "additionalProperties": false
+      ]
     },
-    "repository": {
-      "$ref": "common/repository.schema.json"
+    "enterprise": {
+      "$ref": "common/enterprise-webhooks.schema.json"
     },
-    "sender": {
-      "$ref": "common/user.schema.json"
+    "id": {
+      "type": "integer"
     },
     "installation": {
-      "$ref": "common/installation-lite.schema.json"
+      "$ref": "common/simple-installation.schema.json"
     },
     "organization": {
-      "$ref": "common/organization.schema.json"
+      "$ref": "common/organization-simple-webhooks.schema.json"
+    },
+    "repository": {
+      "$ref": "common/repository-webhooks.schema.json"
+    },
+    "sender": {
+      "$ref": "common/simple-user.schema.json"
     }
   },
-  "additionalProperties": false,
-  "title": "page_build event"
+  "required": [
+    "id",
+    "build",
+    "repository",
+    "sender"
+  ],
+  "additionalProperties": false
 }

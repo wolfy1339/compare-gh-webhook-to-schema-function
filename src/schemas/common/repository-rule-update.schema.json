@@ -1,0 +1,29 @@
+{
+  "$id": "common/repository-rule-update.schema.json",
+  "title": "update",
+  "description": "Only allow users with bypass permission to update matching refs.",
+  "type": "object",
+  "required": [
+    "type"
+  ],
+  "properties": {
+    "type": {
+      "type": "string",
+      "enum": [
+        "update"
+      ]
+    },
+    "parameters": {
+      "type": "object",
+      "properties": {
+        "update_allows_fetch_and_merge": {
+          "type": "boolean",
+          "description": "Branch can pull changes from its upstream repository"
+        }
+      },
+      "required": [
+        "update_allows_fetch_and_merge"
+      ]
+    }
+  }
+}

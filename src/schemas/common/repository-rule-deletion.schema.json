@@ -1,0 +1,17 @@
+{
+  "$id": "common/repository-rule-deletion.schema.json",
+  "title": "deletion",
+  "description": "Only allow users with bypass permissions to delete matching refs.",
+  "type": "object",
+  "required": [
+    "type"
+  ],
+  "properties": {
+    "type": {
+      "type": "string",
+      "enum": [
+        "deletion"
+      ]
+    }
+  }
+}

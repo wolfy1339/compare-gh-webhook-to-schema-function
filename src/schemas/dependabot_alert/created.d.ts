@@ -14,12 +14,12 @@ import type {
 export interface DependabotAlertCreatedEvent {
   action: 'created';
   alert: DependabotAlert & {
-    state: 'open';
-    fixed_at: null;
-    dismissed_at: null;
-    dismissed_by: null;
-    dismissed_reason: null;
-    dismissed_comment: null;
+    state: 'open',
+    fixed_at: null,
+    dismissed_at: null,
+    dismissed_by: null,
+    dismissed_reason: null,
+    dismissed_comment: null
   };
   repository: Repository;
   sender: GitHubOrg;

@@ -1,0 +1,33 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema",
+  "$id": "projects_v2_status_update$created",
+  "title": "projects_v2_status_update created event",
+  "type": "object",
+  "properties": {
+    "action": {
+      "type": "string",
+      "enum": [
+        "created"
+      ]
+    },
+    "installation": {
+      "$ref": "common/simple-installation.schema.json"
+    },
+    "organization": {
+      "$ref": "common/organization-simple-webhooks.schema.json"
+    },
+    "projects_v2_status_update": {
+      "$ref": "common/projects-v2-status-update.schema.json"
+    },
+    "sender": {
+      "$ref": "common/simple-user.schema.json"
+    }
+  },
+  "required": [
+    "action",
+    "projects_v2_status_update",
+    "organization",
+    "sender"
+  ],
+  "additionalProperties": false
+}

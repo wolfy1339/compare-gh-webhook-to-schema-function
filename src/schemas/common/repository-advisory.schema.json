@@ -1,0 +1,415 @@
+{
+  "$id": "common/repository-advisory.schema.json",
+  "description": "A repository security advisory.",
+  "type": "object",
+  "properties": {
+    "ghsa_id": {
+      "type": "string",
+      "description": "The GitHub Security Advisory ID.",
+      "readOnly": true
+    },
+    "cve_id": {
+      "oneOf": [
+        {
+          "type": "string",
+          "description": "The Common Vulnerabilities and Exposures (CVE) ID."
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "url": {
+      "type": "string",
+      "format": "uri",
+      "description": "The API URL for the advisory.",
+      "readOnly": true
+    },
+    "html_url": {
+      "type": "string",
+      "format": "uri",
+      "description": "The URL for the advisory.",
+      "readOnly": true
+    },
+    "summary": {
+      "type": "string",
+      "description": "A short summary of the advisory.",
+      "maxLength": 1024
+    },
+    "description": {
+      "oneOf": [
+        {
+          "type": "string",
+          "description": "A detailed description of what the advisory entails.",
+          "maxLength": 65535
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "severity": {
+      "oneOf": [
+        {
+          "type": "string",
+          "description": "The severity of the advisory.",
+          "enum": [
+            "critical",
+            "high",
+            "medium",
+            "low",
+            null
+          ]
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "author": {
+      "readOnly": true,
+      "description": "The author of the advisory.",
+      "allOf": [
+        {
+          "$ref": "simple-user.schema.json"
+        }
+      ],
+      "type": "null"
+    },
+    "publisher": {
+      "readOnly": true,
+      "description": "The publisher of the advisory.",
+      "allOf": [
+        {
+          "$ref": "simple-user.schema.json"
+        }
+      ],
+      "type": "null"
+    },
+    "identifiers": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "string",
+            "description": "The type of identifier.",
+            "enum": [
+              "CVE",
+              "GHSA"
+            ]
+          },
+          "value": {
+            "type": "string",
+            "description": "The identifier value."
+          }
+        },
+        "required": [
+          "type",
+          "value"
+        ]
+      },
+      "readOnly": true
+    },
+    "state": {
+      "type": "string",
+      "description": "The state of the advisory.",
+      "enum": [
+        "published",
+        "closed",
+        "withdrawn",
+        "draft",
+        "triage"
+      ]
+    },
+    "created_at": {
+      "oneOf": [
+        {
+          "type": "string",
+          "format": "date-time",
+          "description": "The date and time of when the advisory was created, in ISO 8601 format.",
+          "readOnly": true
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "updated_at": {
+      "oneOf": [
+        {
+          "type": "string",
+          "format": "date-time",
+          "description": "The date and time of when the advisory was last updated, in ISO 8601 format.",
+          "readOnly": true
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "published_at": {
+      "oneOf": [
+        {
+          "type": "string",
+          "format": "date-time",
+          "description": "The date and time of when the advisory was published, in ISO 8601 format.",
+          "readOnly": true
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "closed_at": {
+      "oneOf": [
+        {
+          "type": "string",
+          "format": "date-time",
+          "description": "The date and time of when the advisory was closed, in ISO 8601 format.",
+          "readOnly": true
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "withdrawn_at": {
+      "oneOf": [
+        {
+          "type": "string",
+          "format": "date-time",
+          "description": "The date and time of when the advisory was withdrawn, in ISO 8601 format.",
+          "readOnly": true
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "submission": {
+      "oneOf": [
+        {
+          "type": "object",
+          "readOnly": true,
+          "properties": {
+            "accepted": {
+              "type": "boolean",
+              "description": "Whether a private vulnerability report was accepted by the repository's administrators.",
+              "readOnly": true
+            }
+          },
+          "required": [
+            "accepted"
+          ]
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "vulnerabilities": {
+      "oneOf": [
+        {
+          "type": "array",
+          "items": {
+            "$ref": "repository-advisory-vulnerability.schema.json"
+          }
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "cvss": {
+      "oneOf": [
+        {
+          "type": "object",
+          "properties": {
+            "vector_string": {
+              "oneOf": [
+                {
+                  "type": "string",
+                  "description": "The CVSS vector."
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "score": {
+              "oneOf": [
+                {
+                  "type": "number",
+                  "description": "The CVSS score.",
+                  "minimum": 0,
+                  "maximum": 10,
+                  "readOnly": true
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            }
+          },
+          "required": [
+            "vector_string",
+            "score"
+          ]
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "cvss_severities": {
+      "$ref": "cvss-severities.schema.json"
+    },
+    "cwes": {
+      "oneOf": [
+        {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "cwe_id": {
+                "type": "string",
+                "description": "The Common Weakness Enumeration (CWE) identifier."
+              },
+              "name": {
+                "type": "string",
+                "description": "The name of the CWE.",
+                "readOnly": true
+              }
+            },
+            "required": [
+              "cwe_id",
+              "name"
+            ]
+          },
+          "readOnly": true
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "cwe_ids": {
+      "oneOf": [
+        {
+          "type": "array",
+          "description": "A list of only the CWE IDs.",
+          "items": {
+            "type": "string"
+          }
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "credits": {
+      "oneOf": [
+        {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "login": {
+                "type": "string",
+                "description": "The username of the user credited."
+              },
+              "type": {
+                "$ref": "security-advisory-credit-types.schema.json"
+              }
+            }
+          }
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "credits_detailed": {
+      "oneOf": [
+        {
+          "type": "array",
+          "items": {
+            "$ref": "repository-advisory-credit.schema.json"
+          },
+          "readOnly": true
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "collaborating_users": {
+      "oneOf": [
+        {
+          "type": "array",
+          "description": "A list of users that collaborate on the advisory.",
+          "items": {
+            "$ref": "simple-user.schema.json"
+          }
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "collaborating_teams": {
+      "oneOf": [
+        {
+          "type": "array",
+          "description": "A list of teams that collaborate on the advisory.",
+          "items": {
+            "$ref": "team.schema.json"
+          }
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "private_fork": {
+      "readOnly": true,
+      "description": "A temporary private fork of the advisory's repository for collaborating on a fix.",
+      "allOf": [
+        {
+          "$ref": "simple-repository.schema.json"
+        }
+      ],
+      "type": "null"
+    }
+  },
+  "required": [
+    "ghsa_id",
+    "cve_id",
+    "url",
+    "html_url",
+    "summary",
+    "description",
+    "severity",
+    "author",
+    "publisher",
+    "identifiers",
+    "state",
+    "created_at",
+    "updated_at",
+    "published_at",
+    "closed_at",
+    "withdrawn_at",
+    "submission",
+    "vulnerabilities",
+    "cvss",
+    "cwes",
+    "cwe_ids",
+    "credits",
+    "credits_detailed",
+    "collaborating_users",
+    "collaborating_teams",
+    "private_fork"
+  ],
+  "additionalProperties": false
+}

@@ -1,12 +1,8 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema",
   "$id": "project_card$created",
+  "title": "project_card created event",
   "type": "object",
-  "required": [
-    "action",
-    "project_card",
-    "sender"
-  ],
   "properties": {
     "action": {
       "type": "string",
@@ -14,22 +10,29 @@
         "created"
       ]
     },
-    "project_card": {
-      "$ref": "common/project-card.schema.json"
-    },
-    "repository": {
-      "$ref": "common/repository.schema.json"
-    },
-    "sender": {
-      "$ref": "common/user.schema.json"
-    },
-    "organization": {
-      "$ref": "common/organization.schema.json"
+    "enterprise": {
+      "$ref": "common/enterprise-webhooks.schema.json"
     },
     "installation": {
-      "$ref": "common/installation-lite.schema.json"
+      "$ref": "common/simple-installation.schema.json"
+    },
+    "organization": {
+      "$ref": "common/organization-simple-webhooks.schema.json"
+    },
+    "project_card": {
+      "$ref": "common/webhooks_project_card.schema.json"
+    },
+    "repository": {
+      "$ref": "common/repository-webhooks.schema.json"
+    },
+    "sender": {
+      "$ref": "common/simple-user.schema.json"
     }
   },
-  "additionalProperties": false,
-  "title": "project_card created event"
+  "required": [
+    "action",
+    "project_card",
+    "sender"
+  ],
+  "additionalProperties": false
 }

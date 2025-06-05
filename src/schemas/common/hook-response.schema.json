@@ -1,0 +1,42 @@
+{
+  "$id": "common/hook-response.schema.json",
+  "title": "Hook Response",
+  "type": "object",
+  "properties": {
+    "code": {
+      "oneOf": [
+        {
+          "type": "integer"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "status": {
+      "oneOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "message": {
+      "oneOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    }
+  },
+  "required": [
+    "code",
+    "status",
+    "message"
+  ]
+}

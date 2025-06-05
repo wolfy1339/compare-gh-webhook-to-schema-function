@@ -1,0 +1,19 @@
+{
+  "$id": "common/webhooks_changes.schema.json",
+  "description": "The changes to the comment.",
+  "type": "object",
+  "properties": {
+    "body": {
+      "type": "object",
+      "properties": {
+        "from": {
+          "description": "The previous version of the body.",
+          "type": "string"
+        }
+      },
+      "required": [
+        "from"
+      ]
+    }
+  }
+}

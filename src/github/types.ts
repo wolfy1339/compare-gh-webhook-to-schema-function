@@ -1,7 +1,7 @@
 import type {
   WebhookEventMap,
   WebhookEventName
-} from '@octokit/webhooks-types';
+} from '@octokit/openapi-webhooks-types-transition';
 
 interface EventWithPayload<TName extends WebhookEventName> {
   name: TName;

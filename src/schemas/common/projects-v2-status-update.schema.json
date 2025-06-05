@@ -1,0 +1,86 @@
+{
+  "$id": "common/projects-v2-status-update.schema.json",
+  "title": "Projects v2 Status Update",
+  "description": "An status update belonging to a project",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "number"
+    },
+    "node_id": {
+      "type": "string"
+    },
+    "project_node_id": {
+      "type": "string"
+    },
+    "creator": {
+      "$ref": "simple-user.schema.json"
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date-time",
+      "examples": [
+        "2022-04-28T12:00:00Z"
+      ]
+    },
+    "updated_at": {
+      "type": "string",
+      "format": "date-time",
+      "examples": [
+        "2022-04-28T12:00:00Z"
+      ]
+    },
+    "status": {
+      "oneOf": [
+        {
+          "type": "string",
+          "enum": [
+            "INACTIVE",
+            "ON_TRACK",
+            "AT_RISK",
+            "OFF_TRACK",
+            "COMPLETE",
+            null
+          ]
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "start_date": {
+      "type": "string",
+      "format": "date",
+      "examples": [
+        "2022-04-28"
+      ]
+    },
+    "target_date": {
+      "type": "string",
+      "format": "date",
+      "examples": [
+        "2022-04-28"
+      ]
+    },
+    "body": {
+      "oneOf": [
+        {
+          "type": "string",
+          "description": "Body of the status update",
+          "examples": [
+            "The project is off to a great start!"
+          ]
+        },
+        {
+          "type": "null"
+        }
+      ]
+    }
+  },
+  "required": [
+    "id",
+    "node_id",
+    "created_at",
+    "updated_at"
+  ]
+}

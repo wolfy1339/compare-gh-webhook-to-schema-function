@@ -21,24 +21,24 @@ export interface GollumEvent {
     /**
      * The name of the page.
      */
-    page_name: string;
+    page_name: string,
     /**
      * The current page title.
      */
-    title: string;
-    summary: null;
+    title: string,
+    summary: null,
     /**
      * The action that was performed on the page. Can be `created` or `edited`.
      */
-    action: 'created' | 'edited';
+    action: 'created' | 'edited',
     /**
      * The latest commit SHA of the page.
      */
-    sha: string;
+    sha: string,
     /**
      * Points to the HTML wiki page.
      */
-    html_url: string;
+    html_url: string
   }[];
   repository: Repository;
   sender: User;

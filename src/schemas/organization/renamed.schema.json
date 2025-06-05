@@ -1,51 +1,51 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema",
   "$id": "organization$renamed",
+  "title": "organization renamed event",
   "type": "object",
-  "required": [
-    "changes",
-    "action",
-    "organization",
-    "sender"
-  ],
   "properties": {
-    "changes": {
-      "type": "object",
-      "required": [
-        "login"
-      ],
-      "properties": {
-        "login": {
-          "type": "object",
-          "required": [
-            "from"
-          ],
-          "properties": {
-            "from": {
-              "type": "string"
-            }
-          },
-          "additionalProperties": false
-        }
-      },
-      "additionalProperties": false
-    },
     "action": {
       "type": "string",
       "enum": [
         "renamed"
       ]
     },
-    "sender": {
-      "$ref": "common/user.schema.json"
+    "changes": {
+      "type": "object",
+      "properties": {
+        "login": {
+          "type": "object",
+          "properties": {
+            "from": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    },
+    "enterprise": {
+      "$ref": "common/enterprise-webhooks.schema.json"
     },
     "installation": {
-      "$ref": "common/installation-lite.schema.json"
+      "$ref": "common/simple-installation.schema.json"
+    },
+    "membership": {
+      "$ref": "common/webhooks_membership.schema.json"
     },
     "organization": {
-      "$ref": "common/organization.schema.json"
+      "$ref": "common/organization-simple-webhooks.schema.json"
+    },
+    "repository": {
+      "$ref": "common/repository-webhooks.schema.json"
+    },
+    "sender": {
+      "$ref": "common/simple-user.schema.json"
     }
   },
-  "additionalProperties": false,
-  "title": "organization renamed event"
+  "required": [
+    "action",
+    "organization",
+    "sender"
+  ],
+  "additionalProperties": false
 }

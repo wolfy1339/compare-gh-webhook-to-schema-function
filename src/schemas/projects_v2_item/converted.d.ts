@@ -13,13 +13,13 @@ import type {
 export interface ProjectsV2ItemConvertedEvent {
   changes: {
     content_type: {
-      from: 'DraftIssue';
-      to: 'Issue';
-    };
+      from: 'DraftIssue',
+      to: 'Issue'
+    }
   };
   action: 'converted';
   projects_v2_item: ProjectsV2Item & {
-    content_type: 'Issue';
+    content_type: 'Issue'
   };
   sender: User;
   organization?: Organization;

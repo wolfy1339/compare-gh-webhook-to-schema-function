@@ -14,11 +14,11 @@ import type {
 export interface DiscussionCreatedEvent {
   action: 'created';
   discussion: Discussion & {
-    state: 'converting' | 'open';
-    locked: false;
-    answer_html_url: null;
-    answer_chosen_at: null;
-    answer_chosen_by: null;
+    state: 'converting' | 'open',
+    locked: false,
+    answer_html_url: null,
+    answer_chosen_at: null,
+    answer_chosen_by: null
   };
   repository: Repository;
   sender: User;

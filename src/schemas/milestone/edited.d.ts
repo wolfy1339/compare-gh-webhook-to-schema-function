@@ -21,20 +21,20 @@ export interface MilestoneEditedEvent {
       /**
        * The previous version of the description if the action was `edited`.
        */
-      from: string;
-    };
+      from: string
+    },
     due_on?: {
       /**
        * The previous version of the due date if the action was `edited`.
        */
-      from: string;
-    };
+      from: string
+    },
     title?: {
       /**
        * The previous version of the title if the action was `edited`.
        */
-      from: string;
-    };
+      from: string
+    }
   };
   milestone: Milestone;
   repository: Repository;

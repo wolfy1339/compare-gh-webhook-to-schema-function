@@ -17,25 +17,25 @@ export interface DeploymentReviewRequestedEvent {
   workflow_run: WorkflowRun | null;
   since: string;
   workflow_job_run: {
-    id: number;
-    name: string;
-    status: 'completed' | 'in_progress' | 'queued' | 'waiting';
-    conclusion: 'cancelled' | 'failure' | 'skipped' | 'success' | null;
-    html_url: string;
-    created_at: string;
-    updated_at: string;
-    environment: string;
+    id: number,
+    name: string,
+    status: 'completed' | 'in_progress' | 'queued' | 'waiting',
+    conclusion: 'cancelled' | 'failure' | 'skipped' | 'success' | null,
+    html_url: string,
+    created_at: string,
+    updated_at: string,
+    environment: string
   };
   environment: string;
   reviewers: (
     | {
-        type: 'Team';
-        reviewer: Team;
-      }
+      type: 'Team',
+      reviewer: Team
+    }
     | {
-        type: 'User';
-        reviewer: User;
-      }
+      type: 'User',
+      reviewer: User
+    }
   )[];
   requestor: User;
   repository: Repository;

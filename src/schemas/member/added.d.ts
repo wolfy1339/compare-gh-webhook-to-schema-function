@@ -17,8 +17,8 @@ export interface MemberAddedEvent {
   action: 'added';
   changes?: {
     permission?: {
-      to: 'admin' | 'write';
-    };
+      to: 'admin' | 'write'
+    }
   };
   /**
    * The user that was added.

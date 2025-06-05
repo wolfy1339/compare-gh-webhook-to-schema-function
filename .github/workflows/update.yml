@@ -18,7 +18,7 @@ jobs:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
       - run: npm ci
-      - run: npm install -ED @octokit/webhooks-schemas@latest @octokit/webhooks-types@latest
+      - run: npm install -ED @octokit/openapi-webhooks@latest @octokit/openapi-webhooks-types@latest @octokit/openapi-webhooks-types-transition@latest
       - run: rm -rf src/schemas
       - run: npm run --silent copy-schemas
       - run: npm run --silent generate-types

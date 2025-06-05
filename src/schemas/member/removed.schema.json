@@ -1,13 +1,8 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema",
   "$id": "member$removed",
+  "title": "member removed event",
   "type": "object",
-  "required": [
-    "action",
-    "member",
-    "repository",
-    "sender"
-  ],
   "properties": {
     "action": {
       "type": "string",
@@ -15,23 +10,30 @@
         "removed"
       ]
     },
-    "member": {
-      "$ref": "common/user.schema.json",
-      "description": "The user that was removed."
-    },
-    "repository": {
-      "$ref": "common/repository.schema.json"
+    "enterprise": {
+      "$ref": "common/enterprise-webhooks.schema.json"
     },
     "installation": {
-      "$ref": "common/installation-lite.schema.json"
+      "$ref": "common/simple-installation.schema.json"
+    },
+    "member": {
+      "$ref": "common/webhooks_user.schema.json"
     },
     "organization": {
-      "$ref": "common/organization.schema.json"
+      "$ref": "common/organization-simple-webhooks.schema.json"
+    },
+    "repository": {
+      "$ref": "common/repository-webhooks.schema.json"
     },
     "sender": {
-      "$ref": "common/user.schema.json"
+      "$ref": "common/simple-user.schema.json"
     }
   },
-  "additionalProperties": false,
-  "title": "member removed event"
+  "required": [
+    "action",
+    "member",
+    "repository",
+    "sender"
+  ],
+  "additionalProperties": false
 }

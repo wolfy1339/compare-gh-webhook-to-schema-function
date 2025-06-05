@@ -15,17 +15,17 @@ export interface InstallationCreatedEvent {
     /**
      * Unique identifier of the repository
      */
-    id: number;
-    node_id: string;
+    id: number,
+    node_id: string,
     /**
      * The name of the repository.
      */
-    name: string;
-    full_name: string;
+    name: string,
+    full_name: string,
     /**
      * Whether the repository is private or public.
      */
-    private: boolean;
+    private: boolean
   }[];
   requester?: User;
   sender: User;

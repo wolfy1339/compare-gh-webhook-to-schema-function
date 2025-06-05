@@ -38,33 +38,33 @@ export interface Team {
     /**
      * Name of the team
      */
-    name: string;
+    name: string,
     /**
      * Unique identifier of the team
      */
-    id: number;
-    node_id: string;
-    slug: string;
+    id: number,
+    node_id: string,
+    slug: string,
     /**
      * Description of the team
      */
-    description: string | null;
-    privacy: 'closed' | 'open' | 'secret';
+    description: string | null,
+    privacy: 'closed' | 'open' | 'secret',
     /**
      * URL for the team
      */
-    url: string;
-    html_url: string;
-    members_url: string;
-    repositories_url: string;
+    url: string,
+    html_url: string,
+    members_url: string,
+    repositories_url: string,
     /**
      * Permission that the team will have for its repositories
      */
-    permission: string;
+    permission: string,
     /**
      * Whether team members will receive notifications when their team is @mentioned
      */
-    notification_setting?: 'notifications_disabled' | 'notifications_enabled';
+    notification_setting?: 'notifications_disabled' | 'notifications_enabled'
   } | null;
   /**
    * Whether team members will receive notifications when their team is @mentioned

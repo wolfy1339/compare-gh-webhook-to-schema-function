@@ -1,0 +1,71 @@
+{
+  "$id": "common/repository-rule.schema.json",
+  "title": "Repository Rule",
+  "type": "object",
+  "description": "A repository rule.",
+  "oneOf": [
+    {
+      "$ref": "repository-rule-creation.schema.json"
+    },
+    {
+      "$ref": "repository-rule-update.schema.json"
+    },
+    {
+      "$ref": "repository-rule-deletion.schema.json"
+    },
+    {
+      "$ref": "repository-rule-required-linear-history.schema.json"
+    },
+    {
+      "$ref": "repository-rule-merge-queue.schema.json"
+    },
+    {
+      "$ref": "repository-rule-required-deployments.schema.json"
+    },
+    {
+      "$ref": "repository-rule-required-signatures.schema.json"
+    },
+    {
+      "$ref": "repository-rule-pull-request.schema.json"
+    },
+    {
+      "$ref": "repository-rule-required-status-checks.schema.json"
+    },
+    {
+      "$ref": "repository-rule-non-fast-forward.schema.json"
+    },
+    {
+      "$ref": "repository-rule-commit-message-pattern.schema.json"
+    },
+    {
+      "$ref": "repository-rule-commit-author-email-pattern.schema.json"
+    },
+    {
+      "$ref": "repository-rule-committer-email-pattern.schema.json"
+    },
+    {
+      "$ref": "repository-rule-branch-name-pattern.schema.json"
+    },
+    {
+      "$ref": "repository-rule-tag-name-pattern.schema.json"
+    },
+    {
+      "$ref": "repository-rule-file-path-restriction.schema.json"
+    },
+    {
+      "$ref": "repository-rule-max-file-path-length.schema.json"
+    },
+    {
+      "$ref": "repository-rule-file-extension-restriction.schema.json"
+    },
+    {
+      "$ref": "repository-rule-max-file-size.schema.json"
+    },
+    {
+      "$ref": "repository-rule-workflows.schema.json"
+    },
+    {
+      "$ref": "repository-rule-code-scanning.schema.json"
+    }
+  ]
+}

@@ -19,20 +19,20 @@ export interface CheckSuiteRequestedEvent {
    * The [check_suite](https://docs.github.com/en/rest/reference/checks#suites).
    */
   check_suite: {
-    id: number;
-    node_id: string;
+    id: number,
+    node_id: string,
     /**
      * The head branch name the changes are on.
      */
-    head_branch: string | null;
+    head_branch: string | null,
     /**
      * The SHA of the head commit that is being checked.
      */
-    head_sha: string;
+    head_sha: string,
     /**
      * The summary status for all check runs that are part of the check suite. Can be `queued`, `requested`, `in_progress`, or `completed`.
      */
-    status: 'completed' | 'in_progress' | 'queued' | 'requested' | null;
+    status: 'completed' | 'in_progress' | 'queued' | 'requested' | null,
     /**
      * The summary conclusion for all check runs that are part of the check suite. Can be one of `success`, `failure`,` neutral`, `cancelled`, `timed_out`, `action_required` or `stale`. This value will be `null` until the check run has completed.
      */
@@ -44,25 +44,25 @@ export interface CheckSuiteRequestedEvent {
       | 'stale'
       | 'success'
       | 'timed_out'
-      | null;
+      | null,
     /**
      * URL that points to the check suite API resource.
      */
-    url: string;
-    before: string | null;
-    after: string | null;
+    url: string,
+    before: string | null,
+    after: string | null,
     /**
      * An array of pull requests that match this check suite. A pull request matches a check suite if they have the same `head_sha` and `head_branch`. When the check suite's `head_branch` is in a forked repository it will be `null` and the `pull_requests` array will be empty.
      */
-    pull_requests: CheckRunPullRequest[];
-    app: App;
-    created_at: string;
-    updated_at: string;
-    runs_rerequestable?: boolean;
-    rerequestable?: boolean;
-    latest_check_runs_count: number;
-    check_runs_url: string;
-    head_commit: SimpleCommit;
+    pull_requests: CheckRunPullRequest[],
+    app: App,
+    created_at: string,
+    updated_at: string,
+    runs_rerequestable?: boolean,
+    rerequestable?: boolean,
+    latest_check_runs_count: number,
+    check_runs_url: string,
+    head_commit: SimpleCommit
   };
   repository: Repository;
   sender: User;

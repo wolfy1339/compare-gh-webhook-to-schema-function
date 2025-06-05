@@ -1,13 +1,8 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema",
   "$id": "repository$edited",
+  "title": "repository edited event",
   "type": "object",
-  "required": [
-    "action",
-    "changes",
-    "repository",
-    "sender"
-  ],
   "properties": {
     "action": {
       "type": "string",
@@ -18,79 +13,94 @@
     "changes": {
       "type": "object",
       "properties": {
-        "description": {
-          "type": "object",
-          "required": [
-            "from"
-          ],
-          "properties": {
-            "from": {
-              "type": [
-                "string",
-                "null"
-              ]
-            }
-          },
-          "additionalProperties": false
-        },
         "default_branch": {
           "type": "object",
-          "required": [
-            "from"
-          ],
           "properties": {
             "from": {
               "type": "string"
             }
           },
-          "additionalProperties": false
-        },
-        "homepage": {
-          "type": "object",
           "required": [
             "from"
-          ],
+          ]
+        },
+        "description": {
+          "type": "object",
           "properties": {
             "from": {
-              "type": [
-                "string",
-                "null"
+              "oneOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
               ]
             }
           },
-          "additionalProperties": false
+          "required": [
+            "from"
+          ]
+        },
+        "homepage": {
+          "type": "object",
+          "properties": {
+            "from": {
+              "oneOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            }
+          },
+          "required": [
+            "from"
+          ]
         },
         "topics": {
           "type": "object",
-          "required": [
-            "from"
-          ],
           "properties": {
             "from": {
-              "type": "array",
-              "items": {
-                "type": "string"
-              }
+              "oneOf": [
+                {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                {
+                  "type": "null"
+                }
+              ]
             }
-          },
-          "additionalProperties": false
+          }
         }
-      },
-      "additionalProperties": false
+      }
     },
-    "repository": {
-      "$ref": "common/repository.schema.json"
-    },
-    "sender": {
-      "$ref": "common/user.schema.json"
+    "enterprise": {
+      "$ref": "common/enterprise-webhooks.schema.json"
     },
     "installation": {
-      "$ref": "common/installation-lite.schema.json"
+      "$ref": "common/simple-installation.schema.json"
     },
     "organization": {
-      "$ref": "common/organization.schema.json"
+      "$ref": "common/organization-simple-webhooks.schema.json"
+    },
+    "repository": {
+      "$ref": "common/repository-webhooks.schema.json"
+    },
+    "sender": {
+      "$ref": "common/simple-user.schema.json"
     }
   },
-  "additionalProperties": false,
-  "title": "repository edited event"
+  "required": [
+    "action",
+    "changes",
+    "repository",
+    "sender"
+  ],
+  "additionalProperties": false
 }

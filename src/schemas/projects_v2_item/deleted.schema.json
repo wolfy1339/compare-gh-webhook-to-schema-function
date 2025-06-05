@@ -1,12 +1,8 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema",
   "$id": "projects_v2_item$deleted",
+  "title": "projects_v2_item deleted event",
   "type": "object",
-  "required": [
-    "action",
-    "projects_v2_item",
-    "sender"
-  ],
   "properties": {
     "action": {
       "type": "string",
@@ -14,19 +10,24 @@
         "deleted"
       ]
     },
-    "projects_v2_item": {
-      "$ref": "common/projects_v2_item.schema.json"
-    },
-    "sender": {
-      "$ref": "common/user.schema.json"
+    "installation": {
+      "$ref": "common/simple-installation.schema.json"
     },
     "organization": {
-      "$ref": "common/organization.schema.json"
+      "$ref": "common/organization-simple-webhooks.schema.json"
     },
-    "installation": {
-      "$ref": "common/installation-lite.schema.json"
+    "projects_v2_item": {
+      "$ref": "common/projects-v2-item.schema.json"
+    },
+    "sender": {
+      "$ref": "common/simple-user.schema.json"
     }
   },
-  "additionalProperties": false,
-  "title": "projects_v2_item deleted event"
+  "required": [
+    "action",
+    "projects_v2_item",
+    "organization",
+    "sender"
+  ],
+  "additionalProperties": false
 }

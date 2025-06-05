@@ -19,7 +19,7 @@ export interface PullRequestDemilestonedEvent {
    */
   number: number;
   pull_request: PullRequest & {
-    milestone: Milestone;
+    milestone: Milestone
   };
   milestone: Milestone;
   repository: Repository;

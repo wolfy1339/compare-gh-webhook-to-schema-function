@@ -15,8 +15,8 @@ export interface ProjectCardEditedEvent {
   action: 'edited';
   changes: {
     note: {
-      from: string;
-    };
+      from: string
+    }
   };
   project_card: ProjectCard;
   repository?: Repository;

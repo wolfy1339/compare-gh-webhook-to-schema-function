@@ -1,0 +1,129 @@
+{
+  "$id": "common/repository-ruleset.schema.json",
+  "title": "Repository ruleset",
+  "type": "object",
+  "description": "A set of rules to apply when specified conditions are met.",
+  "required": [
+    "id",
+    "name",
+    "source",
+    "enforcement"
+  ],
+  "properties": {
+    "id": {
+      "type": "integer",
+      "description": "The ID of the ruleset"
+    },
+    "name": {
+      "type": "string",
+      "description": "The name of the ruleset"
+    },
+    "target": {
+      "type": "string",
+      "description": "The target of the ruleset",
+      "enum": [
+        "branch",
+        "tag",
+        "push",
+        "repository"
+      ]
+    },
+    "source_type": {
+      "type": "string",
+      "description": "The type of the source of the ruleset",
+      "enum": [
+        "Repository",
+        "Organization",
+        "Enterprise"
+      ]
+    },
+    "source": {
+      "type": "string",
+      "description": "The name of the source"
+    },
+    "enforcement": {
+      "$ref": "repository-rule-enforcement.schema.json"
+    },
+    "bypass_actors": {
+      "type": "array",
+      "description": "The actors that can bypass the rules in this ruleset",
+      "items": {
+        "$ref": "repository-ruleset-bypass-actor.schema.json"
+      }
+    },
+    "current_user_can_bypass": {
+      "type": "string",
+      "description": "The bypass type of the user making the API request for this ruleset. This field is only returned when\nquerying the repository-level endpoint.",
+      "enum": [
+        "always",
+        "pull_requests_only",
+        "never"
+      ]
+    },
+    "node_id": {
+      "type": "string"
+    },
+    "_links": {
+      "type": "object",
+      "properties": {
+        "self": {
+          "type": "object",
+          "properties": {
+            "href": {
+              "type": "string",
+              "description": "The URL of the ruleset"
+            }
+          }
+        },
+        "html": {
+          "oneOf": [
+            {
+              "type": "object",
+              "properties": {
+                "href": {
+                  "type": "string",
+                  "description": "The html URL of the ruleset"
+                }
+              }
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      }
+    },
+    "conditions": {
+      "oneOf": [
+        {
+          "type": "object",
+          "anyOf": [
+            {
+              "$ref": "repository-ruleset-conditions.schema.json"
+            },
+            {
+              "$ref": "org-ruleset-conditions.schema.json"
+            }
+          ]
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "rules": {
+      "type": "array",
+      "items": {
+        "$ref": "repository-rule.schema.json"
+      }
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "updated_at": {
+      "type": "string",
+      "format": "date-time"
+    }
+  }
+}

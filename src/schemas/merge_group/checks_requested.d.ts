@@ -19,36 +19,36 @@ export interface MergeGroupChecksRequestedEvent {
     /**
      * The SHA of the merge group.
      */
-    head_sha: string;
+    head_sha: string,
     /**
      * The full ref of the merge group.
      */
-    head_ref: string;
+    head_ref: string,
     /**
      * The full ref of the branch the merge group will be merged into.
      */
-    base_ref: string;
+    base_ref: string,
     /**
      * The SHA of the merge group's parent commit.
      */
-    base_sha: string;
+    base_sha: string,
     /**
      * An expanded representation of the `head_sha` commit.
      */
     head_commit: {
-      id: string;
-      tree_id: string;
-      message: string;
-      timestamp: string;
+      id: string,
+      tree_id: string,
+      message: string,
+      timestamp: string,
       author: {
-        name: string;
-        email: string;
-      };
+        name: string,
+        email: string
+      },
       committer: {
-        name: string;
-        email: string;
-      };
-    };
+        name: string,
+        email: string
+      }
+    }
   };
   repository: Repository;
   sender: User;

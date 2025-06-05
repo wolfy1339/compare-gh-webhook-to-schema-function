@@ -13,9 +13,9 @@ import type {
 export interface ProjectsV2ItemEditedEvent {
   changes: {
     field_value: {
-      field_type: 'date' | 'iteration' | 'number' | 'single_select' | 'text';
-      field_node_id: string;
-    };
+      field_type: 'date' | 'iteration' | 'number' | 'single_select' | 'text',
+      field_node_id: string
+    }
   };
   action: 'edited';
   projects_v2_item: ProjectsV2Item;

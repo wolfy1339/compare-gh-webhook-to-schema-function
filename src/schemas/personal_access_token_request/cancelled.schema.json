@@ -1,0 +1,37 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema",
+  "$id": "personal_access_token_request$cancelled",
+  "title": "personal_access_token_request cancelled event",
+  "type": "object",
+  "properties": {
+    "action": {
+      "type": "string",
+      "enum": [
+        "cancelled"
+      ]
+    },
+    "personal_access_token_request": {
+      "$ref": "common/personal-access-token-request.schema.json"
+    },
+    "enterprise": {
+      "$ref": "common/enterprise-webhooks.schema.json"
+    },
+    "organization": {
+      "$ref": "common/organization-simple-webhooks.schema.json"
+    },
+    "sender": {
+      "$ref": "common/simple-user.schema.json"
+    },
+    "installation": {
+      "$ref": "common/simple-installation.schema.json"
+    }
+  },
+  "required": [
+    "action",
+    "personal_access_token_request",
+    "organization",
+    "sender",
+    "installation"
+  ],
+  "additionalProperties": false
+}

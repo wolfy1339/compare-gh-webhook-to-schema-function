@@ -13,9 +13,9 @@ import type {
 export interface ProjectsV2ItemReorderedEvent {
   changes: {
     previous_projects_v2_item_node_id: {
-      from: string;
-      to: string | null;
-    };
+      from: string,
+      to: string | null
+    }
   };
   action: 'reordered';
   projects_v2_item: ProjectsV2Item;

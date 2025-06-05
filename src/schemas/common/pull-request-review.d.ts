@@ -29,7 +29,7 @@ export interface PullRequestReview {
   pull_request_url: string;
   author_association: AuthorAssociation;
   _links: {
-    html: Link;
-    pull_request: Link;
+    html: Link,
+    pull_request: Link
   };
 }

@@ -10,13 +10,13 @@ export interface CheckRunPullRequest {
   id: number;
   number: number;
   head: {
-    ref: string;
-    sha: string;
-    repo: RepoRef;
+    ref: string,
+    sha: string,
+    repo: RepoRef
   };
   base: {
-    ref: string;
-    sha: string;
-    repo: RepoRef;
+    ref: string,
+    sha: string,
+    repo: RepoRef
   };
 }

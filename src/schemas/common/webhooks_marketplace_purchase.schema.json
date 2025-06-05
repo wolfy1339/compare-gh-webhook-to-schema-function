@@ -1,0 +1,144 @@
+{
+  "$id": "common/webhooks_marketplace_purchase.schema.json",
+  "title": "Marketplace Purchase",
+  "type": "object",
+  "required": [
+    "account",
+    "billing_cycle",
+    "free_trial_ends_on",
+    "next_billing_date",
+    "on_free_trial",
+    "plan",
+    "unit_count"
+  ],
+  "properties": {
+    "account": {
+      "type": "object",
+      "required": [
+        "type",
+        "id",
+        "node_id",
+        "login",
+        "organization_billing_email"
+      ],
+      "properties": {
+        "id": {
+          "type": "integer"
+        },
+        "login": {
+          "type": "string"
+        },
+        "node_id": {
+          "type": "string"
+        },
+        "organization_billing_email": {
+          "oneOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "type": {
+          "type": "string"
+        }
+      }
+    },
+    "billing_cycle": {
+      "type": "string"
+    },
+    "free_trial_ends_on": {
+      "oneOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "next_billing_date": {
+      "oneOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "on_free_trial": {
+      "type": "boolean"
+    },
+    "plan": {
+      "type": "object",
+      "required": [
+        "id",
+        "name",
+        "description",
+        "monthly_price_in_cents",
+        "yearly_price_in_cents",
+        "price_model",
+        "has_free_trial",
+        "unit_name",
+        "bullets"
+      ],
+      "properties": {
+        "bullets": {
+          "type": "array",
+          "items": {
+            "oneOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          }
+        },
+        "description": {
+          "type": "string"
+        },
+        "has_free_trial": {
+          "type": "boolean"
+        },
+        "id": {
+          "type": "integer"
+        },
+        "monthly_price_in_cents": {
+          "type": "integer"
+        },
+        "name": {
+          "type": "string"
+        },
+        "price_model": {
+          "type": "string",
+          "enum": [
+            "FREE",
+            "FLAT_RATE",
+            "PER_UNIT"
+          ]
+        },
+        "unit_name": {
+          "oneOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "yearly_price_in_cents": {
+          "type": "integer"
+        }
+      }
+    },
+    "unit_count": {
+      "type": "integer"
+    }
+  }
+}

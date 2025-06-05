@@ -14,8 +14,8 @@ import type {
 export interface IssuesUnlockedEvent {
   action: 'unlocked';
   issue: Issue & {
-    locked: false;
-    active_lock_reason: null;
+    locked: false,
+    active_lock_reason: null
   };
   repository: Repository;
   sender: User;
