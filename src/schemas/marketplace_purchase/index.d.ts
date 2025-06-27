@@ -1,18 +1,18 @@
-export * from './cancelled';
-export * from './changed';
-export * from './pending_change';
-export * from './pending_change_cancelled';
-export * from './purchased';
+export type * from './cancelled.d.ts';
+export type * from './changed.d.ts';
+export type * from './pending_change.d.ts';
+export type * from './pending_change_cancelled.d.ts';
+export type * from './purchased.d.ts';
 
-import { MarketplacePurchaseCancelledEvent } from './cancelled';
-import { MarketplacePurchaseChangedEvent } from './changed';
-import { MarketplacePurchasePendingChangeEvent } from './pending_change';
-import { MarketplacePurchasePendingChangeCancelledEvent } from './pending_change_cancelled';
-import { MarketplacePurchasePurchasedEvent } from './purchased';
+import type { MarketplacePurchaseCancelledEvent } from './cancelled.d.ts';
+import type { MarketplacePurchaseChangedEvent } from './changed.d.ts';
+import type { MarketplacePurchasePendingChangeEvent } from './pending_change.d.ts';
+import type { MarketplacePurchasePendingChangeCancelledEvent } from './pending_change_cancelled.d.ts';
+import type { MarketplacePurchasePurchasedEvent } from './purchased.d.ts';
 
 export type MarketplacePurchaseEvent =
   | MarketplacePurchaseCancelledEvent
   | MarketplacePurchaseChangedEvent
-  | MarketplacePurchasePendingChangeCancelledEvent
   | MarketplacePurchasePendingChangeEvent
+  | MarketplacePurchasePendingChangeCancelledEvent
   | MarketplacePurchasePurchasedEvent;

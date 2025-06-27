@@ -1,10 +1,10 @@
-export * from './created';
-export * from './deleted';
-export * from './edited';
+export type * from './created.d.ts';
+export type * from './deleted.d.ts';
+export type * from './edited.d.ts';
 
-import { PullRequestReviewCommentCreatedEvent } from './created';
-import { PullRequestReviewCommentDeletedEvent } from './deleted';
-import { PullRequestReviewCommentEditedEvent } from './edited';
+import type { PullRequestReviewCommentCreatedEvent } from './created.d.ts';
+import type { PullRequestReviewCommentDeletedEvent } from './deleted.d.ts';
+import type { PullRequestReviewCommentEditedEvent } from './edited.d.ts';
 
 export type PullRequestReviewCommentEvent =
   | PullRequestReviewCommentCreatedEvent

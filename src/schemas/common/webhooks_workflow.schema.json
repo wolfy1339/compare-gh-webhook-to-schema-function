@@ -1,6 +1,6 @@
 {
   "$id": "common/webhooks_workflow.schema.json",
-  "title": "Workflow",
+  "title": "Webhooks Workflow",
   "properties": {
     "badge_url": {
       "type": "string",

@@ -59,5 +59,6 @@
     "user_view_type": {
       "type": "string"
     }
-  }
+  },
+  "title": "webhooks_approver"
 }

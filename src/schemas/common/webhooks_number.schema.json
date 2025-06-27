@@ -1,5 +1,6 @@
 {
   "$id": "common/webhooks_number.schema.json",
   "description": "The pull request number.",
-  "type": "integer"
+  "type": "integer",
+  "title": "webhooks_number"
 }

@@ -56,13 +56,6 @@
         "open"
       ]
     },
-    "title": {
-      "description": "The title of the milestone.",
-      "type": "string",
-      "examples": [
-        "v1.0"
-      ]
-    },
     "description": {
       "oneOf": [
         {

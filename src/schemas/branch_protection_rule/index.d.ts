@@ -1,10 +1,10 @@
-export * from './created';
-export * from './deleted';
-export * from './edited';
+export type * from './created.d.ts';
+export type * from './deleted.d.ts';
+export type * from './edited.d.ts';
 
-import { BranchProtectionRuleCreatedEvent } from './created';
-import { BranchProtectionRuleDeletedEvent } from './deleted';
-import { BranchProtectionRuleEditedEvent } from './edited';
+import type { BranchProtectionRuleCreatedEvent } from './created.d.ts';
+import type { BranchProtectionRuleDeletedEvent } from './deleted.d.ts';
+import type { BranchProtectionRuleEditedEvent } from './edited.d.ts';
 
 export type BranchProtectionRuleEvent =
   | BranchProtectionRuleCreatedEvent

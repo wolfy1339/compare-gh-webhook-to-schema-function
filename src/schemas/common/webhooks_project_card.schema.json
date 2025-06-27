@@ -1,6 +1,6 @@
 {
   "$id": "common/webhooks_project_card.schema.json",
-  "title": "Project Card",
+  "title": "Webhooks Project Card",
   "type": "object",
   "properties": {
     "after_id": {
@@ -36,7 +36,6 @@
       "oneOf": [
         {
           "type": "object",
-          "title": "User",
           "properties": {
             "avatar_url": {
               "type": "string",

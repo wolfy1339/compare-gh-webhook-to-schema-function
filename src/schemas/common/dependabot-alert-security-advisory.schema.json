@@ -209,5 +209,6 @@
     "updated_at",
     "withdrawn_at"
   ],
-  "additionalProperties": false
+  "additionalProperties": false,
+  "title": "dependabot-alert-security-advisory"
 }

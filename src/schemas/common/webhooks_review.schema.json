@@ -7,7 +7,6 @@
       "type": "object",
       "properties": {
         "html": {
-          "title": "Link",
           "type": "object",
           "properties": {
             "href": {
@@ -20,7 +19,6 @@
           ]
         },
         "pull_request": {
-          "title": "Link",
           "type": "object",
           "properties": {
             "href": {
@@ -39,7 +37,6 @@
       ]
     },
     "author_association": {
-      "title": "AuthorAssociation",
       "description": "How the author is associated with the repository.",
       "type": "string",
       "enum": [
@@ -101,7 +98,6 @@
       "oneOf": [
         {
           "type": "object",
-          "title": "User",
           "properties": {
             "avatar_url": {
               "type": "string",
@@ -218,5 +214,6 @@
     "pull_request_url",
     "author_association",
     "_links"
-  ]
+  ],
+  "title": "webhooks_review"
 }

@@ -72,7 +72,6 @@
           "oneOf": [
             {
               "type": "object",
-              "title": "User",
               "properties": {
                 "avatar_url": {
                   "type": "string",
@@ -178,7 +177,6 @@
             "author": {
               "allOf": [
                 {
-                  "title": "Committer",
                   "description": "Metaproperties for Git author/committer information.",
                   "type": "object",
                   "properties": {
@@ -235,7 +233,6 @@
             "committer": {
               "allOf": [
                 {
-                  "title": "Committer",
                   "description": "Metaproperties for Git author/committer information.",
                   "type": "object",
                   "properties": {
@@ -389,7 +386,6 @@
           "oneOf": [
             {
               "type": "object",
-              "title": "User",
               "properties": {
                 "avatar_url": {
                   "type": "string",

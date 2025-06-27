@@ -29,14 +29,12 @@
       "$ref": "common/webhooks_workflow.schema.json"
     },
     "workflow_run": {
-      "title": "Workflow Run",
       "type": "object",
       "properties": {
         "actor": {
           "oneOf": [
             {
               "type": "object",
-              "title": "User",
               "properties": {
                 "avatar_url": {
                   "type": "string",
@@ -197,11 +195,9 @@
           ]
         },
         "head_commit": {
-          "title": "SimpleCommit",
           "type": "object",
           "properties": {
             "author": {
-              "title": "Committer",
               "description": "Metaproperties for Git author/committer information.",
               "type": "object",
               "properties": {
@@ -234,7 +230,6 @@
               ]
             },
             "committer": {
-              "title": "Committer",
               "description": "Metaproperties for Git author/committer information.",
               "type": "object",
               "properties": {
@@ -289,7 +284,6 @@
           ]
         },
         "head_repository": {
-          "title": "Repository Lite",
           "type": "object",
           "properties": {
             "archive_url": {
@@ -435,7 +429,6 @@
               "oneOf": [
                 {
                   "type": "object",
-                  "title": "User",
                   "properties": {
                     "avatar_url": {
                       "type": "string",
@@ -689,7 +682,6 @@
                     "type": "string"
                   },
                   "repo": {
-                    "title": "Repo Ref",
                     "type": "object",
                     "properties": {
                       "id": {
@@ -726,7 +718,6 @@
                     "type": "string"
                   },
                   "repo": {
-                    "title": "Repo Ref",
                     "type": "object",
                     "properties": {
                       "id": {
@@ -805,7 +796,6 @@
           ]
         },
         "repository": {
-          "title": "Repository Lite",
           "type": "object",
           "properties": {
             "archive_url": {
@@ -951,7 +941,6 @@
               "oneOf": [
                 {
                   "type": "object",
-                  "title": "User",
                   "properties": {
                     "avatar_url": {
                       "type": "string",
@@ -1177,7 +1166,6 @@
           "oneOf": [
             {
               "type": "object",
-              "title": "User",
               "properties": {
                 "avatar_url": {
                   "type": "string",

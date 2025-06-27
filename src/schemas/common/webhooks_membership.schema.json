@@ -1,6 +1,6 @@
 {
   "$id": "common/webhooks_membership.schema.json",
-  "title": "Membership",
+  "title": "Webhooks Membership",
   "description": "The membership between the user and the organization. Not present when the action is `member_invited`.",
   "type": "object",
   "properties": {
@@ -22,7 +22,6 @@
       "oneOf": [
         {
           "type": "object",
-          "title": "User",
           "properties": {
             "avatar_url": {
               "type": "string",

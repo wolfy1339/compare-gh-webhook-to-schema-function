@@ -4,6 +4,9 @@
  * and run json-schema-to-typescript to regenerate this file.
  */
 
+/**
+ * Hypermedia Link
+ */
 export interface Link {
   href: string;
 }

@@ -1,6 +1,6 @@
 {
   "$id": "common/webhooks_previous_marketplace_purchase.schema.json",
-  "title": "Marketplace Purchase",
+  "title": "Webhooks Previous Marketplace Purchase",
   "type": "object",
   "properties": {
     "account": {

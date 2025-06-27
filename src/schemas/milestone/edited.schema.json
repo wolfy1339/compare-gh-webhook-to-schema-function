@@ -37,18 +37,6 @@
           "required": [
             "from"
           ]
-        },
-        "title": {
-          "type": "object",
-          "properties": {
-            "from": {
-              "description": "The previous version of the title if the action was `edited`.",
-              "type": "string"
-            }
-          },
-          "required": [
-            "from"
-          ]
         }
       }
     },

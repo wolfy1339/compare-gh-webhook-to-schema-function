@@ -1,5 +1,9 @@
-export * from './checks_requested';
+export type * from './checks_requested.d.ts';
+export type * from './destroyed.d.ts';
 
-import { MergeGroupChecksRequestedEvent } from './checks_requested';
+import type { MergeGroupChecksRequestedEvent } from './checks_requested.d.ts';
+import type { MergeGroupDestroyedEvent } from './destroyed.d.ts';
 
-export type MergeGroupEvent = MergeGroupChecksRequestedEvent;
+export type MergeGroupEvent =
+  | MergeGroupChecksRequestedEvent
+  | MergeGroupDestroyedEvent;

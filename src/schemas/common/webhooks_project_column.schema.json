@@ -1,6 +1,6 @@
 {
   "$id": "common/webhooks_project_column.schema.json",
-  "title": "Project Column",
+  "title": "Webhooks Project Column",
   "type": "object",
   "properties": {
     "after_id": {

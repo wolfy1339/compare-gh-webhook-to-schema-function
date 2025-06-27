@@ -41,7 +41,6 @@
     "project_card": {
       "allOf": [
         {
-          "title": "Project Card",
           "type": "object",
           "properties": {
             "after_id": {
@@ -77,7 +76,6 @@
               "oneOf": [
                 {
                   "type": "object",
-                  "title": "User",
                   "properties": {
                     "avatar_url": {
                       "type": "string",

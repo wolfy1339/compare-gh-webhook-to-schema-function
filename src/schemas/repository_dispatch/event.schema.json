@@ -1,7 +1,44 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema",
   "$id": "repository_dispatch$event",
+  "title": "repository_dispatch event",
   "type": "object",
+  "properties": {
+    "action": {
+      "type": "string",
+      "description": "The `event_type` that was specified in the `POST /repos/{owner}/{repo}/dispatches` request body."
+    },
+    "branch": {
+      "type": "string"
+    },
+    "client_payload": {
+      "oneOf": [
+        {
+          "type": "object",
+          "additionalProperties": true,
+          "description": "The `client_payload` that was specified in the `POST /repos/{owner}/{repo}/dispatches` request body."
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "enterprise": {
+      "$ref": "common/enterprise-webhooks.schema.json"
+    },
+    "installation": {
+      "$ref": "common/simple-installation.schema.json"
+    },
+    "organization": {
+      "$ref": "common/organization-simple-webhooks.schema.json"
+    },
+    "repository": {
+      "$ref": "common/repository-webhooks.schema.json"
+    },
+    "sender": {
+      "$ref": "common/simple-user.schema.json"
+    }
+  },
   "required": [
     "action",
     "branch",
@@ -10,31 +47,5 @@
     "sender",
     "installation"
   ],
-  "properties": {
-    "action": {
-      "type": "string"
-    },
-    "branch": {
-      "type": "string"
-    },
-    "client_payload": {
-      "type": "object",
-      "properties": {},
-      "additionalProperties": true
-    },
-    "repository": {
-      "$ref": "common/repository.schema.json"
-    },
-    "sender": {
-      "$ref": "common/user.schema.json"
-    },
-    "installation": {
-      "$ref": "common/installation-lite.schema.json"
-    },
-    "organization": {
-      "$ref": "common/organization.schema.json"
-    }
-  },
-  "additionalProperties": false,
-  "title": "repository_dispatch event"
+  "additionalProperties": false
 }

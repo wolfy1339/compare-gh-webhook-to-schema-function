@@ -16,9 +16,6 @@
     "creator": {
       "$ref": "simple-user.schema.json"
     },
-    "title": {
-      "type": "string"
-    },
     "description": {
       "oneOf": [
         {

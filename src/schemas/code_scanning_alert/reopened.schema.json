@@ -69,7 +69,6 @@
               "oneOf": [
                 {
                   "type": "object",
-                  "title": "Alert Instance",
                   "properties": {
                     "analysis_key": {
                       "description": "Identifies the configuration under which the analysis was executed. For example, in GitHub Actions this includes the workflow filename and job name.",

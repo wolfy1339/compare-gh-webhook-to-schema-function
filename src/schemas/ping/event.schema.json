@@ -4,7 +4,6 @@
   "type": "object",
   "properties": {
     "hook": {
-      "title": "Webhook",
       "description": "The webhook that is being pinged",
       "type": "object",
       "properties": {

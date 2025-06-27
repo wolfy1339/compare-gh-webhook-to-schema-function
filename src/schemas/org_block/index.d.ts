@@ -1,7 +1,7 @@
-export * from './blocked';
-export * from './unblocked';
+export type * from './blocked.d.ts';
+export type * from './unblocked.d.ts';
 
-import { OrgBlockBlockedEvent } from './blocked';
-import { OrgBlockUnblockedEvent } from './unblocked';
+import type { OrgBlockBlockedEvent } from './blocked.d.ts';
+import type { OrgBlockUnblockedEvent } from './unblocked.d.ts';
 
 export type OrgBlockEvent = OrgBlockBlockedEvent | OrgBlockUnblockedEvent;

@@ -20,7 +20,6 @@
       "$ref": "common/organization-simple-webhooks.schema.json"
     },
     "release": {
-      "title": "Release",
       "description": "The [release](https://docs.github.com/rest/releases/releases/#get-a-release) object.",
       "type": "object",
       "required": [
@@ -50,7 +49,6 @@
             "oneOf": [
               {
                 "type": "object",
-                "title": "Release Asset",
                 "description": "Data related to a release.",
                 "required": [
                   "url",
@@ -130,7 +128,6 @@
                     "oneOf": [
                       {
                         "type": "object",
-                        "title": "User",
                         "required": [
                           "login",
                           "id"
@@ -250,7 +247,6 @@
           "oneOf": [
             {
               "type": "object",
-              "title": "User",
               "required": [
                 "login",
                 "id"
@@ -421,7 +417,6 @@
           ]
         },
         "reactions": {
-          "title": "Reactions",
           "type": "object",
           "required": [
             "url",

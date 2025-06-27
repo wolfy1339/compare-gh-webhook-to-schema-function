@@ -1,6 +1,6 @@
 {
   "$id": "common/webhooks_milestone.schema.json",
-  "title": "Milestone",
+  "title": "Webhooks Milestone",
   "description": "A collection of related issues and pull requests.",
   "type": "object",
   "properties": {
@@ -26,7 +26,6 @@
       "oneOf": [
         {
           "type": "object",
-          "title": "User",
           "properties": {
             "avatar_url": {
               "type": "string",
@@ -179,10 +178,6 @@
         "open",
         "closed"
       ]
-    },
-    "title": {
-      "description": "The title of the milestone.",
-      "type": "string"
     },
     "updated_at": {
       "type": "string",

@@ -1,5 +1,5 @@
-export * from './created';
+export type * from './created.d.ts';
 
-import { CommitCommentCreatedEvent } from './created';
+import type { CommitCommentCreatedEvent } from './created.d.ts';
 
 export type CommitCommentEvent = CommitCommentCreatedEvent;

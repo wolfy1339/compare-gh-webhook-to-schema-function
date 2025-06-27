@@ -36,7 +36,6 @@
             "oneOf": [
               {
                 "type": "object",
-                "title": "User",
                 "properties": {
                   "avatar_url": {
                     "type": "string",
@@ -204,13 +203,11 @@
       "oneOf": [
         {
           "type": "object",
-          "title": "Deployment Workflow Run",
           "properties": {
             "actor": {
               "oneOf": [
                 {
                   "type": "object",
-                  "title": "User",
                   "properties": {
                     "avatar_url": {
                       "type": "string",
@@ -615,7 +612,6 @@
             "pull_requests": {
               "type": "array",
               "items": {
-                "title": "Check Run Pull Request",
                 "type": "object",
                 "properties": {
                   "base": {
@@ -625,7 +621,6 @@
                         "type": "string"
                       },
                       "repo": {
-                        "title": "Repo Ref",
                         "type": "object",
                         "properties": {
                           "id": {
@@ -662,7 +657,6 @@
                         "type": "string"
                       },
                       "repo": {
-                        "title": "Repo Ref",
                         "type": "object",
                         "properties": {
                           "id": {
@@ -977,7 +971,6 @@
               "oneOf": [
                 {
                   "type": "object",
-                  "title": "User",
                   "properties": {
                     "avatar_url": {
                       "type": "string",

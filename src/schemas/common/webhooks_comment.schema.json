@@ -3,7 +3,6 @@
   "type": "object",
   "properties": {
     "author_association": {
-      "title": "AuthorAssociation",
       "description": "How the author is associated with the repository.",
       "type": "string",
       "enum": [
@@ -49,7 +48,6 @@
       ]
     },
     "reactions": {
-      "title": "Reactions",
       "type": "object",
       "properties": {
         "+1": {
@@ -107,7 +105,6 @@
       "oneOf": [
         {
           "type": "object",
-          "title": "User",
           "properties": {
             "avatar_url": {
               "type": "string",
@@ -226,5 +223,6 @@
     "updated_at",
     "body",
     "reactions"
-  ]
+  ],
+  "title": "webhooks_comment"
 }

@@ -26,7 +26,6 @@
       "$ref": "common/organization-simple-webhooks.schema.json"
     },
     "previous_marketplace_purchase": {
-      "title": "Marketplace Purchase",
       "type": "object",
       "properties": {
         "account": {

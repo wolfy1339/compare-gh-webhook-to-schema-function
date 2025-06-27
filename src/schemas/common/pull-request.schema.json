@@ -110,13 +110,6 @@
         true
       ]
     },
-    "title": {
-      "description": "The title of the pull request.",
-      "type": "string",
-      "examples": [
-        "Amazing new feature"
-      ]
-    },
     "user": {
       "$ref": "simple-user.schema.json"
     },

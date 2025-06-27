@@ -77,7 +77,6 @@
       "oneOf": [
         {
           "type": "object",
-          "title": "User",
           "properties": {
             "avatar_url": {
               "type": "string",
@@ -184,7 +183,6 @@
       "oneOf": [
         {
           "type": "object",
-          "title": "User",
           "properties": {
             "avatar_url": {
               "type": "string",
@@ -288,7 +286,6 @@
       ]
     },
     "tier": {
-      "title": "Sponsorship Tier",
       "description": "The `tier_changed` and `pending_tier_change` will include the original tier before the change or pending change. For more information, see the pending tier change payload.",
       "type": "object",
       "properties": {
@@ -338,5 +335,6 @@
     "sponsor",
     "privacy_level",
     "tier"
-  ]
+  ],
+  "title": "webhooks_sponsorship"
 }

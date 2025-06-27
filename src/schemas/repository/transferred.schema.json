@@ -20,7 +20,6 @@
               "type": "object",
               "properties": {
                 "organization": {
-                  "title": "Organization",
                   "type": "object",
                   "properties": {
                     "avatar_url": {
@@ -98,7 +97,6 @@
                   "oneOf": [
                     {
                       "type": "object",
-                      "title": "User",
                       "properties": {
                         "avatar_url": {
                           "type": "string",

@@ -1,6 +1,5 @@
-export * from './requested';
+export type * from './requested.d.ts';
 
-import { DeploymentProtectionRuleRequestedEvent } from './requested';
+import type { DeploymentProtectionRuleRequestedEvent } from './requested.d.ts';
 
-export type DeploymentProtectionRuleEvent =
-  DeploymentProtectionRuleRequestedEvent;
+export type DeploymentProtectionRuleEvent = DeploymentProtectionRuleRequestedEvent;

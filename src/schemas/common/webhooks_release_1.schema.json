@@ -30,7 +30,6 @@
         "oneOf": [
           {
             "type": "object",
-            "title": "Release Asset",
             "description": "Data related to a release.",
             "required": [
               "url",
@@ -110,7 +109,6 @@
                 "oneOf": [
                   {
                     "type": "object",
-                    "title": "User",
                     "required": [
                       "login",
                       "id"
@@ -230,7 +228,6 @@
       "oneOf": [
         {
           "type": "object",
-          "title": "User",
           "required": [
             "login",
             "id"
@@ -398,7 +395,6 @@
       ]
     },
     "reactions": {
-      "title": "Reactions",
       "type": "object",
       "required": [
         "url",

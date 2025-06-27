@@ -135,16 +135,6 @@
               "type": "null"
             }
           ]
-        },
-        "title": {
-          "oneOf": [
-            {
-              "type": "string"
-            },
-            {
-              "type": "null"
-            }
-          ]
         }
       },
       "required": [

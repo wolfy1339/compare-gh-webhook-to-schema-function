@@ -1,5 +1,5 @@
-export * from './revoked';
+export type * from './revoked.d.ts';
 
-import { GithubAppAuthorizationRevokedEvent } from './revoked';
+import type { GithubAppAuthorizationRevokedEvent } from './revoked.d.ts';
 
 export type GithubAppAuthorizationEvent = GithubAppAuthorizationRevokedEvent;

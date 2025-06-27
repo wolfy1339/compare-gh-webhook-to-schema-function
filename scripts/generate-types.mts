@@ -1,21 +1,23 @@
 #!/usr/bin/env ts-node-transpile-only
 
-import type { ResolverOptions } from '@apidevtools/json-schema-ref-parser/dist/lib/types/index';
+import type { ResolverOptions } from '@apidevtools/json-schema-ref-parser';
 import { strict as assert } from 'assert';
 import { JSONSchema4, JSONSchema7 } from 'json-schema';
 import { compile } from 'json-schema-to-typescript';
 import { promises as fs } from 'node:fs';
 import path from 'node:path';
-import { Options, format } from 'prettier';
-import pkg from '../package.json' with { type: 'json' };
-const prettierConfigPackage = pkg.prettier;
+import { ESLint } from 'eslint';
+// import { Options, format } from 'prettier';
+// import pkg from '../package.json' with { type: 'json' };
+// const prettierConfigPackage = pkg.prettier;
 
-const prettierConfig: Options = {
-  // eslint-disable-next-line @typescript-eslint/no-require-imports,n/global-require
-  ...(require(prettierConfigPackage) as Options),
+/* const prettierConfig: Options = {
+  // ...(await import(prettierConfigPackage) as Options),
   // this is the one property we don't explicitly set in our config :/
   printWidth: 80
-};
+}; */
+
+const eslint = new ESLint({ fix: true, cwd: process.cwd() });
 
 const pathToWebhookSchemas = 'src/schemas';
 
@@ -28,25 +30,25 @@ const removeExtension = (fileName: string, ext: string): string => {
 const fetchCommonSchemas = async (): Promise<Map<string, JSONSchema7>> => {
   const pathToCommonSchemasDir = `${pathToWebhookSchemas}/common`;
   const commonSchemaFiles = (await fs.readdir(pathToCommonSchemasDir)).filter(
-    fileName => fileName.endsWith('.schema.json')
+      fileName => fileName.endsWith('.schema.json')
   );
 
   return new Map(
-    await Promise.all(
-      commonSchemaFiles.map(async name => {
-        const schema = JSON.parse(
-          await fs.readFile(`${pathToCommonSchemasDir}/${name}`, 'utf-8')
-        ) as JSONSchema7;
+      await Promise.all(
+          commonSchemaFiles.map(async name => {
+            const schema = JSON.parse(
+                await fs.readFile(`${pathToCommonSchemasDir}/${name}`, 'utf-8')
+            ) as JSONSchema7;
 
-        if (!schema.title) {
-          console.warn(
-            `common schema ${name} does an empty or undefined title`
-          );
-        }
+            if (!schema.title) {
+              console.warn(
+                  `common schema ${name} does an empty or undefined title`
+              );
+            }
 
-        return [name, schema] as const;
-      })
-    )
+            return [name, schema] as const;
+          })
+      )
   );
 };
 
@@ -54,10 +56,8 @@ interface ExternalInterfaceSchemaResolver extends ResolverOptions {
   /**
    * Adds import statements for all the external schemas that were resolved by
    * this resolver to the given typescript code.
-   *
-   * @param {string} code
-   *
-   * @return {string}
+   * @param code
+   * @return
    */
   addImports(code: string): string;
 }
@@ -65,13 +65,13 @@ interface ExternalInterfaceSchemaResolver extends ResolverOptions {
 let commonSchemas: Map<string, JSONSchema7>;
 
 const createCommonSchemaResolver = async (
-  pathToSchema: string
+    pathToSchema: string
 ): Promise<ExternalInterfaceSchemaResolver> => {
   const isForCommonSchema = pathToSchema.includes('common/');
   const interfacesToImport = new Set<string>();
 
   // cache results of fetch in-case we're called again
-  // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
+
   commonSchemas ||= await fetchCommonSchemas();
 
   return {
@@ -98,15 +98,15 @@ const createCommonSchemaResolver = async (
       }
 
       const lines = code.split('\n');
-      const importPath = isForCommonSchema ? '.' : '../common';
+      const importPath = isForCommonSchema ? './index.d.ts' : '../common/index.d.ts';
       const joinedIdentifiers = Array.from(interfacesToImport)
-        .sort((a, b) => a.localeCompare(b))
-        .join(', ');
+          .sort((a, b) => a.localeCompare(b))
+          .join(', ');
 
       lines.splice(
-        0,
-        0,
-        `import type { ${joinedIdentifiers} } from '${importPath}';`
+          0,
+          0,
+          `import type { ${joinedIdentifiers} } from '${importPath}';`
       );
 
       return lines.join('\n');
@@ -130,41 +130,63 @@ const compileSchema = async (pathToSchema: string): Promise<string> => {
   const commonSchemaResolver = await createCommonSchemaResolver(pathToSchema);
   // has to be 4 due to https://github.com/bcherny/json-schema-to-typescript/issues/359
   const schema: JSONSchema4 = JSON.parse(
-    await fs.readFile(pathToSchema, 'utf-8'),
-    (key, value: unknown) => {
-      if (isJsonSchemaObject(value) && 'tsAdditionalProperties' in value) {
-        value.additionalProperties = value.tsAdditionalProperties;
-      }
+      await fs.readFile(pathToSchema, 'utf-8'),
+      (key, value: unknown) => {
+        if (isJsonSchemaObject(value) && 'tsAdditionalProperties' in value) {
+          value.additionalProperties = value.tsAdditionalProperties;
+        }
 
-      return value;
-    }
+        return value;
+      }
   ) as JSONSchema4;
 
   return commonSchemaResolver.addImports(
-    await compile(schema, stripExtension(pathToSchema), {
-      $refOptions: {
-        resolve: {
-          commonSchemaResolver,
-          file: { order: Infinity }
-        }
-      },
-      style: prettierConfig,
-      bannerComment:
+      await compile(schema, stripExtension(pathToSchema), {
+        strictIndexSignatures: true,
+        additionalProperties: false,
+        $refOptions: {
+          resolve: {
+            commonSchemaResolver,
+            file: { order: Infinity }
+          }
+        },
+        style: {
+          singleQuote: true,
+          printWidth: 80,
+          arrowParens: 'avoid',
+          semi: true,
+          useTabs: false,
+          bracketSpacing: true,
+          jsxSingleQuote: false,
+          bracketSameLine: false,
+          quoteProps: 'consistent',
+          proseWrap: 'always',
+          endOfLine: 'lf',
+          trailingComma: 'none',
+          htmlWhitespaceSensitivity: 'ignore',
+          parser: 'typescript'
+        },
+        bannerComment:
         '/**\n * This file was automatically generated by json-schema-to-typescript.\n * DO NOT MODIFY IT BY HAND. Instead, modify the source JSONSchema file,\n * and run json-schema-to-typescript to regenerate this file.\n */'
-    })
+      })
   );
 };
 
 const writeTypesForSchema = async (pathToSchema: string) => {
   const { dir, base } = path.parse(pathToSchema);
   const fileName = removeExtension(base, '.schema.json');
+  const tsCode = await compileSchema(pathToSchema);
+  const lintResult = await eslint.lintText(tsCode, {
+    filePath: path.format({
+      dir,
+      name: fileName,
+      ext: '.d.ts'
+    })
+  });
 
   await fs.writeFile(
-    `${dir}/${fileName}.d.ts`,
-    await format(await compileSchema(pathToSchema), {
-      ...prettierConfig,
-      parser: 'typescript'
-    })
+      `${dir}/${fileName}.d.ts`,
+      lintResult[0].output ?? tsCode
   );
 };
 
@@ -175,19 +197,22 @@ const writeBarrelForDirectory = async (directory: string, extra = '') => {
   });
 
   const fileContents = directoryContents
-    .filter(d => d.isDirectory() || d.name.endsWith('.schema.json'))
-    .map(({ name }) =>
-      name.endsWith('.schema.json')
-        ? removeExtension(name, '.schema.json')
-        : name
-    )
-    .map(name => `export * from './${name}';`)
-    .concat(extra.trimEnd())
-    .join('\n');
+      .filter(d => d.isDirectory() || d.name.endsWith('.schema.json'))
+      .map(({ name }) =>
+      name.endsWith('.schema.json') ?
+        removeExtension(name, '.schema.json') :
+        name
+      )
+      .map(name => directory === '' ?
+        `export type * from './${name}/index.d.ts';` :
+        `export type * from './${name}.d.ts';`
+      )
+      .concat(extra.trimEnd())
+      .join('\n');
 
   await fs.writeFile(
-    `${pathToDirectory}/index.d.ts`,
-    `${fileContents.trim()}\n`
+      `${pathToDirectory}/index.d.ts`,
+      `${fileContents.trim()}\n`
   );
 };
 
@@ -195,10 +220,12 @@ const titleCase = (str: string) => `${str[0].toUpperCase()}${str.substring(1)}`;
 
 const guessAtInterfaceName = (str: string): string =>
   str
-    .replace(/[()]/gu, '')
-    .split(/[$_ -]/u)
-    .map(titleCase)
-    .join('');
+      .replace('common/', '')
+      .replace('.schema.json', '')
+      .replace(/[()]/gu, '')
+      .split(/[$_ -]/u)
+      .map(titleCase)
+      .join('');
 
 const buildUnion = (name: string, elements: string[]): string[] => {
   const union = `export type ${name} = ${elements.join(' | ')};`;
@@ -209,7 +236,7 @@ const buildUnion = (name: string, elements: string[]): string[] => {
     return [
       `export type ${name} =`,
       ...elements.map(
-        (element, i) => `  | ${element}${lastIndex === i ? ';' : ''}`
+          (element, i) => `  | ${element}${lastIndex === i ? ';' : ''}`
       )
     ];
   }
@@ -227,20 +254,20 @@ const buildEventUnion = (eventName: string, schemas: string[]) => {
   const schemaAndInterfaceNames: Array<
     [schemaName: string, interfaceName: string]
   > = schemas
-    .map(fileName => removeExtension(fileName, '.schema.json'))
-    .map(schemaName => [
-      schemaName,
-      `${eventInterfaceName}${guessAtInterfaceName(schemaName)}Event`
-    ]);
+      .map(fileName => removeExtension(fileName, '.schema.json'))
+      .map(schemaName => [
+        schemaName,
+        `${eventInterfaceName}${guessAtInterfaceName(schemaName)}Event`
+      ]);
 
   const imports = schemaAndInterfaceNames.map(
-    ([schemaName, interfaceName]) =>
-      `import { ${interfaceName} } from './${schemaName}';`
+      ([schemaName, interfaceName]) =>
+        `import type { ${interfaceName} } from './${schemaName}.d.ts';`
   );
 
   const formattedUnion = buildUnion(
-    `${eventInterfaceName}Event`,
-    schemaAndInterfaceNames.map(([, interfaceName]) => interfaceName)
+      `${eventInterfaceName}Event`,
+      schemaAndInterfaceNames.map(([, interfaceName]) => interfaceName)
   );
 
   return ['', ...imports, '', ...formattedUnion].join('\n');
@@ -253,13 +280,13 @@ const writeTypesForEvent = async (eventName: string, noUnion = false) => {
   );
 
   await Promise.all(
-    schemas.map(async fileName => {
-      await writeTypesForSchema(`${pathToEventSchemasDir}/${fileName}`);
-    })
+      schemas.map(async fileName => {
+        await writeTypesForSchema(`${pathToEventSchemasDir}/${fileName}`);
+      })
   );
 
   await writeBarrelForDirectory(
-    eventName,
+      eventName,
     noUnion ? '' : buildEventUnion(eventName, schemas)
   );
 
@@ -272,25 +299,25 @@ const listEvents = async () => {
   });
 
   return dirents
-    .filter(dirent => dirent.isDirectory() && dirent.name !== 'common')
-    .map(dirent => dirent.name);
+      .filter(dirent => dirent.isDirectory() && dirent.name !== 'common')
+      .map(dirent => dirent.name);
 };
 
 const buildEventPayloadMap = (events: string[]): string => {
   const [imports, properties] = events.reduce<
     [imports: string[], properties: string[]]
   >(
-    (importsAndProperties, event) => {
-      const interfaceName = `${guessAtInterfaceName(event)}Event`;
+      (importsAndProperties, event) => {
+        const interfaceName = `${guessAtInterfaceName(event)}Event`;
 
-      importsAndProperties[0].push(
-        `import { ${interfaceName} } from './${event}';`
-      );
-      importsAndProperties[1].push(`  ${event}: ${interfaceName};`);
+        importsAndProperties[0].push(
+            `import type { ${interfaceName} } from './${event}/index.d.ts';`
+        );
+        importsAndProperties[1].push(`  ${event}: ${interfaceName};`);
 
-      return importsAndProperties;
-    },
-    [[], []]
+        return importsAndProperties;
+      },
+      [[], []]
   );
 
   return [
@@ -314,9 +341,9 @@ const buildEventPayloadMap = (events: string[]): string => {
   await writeTypesForEvent('common', true);
 
   await Promise.all(
-    events.map(async eventName => {
-      await writeTypesForEvent(eventName);
-    })
+      events.map(async eventName => {
+        await writeTypesForEvent(eventName);
+      })
   );
 
   await writeBarrelForDirectory('', `\n${buildEventPayloadMap(events)}`);

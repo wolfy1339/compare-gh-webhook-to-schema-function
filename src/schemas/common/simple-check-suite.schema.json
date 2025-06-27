@@ -125,5 +125,6 @@
         "https://api.github.com/repos/github/hello-world/check-suites/5"
       ]
     }
-  }
+  },
+  "title": "simple-check-suite"
 }

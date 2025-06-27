@@ -46,7 +46,6 @@
           "oneOf": [
             {
               "type": "object",
-              "title": "User",
               "properties": {
                 "avatar_url": {
                   "type": "string",

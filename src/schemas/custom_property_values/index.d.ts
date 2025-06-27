@@ -1,5 +1,5 @@
-export * from './updated';
+export type * from './updated.d.ts';
 
-import { CustomPropertyValuesUpdatedEvent } from './updated';
+import type { CustomPropertyValuesUpdatedEvent } from './updated.d.ts';
 
 export type CustomPropertyValuesEvent = CustomPropertyValuesUpdatedEvent;

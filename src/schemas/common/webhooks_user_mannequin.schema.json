@@ -1,6 +1,6 @@
 {
   "$id": "common/webhooks_user_mannequin.schema.json",
-  "title": "User",
+  "title": "Webhooks User Mannequin",
   "properties": {
     "avatar_url": {
       "type": "string",

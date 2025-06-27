@@ -1,6 +1,6 @@
 {
   "$id": "common/repository-webhooks.schema.json",
-  "title": "Repository",
+  "title": "Repository Webhooks",
   "description": "The repository on GitHub where the event occurred. Webhook payloads contain the `repository` property\nwhen the event occurs from activity in a repository.",
   "type": "object",
   "properties": {

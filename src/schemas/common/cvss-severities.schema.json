@@ -83,5 +83,6 @@
         }
       ]
     }
-  }
+  },
+  "title": "cvss-severities"
 }

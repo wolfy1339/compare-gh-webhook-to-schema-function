@@ -19,5 +19,6 @@
     "ecosystem",
     "name"
   ],
-  "additionalProperties": false
+  "additionalProperties": false,
+  "title": "dependabot-alert-package"
 }

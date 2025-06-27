@@ -23,17 +23,6 @@
           "required": [
             "from"
           ]
-        },
-        "title": {
-          "type": "object",
-          "properties": {
-            "from": {
-              "type": "string"
-            }
-          },
-          "required": [
-            "from"
-          ]
         }
       }
     },

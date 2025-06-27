@@ -174,5 +174,6 @@
     "updated_at",
     "withdrawn_at",
     "vulnerabilities"
-  ]
+  ],
+  "title": "webhooks_security_advisory"
 }

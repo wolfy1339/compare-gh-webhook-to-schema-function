@@ -1,8 +1,8 @@
-export * from './published';
-export * from './updated';
+export type * from './published.d.ts';
+export type * from './updated.d.ts';
 
-import { RegistryPackagePublishedEvent } from './published';
-import { RegistryPackageUpdatedEvent } from './updated';
+import type { RegistryPackagePublishedEvent } from './published.d.ts';
+import type { RegistryPackageUpdatedEvent } from './updated.d.ts';
 
 export type RegistryPackageEvent =
   | RegistryPackagePublishedEvent

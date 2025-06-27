@@ -14,7 +14,6 @@
       "$ref": "common/simple-installation.schema.json"
     },
     "milestone": {
-      "title": "Milestone",
       "description": "A collection of related issues and pull requests.",
       "type": "object",
       "properties": {
@@ -32,7 +31,6 @@
           "oneOf": [
             {
               "type": "object",
-              "title": "User",
               "properties": {
                 "avatar_url": {
                   "type": "string",
@@ -180,10 +178,6 @@
           "enum": [
             "open"
           ]
-        },
-        "title": {
-          "description": "The title of the milestone.",
-          "type": "string"
         },
         "updated_at": {
           "type": "string",

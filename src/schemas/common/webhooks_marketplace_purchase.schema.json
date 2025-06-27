@@ -1,6 +1,6 @@
 {
   "$id": "common/webhooks_marketplace_purchase.schema.json",
-  "title": "Marketplace Purchase",
+  "title": "Webhooks Marketplace Purchase",
   "type": "object",
   "required": [
     "account",

@@ -62,5 +62,6 @@
         }
       }
     }
-  ]
+  ],
+  "title": "pull-request-webhook"
 }

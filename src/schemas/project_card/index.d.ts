@@ -1,14 +1,14 @@
-export * from './converted';
-export * from './created';
-export * from './deleted';
-export * from './edited';
-export * from './moved';
+export type * from './converted.d.ts';
+export type * from './created.d.ts';
+export type * from './deleted.d.ts';
+export type * from './edited.d.ts';
+export type * from './moved.d.ts';
 
-import { ProjectCardConvertedEvent } from './converted';
-import { ProjectCardCreatedEvent } from './created';
-import { ProjectCardDeletedEvent } from './deleted';
-import { ProjectCardEditedEvent } from './edited';
-import { ProjectCardMovedEvent } from './moved';
+import type { ProjectCardConvertedEvent } from './converted.d.ts';
+import type { ProjectCardCreatedEvent } from './created.d.ts';
+import type { ProjectCardDeletedEvent } from './deleted.d.ts';
+import type { ProjectCardEditedEvent } from './edited.d.ts';
+import type { ProjectCardMovedEvent } from './moved.d.ts';
 
 export type ProjectCardEvent =
   | ProjectCardConvertedEvent

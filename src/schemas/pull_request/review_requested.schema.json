@@ -26,14 +26,12 @@
           "$ref": "common/organization-simple-webhooks.schema.json"
         },
         "pull_request": {
-          "title": "Pull Request",
           "type": "object",
           "properties": {
             "_links": {
               "type": "object",
               "properties": {
                 "comments": {
-                  "title": "Link",
                   "type": "object",
                   "properties": {
                     "href": {
@@ -46,7 +44,6 @@
                   ]
                 },
                 "commits": {
-                  "title": "Link",
                   "type": "object",
                   "properties": {
                     "href": {
@@ -59,7 +56,6 @@
                   ]
                 },
                 "html": {
-                  "title": "Link",
                   "type": "object",
                   "properties": {
                     "href": {
@@ -72,7 +68,6 @@
                   ]
                 },
                 "issue": {
-                  "title": "Link",
                   "type": "object",
                   "properties": {
                     "href": {
@@ -85,7 +80,6 @@
                   ]
                 },
                 "review_comment": {
-                  "title": "Link",
                   "type": "object",
                   "properties": {
                     "href": {
@@ -98,7 +92,6 @@
                   ]
                 },
                 "review_comments": {
-                  "title": "Link",
                   "type": "object",
                   "properties": {
                     "href": {
@@ -111,7 +104,6 @@
                   ]
                 },
                 "self": {
-                  "title": "Link",
                   "type": "object",
                   "properties": {
                     "href": {
@@ -124,7 +116,6 @@
                   ]
                 },
                 "statuses": {
-                  "title": "Link",
                   "type": "object",
                   "properties": {
                     "href": {
@@ -172,7 +163,6 @@
               "oneOf": [
                 {
                   "type": "object",
-                  "title": "User",
                   "properties": {
                     "avatar_url": {
                       "type": "string",
@@ -282,7 +272,6 @@
                 "oneOf": [
                   {
                     "type": "object",
-                    "title": "User",
                     "properties": {
                       "avatar_url": {
                         "type": "string",
@@ -388,7 +377,6 @@
               }
             },
             "author_association": {
-              "title": "AuthorAssociation",
               "description": "How the author is associated with the repository.",
               "type": "string",
               "enum": [
@@ -406,7 +394,6 @@
               "oneOf": [
                 {
                   "type": "object",
-                  "title": "PullRequestAutoMerge",
                   "description": "The status of auto merging a pull request.",
                   "properties": {
                     "commit_message": {
@@ -435,7 +422,6 @@
                       "oneOf": [
                         {
                           "type": "object",
-                          "title": "User",
                           "properties": {
                             "avatar_url": {
                               "type": "string",
@@ -570,7 +556,6 @@
                   "type": "string"
                 },
                 "repo": {
-                  "title": "Repository",
                   "description": "A git repository",
                   "type": "object",
                   "properties": {
@@ -820,7 +805,6 @@
                       "oneOf": [
                         {
                           "type": "object",
-                          "title": "License",
                           "properties": {
                             "key": {
                               "type": "string"
@@ -922,7 +906,6 @@
                       "oneOf": [
                         {
                           "type": "object",
-                          "title": "User",
                           "properties": {
                             "avatar_url": {
                               "type": "string",
@@ -1273,7 +1256,6 @@
                   "oneOf": [
                     {
                       "type": "object",
-                      "title": "User",
                       "properties": {
                         "avatar_url": {
                           "type": "string",
@@ -1449,7 +1431,6 @@
                   "type": "string"
                 },
                 "repo": {
-                  "title": "Repository",
                   "description": "A git repository",
                   "type": "object",
                   "properties": {
@@ -1699,7 +1680,6 @@
                       "oneOf": [
                         {
                           "type": "object",
-                          "title": "License",
                           "properties": {
                             "key": {
                               "type": "string"
@@ -1801,7 +1781,6 @@
                       "oneOf": [
                         {
                           "type": "object",
-                          "title": "User",
                           "properties": {
                             "avatar_url": {
                               "type": "string",
@@ -2152,7 +2131,6 @@
                   "oneOf": [
                     {
                       "type": "object",
-                      "title": "User",
                       "properties": {
                         "avatar_url": {
                           "type": "string",
@@ -2279,7 +2257,6 @@
             "labels": {
               "type": "array",
               "items": {
-                "title": "Label",
                 "type": "object",
                 "properties": {
                   "color": {
@@ -2381,7 +2358,6 @@
               "oneOf": [
                 {
                   "type": "object",
-                  "title": "User",
                   "properties": {
                     "avatar_url": {
                       "type": "string",
@@ -2488,7 +2464,6 @@
               "oneOf": [
                 {
                   "type": "object",
-                  "title": "Milestone",
                   "description": "A collection of related issues and pull requests.",
                   "properties": {
                     "closed_at": {
@@ -2513,7 +2488,6 @@
                       "oneOf": [
                         {
                           "type": "object",
-                          "title": "User",
                           "properties": {
                             "avatar_url": {
                               "type": "string",
@@ -2667,10 +2641,6 @@
                         "closed"
                       ]
                     },
-                    "title": {
-                      "description": "The title of the milestone.",
-                      "type": "string"
-                    },
                     "updated_at": {
                       "type": "string",
                       "format": "date-time"
@@ -2733,7 +2703,6 @@
                     "oneOf": [
                       {
                         "type": "object",
-                        "title": "User",
                         "properties": {
                           "avatar_url": {
                             "type": "string",
@@ -2837,7 +2806,6 @@
                     ]
                   },
                   {
-                    "title": "Team",
                     "description": "Groups of organization members that gives permissions on specified repositories.",
                     "type": "object",
                     "properties": {
@@ -2998,7 +2966,6 @@
             "requested_teams": {
               "type": "array",
               "items": {
-                "title": "Team",
                 "description": "Groups of organization members that gives permissions on specified repositories.",
                 "type": "object",
                 "properties": {
@@ -3168,10 +3135,6 @@
               "type": "string",
               "format": "uri"
             },
-            "title": {
-              "description": "The title of the pull request.",
-              "type": "string"
-            },
             "updated_at": {
               "type": "string",
               "format": "date-time"
@@ -3184,7 +3147,6 @@
               "oneOf": [
                 {
                   "type": "object",
-                  "title": "User",
                   "properties": {
                     "avatar_url": {
                       "type": "string",
@@ -3336,7 +3298,6 @@
           "oneOf": [
             {
               "type": "object",
-              "title": "User",
               "properties": {
                 "avatar_url": {
                   "type": "string",
@@ -3476,14 +3437,12 @@
           "$ref": "common/organization-simple-webhooks.schema.json"
         },
         "pull_request": {
-          "title": "Pull Request",
           "type": "object",
           "properties": {
             "_links": {
               "type": "object",
               "properties": {
                 "comments": {
-                  "title": "Link",
                   "type": "object",
                   "properties": {
                     "href": {
@@ -3496,7 +3455,6 @@
                   ]
                 },
                 "commits": {
-                  "title": "Link",
                   "type": "object",
                   "properties": {
                     "href": {
@@ -3509,7 +3467,6 @@
                   ]
                 },
                 "html": {
-                  "title": "Link",
                   "type": "object",
                   "properties": {
                     "href": {
@@ -3522,7 +3479,6 @@
                   ]
                 },
                 "issue": {
-                  "title": "Link",
                   "type": "object",
                   "properties": {
                     "href": {
@@ -3535,7 +3491,6 @@
                   ]
                 },
                 "review_comment": {
-                  "title": "Link",
                   "type": "object",
                   "properties": {
                     "href": {
@@ -3548,7 +3503,6 @@
                   ]
                 },
                 "review_comments": {
-                  "title": "Link",
                   "type": "object",
                   "properties": {
                     "href": {
@@ -3561,7 +3515,6 @@
                   ]
                 },
                 "self": {
-                  "title": "Link",
                   "type": "object",
                   "properties": {
                     "href": {
@@ -3574,7 +3527,6 @@
                   ]
                 },
                 "statuses": {
-                  "title": "Link",
                   "type": "object",
                   "properties": {
                     "href": {
@@ -3622,7 +3574,6 @@
               "oneOf": [
                 {
                   "type": "object",
-                  "title": "User",
                   "properties": {
                     "avatar_url": {
                       "type": "string",
@@ -3732,7 +3683,6 @@
                 "oneOf": [
                   {
                     "type": "object",
-                    "title": "User",
                     "properties": {
                       "avatar_url": {
                         "type": "string",
@@ -3838,7 +3788,6 @@
               }
             },
             "author_association": {
-              "title": "AuthorAssociation",
               "description": "How the author is associated with the repository.",
               "type": "string",
               "enum": [
@@ -3856,7 +3805,6 @@
               "oneOf": [
                 {
                   "type": "object",
-                  "title": "PullRequestAutoMerge",
                   "description": "The status of auto merging a pull request.",
                   "properties": {
                     "commit_message": {
@@ -3885,7 +3833,6 @@
                       "oneOf": [
                         {
                           "type": "object",
-                          "title": "User",
                           "properties": {
                             "avatar_url": {
                               "type": "string",
@@ -4020,7 +3967,6 @@
                   "type": "string"
                 },
                 "repo": {
-                  "title": "Repository",
                   "description": "A git repository",
                   "type": "object",
                   "properties": {
@@ -4270,7 +4216,6 @@
                       "oneOf": [
                         {
                           "type": "object",
-                          "title": "License",
                           "properties": {
                             "key": {
                               "type": "string"
@@ -4372,7 +4317,6 @@
                       "oneOf": [
                         {
                           "type": "object",
-                          "title": "User",
                           "properties": {
                             "avatar_url": {
                               "type": "string",
@@ -4723,7 +4667,6 @@
                   "oneOf": [
                     {
                       "type": "object",
-                      "title": "User",
                       "properties": {
                         "avatar_url": {
                           "type": "string",
@@ -4899,7 +4842,6 @@
                   "type": "string"
                 },
                 "repo": {
-                  "title": "Repository",
                   "description": "A git repository",
                   "type": "object",
                   "properties": {
@@ -5149,7 +5091,6 @@
                       "oneOf": [
                         {
                           "type": "object",
-                          "title": "License",
                           "properties": {
                             "key": {
                               "type": "string"
@@ -5251,7 +5192,6 @@
                       "oneOf": [
                         {
                           "type": "object",
-                          "title": "User",
                           "properties": {
                             "avatar_url": {
                               "type": "string",
@@ -5602,7 +5542,6 @@
                   "oneOf": [
                     {
                       "type": "object",
-                      "title": "User",
                       "properties": {
                         "avatar_url": {
                           "type": "string",
@@ -5729,7 +5668,6 @@
             "labels": {
               "type": "array",
               "items": {
-                "title": "Label",
                 "type": "object",
                 "properties": {
                   "color": {
@@ -5831,7 +5769,6 @@
               "oneOf": [
                 {
                   "type": "object",
-                  "title": "User",
                   "properties": {
                     "avatar_url": {
                       "type": "string",
@@ -5938,7 +5875,6 @@
               "oneOf": [
                 {
                   "type": "object",
-                  "title": "Milestone",
                   "description": "A collection of related issues and pull requests.",
                   "properties": {
                     "closed_at": {
@@ -5963,7 +5899,6 @@
                       "oneOf": [
                         {
                           "type": "object",
-                          "title": "User",
                           "properties": {
                             "avatar_url": {
                               "type": "string",
@@ -6117,10 +6052,6 @@
                         "closed"
                       ]
                     },
-                    "title": {
-                      "description": "The title of the milestone.",
-                      "type": "string"
-                    },
                     "updated_at": {
                       "type": "string",
                       "format": "date-time"
@@ -6183,7 +6114,6 @@
                     "oneOf": [
                       {
                         "type": "object",
-                        "title": "User",
                         "properties": {
                           "avatar_url": {
                             "type": "string",
@@ -6287,7 +6217,6 @@
                     ]
                   },
                   {
-                    "title": "Team",
                     "description": "Groups of organization members that gives permissions on specified repositories.",
                     "type": "object",
                     "properties": {
@@ -6439,7 +6368,6 @@
             "requested_teams": {
               "type": "array",
               "items": {
-                "title": "Team",
                 "description": "Groups of organization members that gives permissions on specified repositories.",
                 "type": "object",
                 "properties": {
@@ -6609,10 +6537,6 @@
               "type": "string",
               "format": "uri"
             },
-            "title": {
-              "description": "The title of the pull request.",
-              "type": "string"
-            },
             "updated_at": {
               "type": "string",
               "format": "date-time"
@@ -6625,7 +6549,6 @@
               "oneOf": [
                 {
                   "type": "object",
-                  "title": "User",
                   "properties": {
                     "avatar_url": {
                       "type": "string",
@@ -6774,7 +6697,6 @@
           "$ref": "common/repository-webhooks.schema.json"
         },
         "requested_team": {
-          "title": "Team",
           "description": "Groups of organization members that gives permissions on specified repositories.",
           "type": "object",
           "properties": {

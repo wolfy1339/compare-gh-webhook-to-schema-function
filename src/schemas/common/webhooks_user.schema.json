@@ -1,6 +1,6 @@
 {
   "$id": "common/webhooks_user.schema.json",
-  "title": "User",
+  "title": "Webhooks User",
   "properties": {
     "avatar_url": {
       "type": "string",

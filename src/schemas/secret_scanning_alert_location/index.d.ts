@@ -1,6 +1,5 @@
-export * from './created';
+export type * from './created.d.ts';
 
-import { SecretScanningAlertLocationCreatedEvent } from './created';
+import type { SecretScanningAlertLocationCreatedEvent } from './created.d.ts';
 
-export type SecretScanningAlertLocationEvent =
-  SecretScanningAlertLocationCreatedEvent;
+export type SecretScanningAlertLocationEvent = SecretScanningAlertLocationCreatedEvent;

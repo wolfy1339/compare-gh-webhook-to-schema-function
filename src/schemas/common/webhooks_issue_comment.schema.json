@@ -1,11 +1,10 @@
 {
   "$id": "common/webhooks_issue_comment.schema.json",
-  "title": "issue comment",
+  "title": "Webhooks Issue Comment",
   "description": "The [comment](https://docs.github.com/rest/issues/comments#get-an-issue-comment) itself.",
   "type": "object",
   "properties": {
     "author_association": {
-      "title": "AuthorAssociation",
       "description": "How the author is associated with the repository.",
       "type": "string",
       "enum": [
@@ -47,7 +46,6 @@
       "$ref": "integration.schema.json"
     },
     "reactions": {
-      "title": "Reactions",
       "type": "object",
       "properties": {
         "+1": {
@@ -108,7 +106,6 @@
       "oneOf": [
         {
           "type": "object",
-          "title": "User",
           "properties": {
             "avatar_url": {
               "type": "string",

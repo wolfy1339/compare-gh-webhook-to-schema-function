@@ -1,5 +1,8 @@
+// eslint-disable-next-line @typescript-eslint/naming-convention
 import Ajv from 'ajv';
-import type { DefinedError, ErrorObject, ValidateFunction } from 'ajv';
+import type {
+  DefinedError, ErrorObject, ValidateFunction
+} from 'ajv';
 import addFormats from 'ajv-formats';
 import fs from 'fs';
 import type { JSONSchema7 } from 'json-schema';
@@ -9,6 +12,7 @@ import type { GithubEvent } from './types';
 
 const pathToSchemas = path.join(__dirname, '../schemas');
 
+// eslint-disable-next-line no-undef
 export type Logger = Pick<Console, 'error' | 'info' | 'warn'>;
 
 export class EventValidator<
@@ -53,14 +57,12 @@ export class EventValidator<
   private _readSchemasInDirectory(directory: string): JSONSchema7[] {
     const directoryPath = `${pathToSchemas}/${directory}`;
 
-    // eslint-disable-next-line n/no-sync
     return fs
         .readdirSync(directoryPath)
         .filter(file => file.endsWith('.schema.json'))
         .map(
             file =>
               JSON.parse(
-                  // eslint-disable-next-line n/no-sync
                   fs.readFileSync(`${directoryPath}/${file}`, 'utf-8')
               ) as JSONSchema7
         );

@@ -1,3 +1,4 @@
 {
-  "$id": "common/webhooks_nullable_string.schema.json"
+  "$id": "common/webhooks_nullable_string.schema.json",
+  "title": "webhooks_nullable_string"
 }

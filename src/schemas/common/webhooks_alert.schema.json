@@ -36,7 +36,6 @@
       "oneOf": [
         {
           "type": "object",
-          "title": "User",
           "required": [
             "login",
             "id"

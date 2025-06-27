@@ -19,7 +19,6 @@
       "description": "An array of commit objects describing the pushed commits. (Pushed commits are all commits that are included in the `compare` between the `before` commit and the `after` commit.) The array includes a maximum of 2048 commits. If necessary, you can use the [Commits API](https://docs.github.com/rest/commits) to fetch additional commits.",
       "type": "array",
       "items": {
-        "title": "Commit",
         "type": "object",
         "properties": {
           "added": {
@@ -30,7 +29,6 @@
             }
           },
           "author": {
-            "title": "Committer",
             "description": "Metaproperties for Git author/committer information.",
             "type": "object",
             "properties": {
@@ -63,7 +61,6 @@
             ]
           },
           "committer": {
-            "title": "Committer",
             "description": "Metaproperties for Git author/committer information.",
             "type": "object",
             "properties": {
@@ -169,7 +166,6 @@
       "oneOf": [
         {
           "type": "object",
-          "title": "Commit",
           "properties": {
             "added": {
               "description": "An array of files added in the commit.",
@@ -179,7 +175,6 @@
               }
             },
             "author": {
-              "title": "Committer",
               "description": "Metaproperties for Git author/committer information.",
               "type": "object",
               "properties": {
@@ -212,7 +207,6 @@
               ]
             },
             "committer": {
-              "title": "Committer",
               "description": "Metaproperties for Git author/committer information.",
               "type": "object",
               "properties": {
@@ -306,7 +300,6 @@
       "$ref": "common/organization-simple-webhooks.schema.json"
     },
     "pusher": {
-      "title": "Committer",
       "description": "Metaproperties for Git author/committer information.",
       "type": "object",
       "properties": {
@@ -342,7 +335,6 @@
       "type": "string"
     },
     "repository": {
-      "title": "Repository",
       "description": "A git repository",
       "type": "object",
       "properties": {
@@ -597,7 +589,6 @@
           "oneOf": [
             {
               "type": "object",
-              "title": "License",
               "properties": {
                 "key": {
                   "type": "string"
@@ -682,7 +673,6 @@
           "oneOf": [
             {
               "type": "object",
-              "title": "User",
               "properties": {
                 "avatar_url": {
                   "type": "string",

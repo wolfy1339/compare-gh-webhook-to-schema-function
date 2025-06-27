@@ -1,8 +1,8 @@
-export * from './added';
-export * from './removed';
+export type * from './added.d.ts';
+export type * from './removed.d.ts';
 
-import { InstallationRepositoriesAddedEvent } from './added';
-import { InstallationRepositoriesRemovedEvent } from './removed';
+import type { InstallationRepositoriesAddedEvent } from './added.d.ts';
+import type { InstallationRepositoriesRemovedEvent } from './removed.d.ts';
 
 export type InstallationRepositoriesEvent =
   | InstallationRepositoriesAddedEvent

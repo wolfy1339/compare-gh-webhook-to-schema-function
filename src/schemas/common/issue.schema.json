@@ -72,13 +72,6 @@
         }
       ]
     },
-    "title": {
-      "description": "Title of the issue",
-      "type": "string",
-      "examples": [
-        "Widget creation fails in Safari on OS X 10.8"
-      ]
-    },
     "body": {
       "oneOf": [
         {

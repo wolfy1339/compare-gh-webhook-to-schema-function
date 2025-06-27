@@ -1,13 +1,12 @@
 {
   "$id": "common/webhooks_release.schema.json",
-  "title": "Release",
+  "title": "Webhooks Release",
   "description": "The [release](https://docs.github.com/rest/releases/releases/#get-a-release) object.",
   "type": "object",
   "properties": {
     "assets": {
       "type": "array",
       "items": {
-        "title": "Release Asset",
         "description": "Data related to a release.",
         "type": "object",
         "properties": {
@@ -73,7 +72,6 @@
             "oneOf": [
               {
                 "type": "object",
-                "title": "User",
                 "properties": {
                   "avatar_url": {
                     "type": "string",
@@ -203,7 +201,6 @@
       "oneOf": [
         {
           "type": "object",
-          "title": "User",
           "properties": {
             "avatar_url": {
               "type": "string",
@@ -371,7 +368,6 @@
       ]
     },
     "reactions": {
-      "title": "Reactions",
       "type": "object",
       "properties": {
         "+1": {

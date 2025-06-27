@@ -1,6 +1,6 @@
 {
   "$id": "common/repository-rule-pull-request.schema.json",
-  "title": "pull_request",
+  "title": "Repository Rule Pull Request",
   "description": "Require all commits be made to a non-target branch and submitted via a pull request before they can be merged.",
   "type": "object",
   "required": [

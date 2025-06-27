@@ -1,10 +1,10 @@
-export * from './created';
-export * from './deleted';
-export * from './edited';
+export type * from './created.d.ts';
+export type * from './deleted.d.ts';
+export type * from './edited.d.ts';
 
-import { IssueCommentCreatedEvent } from './created';
-import { IssueCommentDeletedEvent } from './deleted';
-import { IssueCommentEditedEvent } from './edited';
+import type { IssueCommentCreatedEvent } from './created.d.ts';
+import type { IssueCommentDeletedEvent } from './deleted.d.ts';
+import type { IssueCommentEditedEvent } from './edited.d.ts';
 
 export type IssueCommentEvent =
   | IssueCommentCreatedEvent

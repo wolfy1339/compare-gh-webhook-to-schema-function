@@ -25,18 +25,6 @@
           "required": [
             "from"
           ]
-        },
-        "title": {
-          "type": "object",
-          "properties": {
-            "from": {
-              "description": "The previous version of the title.",
-              "type": "string"
-            }
-          },
-          "required": [
-            "from"
-          ]
         }
       }
     },
@@ -47,7 +35,6 @@
       "$ref": "common/simple-installation.schema.json"
     },
     "issue": {
-      "title": "Issue",
       "description": "The [issue](https://docs.github.com/rest/issues/issues#get-an-issue) itself.",
       "type": "object",
       "properties": {
@@ -72,7 +59,6 @@
           "oneOf": [
             {
               "type": "object",
-              "title": "User",
               "properties": {
                 "avatar_url": {
                   "type": "string",
@@ -182,7 +168,6 @@
             "oneOf": [
               {
                 "type": "object",
-                "title": "User",
                 "properties": {
                   "avatar_url": {
                     "type": "string",
@@ -285,7 +270,6 @@
           }
         },
         "author_association": {
-          "title": "AuthorAssociation",
           "description": "How the author is associated with the repository.",
           "type": "string",
           "enum": [
@@ -350,7 +334,6 @@
         "labels": {
           "type": "array",
           "items": {
-            "title": "Label",
             "type": "object",
             "properties": {
               "color": {
@@ -408,7 +391,6 @@
           "oneOf": [
             {
               "type": "object",
-              "title": "Milestone",
               "description": "A collection of related issues and pull requests.",
               "properties": {
                 "closed_at": {
@@ -433,7 +415,6 @@
                   "oneOf": [
                     {
                       "type": "object",
-                      "title": "User",
                       "properties": {
                         "avatar_url": {
                           "type": "string",
@@ -587,10 +568,6 @@
                     "closed"
                   ]
                 },
-                "title": {
-                  "description": "The title of the milestone.",
-                  "type": "string"
-                },
                 "updated_at": {
                   "type": "string",
                   "format": "date-time"
@@ -634,7 +611,6 @@
           "oneOf": [
             {
               "type": "object",
-              "title": "App",
               "description": "GitHub apps are a new way to extend GitHub. They can be installed directly on organizations and user accounts and granted access to specific repositories. They come with granular permissions and built-in webhooks. GitHub apps are first class actors within GitHub.",
               "properties": {
                 "created_at": {
@@ -752,7 +728,6 @@
                   "oneOf": [
                     {
                       "type": "object",
-                      "title": "User",
                       "properties": {
                         "avatar_url": {
                           "type": "string",
@@ -1173,7 +1148,6 @@
           }
         },
         "reactions": {
-          "title": "Reactions",
           "type": "object",
           "properties": {
             "+1": {
@@ -1226,7 +1200,6 @@
           "format": "uri"
         },
         "sub_issues_summary": {
-          "title": "Sub-issues Summary",
           "type": "object",
           "properties": {
             "total": {
@@ -1270,10 +1243,6 @@
         "type": {
           "$ref": "common/issue-type.schema.json"
         },
-        "title": {
-          "description": "Title of the issue",
-          "type": "string"
-        },
         "updated_at": {
           "type": "string",
           "format": "date-time"
@@ -1287,7 +1256,6 @@
           "oneOf": [
             {
               "type": "object",
-              "title": "User",
               "properties": {
                 "avatar_url": {
                   "type": "string",

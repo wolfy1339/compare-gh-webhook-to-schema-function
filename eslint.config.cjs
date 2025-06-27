@@ -1,64 +1,57 @@
 // @ts-nocheck
 const { defineConfig, globalIgnores } = require('eslint/config');
-const typescriptEslint = require('@typescript-eslint/eslint-plugin');
 const globals = require('globals');
-const tsParser = require('@typescript-eslint/parser');
+const ts = require('typescript-eslint');
+// const stylistic = require('@stylistic/eslint-plugin');
 const js = require('@eslint/js');
 const wolfy1339 = require('@hellomouse/eslint-config-wolfy1339');
 const typescript = require('@hellomouse/eslint-config-typescript');
-const jest = require('eslint-plugin-jest');
-
-/**
- * Generates a config for `jest/no-restricted-matchers` that bans all variations
- * of the given base matchers
- *
- * @param {Record<string, string>} matchers
- *
- * @return {Record<string, string>}
- */
-const banMatchers = matchers => {
-  return Object.fromEntries(
-    Object.entries(matchers).flatMap(([matcher, message]) => [
-      [matcher, message],
-      [`resolves.${matcher}`, message],
-      [`resolves.not.${matcher}`, message],
-      [`rejects.not.${matcher}`, message],
-      [`not.${matcher}`, message]
-    ])
-  );
-};
 
 module.exports = defineConfig([
-  globalIgnores(['**/.build/', '**/.serverless/', '**/.tmp/', '**/gh-schemas']),
+  globalIgnores(['**/.build/', '**/.serverless/', '**/.tmp/', '**/gh-schemas', 'lib/**']),
   {
     extends: [js.configs.recommended, typescript, wolfy1339],
     plugins: {
-      '@typescript-eslint': typescriptEslint
+      '@typescript-eslint': ts.plugin
+      // '@stylistic': stylistic
     },
 
     languageOptions: {
       globals: {
         ...globals.node
       },
-      parser: tsParser,
-      ecmaVersion: 2022,
+      parser: ts.parser,
+      ecmaVersion: 2023,
       sourceType: 'module',
       parserOptions: {
-        project: 'tsconfig.json'
+        project: true
       }
     },
 
-    rules: {}
+    rules: {
+      '@stylistic/object-curly-newline': ['error', {
+        ObjectExpression: { multiline: true, consistent: true },
+        ObjectPattern: { multiline: true, consistent: true },
+        TSTypeLiteral: { multiline: true, consistent: true },
+        // TSEnumBody: { multiline: true, consistent: true },
+        ImportDeclaration: { multiline: true, minProperties: 3 },
+        ExportDeclaration: { minProperties: 3 }
+      }],
+      'import/extensions': 'off'
+    }
+  },
+  {
+    files: ['**/*.ts', '**/*.cts', '**/*.mts'],
+    rules: {
+      'no-undef': 'off'
+    }
   },
   {
     files: ['scripts/*.mts'],
 
     languageOptions: {
       ecmaVersion: 2022,
-      sourceType: 'module',
-      parserOptions: {
-        project: 'scripts/tsconfig.json'
-      }
+      sourceType: 'module'
     }
   },
   {

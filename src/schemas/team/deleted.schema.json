@@ -20,7 +20,6 @@
       "$ref": "common/organization-simple-webhooks.schema.json"
     },
     "repository": {
-      "title": "Repository",
       "description": "A git repository",
       "type": "object",
       "properties": {
@@ -270,7 +269,6 @@
           "oneOf": [
             {
               "type": "object",
-              "title": "License",
               "properties": {
                 "key": {
                   "type": "string"
@@ -355,7 +353,6 @@
           "oneOf": [
             {
               "type": "object",
-              "title": "User",
               "properties": {
                 "avatar_url": {
                   "type": "string",

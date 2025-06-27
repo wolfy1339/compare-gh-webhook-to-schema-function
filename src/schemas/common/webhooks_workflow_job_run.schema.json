@@ -36,5 +36,6 @@
     "created_at",
     "updated_at",
     "environment"
-  ]
+  ],
+  "title": "webhooks_workflow_job_run"
 }

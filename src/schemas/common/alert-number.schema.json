@@ -2,5 +2,6 @@
   "$id": "common/alert-number.schema.json",
   "type": "integer",
   "description": "The security alert number.",
-  "readOnly": true
+  "readOnly": true,
+  "title": "alert-number"
 }

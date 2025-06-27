@@ -24,5 +24,6 @@
     "type",
     "state"
   ],
-  "additionalProperties": false
+  "additionalProperties": false,
+  "title": "repository-advisory-credit"
 }

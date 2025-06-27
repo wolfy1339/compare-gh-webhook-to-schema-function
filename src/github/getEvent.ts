@@ -4,6 +4,7 @@ import type { IncomingHttpHeaders } from 'node:http';
 import type { GithubEvent } from './types';
 
 declare global {
+  // eslint-disable-next-line @typescript-eslint/no-namespace
   export namespace NodeJS {
     export interface ProcessEnv {
       GH_WEBHOOK_SECRET: string;

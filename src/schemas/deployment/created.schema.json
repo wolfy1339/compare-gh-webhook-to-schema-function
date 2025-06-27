@@ -11,7 +11,6 @@
       ]
     },
     "deployment": {
-      "title": "Deployment",
       "description": "The [deployment](https://docs.github.com/rest/deployments/deployments#list-deployments).",
       "type": "object",
       "properties": {
@@ -22,7 +21,6 @@
           "oneOf": [
             {
               "type": "object",
-              "title": "User",
               "properties": {
                 "avatar_url": {
                   "type": "string",
@@ -161,7 +159,6 @@
           "oneOf": [
             {
               "type": "object",
-              "title": "App",
               "description": "GitHub apps are a new way to extend GitHub. They can be installed directly on organizations and user accounts and granted access to specific repositories. They come with granular permissions and built-in webhooks. GitHub apps are first class actors within GitHub.",
               "properties": {
                 "created_at": {
@@ -281,7 +278,6 @@
                   "oneOf": [
                     {
                       "type": "object",
-                      "title": "User",
                       "properties": {
                         "avatar_url": {
                           "type": "string",
@@ -739,13 +735,11 @@
       "oneOf": [
         {
           "type": "object",
-          "title": "Deployment Workflow Run",
           "properties": {
             "actor": {
               "oneOf": [
                 {
                   "type": "object",
-                  "title": "User",
                   "properties": {
                     "avatar_url": {
                       "type": "string",
@@ -1129,7 +1123,6 @@
             "pull_requests": {
               "type": "array",
               "items": {
-                "title": "Check Run Pull Request",
                 "type": "object",
                 "properties": {
                   "base": {
@@ -1139,7 +1132,6 @@
                         "type": "string"
                       },
                       "repo": {
-                        "title": "Repo Ref",
                         "type": "object",
                         "properties": {
                           "id": {
@@ -1176,7 +1168,6 @@
                         "type": "string"
                       },
                       "repo": {
-                        "title": "Repo Ref",
                         "type": "object",
                         "properties": {
                           "id": {
@@ -1481,7 +1472,6 @@
               "oneOf": [
                 {
                   "type": "object",
-                  "title": "User",
                   "properties": {
                     "avatar_url": {
                       "type": "string",

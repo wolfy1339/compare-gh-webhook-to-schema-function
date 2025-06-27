@@ -1,5 +1,5 @@
-export * from './created';
+export type * from './created.d.ts';
 
-import { DeploymentStatusCreatedEvent } from './created';
+import type { DeploymentStatusCreatedEvent } from './created.d.ts';
 
 export type DeploymentStatusEvent = DeploymentStatusCreatedEvent;

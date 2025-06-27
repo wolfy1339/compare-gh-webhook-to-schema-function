@@ -1,10 +1,10 @@
-export * from './added';
-export * from './edited';
-export * from './removed';
+export type * from './added.d.ts';
+export type * from './edited.d.ts';
+export type * from './removed.d.ts';
 
-import { MemberAddedEvent } from './added';
-import { MemberEditedEvent } from './edited';
-import { MemberRemovedEvent } from './removed';
+import type { MemberAddedEvent } from './added.d.ts';
+import type { MemberEditedEvent } from './edited.d.ts';
+import type { MemberRemovedEvent } from './removed.d.ts';
 
 export type MemberEvent =
   | MemberAddedEvent

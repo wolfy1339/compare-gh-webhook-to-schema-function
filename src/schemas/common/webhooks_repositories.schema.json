@@ -31,5 +31,6 @@
       "full_name",
       "private"
     ]
-  }
+  },
+  "title": "webhooks_repositories"
 }

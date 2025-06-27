@@ -1,6 +1,6 @@
 {
   "$id": "common/webhooks_team_1.schema.json",
-  "title": "Team",
+  "title": "Webhooks Team 1",
   "description": "Groups of organization members that gives permissions on specified repositories.",
   "type": "object",
   "properties": {

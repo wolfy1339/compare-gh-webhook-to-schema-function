@@ -1,6 +1,6 @@
 {
   "$id": "common/webhooks_label.schema.json",
-  "title": "Label",
+  "title": "Webhooks Label",
   "type": "object",
   "properties": {
     "color": {

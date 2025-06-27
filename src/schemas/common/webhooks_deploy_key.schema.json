@@ -35,9 +35,6 @@
     "read_only": {
       "type": "boolean"
     },
-    "title": {
-      "type": "string"
-    },
     "url": {
       "type": "string",
       "format": "uri"
@@ -57,5 +54,6 @@
     "verified",
     "created_at",
     "read_only"
-  ]
+  ],
+  "title": "webhooks_deploy_key"
 }

@@ -1,5 +1,5 @@
-export * from './renamed';
+export type * from './renamed.d.ts';
 
-import { InstallationTargetRenamedEvent } from './renamed';
+import type { InstallationTargetRenamedEvent } from './renamed.d.ts';
 
 export type InstallationTargetEvent = InstallationTargetRenamedEvent;

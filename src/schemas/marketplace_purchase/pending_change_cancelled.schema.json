@@ -20,7 +20,6 @@
       "$ref": "common/simple-installation.schema.json"
     },
     "marketplace_purchase": {
-      "title": "Marketplace Purchase",
       "type": "object",
       "required": [
         "account",

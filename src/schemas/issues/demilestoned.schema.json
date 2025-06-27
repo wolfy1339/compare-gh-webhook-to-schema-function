@@ -17,7 +17,6 @@
       "$ref": "common/simple-installation.schema.json"
     },
     "issue": {
-      "title": "Issue",
       "description": "The [issue](https://docs.github.com/rest/issues/issues#get-an-issue) itself.",
       "type": "object",
       "required": [
@@ -65,7 +64,6 @@
           "oneOf": [
             {
               "type": "object",
-              "title": "User",
               "required": [
                 "login",
                 "id"
@@ -172,7 +170,6 @@
             "oneOf": [
               {
                 "type": "object",
-                "title": "User",
                 "required": [
                   "login",
                   "id"
@@ -275,7 +272,6 @@
           }
         },
         "author_association": {
-          "title": "AuthorAssociation",
           "description": "How the author is associated with the repository.",
           "type": "string",
           "enum": [
@@ -343,7 +339,6 @@
             "oneOf": [
               {
                 "type": "object",
-                "title": "Label",
                 "required": [
                   "id",
                   "node_id",
@@ -405,7 +400,6 @@
           "oneOf": [
             {
               "type": "object",
-              "title": "Milestone",
               "description": "A collection of related issues and pull requests.",
               "required": [
                 "url",
@@ -448,7 +442,6 @@
                   "oneOf": [
                     {
                       "type": "object",
-                      "title": "User",
                       "required": [
                         "login",
                         "id"
@@ -602,10 +595,6 @@
                     "closed"
                   ]
                 },
-                "title": {
-                  "description": "The title of the milestone.",
-                  "type": "string"
-                },
                 "updated_at": {
                   "type": "string",
                   "format": "date-time"
@@ -631,7 +620,6 @@
           "oneOf": [
             {
               "type": "object",
-              "title": "App",
               "description": "GitHub apps are a new way to extend GitHub. They can be installed directly on organizations and user accounts and granted access to specific repositories. They come with granular permissions and built-in webhooks. GitHub apps are first class actors within GitHub.",
               "required": [
                 "id",
@@ -757,7 +745,6 @@
                   "oneOf": [
                     {
                       "type": "object",
-                      "title": "User",
                       "required": [
                         "login",
                         "id"
@@ -1167,7 +1154,6 @@
           }
         },
         "reactions": {
-          "title": "Reactions",
           "type": "object",
           "required": [
             "url",
@@ -1220,7 +1206,6 @@
           "format": "uri"
         },
         "sub_issues_summary": {
-          "title": "Sub-issues Summary",
           "type": "object",
           "properties": {
             "total": {
@@ -1261,10 +1246,6 @@
           "type": "string",
           "format": "uri"
         },
-        "title": {
-          "description": "Title of the issue",
-          "type": "string"
-        },
         "type": {
           "$ref": "common/issue-type.schema.json"
         },
@@ -1281,7 +1262,6 @@
           "oneOf": [
             {
               "type": "object",
-              "title": "User",
               "required": [
                 "login",
                 "id"

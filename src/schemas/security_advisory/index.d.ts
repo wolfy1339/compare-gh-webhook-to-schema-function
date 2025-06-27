@@ -1,15 +1,12 @@
-export * from './performed';
-export * from './published';
-export * from './updated';
-export * from './withdrawn';
+export type * from './published.d.ts';
+export type * from './updated.d.ts';
+export type * from './withdrawn.d.ts';
 
-import { SecurityAdvisoryPerformedEvent } from './performed';
-import { SecurityAdvisoryPublishedEvent } from './published';
-import { SecurityAdvisoryUpdatedEvent } from './updated';
-import { SecurityAdvisoryWithdrawnEvent } from './withdrawn';
+import type { SecurityAdvisoryPublishedEvent } from './published.d.ts';
+import type { SecurityAdvisoryUpdatedEvent } from './updated.d.ts';
+import type { SecurityAdvisoryWithdrawnEvent } from './withdrawn.d.ts';
 
 export type SecurityAdvisoryEvent =
-  | SecurityAdvisoryPerformedEvent
   | SecurityAdvisoryPublishedEvent
   | SecurityAdvisoryUpdatedEvent
   | SecurityAdvisoryWithdrawnEvent;

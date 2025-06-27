@@ -1,1 +1,1 @@
-export * from './event';
+export type * from './event.d.ts';

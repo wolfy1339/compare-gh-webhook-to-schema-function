@@ -28,7 +28,6 @@
       "oneOf": [
         {
           "type": "object",
-          "title": "User",
           "properties": {
             "avatar_url": {
               "type": "string",
@@ -142,7 +141,6 @@
       ]
     },
     "author_association": {
-      "title": "AuthorAssociation",
       "description": "How the author is associated with the repository.",
       "type": "string",
       "enum": [
@@ -229,7 +227,6 @@
       "type": "integer"
     },
     "reactions": {
-      "title": "Reactions",
       "type": "object",
       "properties": {
         "+1": {
@@ -315,9 +312,6 @@
     "timeline_url": {
       "type": "string"
     },
-    "title": {
-      "type": "string"
-    },
     "updated_at": {
       "type": "string",
       "format": "date-time"
@@ -326,7 +320,6 @@
       "oneOf": [
         {
           "type": "object",
-          "title": "User",
           "properties": {
             "avatar_url": {
               "type": "string",

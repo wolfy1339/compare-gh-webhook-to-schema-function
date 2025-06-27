@@ -411,5 +411,6 @@
     "collaborating_teams",
     "private_fork"
   ],
-  "additionalProperties": false
+  "additionalProperties": false,
+  "title": "repository-advisory"
 }

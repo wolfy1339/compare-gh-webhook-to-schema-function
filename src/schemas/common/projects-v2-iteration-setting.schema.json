@@ -7,9 +7,6 @@
     "id": {
       "type": "string"
     },
-    "title": {
-      "type": "string"
-    },
     "duration": {
       "oneOf": [
         {

@@ -6,5 +6,6 @@
     "disabled",
     "active",
     "evaluate"
-  ]
+  ],
+  "title": "repository-rule-enforcement"
 }

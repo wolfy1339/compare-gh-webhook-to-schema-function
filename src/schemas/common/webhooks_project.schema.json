@@ -1,6 +1,6 @@
 {
   "$id": "common/webhooks_project.schema.json",
-  "title": "Project",
+  "title": "Webhooks Project",
   "type": "object",
   "properties": {
     "body": {
@@ -26,7 +26,6 @@
       "oneOf": [
         {
           "type": "object",
-          "title": "User",
           "properties": {
             "avatar_url": {
               "type": "string",

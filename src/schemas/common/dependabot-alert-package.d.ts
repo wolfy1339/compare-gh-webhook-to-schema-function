@@ -9,11 +9,11 @@
  */
 export interface DependabotAlertPackage {
   /**
-   * The unique package name within its ecosystem.
-   */
-  name: string;
-  /**
    * The package's language or package management ecosystem.
    */
   ecosystem: string;
+  /**
+   * The unique package name within its ecosystem.
+   */
+  name: string;
 }

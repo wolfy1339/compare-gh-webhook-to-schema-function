@@ -3,5 +3,6 @@
   "type": "string",
   "description": "The GitHub URL of the alert resource.",
   "format": "uri",
-  "readOnly": true
+  "readOnly": true,
+  "title": "alert-html-url"
 }

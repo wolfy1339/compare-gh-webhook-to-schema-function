@@ -166,7 +166,6 @@
         "steps": {
           "type": "array",
           "items": {
-            "title": "Workflow Step",
             "type": "object",
             "properties": {
               "completed_at": {
