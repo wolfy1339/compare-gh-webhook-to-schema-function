@@ -49,5 +49,6 @@
     "state",
     "updated_at",
     "url"
-  ]
+  ],
+  "type": "object"
 }

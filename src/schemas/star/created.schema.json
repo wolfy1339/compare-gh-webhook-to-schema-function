@@ -26,10 +26,10 @@
       "$ref": "common/simple-user.schema.json"
     },
     "starred_at": {
+      "description": "The time the star was created. This is a timestamp in ISO 8601 format: `YYYY-MM-DDTHH:MM:SSZ`. Will be `null` for the `deleted` action.",
       "oneOf": [
         {
-          "type": "string",
-          "description": "The time the star was created. This is a timestamp in ISO 8601 format: `YYYY-MM-DDTHH:MM:SSZ`. Will be `null` for the `deleted` action."
+          "type": "string"
         },
         {
           "type": "null"

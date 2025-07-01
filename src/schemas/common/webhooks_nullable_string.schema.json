@@ -1,4 +1,13 @@
 {
   "$id": "common/webhooks_nullable_string.schema.json",
-  "title": "webhooks_nullable_string"
+  "title": "webhooks_nullable_string",
+  "oneOf": [
+    {
+      "type": "string"
+    },
+    {
+      "type": "null"
+    }
+  ],
+  "type": "object"
 }

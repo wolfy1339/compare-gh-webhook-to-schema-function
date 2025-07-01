@@ -39,10 +39,10 @@
       ]
     },
     "description": {
+      "description": "Description of the team",
       "oneOf": [
         {
           "type": "string",
-          "description": "Description of the team",
           "examples": [
             "A great team."
           ]

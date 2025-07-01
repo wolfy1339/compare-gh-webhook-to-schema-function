@@ -289,10 +289,10 @@
       ]
     },
     "state_reason": {
+      "description": "The reason for the current state",
       "oneOf": [
         {
           "type": "string",
-          "description": "The reason for the current state",
           "enum": [
             "resolved",
             "outdated",

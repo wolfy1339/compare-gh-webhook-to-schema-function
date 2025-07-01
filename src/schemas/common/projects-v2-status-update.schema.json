@@ -63,10 +63,10 @@
       ]
     },
     "body": {
+      "description": "Body of the status update",
       "oneOf": [
         {
           "type": "string",
-          "description": "Body of the status update",
           "examples": [
             "The project is off to a great start!"
           ]

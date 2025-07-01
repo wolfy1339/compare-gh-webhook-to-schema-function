@@ -93,10 +93,10 @@
       ]
     },
     "repository_count": {
+      "description": "The number of repositories the token is requesting access to. This field is only populated when `repository_selection` is `subset`.",
       "oneOf": [
         {
-          "type": "integer",
-          "description": "The number of repositories the token is requesting access to. This field is only populated when `repository_selection` is `subset`."
+          "type": "integer"
         },
         {
           "type": "null"
@@ -104,10 +104,10 @@
       ]
     },
     "repositories": {
+      "description": "An array of repository objects the token is requesting access to. This field is only populated when `repository_selection` is `subset`.",
       "oneOf": [
         {
           "type": "array",
-          "description": "An array of repository objects the token is requesting access to. This field is only populated when `repository_selection` is `subset`.",
           "items": {
             "type": "object",
             "properties": {
@@ -161,10 +161,10 @@
       "description": "Whether the associated fine-grained personal access token has expired."
     },
     "token_expires_at": {
+      "description": "Date and time when the associated fine-grained personal access token expires.",
       "oneOf": [
         {
-          "type": "string",
-          "description": "Date and time when the associated fine-grained personal access token expires."
+          "type": "string"
         },
         {
           "type": "null"
@@ -172,10 +172,10 @@
       ]
     },
     "token_last_used_at": {
+      "description": "Date and time when the associated fine-grained personal access token was last used for authentication.",
       "oneOf": [
         {
-          "type": "string",
-          "description": "Date and time when the associated fine-grained personal access token was last used for authentication."
+          "type": "string"
         },
         {
           "type": "null"

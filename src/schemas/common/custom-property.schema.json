@@ -59,10 +59,10 @@
       "description": "Default value of the property"
     },
     "description": {
+      "description": "Short description of the property",
       "oneOf": [
         {
-          "type": "string",
-          "description": "Short description of the property"
+          "type": "string"
         },
         {
           "type": "null"
@@ -70,6 +70,7 @@
       ]
     },
     "allowed_values": {
+      "description": "An ordered list of the allowed values of the property.\nThe property can have up to 200 allowed values.",
       "oneOf": [
         {
           "type": "array",
@@ -77,8 +78,7 @@
             "type": "string",
             "maxLength": 75
           },
-          "maxItems": 200,
-          "description": "An ordered list of the allowed values of the property.\nThe property can have up to 200 allowed values."
+          "maxItems": 200
         },
         {
           "type": "null"
@@ -86,6 +86,7 @@
       ]
     },
     "values_editable_by": {
+      "description": "Who can edit the values of the property",
       "oneOf": [
         {
           "type": "string",
@@ -94,7 +95,6 @@
             "org_and_repo_actors",
             null
           ],
-          "description": "Who can edit the values of the property",
           "examples": [
             "org_actors"
           ]

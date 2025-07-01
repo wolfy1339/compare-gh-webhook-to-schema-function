@@ -142,10 +142,10 @@
           ]
         },
         "head_branch": {
+          "description": "The name of the current branch.",
           "oneOf": [
             {
-              "type": "string",
-              "description": "The name of the current branch."
+              "type": "string"
             },
             {
               "type": "null"
@@ -153,10 +153,10 @@
           ]
         },
         "workflow_name": {
+          "description": "The name of the workflow.",
           "oneOf": [
             {
-              "type": "string",
-              "description": "The name of the workflow."
+              "type": "string"
             },
             {
               "type": "null"

@@ -10,10 +10,10 @@
       "readOnly": true
     },
     "cve_id": {
+      "description": "The unique CVE ID assigned to the advisory.",
       "oneOf": [
         {
           "type": "string",
-          "description": "The unique CVE ID assigned to the advisory.",
           "readOnly": true
         },
         {
@@ -64,10 +64,10 @@
           "readOnly": true
         },
         "vector_string": {
+          "description": "The full CVSS vector string for the advisory.",
           "oneOf": [
             {
               "type": "string",
-              "description": "The full CVSS vector string for the advisory.",
               "readOnly": true
             },
             {
@@ -181,10 +181,10 @@
       "readOnly": true
     },
     "withdrawn_at": {
+      "description": "The time that the advisory was withdrawn in ISO 8601 format: `YYYY-MM-DDTHH:MM:SSZ`.",
       "oneOf": [
         {
           "type": "string",
-          "description": "The time that the advisory was withdrawn in ISO 8601 format: `YYYY-MM-DDTHH:MM:SSZ`.",
           "format": "date-time",
           "readOnly": true
         },

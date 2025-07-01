@@ -49,10 +49,10 @@
       ]
     },
     "description": {
+      "description": "The repository description.",
       "oneOf": [
         {
           "type": "string",
-          "description": "The repository description.",
           "examples": [
             "This your first repo!"
           ]

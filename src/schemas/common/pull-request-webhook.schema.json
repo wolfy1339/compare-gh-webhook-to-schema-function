@@ -63,5 +63,6 @@
       }
     }
   ],
-  "title": "pull-request-webhook"
+  "title": "pull-request-webhook",
+  "type": "object"
 }

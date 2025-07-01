@@ -49,10 +49,10 @@
           "type": "integer"
         },
         "line": {
+          "description": "The line of the blob to which the comment applies. The last line of the range for a multi-line comment",
           "oneOf": [
             {
-              "type": "integer",
-              "description": "The line of the blob to which the comment applies. The last line of the range for a multi-line comment"
+              "type": "integer"
             },
             {
               "type": "null"
@@ -64,10 +64,10 @@
           "type": "string"
         },
         "path": {
+          "description": "The relative path of the file to which the comment applies.",
           "oneOf": [
             {
-              "type": "string",
-              "description": "The relative path of the file to which the comment applies."
+              "type": "string"
             },
             {
               "type": "null"
@@ -75,10 +75,10 @@
           ]
         },
         "position": {
+          "description": "The line index in the diff to which the comment applies.",
           "oneOf": [
             {
-              "type": "integer",
-              "description": "The line index in the diff to which the comment applies."
+              "type": "integer"
             },
             {
               "type": "null"

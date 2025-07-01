@@ -53,10 +53,10 @@
       ]
     },
     "state_reason": {
+      "description": "The reason for the current state",
       "oneOf": [
         {
           "type": "string",
-          "description": "The reason for the current state",
           "enum": [
             "completed",
             "reopened",
@@ -73,10 +73,10 @@
       ]
     },
     "body": {
+      "description": "Contents of the issue",
       "oneOf": [
         {
           "type": "string",
-          "description": "Contents of the issue",
           "examples": [
             "It looks like the new widget form is broken on Safari. When I try and create the widget, Safari crashes. This is reproducible on 10.8, but not 10.9. Maybe a browser bug?"
           ]

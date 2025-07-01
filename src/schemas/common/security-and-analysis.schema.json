@@ -88,5 +88,6 @@
       }
     }
   },
-  "title": "security-and-analysis"
+  "title": "security-and-analysis",
+  "type": "object"
 }

@@ -134,10 +134,10 @@
           "$ref": "common/code-scanning-alert-dismissed-comment.schema.json"
         },
         "dismissed_reason": {
+          "description": "The reason for dismissing or closing the alert.",
           "oneOf": [
             {
               "type": "string",
-              "description": "The reason for dismissing or closing the alert.",
               "enum": [
                 "false positive",
                 "won't fix",
@@ -264,10 +264,10 @@
               ]
             },
             "help_uri": {
+              "description": "A link to the documentation for the rule used to detect the alert.",
               "oneOf": [
                 {
-                  "type": "string",
-                  "description": "A link to the documentation for the rule used to detect the alert."
+                  "type": "string"
                 },
                 {
                   "type": "null"
@@ -282,10 +282,10 @@
               "type": "string"
             },
             "severity": {
+              "description": "The severity of the alert.",
               "oneOf": [
                 {
                   "type": "string",
-                  "description": "The severity of the alert.",
                   "enum": [
                     "none",
                     "note",
@@ -345,10 +345,10 @@
               "type": "string"
             },
             "version": {
+              "description": "The version of the tool used to detect the alert.",
               "oneOf": [
                 {
-                  "type": "string",
-                  "description": "The version of the tool used to detect the alert."
+                  "type": "string"
                 },
                 {
                   "type": "null"

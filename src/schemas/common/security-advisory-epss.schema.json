@@ -1,7 +1,6 @@
 {
   "$id": "common/security-advisory-epss.schema.json",
   "readOnly": true,
-  "description": "The EPSS scores as calculated by the [Exploit Prediction Scoring System](https://www.first.org/epss).",
   "properties": {
     "percentage": {
       "type": "number",
@@ -14,5 +13,6 @@
       "maximum": 100
     }
   },
-  "title": "security-advisory-epss"
+  "title": "security-advisory-epss",
+  "type": "object"
 }

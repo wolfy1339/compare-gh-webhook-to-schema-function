@@ -127,10 +127,10 @@
               "format": "uri"
             },
             "id": {
+              "description": "Unique identifier of the GitHub app",
               "oneOf": [
                 {
-                  "type": "integer",
-                  "description": "Unique identifier of the GitHub app"
+                  "type": "integer"
                 },
                 {
                   "type": "null"
@@ -138,10 +138,10 @@
               ]
             },
             "client_id": {
+              "description": "Client ID of the GitHub app",
               "oneOf": [
                 {
-                  "type": "string",
-                  "description": "Client ID of the GitHub app"
+                  "type": "string"
                 },
                 {
                   "type": "null"
@@ -557,10 +557,10 @@
           "format": "uri"
         },
         "conclusion": {
+          "description": "The summary conclusion for all check runs that are part of the check suite. This value will be `null` until the check run has completed.",
           "oneOf": [
             {
               "type": "string",
-              "description": "The summary conclusion for all check runs that are part of the check suite. This value will be `null` until the check run has completed.",
               "enum": [
                 "success",
                 "failure",
@@ -583,10 +583,10 @@
           "format": "date-time"
         },
         "head_branch": {
+          "description": "The head branch name the changes are on.",
           "oneOf": [
             {
-              "type": "string",
-              "description": "The head branch name the changes are on."
+              "type": "string"
             },
             {
               "type": "null"
@@ -800,10 +800,10 @@
           "type": "boolean"
         },
         "status": {
+          "description": "The summary status for all check runs that are part of the check suite. Can be `requested`, `in_progress`, or `completed`.",
           "oneOf": [
             {
               "type": "string",
-              "description": "The summary status for all check runs that are part of the check suite. Can be `requested`, `in_progress`, or `completed`.",
               "enum": [
                 "requested",
                 "in_progress",

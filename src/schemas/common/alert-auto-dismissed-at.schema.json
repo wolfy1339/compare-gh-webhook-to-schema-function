@@ -1,6 +1,5 @@
 {
   "$id": "common/alert-auto-dismissed-at.schema.json",
-  "description": "The time that the alert was auto-dismissed in ISO 8601 format: `YYYY-MM-DDTHH:MM:SSZ`.",
   "format": "date-time",
   "readOnly": true,
   "type": "string",

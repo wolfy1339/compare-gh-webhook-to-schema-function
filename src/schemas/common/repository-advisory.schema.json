@@ -9,10 +9,10 @@
       "readOnly": true
     },
     "cve_id": {
+      "description": "The Common Vulnerabilities and Exposures (CVE) ID.",
       "oneOf": [
         {
-          "type": "string",
-          "description": "The Common Vulnerabilities and Exposures (CVE) ID."
+          "type": "string"
         },
         {
           "type": "null"
@@ -37,10 +37,10 @@
       "maxLength": 1024
     },
     "description": {
+      "description": "A detailed description of what the advisory entails.",
       "oneOf": [
         {
           "type": "string",
-          "description": "A detailed description of what the advisory entails.",
           "maxLength": 65535
         },
         {
@@ -49,10 +49,10 @@
       ]
     },
     "severity": {
+      "description": "The severity of the advisory.",
       "oneOf": [
         {
           "type": "string",
-          "description": "The severity of the advisory.",
           "enum": [
             "critical",
             "high",
@@ -123,11 +123,11 @@
       ]
     },
     "created_at": {
+      "description": "The date and time of when the advisory was created, in ISO 8601 format.",
       "oneOf": [
         {
           "type": "string",
           "format": "date-time",
-          "description": "The date and time of when the advisory was created, in ISO 8601 format.",
           "readOnly": true
         },
         {
@@ -136,11 +136,11 @@
       ]
     },
     "updated_at": {
+      "description": "The date and time of when the advisory was last updated, in ISO 8601 format.",
       "oneOf": [
         {
           "type": "string",
           "format": "date-time",
-          "description": "The date and time of when the advisory was last updated, in ISO 8601 format.",
           "readOnly": true
         },
         {
@@ -149,11 +149,11 @@
       ]
     },
     "published_at": {
+      "description": "The date and time of when the advisory was published, in ISO 8601 format.",
       "oneOf": [
         {
           "type": "string",
           "format": "date-time",
-          "description": "The date and time of when the advisory was published, in ISO 8601 format.",
           "readOnly": true
         },
         {
@@ -162,11 +162,11 @@
       ]
     },
     "closed_at": {
+      "description": "The date and time of when the advisory was closed, in ISO 8601 format.",
       "oneOf": [
         {
           "type": "string",
           "format": "date-time",
-          "description": "The date and time of when the advisory was closed, in ISO 8601 format.",
           "readOnly": true
         },
         {
@@ -175,11 +175,11 @@
       ]
     },
     "withdrawn_at": {
+      "description": "The date and time of when the advisory was withdrawn, in ISO 8601 format.",
       "oneOf": [
         {
           "type": "string",
           "format": "date-time",
-          "description": "The date and time of when the advisory was withdrawn, in ISO 8601 format.",
           "readOnly": true
         },
         {
@@ -227,10 +227,10 @@
           "type": "object",
           "properties": {
             "vector_string": {
+              "description": "The CVSS vector.",
               "oneOf": [
                 {
-                  "type": "string",
-                  "description": "The CVSS vector."
+                  "type": "string"
                 },
                 {
                   "type": "null"
@@ -238,10 +238,10 @@
               ]
             },
             "score": {
+              "description": "The CVSS score.",
               "oneOf": [
                 {
                   "type": "number",
-                  "description": "The CVSS score.",
                   "minimum": 0,
                   "maximum": 10,
                   "readOnly": true
@@ -295,10 +295,10 @@
       ]
     },
     "cwe_ids": {
+      "description": "A list of only the CWE IDs.",
       "oneOf": [
         {
           "type": "array",
-          "description": "A list of only the CWE IDs.",
           "items": {
             "type": "string"
           }
@@ -345,10 +345,10 @@
       ]
     },
     "collaborating_users": {
+      "description": "A list of users that collaborate on the advisory.",
       "oneOf": [
         {
           "type": "array",
-          "description": "A list of users that collaborate on the advisory.",
           "items": {
             "$ref": "simple-user.schema.json"
           }
@@ -359,10 +359,10 @@
       ]
     },
     "collaborating_teams": {
+      "description": "A list of teams that collaborate on the advisory.",
       "oneOf": [
         {
           "type": "array",
-          "description": "A list of teams that collaborate on the advisory.",
           "items": {
             "$ref": "team.schema.json"
           }

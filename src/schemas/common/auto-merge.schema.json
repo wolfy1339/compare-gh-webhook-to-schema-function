@@ -1,7 +1,6 @@
 {
   "$id": "common/auto-merge.schema.json",
   "title": "Auto merge",
-  "description": "The status of auto merging a pull request.",
   "properties": {
     "enabled_by": {
       "$ref": "simple-user.schema.json"
@@ -29,5 +28,6 @@
     "merge_method",
     "commit_title",
     "commit_message"
-  ]
+  ],
+  "type": "object"
 }

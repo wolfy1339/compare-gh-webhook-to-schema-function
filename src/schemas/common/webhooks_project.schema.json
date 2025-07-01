@@ -4,10 +4,10 @@
   "type": "object",
   "properties": {
     "body": {
+      "description": "Body of the project",
       "oneOf": [
         {
-          "type": "string",
-          "description": "Body of the project"
+          "type": "string"
         },
         {
           "type": "null"

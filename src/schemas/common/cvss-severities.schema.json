@@ -7,10 +7,10 @@
           "type": "object",
           "properties": {
             "vector_string": {
+              "description": "The CVSS 3 vector string.",
               "oneOf": [
                 {
-                  "type": "string",
-                  "description": "The CVSS 3 vector string."
+                  "type": "string"
                 },
                 {
                   "type": "null"
@@ -18,10 +18,10 @@
               ]
             },
             "score": {
+              "description": "The CVSS 3 score.",
               "oneOf": [
                 {
                   "type": "number",
-                  "description": "The CVSS 3 score.",
                   "minimum": 0,
                   "maximum": 10,
                   "readOnly": true
@@ -48,10 +48,10 @@
           "type": "object",
           "properties": {
             "vector_string": {
+              "description": "The CVSS 4 vector string.",
               "oneOf": [
                 {
-                  "type": "string",
-                  "description": "The CVSS 4 vector string."
+                  "type": "string"
                 },
                 {
                   "type": "null"
@@ -59,10 +59,10 @@
               ]
             },
             "score": {
+              "description": "The CVSS 4 score.",
               "oneOf": [
                 {
                   "type": "number",
-                  "description": "The CVSS 4 score.",
                   "minimum": 0,
                   "maximum": 10,
                   "readOnly": true
@@ -84,5 +84,6 @@
       ]
     }
   },
-  "title": "cvss-severities"
+  "title": "cvss-severities",
+  "type": "object"
 }

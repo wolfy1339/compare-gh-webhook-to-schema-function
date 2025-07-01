@@ -71,8 +71,10 @@ export function convertToJSONSchema(oasWebhooks) {
   /**
    *
    * @param obj
+   * @param key
+   * @param currentKey
    */
-  function processSchema(obj) {
+  function processSchema(obj, currentKey) {
     if (typeof obj !== 'object' || obj === null) {
       return obj;
     }
@@ -93,9 +95,12 @@ export function convertToJSONSchema(oasWebhooks) {
         } else if (obj.type.includes('null')) {
           if (obj.type.length === 2) {
             const type = obj.type.find(t => t !== 'null');
+            const description = obj.description;
 
             delete obj.type;
+            delete obj.description;
             obj = {
+              description,
               oneOf: [{ type, ...obj }, { type: 'null' }]
             };
           } else {
@@ -130,7 +135,7 @@ export function convertToJSONSchema(oasWebhooks) {
           JSONSchema.definitions[refName] =
             oasWebhooks.components.schemas[refName];
 
-          processSchema(JSONSchema.definitions[refName]);
+          processSchema(JSONSchema.definitions[refName], refName);
         }
 
         obj[key] = `#/definitions/${refName}`;
@@ -141,10 +146,10 @@ export function convertToJSONSchema(oasWebhooks) {
           delete obj.anyOf;
         } else {
           // Recursively process each item in the anyOf array
-          obj[key] = obj[key].map(processSchema);
+          obj[key] = obj[key].map(e => processSchema(e, key));
         }
       } else {
-        obj[key] = processSchema(obj[key]);
+        obj[key] = processSchema(obj[key], key);
       }
     }
 
@@ -176,7 +181,10 @@ export function convertToJSONSchema(oasWebhooks) {
   for (const key of Object.keys(JSONSchema.definitions)) {
     const schema = JSONSchema.definitions[key];
 
-    JSONSchema.definitions[key] = processSchema(JSONSchema.definitions[key]);
+    JSONSchema.definitions[key] = processSchema(JSONSchema.definitions[key], key);
+    if (typeof schema !== 'object' || schema === null) {
+      continue;
+    }
     if (!('oneOf' in schema) && !('anyOf' in schema)) {
       JSONSchema.definitions[key].title ??= key.split(/-_/).join(' ');
     }
@@ -259,10 +267,17 @@ export function convertToJSONSchema(oasWebhooks) {
     if (key === 'webhooks_ref_0') {
       JSONSchema.definitions[key].title = 'Webhooks Ref';
     }
+    if (key === 'webhooks_nullable_string') {
+      JSONSchema.definitions[key].oneOf = [
+        { type: 'string' },
+        { type: 'null' }
+      ];
+    }
 
     for (const prop of Object.keys(JSONSchema.definitions[key])) {
       removeTitle(JSONSchema.definitions[key][prop]);
     }
+    JSONSchema.definitions[key].type = JSONSchema.definitions[key].type || 'object';
   }
 
   return JSONSchema;

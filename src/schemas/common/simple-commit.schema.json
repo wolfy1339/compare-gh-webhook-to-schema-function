@@ -31,10 +31,10 @@
       ]
     },
     "author": {
+      "description": "Information about the Git author",
       "oneOf": [
         {
           "type": "object",
-          "description": "Information about the Git author",
           "properties": {
             "name": {
               "description": "Name of the commit's author",
@@ -63,10 +63,10 @@
       ]
     },
     "committer": {
+      "description": "Information about the Git committer",
       "oneOf": [
         {
           "type": "object",
-          "description": "Information about the Git committer",
           "properties": {
             "name": {
               "description": "Name of the commit's committer",

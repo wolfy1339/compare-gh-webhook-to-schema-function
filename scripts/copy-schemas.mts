@@ -9,6 +9,7 @@ const dotComOpenApiSchema = schemas['api.github.com'];
 const outDir = 'src/schemas';
 const webhooksSchema = convertToJSONSchema(dotComOpenApiSchema);
 
+fs.writeFileSync('webhooks.schema.json', `${JSON.stringify(webhooksSchema, null, 2)}\n`);
 fs.mkdirSync(`${outDir}/common`, { recursive: true });
 
 // splits the schema.json in @octokit/webhooks-definitions into

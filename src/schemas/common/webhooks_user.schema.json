@@ -97,5 +97,6 @@
   "required": [
     "login",
     "id"
-  ]
+  ],
+  "type": "object"
 }

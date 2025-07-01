@@ -15,10 +15,10 @@
       "type": "object",
       "properties": {
         "created_at": {
+          "description": "The time that the alert was created in ISO 8601 format: `YYYY-MM-DDTHH:MM:SSZ.`",
           "oneOf": [
             {
               "type": "string",
-              "description": "The time that the alert was created in ISO 8601 format: `YYYY-MM-DDTHH:MM:SSZ.`",
               "format": "date-time"
             },
             {
@@ -157,10 +157,10 @@
               ]
             },
             "help_uri": {
+              "description": "A link to the documentation for the rule used to detect the alert.",
               "oneOf": [
                 {
-                  "type": "string",
-                  "description": "A link to the documentation for the rule used to detect the alert."
+                  "type": "string"
                 },
                 {
                   "type": "null"
@@ -175,10 +175,10 @@
               "type": "string"
             },
             "severity": {
+              "description": "The severity of the alert.",
               "oneOf": [
                 {
                   "type": "string",
-                  "description": "The severity of the alert.",
                   "enum": [
                     "none",
                     "note",
@@ -213,10 +213,10 @@
           ]
         },
         "state": {
+          "description": "State of a code scanning alert. Events for alerts found outside the default branch will return a `null` value until they are dismissed or fixed.",
           "oneOf": [
             {
               "type": "string",
-              "description": "State of a code scanning alert. Events for alerts found outside the default branch will return a `null` value until they are dismissed or fixed.",
               "enum": [
                 "open",
                 "dismissed",
@@ -248,10 +248,10 @@
                   "type": "string"
                 },
                 "version": {
+                  "description": "The version of the tool used to detect the alert.",
                   "oneOf": [
                     {
-                      "type": "string",
-                      "description": "The version of the tool used to detect the alert."
+                      "type": "string"
                     },
                     {
                       "type": "null"

@@ -12,11 +12,11 @@
       "type": "string"
     },
     "client_payload": {
+      "description": "The `client_payload` that was specified in the `POST /repos/{owner}/{repo}/dispatches` request body.",
       "oneOf": [
         {
           "type": "object",
-          "additionalProperties": true,
-          "description": "The `client_payload` that was specified in the `POST /repos/{owner}/{repo}/dispatches` request body."
+          "additionalProperties": true
         },
         {
           "type": "null"

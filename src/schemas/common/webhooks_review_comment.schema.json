@@ -94,10 +94,10 @@
       "type": "integer"
     },
     "line": {
+      "description": "The line of the blob to which the comment applies. The last line of the range for a multi-line comment",
       "oneOf": [
         {
-          "type": "integer",
-          "description": "The line of the blob to which the comment applies. The last line of the range for a multi-line comment"
+          "type": "integer"
         },
         {
           "type": "null"
@@ -121,10 +121,10 @@
       "type": "integer"
     },
     "original_start_line": {
+      "description": "The first line of the range for a multi-line comment.",
       "oneOf": [
         {
-          "type": "integer",
-          "description": "The first line of the range for a multi-line comment."
+          "type": "integer"
         },
         {
           "type": "null"
@@ -136,10 +136,10 @@
       "type": "string"
     },
     "position": {
+      "description": "The line index in the diff to which the comment applies.",
       "oneOf": [
         {
-          "type": "integer",
-          "description": "The line index in the diff to which the comment applies."
+          "type": "integer"
         },
         {
           "type": "null"
@@ -147,10 +147,10 @@
       ]
     },
     "pull_request_review_id": {
+      "description": "The ID of the pull request review to which the comment belongs.",
       "oneOf": [
         {
-          "type": "integer",
-          "description": "The ID of the pull request review to which the comment belongs."
+          "type": "integer"
         },
         {
           "type": "null"
@@ -219,10 +219,10 @@
       ]
     },
     "start_line": {
+      "description": "The first line of the range for a multi-line comment.",
       "oneOf": [
         {
-          "type": "integer",
-          "description": "The first line of the range for a multi-line comment."
+          "type": "integer"
         },
         {
           "type": "null"
@@ -230,10 +230,10 @@
       ]
     },
     "start_side": {
+      "description": "The side of the first line of the range for a multi-line comment.",
       "oneOf": [
         {
           "type": "string",
-          "description": "The side of the first line of the range for a multi-line comment.",
           "enum": [
             "LEFT",
             "RIGHT",

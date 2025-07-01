@@ -31,10 +31,10 @@
           "readOnly": true
         },
         "scope": {
+          "description": "The execution scope of the vulnerable dependency.",
           "oneOf": [
             {
               "type": "string",
-              "description": "The execution scope of the vulnerable dependency.",
               "readOnly": true,
               "enum": [
                 "development",
@@ -48,10 +48,10 @@
           ]
         },
         "relationship": {
+          "description": "The vulnerable dependency's relationship to your project.\n\n> [!NOTE]\n> We are rolling out support for dependency relationship across ecosystems. This value will be \"unknown\" for all dependencies in unsupported ecosystems.\n",
           "oneOf": [
             {
               "type": "string",
-              "description": "The vulnerable dependency's relationship to your project.\n\n> [!NOTE]\n> We are rolling out support for dependency relationship across ecosystems. This value will be \"unknown\" for all dependencies in unsupported ecosystems.\n",
               "readOnly": true,
               "enum": [
                 "unknown",
@@ -99,10 +99,10 @@
       ]
     },
     "dismissed_reason": {
+      "description": "The reason that the alert was dismissed.",
       "oneOf": [
         {
           "type": "string",
-          "description": "The reason that the alert was dismissed.",
           "enum": [
             "fix_started",
             "inaccurate",
@@ -118,10 +118,10 @@
       ]
     },
     "dismissed_comment": {
+      "description": "An optional comment associated with the alert's dismissal.",
       "oneOf": [
         {
           "type": "string",
-          "description": "An optional comment associated with the alert's dismissal.",
           "maxLength": 280
         },
         {

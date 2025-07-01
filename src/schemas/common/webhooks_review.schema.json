@@ -51,10 +51,10 @@
       ]
     },
     "body": {
+      "description": "The text of the review.",
       "oneOf": [
         {
-          "type": "string",
-          "description": "The text of the review."
+          "type": "string"
         },
         {
           "type": "null"

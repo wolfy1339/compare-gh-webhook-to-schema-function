@@ -41,10 +41,10 @@
       "description": "The time that the alert was resolved in ISO 8601 format: `YYYY-MM-DDTHH:MM:SSZ`."
     },
     "secret_types": {
+      "description": "List of patterns that were updated. This will be empty for normal backfill scans or custom pattern updates",
       "oneOf": [
         {
           "type": "array",
-          "description": "List of patterns that were updated. This will be empty for normal backfill scans or custom pattern updates",
           "items": {
             "type": "string"
           }
@@ -55,10 +55,10 @@
       ]
     },
     "custom_pattern_name": {
+      "description": "If the scan was triggered by a custom pattern update, this will be the name of the pattern that was updated",
       "oneOf": [
         {
-          "type": "string",
-          "description": "If the scan was triggered by a custom pattern update, this will be the name of the pattern that was updated"
+          "type": "string"
         },
         {
           "type": "null"
@@ -66,10 +66,10 @@
       ]
     },
     "custom_pattern_scope": {
+      "description": "If the scan was triggered by a custom pattern update, this will be the scope of the pattern that was updated",
       "oneOf": [
         {
           "type": "string",
-          "description": "If the scan was triggered by a custom pattern update, this will be the scope of the pattern that was updated",
           "enum": [
             "repository",
             "organization",

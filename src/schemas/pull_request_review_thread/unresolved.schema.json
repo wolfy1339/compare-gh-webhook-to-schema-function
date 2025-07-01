@@ -377,16 +377,16 @@
           ]
         },
         "auto_merge": {
+          "description": "The status of auto merging a pull request.",
           "oneOf": [
             {
               "type": "object",
-              "description": "The status of auto merging a pull request.",
               "properties": {
                 "commit_message": {
+                  "description": "Commit message for the merge commit.",
                   "oneOf": [
                     {
-                      "type": "string",
-                      "description": "Commit message for the merge commit."
+                      "type": "string"
                     },
                     {
                       "type": "null"
@@ -2213,10 +2213,10 @@
           ]
         },
         "milestone": {
+          "description": "A collection of related issues and pull requests.",
           "oneOf": [
             {
               "type": "object",
-              "description": "A collection of related issues and pull requests.",
               "properties": {
                 "closed_at": {
                   "oneOf": [
@@ -2553,10 +2553,10 @@
                     "type": "boolean"
                   },
                   "description": {
+                    "description": "Description of the team",
                     "oneOf": [
                       {
-                        "type": "string",
-                        "description": "Description of the team"
+                        "type": "string"
                       },
                       {
                         "type": "null"
@@ -2588,10 +2588,10 @@
                         "type": "object",
                         "properties": {
                           "description": {
+                            "description": "Description of the team",
                             "oneOf": [
                               {
-                                "type": "string",
-                                "description": "Description of the team"
+                                "type": "string"
                               },
                               {
                                 "type": "null"
@@ -2704,10 +2704,10 @@
                 "type": "boolean"
               },
               "description": {
+                "description": "Description of the team",
                 "oneOf": [
                   {
-                    "type": "string",
-                    "description": "Description of the team"
+                    "type": "string"
                   },
                   {
                     "type": "null"
@@ -2739,10 +2739,10 @@
                     "type": "object",
                     "properties": {
                       "description": {
+                        "description": "Description of the team",
                         "oneOf": [
                           {
-                            "type": "string",
-                            "description": "Description of the team"
+                            "type": "string"
                           },
                           {
                             "type": "null"
@@ -3121,10 +3121,10 @@
                 "type": "integer"
               },
               "line": {
+                "description": "The line of the blob to which the comment applies. The last line of the range for a multi-line comment",
                 "oneOf": [
                   {
-                    "type": "integer",
-                    "description": "The line of the blob to which the comment applies. The last line of the range for a multi-line comment"
+                    "type": "integer"
                   },
                   {
                     "type": "null"
@@ -3148,10 +3148,10 @@
                 "type": "integer"
               },
               "original_start_line": {
+                "description": "The first line of the range for a multi-line comment.",
                 "oneOf": [
                   {
-                    "type": "integer",
-                    "description": "The first line of the range for a multi-line comment."
+                    "type": "integer"
                   },
                   {
                     "type": "null"
@@ -3163,10 +3163,10 @@
                 "type": "string"
               },
               "position": {
+                "description": "The line index in the diff to which the comment applies.",
                 "oneOf": [
                   {
-                    "type": "integer",
-                    "description": "The line index in the diff to which the comment applies."
+                    "type": "integer"
                   },
                   {
                     "type": "null"
@@ -3174,10 +3174,10 @@
                 ]
               },
               "pull_request_review_id": {
+                "description": "The ID of the pull request review to which the comment belongs.",
                 "oneOf": [
                   {
-                    "type": "integer",
-                    "description": "The ID of the pull request review to which the comment belongs."
+                    "type": "integer"
                   },
                   {
                     "type": "null"
@@ -3246,10 +3246,10 @@
                 ]
               },
               "start_line": {
+                "description": "The first line of the range for a multi-line comment.",
                 "oneOf": [
                   {
-                    "type": "integer",
-                    "description": "The first line of the range for a multi-line comment."
+                    "type": "integer"
                   },
                   {
                     "type": "null"
@@ -3257,10 +3257,10 @@
                 ]
               },
               "start_side": {
+                "description": "The side of the first line of the range for a multi-line comment.",
                 "oneOf": [
                   {
                     "type": "string",
-                    "description": "The side of the first line of the range for a multi-line comment.",
                     "enum": [
                       "LEFT",
                       "RIGHT",

@@ -27,10 +27,10 @@
     "assets": {
       "type": "array",
       "items": {
+        "description": "Data related to a release.",
         "oneOf": [
           {
             "type": "object",
-            "description": "Data related to a release.",
             "required": [
               "url",
               "browser_download_url",

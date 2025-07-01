@@ -34,10 +34,10 @@
       ]
     },
     "description": {
+      "description": "Optional description of the label, such as its purpose.",
       "oneOf": [
         {
           "type": "string",
-          "description": "Optional description of the label, such as its purpose.",
           "examples": [
             "Something isn't working"
           ]

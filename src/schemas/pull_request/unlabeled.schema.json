@@ -388,16 +388,16 @@
           ]
         },
         "auto_merge": {
+          "description": "The status of auto merging a pull request.",
           "oneOf": [
             {
               "type": "object",
-              "description": "The status of auto merging a pull request.",
               "properties": {
                 "commit_message": {
+                  "description": "Commit message for the merge commit.",
                   "oneOf": [
                     {
-                      "type": "string",
-                      "description": "Commit message for the merge commit."
+                      "type": "string"
                     },
                     {
                       "type": "null"
@@ -405,10 +405,10 @@
                   ]
                 },
                 "commit_title": {
+                  "description": "Title for the merge commit message.",
                   "oneOf": [
                     {
-                      "type": "string",
-                      "description": "Title for the merge commit message."
+                      "type": "string"
                     },
                     {
                       "type": "null"
@@ -1435,10 +1435,10 @@
               "type": "string"
             },
             "repo": {
+              "description": "A git repository",
               "oneOf": [
                 {
                   "type": "object",
-                  "description": "A git repository",
                   "properties": {
                     "allow_auto_merge": {
                       "description": "Whether to allow auto-merge for pull requests.",
@@ -2472,10 +2472,10 @@
           ]
         },
         "milestone": {
+          "description": "A collection of related issues and pull requests.",
           "oneOf": [
             {
               "type": "object",
-              "description": "A collection of related issues and pull requests.",
               "properties": {
                 "closed_at": {
                   "oneOf": [
@@ -2825,10 +2825,10 @@
                     "type": "boolean"
                   },
                   "description": {
+                    "description": "Description of the team",
                     "oneOf": [
                       {
-                        "type": "string",
-                        "description": "Description of the team"
+                        "type": "string"
                       },
                       {
                         "type": "null"
@@ -2860,10 +2860,10 @@
                         "type": "object",
                         "properties": {
                           "description": {
+                            "description": "Description of the team",
                             "oneOf": [
                               {
-                                "type": "string",
-                                "description": "Description of the team"
+                                "type": "string"
                               },
                               {
                                 "type": "null"
@@ -2985,10 +2985,10 @@
                 "type": "boolean"
               },
               "description": {
+                "description": "Description of the team",
                 "oneOf": [
                   {
-                    "type": "string",
-                    "description": "Description of the team"
+                    "type": "string"
                   },
                   {
                     "type": "null"
@@ -3020,10 +3020,10 @@
                     "type": "object",
                     "properties": {
                       "description": {
+                        "description": "Description of the team",
                         "oneOf": [
                           {
-                            "type": "string",
-                            "description": "Description of the team"
+                            "type": "string"
                           },
                           {
                             "type": "null"

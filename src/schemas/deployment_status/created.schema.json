@@ -27,10 +27,10 @@
               ]
             },
             "conclusion": {
+              "description": "The result of the completed check run. This value will be `null` until the check run has completed.",
               "oneOf": [
                 {
                   "type": "string",
-                  "description": "The result of the completed check run. This value will be `null` until the check run has completed.",
                   "enum": [
                     "success",
                     "failure",
@@ -263,10 +263,10 @@
           ]
         },
         "performed_via_github_app": {
+          "description": "GitHub apps are a new way to extend GitHub. They can be installed directly on organizations and user accounts and granted access to specific repositories. They come with granular permissions and built-in webhooks. GitHub apps are first class actors within GitHub.",
           "oneOf": [
             {
               "type": "object",
-              "description": "GitHub apps are a new way to extend GitHub. They can be installed directly on organizations and user accounts and granted access to specific repositories. They come with granular permissions and built-in webhooks. GitHub apps are first class actors within GitHub.",
               "properties": {
                 "created_at": {
                   "oneOf": [
@@ -364,10 +364,10 @@
                   "format": "uri"
                 },
                 "id": {
+                  "description": "Unique identifier of the GitHub app",
                   "oneOf": [
                     {
-                      "type": "integer",
-                      "description": "Unique identifier of the GitHub app"
+                      "type": "integer"
                     },
                     {
                       "type": "null"
@@ -959,10 +959,10 @@
           "type": "string"
         },
         "performed_via_github_app": {
+          "description": "GitHub apps are a new way to extend GitHub. They can be installed directly on organizations and user accounts and granted access to specific repositories. They come with granular permissions and built-in webhooks. GitHub apps are first class actors within GitHub.",
           "oneOf": [
             {
               "type": "object",
-              "description": "GitHub apps are a new way to extend GitHub. They can be installed directly on organizations and user accounts and granted access to specific repositories. They come with granular permissions and built-in webhooks. GitHub apps are first class actors within GitHub.",
               "properties": {
                 "created_at": {
                   "oneOf": [
@@ -1060,10 +1060,10 @@
                   "format": "uri"
                 },
                 "id": {
+                  "description": "Unique identifier of the GitHub app",
                   "oneOf": [
                     {
-                      "type": "integer",
-                      "description": "Unique identifier of the GitHub app"
+                      "type": "integer"
                     },
                     {
                       "type": "null"

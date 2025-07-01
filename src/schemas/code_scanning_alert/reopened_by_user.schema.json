@@ -138,10 +138,10 @@
               "type": "string"
             },
             "severity": {
+              "description": "The severity of the alert.",
               "oneOf": [
                 {
                   "type": "string",
-                  "description": "The severity of the alert.",
                   "enum": [
                     "none",
                     "note",
@@ -163,10 +163,10 @@
           ]
         },
         "state": {
+          "description": "State of a code scanning alert. Events for alerts found outside the default branch will return a `null` value until they are dismissed or fixed.",
           "oneOf": [
             {
               "type": "string",
-              "description": "State of a code scanning alert. Events for alerts found outside the default branch will return a `null` value until they are dismissed or fixed.",
               "enum": [
                 "open",
                 "fixed",
@@ -186,10 +186,10 @@
               "type": "string"
             },
             "version": {
+              "description": "The version of the tool used to detect the alert.",
               "oneOf": [
                 {
-                  "type": "string",
-                  "description": "The version of the tool used to detect the alert."
+                  "type": "string"
                 },
                 {
                   "type": "null"

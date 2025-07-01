@@ -278,10 +278,10 @@
               ]
             },
             "body": {
+              "description": "Contents of the issue",
               "oneOf": [
                 {
-                  "type": "string",
-                  "description": "Contents of the issue"
+                  "type": "string"
                 },
                 {
                   "type": "null"
@@ -382,10 +382,10 @@
               "type": "boolean"
             },
             "milestone": {
+              "description": "A collection of related issues and pull requests.",
               "oneOf": [
                 {
                   "type": "object",
-                  "description": "A collection of related issues and pull requests.",
                   "properties": {
                     "closed_at": {
                       "oneOf": [
@@ -602,10 +602,10 @@
               "type": "integer"
             },
             "performed_via_github_app": {
+              "description": "GitHub apps are a new way to extend GitHub. They can be installed directly on organizations and user accounts and granted access to specific repositories. They come with granular permissions and built-in webhooks. GitHub apps are first class actors within GitHub.",
               "oneOf": [
                 {
                   "type": "object",
-                  "description": "GitHub apps are a new way to extend GitHub. They can be installed directly on organizations and user accounts and granted access to specific repositories. They come with granular permissions and built-in webhooks. GitHub apps are first class actors within GitHub.",
                   "properties": {
                     "created_at": {
                       "oneOf": [
@@ -700,10 +700,10 @@
                       "format": "uri"
                     },
                     "id": {
+                      "description": "Unique identifier of the GitHub app",
                       "oneOf": [
                         {
-                          "type": "integer",
-                          "description": "Unique identifier of the GitHub app"
+                          "type": "integer"
                         },
                         {
                           "type": "null"

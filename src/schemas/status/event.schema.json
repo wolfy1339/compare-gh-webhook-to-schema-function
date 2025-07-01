@@ -539,10 +539,10 @@
       "type": "string"
     },
     "description": {
+      "description": "The optional human-readable description added to the status.",
       "oneOf": [
         {
-          "type": "string",
-          "description": "The optional human-readable description added to the status."
+          "type": "string"
         },
         {
           "type": "null"
@@ -586,10 +586,10 @@
       ]
     },
     "target_url": {
+      "description": "The optional link added to the status.",
       "oneOf": [
         {
-          "type": "string",
-          "description": "The optional link added to the status."
+          "type": "string"
         },
         {
           "type": "null"
