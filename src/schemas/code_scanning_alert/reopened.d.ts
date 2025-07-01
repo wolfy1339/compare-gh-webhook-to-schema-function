@@ -9,14 +9,23 @@ import type {
 
 export interface CodeScanningAlertReopenedEvent {
   action: 'reopened';
+  /**
+   * The code scanning alert involved in the event.
+   */
   alert: {
     /**
      * The time that the alert was created in ISO 8601 format: `YYYY-MM-DDTHH:MM:SSZ.`
      */
     created_at: string,
+    /**
+     * The time that the alert was dismissed in ISO 8601 format: `YYYY-MM-DDTHH:MM:SSZ`.
+     */
     dismissed_at: string | null,
     dismissed_by: {} | null,
     dismissed_comment?: CodeScanningAlertDismissedComment,
+    /**
+     * The reason for dismissing or closing the alert. Can be one of: `false positive`, `won't fix`, and `used in tests`.
+     */
     dismissed_reason: string | null,
     /**
      * The time that the alert was fixed in ISO 8601 format: `YYYY-MM-DDTHH:MM:SSZ`.
@@ -71,15 +80,24 @@ export interface CodeScanningAlertReopenedEvent {
       description: string,
       full_description?: string,
       help?: string | null,
+      /**
+       * A link to the documentation for the rule used to detect the alert.
+       */
       help_uri?: string | null,
       /**
        * A unique identifier for the rule used to detect the alert.
        */
       id: string,
       name?: string,
+      /**
+       * The severity of the alert.
+       */
       severity: ('none' | 'note' | 'warning' | 'error' | null) | null,
       tags?: string[] | null
     },
+    /**
+     * State of a code scanning alert. Events for alerts found outside the default branch will return a `null` value until they are dismissed or fixed.
+     */
     state: ('open' | 'dismissed' | 'fixed' | null) | null,
     tool: {
       guid?: string | null,
@@ -87,14 +105,23 @@ export interface CodeScanningAlertReopenedEvent {
        * The name of the tool used to generate the code scanning analysis alert.
        */
       name: string,
+      /**
+       * The version of the tool used to detect the alert.
+       */
       version: string | null
     },
     url: string
   } | null;
+  /**
+   * The commit SHA of the code scanning alert. When the action is `reopened_by_user` or `closed_by_user`, the event was triggered by the `sender` and this value will be empty.
+   */
   commit_oid: string | null;
   enterprise?: EnterpriseWebhooks;
   installation?: SimpleInstallation;
   organization?: OrganizationSimple;
+  /**
+   * The Git reference of the code scanning alert. When the action is `reopened_by_user` or `closed_by_user`, the event was triggered by the `sender` and this value will be empty.
+   */
   ref: string | null;
   repository: RepositoryWebhooks;
   sender: SimpleUser;

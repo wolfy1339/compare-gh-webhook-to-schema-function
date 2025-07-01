@@ -5,9 +5,6 @@ import type { Enterprise, SimpleUser } from './index.d.ts';
  * and run json-schema-to-typescript to regenerate this file.
  */
 
-/**
- * GitHub apps are a new way to extend GitHub. They can be installed directly on organizations and user accounts and granted access to specific repositories. They come with granular permissions and built-in webhooks. GitHub apps are first class actors within GitHub.
- */
 export interface GitHubApp {
   /**
    * Unique identifier of the GitHub app

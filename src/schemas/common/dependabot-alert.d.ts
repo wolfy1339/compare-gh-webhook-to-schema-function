@@ -25,7 +25,17 @@ export interface DependabotAlert {
      * The full path to the dependency manifest file, relative to the root of the repository.
      */
     manifest_path?: string,
+    /**
+     * The execution scope of the vulnerable dependency.
+     */
     scope?: ('development' | 'runtime' | null) | null,
+    /**
+     * The vulnerable dependency's relationship to your project.
+     *
+     * > [!NOTE]
+     * > We are rolling out support for dependency relationship across ecosystems. This value will be "unknown" for all dependencies in unsupported ecosystems.
+     *
+     */
     relationship?: ('unknown' | 'direct' | 'transitive' | null) | null
   };
   security_advisory: DependabotAlertSecurityAdvisory;
@@ -36,6 +46,9 @@ export interface DependabotAlert {
   updated_at: AlertUpdatedAt;
   dismissed_at: AlertDismissedAt;
   dismissed_by: null | SimpleUser;
+  /**
+   * The reason that the alert was dismissed.
+   */
   dismissed_reason:
     | (
         | 'fix_started'
@@ -46,6 +59,9 @@ export interface DependabotAlert {
         | null
       )
     | null;
+  /**
+   * An optional comment associated with the alert's dismissal.
+   */
   dismissed_comment: string | null;
   fixed_at: AlertFixedAt;
   auto_dismissed_at?: AlertAutoDismissedAt;

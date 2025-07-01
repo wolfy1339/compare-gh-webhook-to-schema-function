@@ -22,6 +22,9 @@ export interface TeamSimple {
    * Name of the team
    */
   name: string;
+  /**
+   * Description of the team
+   */
   description: string | null;
   /**
    * Permission that the team will have for its repositories

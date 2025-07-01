@@ -4,14 +4,4 @@
  * and run json-schema-to-typescript to regenerate this file.
  */
 
-/**
- * The reason for resolving the alert.
- */
-export type SecretScanningAlertResolutionWebhook =
-  | 'false_positive'
-  | 'wont_fix'
-  | 'revoked'
-  | 'used_in_tests'
-  | 'pattern_deleted'
-  | 'pattern_edited'
-  | null;
+export interface SecretScanningAlertResolutionWebhook {}

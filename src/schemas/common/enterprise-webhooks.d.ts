@@ -10,8 +10,14 @@
  * see "[About enterprise accounts](https://docs.github.com/admin/overview/about-enterprise-accounts)."
  */
 export interface EnterpriseWebhooks {
+  /**
+   * A short description of the enterprise.
+   */
   description?: string | null;
   html_url: string;
+  /**
+   * The enterprise's website URL.
+   */
   website_url?: string | null;
   /**
    * Unique identifier of the enterprise

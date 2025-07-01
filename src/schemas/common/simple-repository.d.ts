@@ -34,6 +34,9 @@ export interface SimpleRepository {
    * The URL to view the repository on GitHub.com.
    */
   html_url: string;
+  /**
+   * The repository description.
+   */
   description: string | null;
   /**
    * Whether the repository is a fork.

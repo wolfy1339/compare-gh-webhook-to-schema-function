@@ -56,6 +56,9 @@ export interface PullRequestReviewComment {
    * The comment ID to reply to.
    */
   in_reply_to_id?: number;
+  /**
+   * The line of the blob to which the comment applies. The last line of the range for a multi-line comment
+   */
   line: number | null;
   /**
    * The node ID of the pull request review comment.
@@ -73,12 +76,21 @@ export interface PullRequestReviewComment {
    * The index of the original line in the diff to which the comment applies.
    */
   original_position: number;
+  /**
+   * The first line of the range for a multi-line comment.
+   */
   original_start_line: number | null;
   /**
    * The relative path of the file to which the comment applies.
    */
   path: string;
+  /**
+   * The line index in the diff to which the comment applies.
+   */
   position: number | null;
+  /**
+   * The ID of the pull request review to which the comment belongs.
+   */
   pull_request_review_id: number | null;
   /**
    * URL for the pull request that the review comment belongs to.
@@ -100,7 +112,13 @@ export interface PullRequestReviewComment {
    * The side of the first line of the range for a multi-line comment.
    */
   side: 'LEFT' | 'RIGHT';
+  /**
+   * The first line of the range for a multi-line comment.
+   */
   start_line: number | null;
+  /**
+   * The side of the first line of the range for a multi-line comment.
+   */
   start_side: ('LEFT' | 'RIGHT' | null) | null;
   /**
    * The level at which the comment is targeted, can be a diff line or a file.

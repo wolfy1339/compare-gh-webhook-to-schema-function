@@ -42,12 +42,21 @@ export interface CommitCommentCreatedEvent {
      * The ID of the commit comment.
      */
     id: number,
+    /**
+     * The line of the blob to which the comment applies. The last line of the range for a multi-line comment
+     */
     line: number | null,
     /**
      * The node ID of the commit comment.
      */
     node_id: string,
+    /**
+     * The relative path of the file to which the comment applies.
+     */
     path: string | null,
+    /**
+     * The line index in the diff to which the comment applies.
+     */
     position: number | null,
     reactions?: {
       '+1': number,

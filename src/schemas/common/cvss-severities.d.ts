@@ -6,11 +6,23 @@
 
 export interface CvssSeverities {
   cvss_v3?: {
+    /**
+     * The CVSS 3 vector string.
+     */
     vector_string: string | null,
+    /**
+     * The CVSS 3 score.
+     */
     score: number | null
   } | null;
   cvss_v4?: {
+    /**
+     * The CVSS 4 vector string.
+     */
     vector_string: string | null,
+    /**
+     * The CVSS 4 score.
+     */
     score: number | null
   } | null;
 }

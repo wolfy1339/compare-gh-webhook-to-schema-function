@@ -45,16 +45,34 @@ export interface WorkflowJobCompletedEvent {
     run_attempt: number,
     run_id: number,
     run_url: string,
+    /**
+     * The ID of the runner group that is running this job. This will be `null` as long as `workflow_job[status]` is `queued`.
+     */
     runner_group_id: number | null,
+    /**
+     * The name of the runner group that is running this job. This will be `null` as long as `workflow_job[status]` is `queued`.
+     */
     runner_group_name: string | null,
+    /**
+     * The ID of the runner that is running this job. This will be `null` as long as `workflow_job[status]` is `queued`.
+     */
     runner_id: number | null,
+    /**
+     * The name of the runner that is running this job. This will be `null` as long as `workflow_job[status]` is `queued`.
+     */
     runner_name: string | null,
     started_at: string,
     /**
      * The current status of the job. Can be `queued`, `in_progress`, `waiting`, or `completed`.
      */
     status: 'queued' | 'in_progress' | 'completed' | 'waiting',
+    /**
+     * The name of the current branch.
+     */
     head_branch: string | null,
+    /**
+     * The name of the workflow.
+     */
     workflow_name: string | null,
     steps: {
       completed_at: string | null,
@@ -97,7 +115,13 @@ export interface WorkflowJobCompletedEvent {
     runner_name?: string | null,
     started_at?: string,
     status?: string,
+    /**
+     * The name of the current branch.
+     */
     head_branch?: string | null,
+    /**
+     * The name of the workflow.
+     */
     workflow_name?: string | null,
     steps?: ({} | null)[],
     url?: string

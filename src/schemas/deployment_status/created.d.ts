@@ -11,6 +11,9 @@ export interface DeploymentStatusCreatedEvent {
   action: 'created';
   check_run?: {
     completed_at: string | null,
+    /**
+     * The result of the completed check run. This value will be `null` until the check run has completed.
+     */
     conclusion:
       | (
           | 'success'
@@ -82,6 +85,9 @@ export interface DeploymentStatusCreatedEvent {
     node_id: string,
     original_environment: string,
     payload: string | {} | null,
+    /**
+     * GitHub apps are a new way to extend GitHub. They can be installed directly on organizations and user accounts and granted access to specific repositories. They come with granular permissions and built-in webhooks. GitHub apps are first class actors within GitHub.
+     */
     performed_via_github_app?: {
       created_at: string | null,
       description: string | null,
@@ -142,6 +148,9 @@ export interface DeploymentStatusCreatedEvent {
       )[],
       external_url: string | null,
       html_url: string,
+      /**
+       * Unique identifier of the GitHub app
+       */
       id: number | null,
       /**
        * The name of the GitHub app
@@ -267,6 +276,9 @@ export interface DeploymentStatusCreatedEvent {
     id: number,
     log_url?: string,
     node_id: string,
+    /**
+     * GitHub apps are a new way to extend GitHub. They can be installed directly on organizations and user accounts and granted access to specific repositories. They come with granular permissions and built-in webhooks. GitHub apps are first class actors within GitHub.
+     */
     performed_via_github_app?: {
       created_at: string | null,
       description: string | null,
@@ -327,6 +339,9 @@ export interface DeploymentStatusCreatedEvent {
       )[],
       external_url: string | null,
       html_url: string,
+      /**
+       * Unique identifier of the GitHub app
+       */
       id: number | null,
       /**
        * The name of the GitHub app

@@ -20,5 +20,8 @@ export interface ProjectsV2StatusUpdate {
     | null;
   start_date?: string;
   target_date?: string;
+  /**
+   * Body of the status update
+   */
   body?: string | null;
 }

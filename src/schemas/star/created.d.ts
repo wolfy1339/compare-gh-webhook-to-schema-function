@@ -14,5 +14,8 @@ export interface StarCreatedEvent {
   organization?: OrganizationSimple;
   repository: RepositoryWebhooks;
   sender: SimpleUser;
+  /**
+   * The time the star was created. This is a timestamp in ISO 8601 format: `YYYY-MM-DDTHH:MM:SSZ`. Will be `null` for the `deleted` action.
+   */
   starred_at: string | null;
 }

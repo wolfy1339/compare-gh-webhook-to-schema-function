@@ -18,8 +18,14 @@ export interface SecretScanningAlertWebhook {
    */
   locations_url?: string;
   resolution?: SecretScanningAlertResolutionWebhook;
+  /**
+   * The time that the alert was resolved in ISO 8601 format: `YYYY-MM-DDTHH:MM:SSZ`.
+   */
   resolved_at?: string | null;
   resolved_by?: null | SimpleUser;
+  /**
+   * An optional comment to resolve an alert.
+   */
   resolution_comment?: string | null;
   /**
    * The type of secret that secret scanning detected.
@@ -34,13 +40,34 @@ export interface SecretScanningAlertWebhook {
    * The token status as of the latest validity check.
    */
   validity?: 'active' | 'inactive' | 'unknown';
+  /**
+   * Whether push protection was bypassed for the detected secret.
+   */
   push_protection_bypassed?: boolean | null;
   push_protection_bypassed_by?: null | SimpleUser;
+  /**
+   * The time that push protection was bypassed in ISO 8601 format: `YYYY-MM-DDTHH:MM:SSZ`.
+   */
   push_protection_bypassed_at?: string | null;
   push_protection_bypass_request_reviewer?: null | SimpleUser;
+  /**
+   * An optional comment when reviewing a push protection bypass.
+   */
   push_protection_bypass_request_reviewer_comment?: string | null;
+  /**
+   * An optional comment when requesting a push protection bypass.
+   */
   push_protection_bypass_request_comment?: string | null;
+  /**
+   * The URL to a push protection bypass request.
+   */
   push_protection_bypass_request_html_url?: string | null;
+  /**
+   * Whether the detected secret was publicly leaked.
+   */
   publicly_leaked?: boolean | null;
+  /**
+   * Whether the detected secret was found in multiple repositories in the same organization or business.
+   */
   multi_repo?: boolean | null;
 }

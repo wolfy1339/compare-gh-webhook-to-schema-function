@@ -21,6 +21,9 @@ export interface Label {
    * The name of the label.
    */
   name: string;
+  /**
+   * Optional description of the label, such as its purpose.
+   */
   description: string | null;
   /**
    * 6-character hex code, without the leading #, identifying the color

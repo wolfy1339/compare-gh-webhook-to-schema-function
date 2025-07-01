@@ -4,9 +4,6 @@
  * and run json-schema-to-typescript to regenerate this file.
  */
 
-/**
- * The type of issue.
- */
 export interface IssueType {
   /**
    * The unique identifier of the issue type.
@@ -20,7 +17,13 @@ export interface IssueType {
    * The name of the issue type.
    */
   name: string;
+  /**
+   * The description of the issue type.
+   */
   description: string | null;
+  /**
+   * The color of the issue type.
+   */
   color?:
     | (
         | 'gray'

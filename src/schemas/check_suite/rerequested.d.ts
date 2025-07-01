@@ -75,7 +75,13 @@ export interface CheckSuiteRerequestedEvent {
       )[],
       external_url: string | null,
       html_url: string,
+      /**
+       * Unique identifier of the GitHub app
+       */
       id: number | null,
+      /**
+       * The Client ID for the GitHub app
+       */
       client_id?: string | null,
       /**
        * The name of the GitHub app
@@ -154,6 +160,9 @@ export interface CheckSuiteRerequestedEvent {
     },
     before: string | null,
     check_runs_url: string,
+    /**
+     * The summary conclusion for all check runs that are part of the check suite. This value will be `null` until the check run has completed.
+     */
     conclusion:
       | (
           | 'success'
@@ -167,6 +176,9 @@ export interface CheckSuiteRerequestedEvent {
         )
       | null,
     created_at: string,
+    /**
+     * The head branch name the changes are on.
+     */
     head_branch: string | null,
     head_commit: {
       /**
@@ -233,6 +245,9 @@ export interface CheckSuiteRerequestedEvent {
     }[],
     rerequestable?: boolean,
     runs_rerequestable?: boolean,
+    /**
+     * The summary status for all check runs that are part of the check suite. Can be `requested`, `in_progress`, or `completed`.
+     */
     status:
       | ('requested' | 'in_progress' | 'completed' | 'queued' | null)
       | null,

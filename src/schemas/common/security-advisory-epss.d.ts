@@ -4,9 +4,6 @@
  * and run json-schema-to-typescript to regenerate this file.
  */
 
-/**
- * The EPSS scores as calculated by the [Exploit Prediction Scoring System](https://www.first.org/epss).
- */
 export interface SecurityAdvisoryEpss {
   percentage?: number;
   percentile?: number;

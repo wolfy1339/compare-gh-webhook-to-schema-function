@@ -37,7 +37,13 @@ export interface WorkflowJobQueuedEvent {
     runner_name: string | null,
     started_at: string,
     status: 'queued' | 'in_progress' | 'completed' | 'waiting',
+    /**
+     * The name of the current branch.
+     */
     head_branch: string | null,
+    /**
+     * The name of the workflow.
+     */
     workflow_name: string | null,
     steps: {
       completed_at: string | null,

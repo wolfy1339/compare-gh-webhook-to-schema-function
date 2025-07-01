@@ -28,6 +28,9 @@ export interface WebhooksReview {
     | 'MEMBER'
     | 'NONE'
     | 'OWNER';
+  /**
+   * The text of the review.
+   */
   body: string | null;
   /**
    * A commit SHA for the review.

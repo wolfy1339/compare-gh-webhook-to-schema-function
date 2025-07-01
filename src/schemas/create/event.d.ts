@@ -8,6 +8,9 @@ import type {
  */
 
 export interface CreateEvent {
+  /**
+   * The repository's current description.
+   */
   description: string | null;
   enterprise?: EnterpriseWebhooks;
   installation?: SimpleInstallation;

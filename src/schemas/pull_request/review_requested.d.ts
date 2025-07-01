@@ -108,8 +108,17 @@ export type PullRequestReviewRequestedEvent =
           | 'MEMBER'
           | 'NONE'
           | 'OWNER',
+      /**
+       * The status of auto merging a pull request.
+       */
       auto_merge: {
+        /**
+         * Commit message for the merge commit.
+         */
         commit_message: string | null,
+        /**
+         * Title for the merge commit message.
+         */
         commit_title: string | null,
         enabled_by: {
           avatar_url?: string,
@@ -711,6 +720,9 @@ export type PullRequestReviewRequestedEvent =
         url?: string,
         user_view_type?: string
       } | null,
+      /**
+       * A collection of related issues and pull requests.
+       */
       milestone: {
         closed_at: string | null,
         closed_issues: number,
@@ -791,6 +803,9 @@ export type PullRequestReviewRequestedEvent =
           } | null)
           | {
             deleted?: boolean,
+            /**
+             * Description of the team
+             */
             description: string | null,
             html_url: string,
             /**
@@ -804,6 +819,9 @@ export type PullRequestReviewRequestedEvent =
             name: string,
             node_id: string,
             parent?: {
+              /**
+               * Description of the team
+               */
               description: string | null,
               html_url: string,
               /**
@@ -843,6 +861,9 @@ export type PullRequestReviewRequestedEvent =
       )[],
       requested_teams: {
         deleted?: boolean,
+        /**
+         * Description of the team
+         */
         description?: string | null,
         html_url?: string,
         /**
@@ -856,6 +877,9 @@ export type PullRequestReviewRequestedEvent =
         name: string,
         node_id?: string,
         parent?: {
+          /**
+           * Description of the team
+           */
           description: string | null,
           html_url: string,
           /**
@@ -1054,8 +1078,17 @@ export type PullRequestReviewRequestedEvent =
           | 'MEMBER'
           | 'NONE'
           | 'OWNER',
+      /**
+       * The status of auto merging a pull request.
+       */
       auto_merge: {
+        /**
+         * Commit message for the merge commit.
+         */
         commit_message: string | null,
+        /**
+         * Title for the merge commit message.
+         */
         commit_title: string | null,
         enabled_by: {
           avatar_url?: string,
@@ -1657,6 +1690,9 @@ export type PullRequestReviewRequestedEvent =
         url?: string,
         user_view_type?: string
       } | null,
+      /**
+       * A collection of related issues and pull requests.
+       */
       milestone: {
         closed_at: string | null,
         closed_issues: number,
@@ -1737,6 +1773,9 @@ export type PullRequestReviewRequestedEvent =
           } | null)
           | {
             deleted?: boolean,
+            /**
+             * Description of the team
+             */
             description?: string | null,
             html_url?: string,
             /**
@@ -1750,6 +1789,9 @@ export type PullRequestReviewRequestedEvent =
             name: string,
             node_id?: string,
             parent?: {
+              /**
+               * Description of the team
+               */
               description: string | null,
               html_url: string,
               /**
@@ -1789,6 +1831,9 @@ export type PullRequestReviewRequestedEvent =
       )[],
       requested_teams: {
         deleted?: boolean,
+        /**
+         * Description of the team
+         */
         description?: string | null,
         html_url?: string,
         /**
@@ -1802,6 +1847,9 @@ export type PullRequestReviewRequestedEvent =
         name: string,
         node_id?: string,
         parent?: {
+          /**
+           * Description of the team
+           */
           description: string | null,
           html_url: string,
           /**
@@ -1879,6 +1927,9 @@ export type PullRequestReviewRequestedEvent =
      */
     requested_team: {
       deleted?: boolean,
+      /**
+       * Description of the team
+       */
       description?: string | null,
       html_url?: string,
       /**
@@ -1892,6 +1943,9 @@ export type PullRequestReviewRequestedEvent =
       name: string,
       node_id?: string,
       parent?: {
+        /**
+         * Description of the team
+         */
         description: string | null,
         html_url: string,
         /**

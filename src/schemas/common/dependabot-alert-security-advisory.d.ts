@@ -15,6 +15,9 @@ export interface DependabotAlertSecurityAdvisory {
    * The unique GitHub Security Advisory ID assigned to the advisory.
    */
   ghsa_id: string;
+  /**
+   * The unique CVE ID assigned to the advisory.
+   */
   cve_id: string | null;
   /**
    * A short, plain text summary of the advisory.
@@ -40,6 +43,9 @@ export interface DependabotAlertSecurityAdvisory {
      * The overall CVSS score of the advisory.
      */
     score: number,
+    /**
+     * The full CVSS vector string for the advisory.
+     */
     vector_string: string | null
   };
   cvss_severities?: CvssSeverities;
@@ -87,5 +93,8 @@ export interface DependabotAlertSecurityAdvisory {
    * The time that the advisory was last modified in ISO 8601 format: `YYYY-MM-DDTHH:MM:SSZ`.
    */
   updated_at: string;
+  /**
+   * The time that the advisory was withdrawn in ISO 8601 format: `YYYY-MM-DDTHH:MM:SSZ`.
+   */
   withdrawn_at: string | null;
 }

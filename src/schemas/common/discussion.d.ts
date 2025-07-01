@@ -87,6 +87,9 @@ export interface Discussion {
    * `transferring` means that the discussion is being transferred from another repository.
    */
   state: 'open' | 'closed' | 'locked' | 'converting' | 'transferring';
+  /**
+   * The reason for the current state
+   */
   state_reason:
     | ('resolved' | 'outdated' | 'duplicate' | 'reopened' | null)
     | null;

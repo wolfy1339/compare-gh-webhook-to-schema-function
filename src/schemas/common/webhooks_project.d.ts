@@ -5,6 +5,9 @@
  */
 
 export interface WebhooksProject {
+  /**
+   * Body of the project
+   */
   body: string | null;
   columns_url: string;
   created_at: string;

@@ -24,6 +24,9 @@ export interface SimpleCommit {
    * Timestamp of the commit
    */
   timestamp: string;
+  /**
+   * Information about the Git author
+   */
   author: {
     /**
      * Name of the commit's author
@@ -34,6 +37,9 @@ export interface SimpleCommit {
      */
     email: string
   } | null;
+  /**
+   * Information about the Git committer
+   */
   committer: {
     /**
      * Name of the commit's committer

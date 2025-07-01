@@ -8,6 +8,9 @@
  * An actor that can bypass rules in a ruleset
  */
 export interface RepositoryRulesetBypassActor {
+  /**
+   * The ID of the actor that can bypass a ruleset. If `actor_type` is `OrganizationAdmin`, this should be `1`. If `actor_type` is `DeployKey`, this should be null. `OrganizationAdmin` is not applicable for personal repositories.
+   */
   actor_id?: number | null;
   /**
    * The type of actor that can bypass a ruleset.

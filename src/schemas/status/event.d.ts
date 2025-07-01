@@ -137,6 +137,9 @@ export interface StatusEvent {
   };
   context: string;
   created_at: string;
+  /**
+   * The optional human-readable description added to the status.
+   */
   description: string | null;
   enterprise?: EnterpriseWebhooks;
   /**
@@ -156,6 +159,9 @@ export interface StatusEvent {
    * The new state. Can be `pending`, `success`, `failure`, or `error`.
    */
   state: 'pending' | 'success' | 'failure' | 'error';
+  /**
+   * The optional link added to the status.
+   */
   target_url: string | null;
   updated_at: string;
 }

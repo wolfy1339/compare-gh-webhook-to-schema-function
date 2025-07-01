@@ -61,6 +61,9 @@ export interface PullRequestReviewCommentCreatedEvent {
      * The comment ID to reply to.
      */
     in_reply_to_id?: number,
+    /**
+     * The line of the blob to which the comment applies. The last line of the range for a multi-line comment
+     */
     line: number | null,
     /**
      * The node ID of the pull request review comment.
@@ -70,17 +73,29 @@ export interface PullRequestReviewCommentCreatedEvent {
      * The SHA of the original commit to which the comment applies.
      */
     original_commit_id: string,
+    /**
+     * The line of the blob to which the comment applies. The last line of the range for a multi-line comment
+     */
     original_line: number | null,
     /**
      * The index of the original line in the diff to which the comment applies.
      */
     original_position: number,
+    /**
+     * The first line of the range for a multi-line comment.
+     */
     original_start_line: number | null,
     /**
      * The relative path of the file to which the comment applies.
      */
     path: string,
+    /**
+     * The line index in the diff to which the comment applies.
+     */
     position: number | null,
+    /**
+     * The ID of the pull request review to which the comment belongs.
+     */
     pull_request_review_id: number | null,
     /**
      * URL for the pull request that the review comment belongs to.
@@ -102,7 +117,13 @@ export interface PullRequestReviewCommentCreatedEvent {
      * The side of the first line of the range for a multi-line comment.
      */
     side: 'LEFT' | 'RIGHT',
+    /**
+     * The first line of the range for a multi-line comment.
+     */
     start_line: number | null,
+    /**
+     * The side of the first line of the range for a multi-line comment.
+     */
     start_side: ('LEFT' | 'RIGHT' | null) | null,
     /**
      * The level at which the comment is targeted, can be a diff line or a file.
@@ -230,8 +251,17 @@ export interface PullRequestReviewCommentCreatedEvent {
       | 'MEMBER'
       | 'NONE'
       | 'OWNER',
+    /**
+     * The status of auto merging a pull request.
+     */
     auto_merge?: {
+      /**
+       * Commit message for the merge commit.
+       */
       commit_message: string | null,
+      /**
+       * Title for the merge commit message.
+       */
       commit_title: string | null,
       enabled_by: {
         avatar_url?: string,
@@ -520,6 +550,9 @@ export interface PullRequestReviewCommentCreatedEvent {
     head: {
       label: string,
       ref: string,
+      /**
+       * A git repository
+       */
       repo: {
         /**
          * Whether to allow auto-merge for pull requests.
@@ -786,6 +819,9 @@ export interface PullRequestReviewCommentCreatedEvent {
     locked: boolean,
     merge_commit_sha: string | null,
     merged_at: string | null,
+    /**
+     * A collection of related issues and pull requests.
+     */
     milestone: {
       closed_at: string | null,
       closed_issues: number,
@@ -862,6 +898,9 @@ export interface PullRequestReviewCommentCreatedEvent {
       } | null)
       | {
         deleted?: boolean,
+        /**
+         * Description of the team
+         */
         description: string | null,
         html_url: string,
         /**
@@ -875,6 +914,9 @@ export interface PullRequestReviewCommentCreatedEvent {
         name: string,
         node_id: string,
         parent?: {
+          /**
+           * Description of the team
+           */
           description: string | null,
           html_url: string,
           /**
@@ -914,6 +956,9 @@ export interface PullRequestReviewCommentCreatedEvent {
     )[],
     requested_teams: {
       deleted?: boolean,
+      /**
+       * Description of the team
+       */
       description?: string | null,
       html_url?: string,
       /**
@@ -927,6 +972,9 @@ export interface PullRequestReviewCommentCreatedEvent {
       name: string,
       node_id?: string,
       parent?: {
+        /**
+         * Description of the team
+         */
         description: string | null,
         html_url: string,
         /**

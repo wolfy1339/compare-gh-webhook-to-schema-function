@@ -17,6 +17,9 @@ export interface CodeScanningAlertFixedEvent {
      * The time that the alert was created in ISO 8601 format: `YYYY-MM-DDTHH:MM:SSZ.`
      */
     created_at: string,
+    /**
+     * The time that the alert was dismissed in ISO 8601 format: `YYYY-MM-DDTHH:MM:SSZ`.
+     */
     dismissed_at: string | null,
     dismissed_by: {
       avatar_url?: string,
@@ -43,6 +46,9 @@ export interface CodeScanningAlertFixedEvent {
       user_view_type?: string
     } | null,
     dismissed_comment?: CodeScanningAlertDismissedComment,
+    /**
+     * The reason for dismissing or closing the alert.
+     */
     dismissed_reason:
       | ('false positive' | 'won\'t fix' | 'used in tests' | null)
       | null,
@@ -100,15 +106,24 @@ export interface CodeScanningAlertFixedEvent {
       description: string,
       full_description?: string,
       help?: string | null,
+      /**
+       * A link to the documentation for the rule used to detect the alert.
+       */
       help_uri?: string | null,
       /**
        * A unique identifier for the rule used to detect the alert.
        */
       id: string,
       name?: string,
+      /**
+       * The severity of the alert.
+       */
       severity: ('none' | 'note' | 'warning' | 'error' | null) | null,
       tags?: string[] | null
     },
+    /**
+     * State of a code scanning alert. Events for alerts found outside the default branch will return a `null` value until they are dismissed or fixed.
+     */
     state: ('fixed' | null) | null,
     tool: {
       guid?: string | null,
@@ -116,6 +131,9 @@ export interface CodeScanningAlertFixedEvent {
        * The name of the tool used to generate the code scanning analysis alert.
        */
       name: string,
+      /**
+       * The version of the tool used to detect the alert.
+       */
       version: string | null
     },
     url: string

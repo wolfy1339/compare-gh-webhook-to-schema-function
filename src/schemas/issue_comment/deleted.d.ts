@@ -79,6 +79,9 @@ export interface IssueCommentDeletedEvent {
       | 'MEMBER'
       | 'NONE'
       | 'OWNER',
+    /**
+     * Contents of the issue
+     */
     body: string | null,
     closed_at: string | null,
     comments: number,
@@ -108,6 +111,9 @@ export interface IssueCommentDeletedEvent {
     }[],
     labels_url: string,
     locked?: boolean,
+    /**
+     * A collection of related issues and pull requests.
+     */
     milestone: {
       closed_at: string | null,
       closed_issues: number,
@@ -156,6 +162,9 @@ export interface IssueCommentDeletedEvent {
     } | null,
     node_id: string,
     number: number,
+    /**
+     * GitHub apps are a new way to extend GitHub. They can be installed directly on organizations and user accounts and granted access to specific repositories. They come with granular permissions and built-in webhooks. GitHub apps are first class actors within GitHub.
+     */
     performed_via_github_app?: {
       created_at: string | null,
       description: string | null,
@@ -211,6 +220,9 @@ export interface IssueCommentDeletedEvent {
       )[],
       external_url: string | null,
       html_url: string,
+      /**
+       * Unique identifier of the GitHub app
+       */
       id: number | null,
       /**
        * The name of the GitHub app

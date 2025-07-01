@@ -15,6 +15,9 @@ export interface RepositoryAdvisory {
    * The GitHub Security Advisory ID.
    */
   ghsa_id: string;
+  /**
+   * The Common Vulnerabilities and Exposures (CVE) ID.
+   */
   cve_id: string | null;
   /**
    * The API URL for the advisory.
@@ -28,7 +31,13 @@ export interface RepositoryAdvisory {
    * A short summary of the advisory.
    */
   summary: string;
+  /**
+   * A detailed description of what the advisory entails.
+   */
   description: string | null;
+  /**
+   * The severity of the advisory.
+   */
   severity: ('critical' | 'high' | 'medium' | 'low' | null) | null;
   /**
    * The author of the advisory.
@@ -52,10 +61,25 @@ export interface RepositoryAdvisory {
    * The state of the advisory.
    */
   state: 'published' | 'closed' | 'withdrawn' | 'draft' | 'triage';
+  /**
+   * The date and time of when the advisory was created, in ISO 8601 format.
+   */
   created_at: string | null;
+  /**
+   * The date and time of when the advisory was last updated, in ISO 8601 format.
+   */
   updated_at: string | null;
+  /**
+   * The date and time of when the advisory was published, in ISO 8601 format.
+   */
   published_at: string | null;
+  /**
+   * The date and time of when the advisory was closed, in ISO 8601 format.
+   */
   closed_at: string | null;
+  /**
+   * The date and time of when the advisory was withdrawn, in ISO 8601 format.
+   */
   withdrawn_at: string | null;
   submission: {
     /**
@@ -65,7 +89,13 @@ export interface RepositoryAdvisory {
   } | null;
   vulnerabilities: RepositoryAdvisoryVulnerability[] | null;
   cvss: {
+    /**
+     * The CVSS vector.
+     */
     vector_string: string | null,
+    /**
+     * The CVSS score.
+     */
     score: number | null
   } | null;
   cvss_severities?: CvssSeverities;
@@ -81,6 +111,9 @@ export interface RepositoryAdvisory {
       name: string
     }[]
     | null;
+  /**
+   * A list of only the CWE IDs.
+   */
   cwe_ids: string[] | null;
   credits:
     | {
@@ -92,7 +125,13 @@ export interface RepositoryAdvisory {
     }[]
     | null;
   credits_detailed: RepositoryAdvisoryCredit[] | null;
+  /**
+   * A list of users that collaborate on the advisory.
+   */
   collaborating_users: SimpleUser[] | null;
+  /**
+   * A list of teams that collaborate on the advisory.
+   */
   collaborating_teams: Team[] | null;
   /**
    * A temporary private fork of the advisory's repository for collaborating on a fix.

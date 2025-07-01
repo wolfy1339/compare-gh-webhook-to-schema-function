@@ -125,6 +125,9 @@ export interface WorkflowRunInProgressEvent {
       languages_url: string,
       merges_url: string,
       milestones_url: string,
+      /**
+       * The name of the repository.
+       */
       name: string | null,
       node_id: string,
       notifications_url: string,

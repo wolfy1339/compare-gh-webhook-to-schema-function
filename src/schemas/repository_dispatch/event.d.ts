@@ -13,6 +13,9 @@ export interface RepositoryDispatchEvent {
    */
   action: string;
   branch: string;
+  /**
+   * The `client_payload` that was specified in the `POST /repos/{owner}/{repo}/dispatches` request body.
+   */
   client_payload: {
     [k: string]: unknown | undefined
   } | null;

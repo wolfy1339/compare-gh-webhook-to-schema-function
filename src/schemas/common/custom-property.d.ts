@@ -32,7 +32,17 @@ export interface OrganizationCustomProperty {
    * Default value of the property
    */
   default_value?: string | string[] | null;
+  /**
+   * Short description of the property
+   */
   description?: string | null;
+  /**
+   * An ordered list of the allowed values of the property.
+   * The property can have up to 200 allowed values.
+   */
   allowed_values?: string[] | null;
+  /**
+   * Who can edit the values of the property
+   */
   values_editable_by?: ('org_actors' | 'org_and_repo_actors' | null) | null;
 }

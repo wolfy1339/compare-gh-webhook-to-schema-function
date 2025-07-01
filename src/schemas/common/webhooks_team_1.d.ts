@@ -9,6 +9,9 @@
  */
 export interface WebhooksTeam1 {
   deleted?: boolean;
+  /**
+   * Description of the team
+   */
   description?: string | null;
   html_url?: string;
   /**
@@ -22,6 +25,9 @@ export interface WebhooksTeam1 {
   name: string;
   node_id?: string;
   parent?: {
+    /**
+     * Description of the team
+     */
     description: string | null,
     html_url: string,
     /**

@@ -4,9 +4,4 @@
  * and run json-schema-to-typescript to regenerate this file.
  */
 
-/**
- * The dismissal comment associated with the dismissal of the alert.
- */
-export interface CodeScanningAlertDismissedComment {
-  [k: string]: unknown | undefined;
-}
+export interface CodeScanningAlertDismissedComment {}

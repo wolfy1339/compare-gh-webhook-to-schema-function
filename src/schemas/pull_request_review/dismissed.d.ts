@@ -101,8 +101,17 @@ export interface PullRequestReviewDismissedEvent {
       | 'MEMBER'
       | 'NONE'
       | 'OWNER',
+    /**
+     * The status of auto merging a pull request.
+     */
     auto_merge: {
+      /**
+       * Commit message for the merge commit.
+       */
       commit_message: string | null,
+      /**
+       * Title for the merge commit message.
+       */
       commit_title: string | null,
       enabled_by: {
         avatar_url?: string,
@@ -391,6 +400,9 @@ export interface PullRequestReviewDismissedEvent {
     head: {
       label: string,
       ref: string,
+      /**
+       * A git repository
+       */
       repo: {
         /**
          * Whether to allow auto-merge for pull requests.
@@ -657,6 +669,9 @@ export interface PullRequestReviewDismissedEvent {
     locked: boolean,
     merge_commit_sha: string | null,
     merged_at: string | null,
+    /**
+     * A collection of related issues and pull requests.
+     */
     milestone: {
       closed_at: string | null,
       closed_issues: number,
@@ -733,6 +748,9 @@ export interface PullRequestReviewDismissedEvent {
       } | null)
       | {
         deleted?: boolean,
+        /**
+         * Description of the team
+         */
         description: string | null,
         html_url: string,
         /**
@@ -746,6 +764,9 @@ export interface PullRequestReviewDismissedEvent {
         name: string,
         node_id: string,
         parent?: {
+          /**
+           * Description of the team
+           */
           description: string | null,
           html_url: string,
           /**
@@ -785,6 +806,9 @@ export interface PullRequestReviewDismissedEvent {
     )[],
     requested_teams: {
       deleted?: boolean,
+      /**
+       * Description of the team
+       */
       description?: string | null,
       html_url?: string,
       /**
@@ -798,6 +822,9 @@ export interface PullRequestReviewDismissedEvent {
       name: string,
       node_id?: string,
       parent?: {
+        /**
+         * Description of the team
+         */
         description: string | null,
         html_url: string,
         /**
@@ -890,6 +917,9 @@ export interface PullRequestReviewDismissedEvent {
       | 'MEMBER'
       | 'NONE'
       | 'OWNER',
+    /**
+     * The text of the review.
+     */
     body: string | null,
     /**
      * A commit SHA for the review.

@@ -30,7 +30,13 @@ export interface Issue {
    * State of the issue; either 'open' or 'closed'
    */
   state: string;
+  /**
+   * The reason for the current state
+   */
   state_reason?: ('completed' | 'reopened' | 'not_planned' | null) | null;
+  /**
+   * Contents of the issue
+   */
   body?: string | null;
   user: null | SimpleUser;
   /**

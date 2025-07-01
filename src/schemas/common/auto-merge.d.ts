@@ -5,9 +5,6 @@ import type { SimpleUser } from './index.d.ts';
  * and run json-schema-to-typescript to regenerate this file.
  */
 
-/**
- * The status of auto merging a pull request.
- */
 export interface AutoMerge {
   enabled_by: SimpleUser;
   /**

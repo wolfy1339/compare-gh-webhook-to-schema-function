@@ -60,7 +60,13 @@ export interface PersonalAccessTokenRequest {
    * Type of repository selection requested.
    */
   repository_selection: 'none' | 'all' | 'subset';
+  /**
+   * The number of repositories the token is requesting access to. This field is only populated when `repository_selection` is `subset`.
+   */
   repository_count: number | null;
+  /**
+   * An array of repository objects the token is requesting access to. This field is only populated when `repository_selection` is `subset`.
+   */
   repositories:
     | {
       full_name: string,
@@ -95,6 +101,12 @@ export interface PersonalAccessTokenRequest {
    * Whether the associated fine-grained personal access token has expired.
    */
   token_expired: boolean;
+  /**
+   * Date and time when the associated fine-grained personal access token expires.
+   */
   token_expires_at: string | null;
+  /**
+   * Date and time when the associated fine-grained personal access token was last used for authentication.
+   */
   token_last_used_at: string | null;
 }

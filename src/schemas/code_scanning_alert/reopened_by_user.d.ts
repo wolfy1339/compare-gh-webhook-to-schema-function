@@ -82,14 +82,23 @@ export interface CodeScanningAlertReopenedByUserEvent {
        * A unique identifier for the rule used to detect the alert.
        */
       id: string,
+      /**
+       * The severity of the alert.
+       */
       severity: ('none' | 'note' | 'warning' | 'error' | null) | null
     },
+    /**
+     * State of a code scanning alert. Events for alerts found outside the default branch will return a `null` value until they are dismissed or fixed.
+     */
     state: ('open' | 'fixed' | null) | null,
     tool: {
       /**
        * The name of the tool used to generate the code scanning analysis alert.
        */
       name: string,
+      /**
+       * The version of the tool used to detect the alert.
+       */
       version: string | null
     },
     url: string

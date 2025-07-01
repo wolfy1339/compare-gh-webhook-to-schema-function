@@ -25,8 +25,17 @@ export interface SecretScanningScanCompletedEvent {
    * The time that the alert was resolved in ISO 8601 format: `YYYY-MM-DDTHH:MM:SSZ`.
    */
   completed_at: string;
+  /**
+   * List of patterns that were updated. This will be empty for normal backfill scans or custom pattern updates
+   */
   secret_types?: string[] | null;
+  /**
+   * If the scan was triggered by a custom pattern update, this will be the name of the pattern that was updated
+   */
   custom_pattern_name?: string | null;
+  /**
+   * If the scan was triggered by a custom pattern update, this will be the scope of the pattern that was updated
+   */
   custom_pattern_scope?:
     | ('repository' | 'organization' | 'enterprise' | null)
     | null;

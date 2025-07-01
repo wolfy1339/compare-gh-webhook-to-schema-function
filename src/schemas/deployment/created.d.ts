@@ -44,6 +44,9 @@ export interface DeploymentCreatedEvent {
     node_id: string,
     original_environment: string,
     payload: {} | string,
+    /**
+     * GitHub apps are a new way to extend GitHub. They can be installed directly on organizations and user accounts and granted access to specific repositories. They come with granular permissions and built-in webhooks. GitHub apps are first class actors within GitHub.
+     */
     performed_via_github_app?: {
       created_at: string | null,
       description: string | null,
@@ -104,6 +107,9 @@ export interface DeploymentCreatedEvent {
       )[],
       external_url: string | null,
       html_url: string,
+      /**
+       * Unique identifier of the GitHub app
+       */
       id: number | null,
       /**
        * The name of the GitHub app

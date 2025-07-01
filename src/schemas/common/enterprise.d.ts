@@ -8,8 +8,14 @@
  * An enterprise on GitHub.
  */
 export interface Enterprise {
+  /**
+   * A short description of the enterprise.
+   */
   description?: string | null;
   html_url: string;
+  /**
+   * The enterprise's website URL.
+   */
   website_url?: string | null;
   /**
    * Unique identifier of the enterprise

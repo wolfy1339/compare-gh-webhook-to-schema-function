@@ -104,8 +104,17 @@ export interface PullRequestUnlabeledEvent {
       | 'MEMBER'
       | 'NONE'
       | 'OWNER',
+    /**
+     * The status of auto merging a pull request.
+     */
     auto_merge: {
+      /**
+       * Commit message for the merge commit.
+       */
       commit_message: string | null,
+      /**
+       * Title for the merge commit message.
+       */
       commit_title: string | null,
       enabled_by: {
         avatar_url?: string,
@@ -401,6 +410,9 @@ export interface PullRequestUnlabeledEvent {
     head: {
       label: string | null,
       ref: string,
+      /**
+       * A git repository
+       */
       repo: {
         /**
          * Whether to allow auto-merge for pull requests.
@@ -691,6 +703,9 @@ export interface PullRequestUnlabeledEvent {
       url?: string,
       user_view_type?: string
     } | null,
+    /**
+     * A collection of related issues and pull requests.
+     */
     milestone: {
       closed_at: string | null,
       closed_issues: number,
@@ -771,6 +786,9 @@ export interface PullRequestUnlabeledEvent {
       } | null)
       | {
         deleted?: boolean,
+        /**
+         * Description of the team
+         */
         description: string | null,
         html_url: string,
         /**
@@ -784,6 +802,9 @@ export interface PullRequestUnlabeledEvent {
         name: string,
         node_id: string,
         parent?: {
+          /**
+           * Description of the team
+           */
           description: string | null,
           html_url: string,
           /**
@@ -823,6 +844,9 @@ export interface PullRequestUnlabeledEvent {
     )[],
     requested_teams: {
       deleted?: boolean,
+      /**
+       * Description of the team
+       */
       description?: string | null,
       html_url?: string,
       /**
@@ -836,6 +860,9 @@ export interface PullRequestUnlabeledEvent {
       name: string,
       node_id?: string,
       parent?: {
+        /**
+         * Description of the team
+         */
         description: string | null,
         html_url: string,
         /**
