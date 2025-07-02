@@ -12,6 +12,5 @@
       "type": "number"
     }
   ],
-  "title": "Webhook Config Insecure SSL",
-  "type": "object"
+  "title": "Webhook Config Insecure SSL"
 }

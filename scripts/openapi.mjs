@@ -306,7 +306,10 @@ export function convertToJSONSchema(oasWebhooks) {
     for (const prop of Object.keys(JSONSchema.definitions[key])) {
       removeTitle(JSONSchema.definitions[key][prop]);
     }
-    JSONSchema.definitions[key].type = JSONSchema.definitions[key].type || 'object';
+    if (!('oneOf' in JSONSchema.definitions[key]) &&
+        !('anyOf' in JSONSchema.definitions[key])) {
+      JSONSchema.definitions[key].type = JSONSchema.definitions[key].type || 'object';
+    }
   }
 
   return JSONSchema;
