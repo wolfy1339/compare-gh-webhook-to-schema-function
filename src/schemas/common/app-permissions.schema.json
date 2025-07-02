@@ -387,10 +387,12 @@
       ]
     }
   },
-  "example": {
-    "contents": "read",
-    "issues": "read",
-    "deployments": "write",
-    "single_file": "read"
-  }
+  "examples": [
+    {
+      "contents": "read",
+      "issues": "read",
+      "deployments": "write",
+      "single_file": "read"
+    }
+  ]
 }

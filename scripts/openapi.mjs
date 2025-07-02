@@ -175,6 +175,34 @@ export function convertToJSONSchema(oasWebhooks) {
     return obj;
   }
 
+  /**
+   *
+   * @param schema
+   */
+  function replaceExampleWithExamples(schema) {
+    if (Array.isArray(schema)) {
+      return schema.map(replaceExampleWithExamples);
+    } else if (schema && typeof schema === 'object') {
+      const result = {};
+
+      for (const [key, value] of Object.entries(schema)) {
+        if (key === 'example') {
+          // Replace with `examples` and wrap in array if not already an array
+          result.examples = Array.isArray(value) ? value : [value];
+        } else if (key === 'examples') {
+          // Preserve existing `examples`
+          result.examples = Array.isArray(value) ? value : [value];
+        } else {
+          result[key] = replaceExampleWithExamples(value);
+        }
+      }
+
+      return result;
+    }
+
+    return schema; // primitive value
+  }
+
   JSONSchema.definitions = Object.fromEntries(JSONSchema.definitions);
   JSONSchema.oneOf = Array.from(JSONSchema.oneOf).map(ref => ({ $ref: ref }));
   processSchema(JSONSchema.definitions);
@@ -182,6 +210,7 @@ export function convertToJSONSchema(oasWebhooks) {
     const schema = JSONSchema.definitions[key];
 
     JSONSchema.definitions[key] = processSchema(JSONSchema.definitions[key], key);
+    JSONSchema.definitions[key] = replaceExampleWithExamples(JSONSchema.definitions[key]);
     if (typeof schema !== 'object' || schema === null) {
       continue;
     }
