@@ -15,7 +15,7 @@ jobs:
   update:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
       - uses: actions/setup-node@v4
       - run: npm ci
       - run: npm install -ED @octokit/openapi-webhooks@latest @octokit/openapi-webhooks-types@latest @octokit/openapi-webhooks-types-transition@latest
